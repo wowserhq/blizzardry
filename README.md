@@ -1,6 +1,6 @@
 # Blizzardry
 
-[Blizzard](http://blizzard.com) is awesome, but working with their game files requires some wizardry. Blizzardry handles various formats, straight from Ruby.
+Ruby library for mastering the wizardry that is [Blizzard](http://blizzard.com)'s game files.
 
 **Supported Ruby versions: 1.9.3 or higher**
 
