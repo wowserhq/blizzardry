@@ -24,16 +24,20 @@ module Blizzardry
     end
 
     def find(query)
+      results = []
       result = Storm::SearchResult.new
 
       handle = Storm.SFileFindFirstFile(@handle, query, result, nil)
       unless handle.null?
-        yield result[:filename].to_s
+        results << result[:filename].to_s
+        yield results.last if block_given?
 
         while Storm.SFileFindNextFile(handle, result)
-          yield result[:filename].to_s
+          results << result[:filename].to_s
+          yield results.last if block_given?
         end
       end
+      results
     ensure
       Storm.SFileFindClose(handle)
     end
