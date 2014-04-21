@@ -23,13 +23,13 @@ module Blizzardry
     typedef :pointer, :search_query
 
     # Manipulating MPQ archives
-    attach_function :SFileOpenArchive,   [:string, :uint32, :uint32, :mpq], :bool
+    attach_function :SFileOpenArchive,  [:string, :uint32, :uint32, :mpq], :bool
     # :SFileCreateArchive
     # :SFileAddListFile
     # :SFileSetLocale
     # :SFileGetLocale
     # :SFileFlushArchive
-    attach_function :SFileCloseArchive,  [:mpq], :bool
+    attach_function :SFileCloseArchive, [:mpq], :bool
     # :SFileSetMaxFileCount
     # :SFileCompactArchive
     # :SFileSetCompactCallback
@@ -39,17 +39,17 @@ module Blizzardry
     # :SFileIsPatchedArchive Determines if the open MPQ has patches
 
     # Reading files
-    attach_function :SFileOpenFileEx,    [:mpq, :string, :uint, :file], :bool
-    attach_function :SFileGetFileSize,   [:file, :pointer], :uint32
+    attach_function :SFileOpenFileEx,  [:mpq, :string, :uint, :file], :bool
+    attach_function :SFileGetFileSize, [:file, :pointer], :uint32
     # :SFileSetFilePointer Sets a new position within archive file
-    attach_function :SFileReadFile,      [:file, :pointer, :uint32, :pointer, :pointer], :bool
+    attach_function :SFileReadFile,    [:file, :pointer, :uint32, :pointer, :pointer], :bool
     # :SFileCloseFile  Closes an open file
-    attach_function :SFileHasFile,       [:mpq, :string], :bool
-    attach_function :SFileGetFileName,   [:file, :pointer], :bool
+    attach_function :SFileHasFile,     [:mpq, :string], :bool
+    attach_function :SFileGetFileName, [:file, :pointer], :bool
     # :SFileGetFileInfo  Retrieves an information about open file or archive
     # :SFileVerifyFile Verifies a file against its extended attributes
     # :SFileVerifyArchive  Verifies the digital signature of an archive
-    attach_function :SFileExtractFile,   [:mpq, :string, :string, :uint32], :bool
+    attach_function :SFileExtractFile, [:mpq, :string, :string, :uint32], :bool
 
     # File searching
     attach_function :SFileFindFirstFile, [:mpq, :string, SearchResult.by_ref, :string], :search_query
@@ -79,6 +79,6 @@ module Blizzardry
     # SCompCompress Compresses a data buffer using any of the supported MPQ compressions
     # SCompDecompress Decompresses a data buffer that has been compressed by SCompCompress
 
-    attach_function :GetLastError,       [], :uint32
+    attach_function :GetLastError, [], :uint32
   end
 end
