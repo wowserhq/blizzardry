@@ -55,7 +55,7 @@ module Blizzardry
 
       def open(archive)
         handle = FFI::MemoryPointer.new :pointer
-        Storm.SFileOpenArchive(archive, 0, 0, handle)
+        return unless Storm.SFileOpenArchive(archive, 0, 0, handle)
 
         mpq = new(handle.read_pointer)
         if block_given?
