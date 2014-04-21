@@ -7,6 +7,14 @@ module Blizzardry
       @handle = handle
     end
 
+    def patch(archive)
+      Storm.SFileOpenPatchArchive(@handle, archive, nil, 0)
+    end
+
+    def patched?
+      Storm.SFileIsPatchedArchive(@handle)
+    end
+
     def close
       Storm.SFileCloseArchive(@handle)
     end

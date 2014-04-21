@@ -35,8 +35,8 @@ module Blizzardry
     # :SFileSetCompactCallback
 
     # Using patched archives
-    # :SFileOpenPatchArchive Adds a patch archive for an existing open archive
-    # :SFileIsPatchedArchive Determines if the open MPQ has patches
+    attach_function :SFileOpenPatchArchive, [:mpq, :string, :string, :uint32], :bool
+    attach_function :SFileIsPatchedArchive, [:mpq], :bool
 
     # Reading files
     attach_function :SFileOpenFileEx,  [:mpq, :string, :uint, :file], :bool
