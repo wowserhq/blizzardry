@@ -19,7 +19,7 @@ module Blizzardry
       Storm.SFileCloseArchive(@handle)
     end
 
-    def has?(filename)
+    def contains?(filename)
       Storm.SFileHasFile(@handle, filename)
     end
 
