@@ -3,6 +3,8 @@ module Blizzardry
     require 'blizzardry/mpq/file'
     require 'blizzardry/mpq/storm'
 
+    READ_ONLY = 0x00000100
+
     def initialize(handle)
       @handle = handle
     end
@@ -57,11 +59,20 @@ module Blizzardry
 
       private :new
 
-      def open(archive, flags = 0)
+      def open(archives, flags: 0, prefix: nil)
+        archives = Array(archives)
+        base = archives.shift
+        flags |= READ_ONLY if archives.any?
+
         handle = FFI::MemoryPointer.new :pointer
-        return unless Storm.SFileOpenArchive(archive, 0, flags, handle)
+        return unless Storm.SFileOpenArchive(base, 0, flags, handle)
 
         mpq = new(handle.read_pointer)
+
+        archives.each do |archive|
+          mpq.patch(archive, prefix)
+        end
+
         if block_given?
           yield mpq
           mpq.close
