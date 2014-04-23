@@ -7,8 +7,8 @@ module Blizzardry
       @handle = handle
     end
 
-    def patch(archive)
-      Storm.SFileOpenPatchArchive(@handle, archive, nil, 0)
+    def patch(archive, prefix = nil)
+      Storm.SFileOpenPatchArchive(@handle, archive, prefix, 0)
     end
 
     def patched?
