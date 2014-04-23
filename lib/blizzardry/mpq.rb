@@ -42,7 +42,7 @@ module Blizzardry
       Storm.SFileFindClose(handle)
     end
 
-    def get(filename)
+    def [](filename)
       handle = FFI::MemoryPointer.new :pointer
       if Storm.SFileOpenFileEx(@handle, filename, 0, handle)
         File.new(handle.read_pointer)
