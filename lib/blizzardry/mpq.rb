@@ -1,7 +1,7 @@
 module Blizzardry
   class MPQ
     require 'blizzardry/mpq/file'
-    require 'blizzardry/mpq/storm'
+    require 'blizzardry/mpq/libstorm'
 
     READ_ONLY = 0x00000100
 
@@ -10,49 +10,49 @@ module Blizzardry
     end
 
     def patch(archive, prefix = nil)
-      Storm.SFileOpenPatchArchive(@handle, archive, prefix, 0)
+      LibStorm.SFileOpenPatchArchive(@handle, archive, prefix, 0)
     end
 
     def patched?
-      Storm.SFileIsPatchedArchive(@handle)
+      LibStorm.SFileIsPatchedArchive(@handle)
     end
 
     def close
-      Storm.SFileCloseArchive(@handle)
+      LibStorm.SFileCloseArchive(@handle)
     end
 
     def contains?(filename)
-      Storm.SFileHasFile(@handle, filename)
+      LibStorm.SFileHasFile(@handle, filename)
     end
 
     def find(query)
       results = []
-      result = Storm::SearchResult.new
+      result = LibStorm::SearchResult.new
 
-      handle = Storm.SFileFindFirstFile(@handle, query, result, nil)
+      handle = LibStorm.SFileFindFirstFile(@handle, query, result, nil)
       unless handle.null?
         results << result[:filename].to_s
         yield results.last if block_given?
 
-        while Storm.SFileFindNextFile(handle, result)
+        while LibStorm.SFileFindNextFile(handle, result)
           results << result[:filename].to_s
           yield results.last if block_given?
         end
       end
       results
     ensure
-      Storm.SFileFindClose(handle)
+      LibStorm.SFileFindClose(handle)
     end
 
     def [](filename)
       handle = FFI::MemoryPointer.new :pointer
-      if Storm.SFileOpenFileEx(@handle, filename, 0, handle)
+      if LibStorm.SFileOpenFileEx(@handle, filename, 0, handle)
         File.new(handle.read_pointer)
       end
     end
 
     def extract(filename, local)
-      Storm.SFileExtractFile(@handle, filename, local, 0)
+      LibStorm.SFileExtractFile(@handle, filename, local, 0)
     end
 
     class << self
@@ -65,7 +65,7 @@ module Blizzardry
         flags |= READ_ONLY if archives.any?
 
         handle = FFI::MemoryPointer.new :pointer
-        return unless Storm.SFileOpenArchive(base, 0, flags, handle)
+        return unless LibStorm.SFileOpenArchive(base, 0, flags, handle)
 
         mpq = new(handle.read_pointer)
 

@@ -1,5 +1,5 @@
 module Blizzardry
-  class MPQ::Storm
+  module MPQ::LibStorm
     extend FFI::Library
 
     ffi_lib :libstorm
