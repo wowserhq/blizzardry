@@ -35,3 +35,13 @@ blp = Blizzardry::BLP.open('image.blp')
 # ...
 blp.close
 ```
+
+
+### [M2](lib/blizzardry/m2.rb)
+
+Usage coming soon.
+
+
+### [MPQ](lib/blizzardry/mpq.rb)
+
+Usage coming soon.
