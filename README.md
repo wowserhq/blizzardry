@@ -7,6 +7,14 @@ Ruby library for mastering the wizardry that is [Blizzard](http://blizzard.com)'
 Licensed under the **MIT** license, see LICENSE for more information.
 
 
+## Requirements
+
+- [StormLib](https://github.com/ladislav-zezula/StormLib) (MPQ support)
+- [BLPConverter](https://github.com/Kanma/BLPConverter) (BLP support)
+
+Instructions for library compilation for these coming soon.
+
+
 ## Installation
 
 Blizzardry will soon be available from RubyGems.
