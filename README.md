@@ -9,7 +9,7 @@ Licensed under the **MIT** license, see LICENSE for more information.
 
 ## Installation
 
-Coming soon.
+Blizzardry will soon be available from RubyGems.
 
 
 ## Usage
