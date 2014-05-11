@@ -16,6 +16,10 @@ Blizzardry will soon be available from RubyGems.
 
 ### [BLP](lib/blizzardry/blp.rb)
 
+Texture format holding up to 16 pre-rendered [mipmaps](http://en.wikipedia.org/wiki/Mipmap).
+
+Through [BLPConverter](https://github.com/Kanma/BLPConverter), Blizzardry supports various levels of compression.
+
 ```ruby
 Blizzardry::BLP.open('image.blp') do |blp|
   blp.width     # 512 (mipmap 0)
