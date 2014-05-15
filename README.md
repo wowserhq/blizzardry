@@ -27,8 +27,13 @@ Or install it manually: `gem install blizzardry`.
 
 Install these libraries easily using [Homebrew](http://brew.sh/):
 
-`brew install https://raw.githubusercontent.com/timkurvers/homebrew-games/formula/blp-converter/blp-converter.rb`
-`brew install https://raw.githubusercontent.com/timkurvers/homebrew-games/formula/storm-lib/storm-lib.rb`
+```
+brew install https://raw.githubusercontent.com/timkurvers/homebrew-games/formula/blp-converter/blp-converter.rb
+```
+
+```
+brew install https://raw.githubusercontent.com/timkurvers/homebrew-games/formula/storm-lib/storm-lib.rb
+```
 
 ### Other platforms
 
