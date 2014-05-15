@@ -11,19 +11,28 @@ Ruby library for mastering the wizardry that is [Blizzard](http://blizzard.com)'
 Licensed under the **MIT** license, see LICENSE for more information.
 
 
-## Requirements
-
-- [StormLib](https://github.com/ladislav-zezula/StormLib) (MPQ support)
-- [BLPConverter](https://github.com/Kanma/BLPConverter) (BLP support)
-
-Instructions for library compilation for these coming soon.
-
-
 ## Installation
 
 Add `blizzardry` to your Gemfile and `bundle install`.
 
 Or install it manually: `gem install blizzardry`.
+
+
+## Requirements
+
+- [StormLib](https://github.com/ladislav-zezula/StormLib) (MPQ support)
+- [BLPConverter](https://github.com/Kanma/BLPConverter) (BLP support)
+
+### OSX
+
+Install these libraries easily using [Homebrew](http://brew.sh/):
+
+`brew install https://raw.githubusercontent.com/timkurvers/homebrew-games/formula/blp-converter/blp-converter.rb`
+`brew install https://raw.githubusercontent.com/timkurvers/homebrew-games/formula/storm-lib/storm-lib.rb`
+
+### Other platforms
+
+Compile these libraries from source and ensure they end up on the load path.
 
 
 ## Usage
