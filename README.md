@@ -17,7 +17,9 @@ Instructions for library compilation for these coming soon.
 
 ## Installation
 
-Blizzardry will soon be available from RubyGems.
+Add `blizzardry` to your Gemfile and `bundle install`.
+
+Or install it manually: `gem install blizzardry`.
 
 
 ## Usage
