@@ -25,6 +25,10 @@ describe 'MPQ', ->
       dummy().close()
       expect(dummy().opened).to.be.false
 
+  describe '#patched', ->
+    it 'returns patched state', ->
+      expect(dummy().patched).to.be.false
+
   describe '.locale', ->
     it 'returns default locale', ->
       expect(MPQ.locale).to.eq 0

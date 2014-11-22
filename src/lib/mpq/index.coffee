@@ -17,6 +17,10 @@ class MPQ
   get opened: ->
     !!@handle
 
+  get patched: ->
+    if @handle
+      StormLib.SFileIsPatchedArchive(@handle)
+
   @get locale: ->
     StormLib.SFileGetLocale()
 

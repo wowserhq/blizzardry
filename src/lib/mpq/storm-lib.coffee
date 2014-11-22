@@ -102,9 +102,9 @@ module.exports = new ffi.Library 'libstorm',
 #     ref.types.uint32
 #   ]]
 
-#   SFileIsPatchedArchive: [ref.types.char, [
-#     HANDLE
-#   ]]
+  SFileIsPatchedArchive: [bool, [
+    HANDLE
+  ]]
 
   SFileHasFile: [bool, [
     HANDLE,

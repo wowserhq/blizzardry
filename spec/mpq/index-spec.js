@@ -30,6 +30,10 @@ describe('MPQ', function() {
       return expect(dummy().opened).to.be["false"];
     });
   });
+  describe('#patched', function() {
+    return it('returns patched state', function() {
+      return expect(dummy().patched).to.be["false"];
+    });
   });
   describe('.locale', function() {
     return it('returns default locale', function() {
