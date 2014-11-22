@@ -51,9 +51,9 @@ module.exports = new ffi.Library 'libstorm',
 #     HANDLE
 #   ]]
 
-#   SFileCloseArchive: [ref.types.char, [
-#     HANDLE
-#   ]]
+  SFileCloseArchive: [bool, [
+    HANDLE
+  ]]
 
 #   SFileAddListFile: [ref.types.int32, [
 #     HANDLE,

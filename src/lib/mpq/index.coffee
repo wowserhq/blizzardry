@@ -9,6 +9,9 @@ class MPQ
 
   constructor: (@handle) ->
 
+  close: ->
+    StormLib.SFileCloseArchive @handle
+
   @get locale: ->
     StormLib.SFileGetLocale()
 
@@ -21,6 +24,7 @@ class MPQ
 
       if callback?
         callback(mpq)
+        mpq.close()
         return true
       else
         return mpq
