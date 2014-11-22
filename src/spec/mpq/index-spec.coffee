@@ -19,6 +19,12 @@ describe 'MPQ', ->
       dummy().close()
       dummy().close()
 
+  describe '#opened', ->
+    it 'returns opened state', ->
+      expect(dummy().opened).to.be.true
+      dummy().close()
+      expect(dummy().opened).to.be.false
+
   describe '.locale', ->
     it 'returns default locale', ->
       expect(MPQ.locale).to.eq 0

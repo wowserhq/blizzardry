@@ -23,6 +23,13 @@ describe('MPQ', function() {
       return dummy().close();
     });
   });
+  describe('#opened', function() {
+    return it('returns opened state', function() {
+      expect(dummy().opened).to.be["true"];
+      dummy().close();
+      return expect(dummy().opened).to.be["false"];
+    });
+  });
   });
   describe('.locale', function() {
     return it('returns default locale', function() {

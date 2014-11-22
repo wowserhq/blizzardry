@@ -14,6 +14,9 @@ class MPQ
       @handle = null
       StormLib.SFileCloseArchive handle
 
+  get opened: ->
+    !!@handle
+
   @get locale: ->
     StormLib.SFileGetLocale()
 
