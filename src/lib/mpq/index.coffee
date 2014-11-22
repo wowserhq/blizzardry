@@ -5,7 +5,7 @@ StormLib = require('./storm-lib')
 class MPQ
   module.exports = this
 
-  [get, set, @get] = attr.accessors(@)
+  [get, set, @get] = attr.accessors(this)
 
   constructor: (@handle) ->
 
