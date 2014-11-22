@@ -9,8 +9,13 @@ describe('MPQ', function() {
   dummy = memo().is(function() {
     return MPQ.open('spec/fixtures/dummy.mpq');
   });
+  describe('#path', function() {
+    return it('exposes path to this archive', function() {
+      return expect(dummy().path).to.eq('spec/fixtures/dummy.mpq');
+    });
+  });
   describe('#close', function() {
-    return it('closes archive', function() {
+    return it('closes this archive', function() {
       return dummy().close();
     });
   });
@@ -23,7 +28,7 @@ describe('MPQ', function() {
     context('when omitting a callback', function() {
       return it('returns an MPQ instance', function() {
         var result;
-        result = MPQ.open('spec/fixtures/dummy.mpq');
+        result = MPQ.open(dummy().path);
         return expect(result).to.be.an["instanceof"](MPQ);
       });
     });
@@ -31,7 +36,7 @@ describe('MPQ', function() {
       return it('invokes callback with MPQ instance', function() {
         var callback, result;
         callback = this.sandbox.spy();
-        result = MPQ.open('spec/fixtures/dummy.mpq', callback);
+        result = MPQ.open(dummy().path, callback);
         expect(callback).to.have.been.called;
         return expect(result).to.be["true"];
       });

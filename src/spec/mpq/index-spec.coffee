@@ -7,8 +7,12 @@ describe 'MPQ', ->
   dummy = memo().is ->
     MPQ.open 'spec/fixtures/dummy.mpq'
 
+  describe '#path', ->
+    it 'exposes path to this archive', ->
+      expect(dummy().path).to.eq 'spec/fixtures/dummy.mpq'
+
   describe '#close', ->
-    it 'closes archive', ->
+    it 'closes this archive', ->
       dummy().close()
 
   describe '.locale', ->
@@ -18,13 +22,13 @@ describe 'MPQ', ->
   describe '.open', ->
     context 'when omitting a callback', ->
       it 'returns an MPQ instance', ->
-        result = MPQ.open 'spec/fixtures/dummy.mpq'
+        result = MPQ.open dummy().path
         expect(result).to.be.an.instanceof MPQ
 
     context 'when given a callback', ->
       it 'invokes callback with MPQ instance', ->
         callback = @sandbox.spy()
-        result = MPQ.open 'spec/fixtures/dummy.mpq', callback
+        result = MPQ.open dummy().path, callback
         expect(callback).to.have.been.called
         expect(result).to.be.true
 

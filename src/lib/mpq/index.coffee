@@ -7,7 +7,7 @@ class MPQ
 
   [get, set, @get] = attr.accessors(this)
 
-  constructor: (@handle) ->
+  constructor: (@path, @handle) ->
 
   close: ->
     StormLib.SFileCloseArchive @handle
@@ -20,7 +20,7 @@ class MPQ
 
     if StormLib.SFileOpenArchive path, 0, 0, handlePtr
       handle = handlePtr.deref()
-      mpq = new this(handle)
+      mpq = new this(path, handle)
 
       if callback?
         callback(mpq)
