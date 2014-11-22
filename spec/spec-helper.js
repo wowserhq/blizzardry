@@ -1,15 +1,18 @@
-var bridge, chai, sinon;
+var bridge, chai, memo, sinon;
+
+bridge = require('sinon-chai');
 
 chai = require('chai');
 
-sinon = require('sinon');
+memo = require('memo-is');
 
-bridge = require('sinon-chai');
+sinon = require('sinon');
 
 chai.use(bridge);
 
 module.exports = {
   expect: chai.expect,
+  memo: memo,
   sinon: sinon
 };
 
