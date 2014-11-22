@@ -15,6 +15,10 @@ describe 'MPQ', ->
     it 'closes this archive', ->
       dummy().close()
 
+    it 'is idempotent', ->
+      dummy().close()
+      dummy().close()
+
   describe '.locale', ->
     it 'returns default locale', ->
       expect(MPQ.locale).to.eq 0

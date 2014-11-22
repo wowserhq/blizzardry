@@ -10,7 +10,9 @@ class MPQ
   constructor: (@path, @handle) ->
 
   close: ->
-    StormLib.SFileCloseArchive @handle
+    if handle = @handle
+      @handle = null
+      StormLib.SFileCloseArchive handle
 
   @get locale: ->
     StormLib.SFileGetLocale()

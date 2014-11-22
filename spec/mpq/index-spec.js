@@ -15,9 +15,14 @@ describe('MPQ', function() {
     });
   });
   describe('#close', function() {
-    return it('closes this archive', function() {
+    it('closes this archive', function() {
       return dummy().close();
     });
+    return it('is idempotent', function() {
+      dummy().close();
+      return dummy().close();
+    });
+  });
   });
   describe('.locale', function() {
     return it('returns default locale', function() {
