@@ -7,4 +7,5 @@ before_install:
   - cd StormLib
   - cmake CMakeLists.txt
   - sudo make install
+  - sudo ldconfig
   - cd $TRAVIS_BUILD_DIR
