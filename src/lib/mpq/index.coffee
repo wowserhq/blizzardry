@@ -19,7 +19,7 @@ class MPQ
 
   get patched: ->
     if @handle
-      StormLib.SFileIsPatchedArchive(@handle)
+      StormLib.SFileIsPatchedArchive @handle
 
   has: (file) ->
     if @handle
