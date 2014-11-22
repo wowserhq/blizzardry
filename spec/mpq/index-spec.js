@@ -35,6 +35,9 @@ describe('MPQ', function() {
       return expect(dummy().patched).to.be["false"];
     });
   });
+  describe('#has', function() {
+    return xit('returns whether archive contains given file');
+  });
   describe('.locale', function() {
     return it('returns default locale', function() {
       return expect(MPQ.locale).to.eq(0);
