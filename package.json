@@ -9,7 +9,7 @@
     "LICENSE.md"
   ],
   "scripts": {
-    "test": "mocha spec"
+    "test": "mocha spec --recursive"
   },
   "repository": "timkurvers/blizzardry",
   "author": "Tim Kurvers <tim@moonsphere.net>",
