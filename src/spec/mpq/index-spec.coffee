@@ -7,11 +7,11 @@ MPQ = require('../../lib/mpq')
 describe 'MPQ', ->
 
   dummy = memo().is ->
-    MPQ.open fixtures + 'dummy.mpq'
+    MPQ.open fixtures + 'dummy.w3m'
 
   describe '#path', ->
     it 'exposes path to this archive', ->
-      expect(dummy().path).to.eq fixtures + 'dummy.mpq'
+      expect(dummy().path).to.eq fixtures + 'dummy.w3m'
 
   describe '#close', ->
     it 'closes this archive', ->
@@ -57,12 +57,13 @@ describe 'MPQ', ->
   describe '.create', ->
     context 'when archive does not yet exist', ->
       it 'creates a new archive', ->
-        mpq = MPQ.create fixtures + 'new.mpq'
+        path = fixtures + 'new.mpq'
+        mpq = MPQ.create path
         expect(mpq).to.be.an.instanceof MPQ
-        fs.unlinkSync fixtures + 'new.mpq'
+        fs.unlinkSync path
 
     context 'when archive already exists', ->
       it 'throws an error', ->
         expect ->
-          MPQ.create fixtures + 'dummy.mpq'
+          MPQ.create dummy().path
         .to.throw 'archive could not be created'

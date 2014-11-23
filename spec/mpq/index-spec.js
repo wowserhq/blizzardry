@@ -9,11 +9,11 @@ MPQ = require('../../lib/mpq');
 describe('MPQ', function() {
   var dummy;
   dummy = memo().is(function() {
-    return MPQ.open(fixtures + 'dummy.mpq');
+    return MPQ.open(fixtures + 'dummy.w3m');
   });
   describe('#path', function() {
     return it('exposes path to this archive', function() {
-      return expect(dummy().path).to.eq(fixtures + 'dummy.mpq');
+      return expect(dummy().path).to.eq(fixtures + 'dummy.w3m');
     });
   });
   describe('#close', function() {
@@ -70,16 +70,17 @@ describe('MPQ', function() {
   return describe('.create', function() {
     context('when archive does not yet exist', function() {
       return it('creates a new archive', function() {
-        var mpq;
-        mpq = MPQ.create(fixtures + 'new.mpq');
+        var mpq, path;
+        path = fixtures + 'new.mpq';
+        mpq = MPQ.create(path);
         expect(mpq).to.be.an["instanceof"](MPQ);
-        return fs.unlinkSync(fixtures + 'new.mpq');
+        return fs.unlinkSync(path);
       });
     });
     return context('when archive already exists', function() {
       return it('throws an error', function() {
         return expect(function() {
-          return MPQ.create(fixtures + 'dummy.mpq');
+          return MPQ.create(dummy().path);
         }).to["throw"]('archive could not be created');
       });
     });
