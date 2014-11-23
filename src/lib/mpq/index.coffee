@@ -21,10 +21,6 @@ class MPQ
     if @handle
       StormLib.SFileIsPatchedArchive @handle
 
-  has: (file) ->
-    if @handle
-      StormLib.SFileHasFile @handle, file
-
   @get locale: ->
     StormLib.SFileGetLocale()
 

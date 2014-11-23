@@ -31,9 +31,6 @@ describe 'MPQ', ->
     it 'returns patched state', ->
       expect(dummy().patched).to.be.false
 
-  describe '#has', ->
-    xit 'returns whether archive contains given file'
-
   describe '.locale', ->
     it 'returns default locale', ->
       expect(MPQ.locale).to.eq 0
