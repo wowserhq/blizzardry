@@ -47,5 +47,8 @@ class MPQ
 
   @create: (path, callback) ->
     handlePtr = ref.alloc(StormLib.HANDLEPtr)
-    StormLib.SFileCreateArchive path, 0, 0, handlePtr
-    @open(path, callback)
+    if StormLib.SFileCreateArchive path, 0, 0, handlePtr
+      @open(path, callback)
+    else
+      errno = StormLib.GetLastError()
+      throw new Error "archive could not be created (#{errno})"

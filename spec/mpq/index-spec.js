@@ -1,6 +1,8 @@
-var MPQ, expect, fixtures, memo, sinon, _ref;
+var MPQ, expect, fixtures, fs, memo, sinon, _ref;
 
 _ref = require('../spec-helper'), expect = _ref.expect, fixtures = _ref.fixtures, memo = _ref.memo, sinon = _ref.sinon;
+
+fs = require('fs');
 
 MPQ = require('../../lib/mpq');
 
@@ -69,10 +71,20 @@ describe('MPQ', function() {
     });
   });
   return describe('.create', function() {
-    return it('creates a new archive', function() {
-      var mpq;
-      mpq = MPQ.create(fixtures + 'new.mpq');
-      return expect(mpq).to.be.an["instanceof"](MPQ);
+    context('when archive does not yet exist', function() {
+      return it('creates a new archive', function() {
+        var mpq;
+        mpq = MPQ.create(fixtures + 'new.mpq');
+        expect(mpq).to.be.an["instanceof"](MPQ);
+        return fs.unlinkSync(fixtures + 'new.mpq');
+      });
+    });
+    return context('when archive already exists', function() {
+      return it('throws an error', function() {
+        return expect(function() {
+          return MPQ.create(fixtures + 'dummy.mpq');
+        }).to["throw"]('archive could not be created');
+      });
     });
   });
 });

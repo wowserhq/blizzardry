@@ -1,5 +1,7 @@
 {expect, fixtures, memo, sinon} = require('../spec-helper')
 
+fs = require('fs')
+
 MPQ = require('../../lib/mpq')
 
 describe 'MPQ', ->
@@ -56,6 +58,14 @@ describe 'MPQ', ->
         .to.throw 'archive could not be found or opened'
 
   describe '.create', ->
-    it 'creates a new archive', ->
-      mpq = MPQ.create fixtures + 'new.mpq'
-      expect(mpq).to.be.an.instanceof MPQ
+    context 'when archive does not yet exist', ->
+      it 'creates a new archive', ->
+        mpq = MPQ.create fixtures + 'new.mpq'
+        expect(mpq).to.be.an.instanceof MPQ
+        fs.unlinkSync fixtures + 'new.mpq'
+
+    context 'when archive already exists', ->
+      it 'throws an error', ->
+        expect ->
+          MPQ.create fixtures + 'dummy.mpq'
+        .to.throw 'archive could not be created'
