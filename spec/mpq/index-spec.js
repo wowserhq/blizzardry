@@ -1,17 +1,17 @@
-var MPQ, expect, memo, sinon, _ref;
+var MPQ, expect, fixtures, memo, sinon, _ref;
 
-_ref = require('../spec-helper'), expect = _ref.expect, memo = _ref.memo, sinon = _ref.sinon;
+_ref = require('../spec-helper'), expect = _ref.expect, fixtures = _ref.fixtures, memo = _ref.memo, sinon = _ref.sinon;
 
 MPQ = require('../../lib/mpq');
 
 describe('MPQ', function() {
   var dummy;
   dummy = memo().is(function() {
-    return MPQ.open('spec/fixtures/dummy.mpq');
+    return MPQ.open(fixtures + 'dummy.mpq');
   });
   describe('#path', function() {
     return it('exposes path to this archive', function() {
-      return expect(dummy().path).to.eq('spec/fixtures/dummy.mpq');
+      return expect(dummy().path).to.eq(fixtures + 'dummy.mpq');
     });
   });
   describe('#close', function() {
@@ -46,9 +46,9 @@ describe('MPQ', function() {
   describe('.open', function() {
     context('when omitting a callback', function() {
       return it('returns an MPQ instance', function() {
-        var result;
-        result = MPQ.open(dummy().path);
-        return expect(result).to.be.an["instanceof"](MPQ);
+        var mpq;
+        mpq = MPQ.open(dummy().path);
+        return expect(mpq).to.be.an["instanceof"](MPQ);
       });
     });
     context('when given a callback', function() {

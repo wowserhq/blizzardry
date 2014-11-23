@@ -1,4 +1,4 @@
-var bridge, chai, memo, sinon;
+var bridge, chai, fixtures, memo, sinon;
 
 bridge = require('sinon-chai');
 
@@ -10,8 +10,11 @@ sinon = require('sinon');
 
 chai.use(bridge);
 
+fixtures = 'spec/fixtures/';
+
 module.exports = {
   expect: chai.expect,
+  fixtures: fixtures,
   memo: memo,
   sinon: sinon
 };

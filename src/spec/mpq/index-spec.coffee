@@ -1,15 +1,15 @@
-{expect, memo, sinon} = require('../spec-helper')
+{expect, fixtures, memo, sinon} = require('../spec-helper')
 
 MPQ = require('../../lib/mpq')
 
 describe 'MPQ', ->
 
   dummy = memo().is ->
-    MPQ.open 'spec/fixtures/dummy.mpq'
+    MPQ.open fixtures + 'dummy.mpq'
 
   describe '#path', ->
     it 'exposes path to this archive', ->
-      expect(dummy().path).to.eq 'spec/fixtures/dummy.mpq'
+      expect(dummy().path).to.eq fixtures + 'dummy.mpq'
 
   describe '#close', ->
     it 'closes this archive', ->
@@ -39,8 +39,8 @@ describe 'MPQ', ->
   describe '.open', ->
     context 'when omitting a callback', ->
       it 'returns an MPQ instance', ->
-        result = MPQ.open dummy().path
-        expect(result).to.be.an.instanceof MPQ
+        mpq = MPQ.open dummy().path
+        expect(mpq).to.be.an.instanceof MPQ
 
     context 'when given a callback', ->
       it 'invokes callback with MPQ instance', ->
