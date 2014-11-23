@@ -56,4 +56,6 @@ describe 'MPQ', ->
         .to.throw 'archive could not be found or opened'
 
   describe '.create', ->
-    xit 'creates a new archive'
+    it 'creates a new archive', ->
+      mpq = MPQ.create fixtures + 'new.mpq'
+      expect(mpq).to.be.an.instanceof MPQ

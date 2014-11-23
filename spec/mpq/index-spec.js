@@ -69,6 +69,10 @@ describe('MPQ', function() {
     });
   });
   return describe('.create', function() {
-    return xit('creates a new archive');
+    return it('creates a new archive', function() {
+      var mpq;
+      mpq = MPQ.create(fixtures + 'new.mpq');
+      return expect(mpq).to.be.an["instanceof"](MPQ);
+    });
   });
 });
