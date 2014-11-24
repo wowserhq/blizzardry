@@ -1,5 +1,6 @@
 attr = require('attr-accessor')
 ref = require('ref')
+Files = require('./files')
 StormLib = require('./storm-lib')
 
 class MPQ
@@ -8,6 +9,7 @@ class MPQ
   [get, set, @get] = attr.accessors(this)
 
   constructor: (@path, @handle) ->
+    @files = new Files(this)
 
   close: ->
     if handle = @handle

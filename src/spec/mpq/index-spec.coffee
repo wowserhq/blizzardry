@@ -2,12 +2,17 @@
 
 fs = require('fs')
 
+Files = require('../../lib/mpq/files')
 MPQ = require('../../lib/mpq')
 
 describe 'MPQ', ->
 
   dummy = memo().is ->
     MPQ.open fixtures + 'dummy.w3m'
+
+  describe '#files', ->
+    it 'exposes files object', ->
+      expect(dummy().files).to.be.an.instanceof Files
 
   describe '#path', ->
     it 'exposes path to this archive', ->

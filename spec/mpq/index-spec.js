@@ -1,8 +1,10 @@
-var MPQ, expect, fixtures, fs, memo, sinon, _ref;
+var Files, MPQ, expect, fixtures, fs, memo, sinon, _ref;
 
 _ref = require('../spec-helper'), expect = _ref.expect, fixtures = _ref.fixtures, memo = _ref.memo, sinon = _ref.sinon;
 
 fs = require('fs');
+
+Files = require('../../lib/mpq/files');
 
 MPQ = require('../../lib/mpq');
 
@@ -10,6 +12,11 @@ describe('MPQ', function() {
   var dummy;
   dummy = memo().is(function() {
     return MPQ.open(fixtures + 'dummy.w3m');
+  });
+  describe('#files', function() {
+    return it('exposes files object', function() {
+      return expect(dummy().files).to.be.an["instanceof"](Files);
+    });
   });
   describe('#path', function() {
     return it('exposes path to this archive', function() {
