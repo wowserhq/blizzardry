@@ -26,10 +26,16 @@ describe('MPQ', function() {
     });
   });
   describe('#opened', function() {
-    return it('returns opened state', function() {
-      expect(dummy().opened).to.be["true"];
-      dummy().close();
-      return expect(dummy().opened).to.be["false"];
+    context('when archive is open', function() {
+      return it('returns true', function() {
+        return expect(dummy().opened).to.be["true"];
+      });
+    });
+    return context('when archive is closed', function() {
+      return it('returns false', function() {
+        dummy().close();
+        return expect(dummy().opened).to.be["false"];
+      });
     });
   });
   describe('#patched', function() {

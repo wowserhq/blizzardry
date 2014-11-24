@@ -22,10 +22,14 @@ describe 'MPQ', ->
       dummy().close()
 
   describe '#opened', ->
-    it 'returns opened state', ->
-      expect(dummy().opened).to.be.true
-      dummy().close()
-      expect(dummy().opened).to.be.false
+    context 'when archive is open', ->
+      it 'returns true', ->
+        expect(dummy().opened).to.be.true
+
+    context 'when archive is closed', ->
+      it 'returns false', ->
+        dummy().close()
+        expect(dummy().opened).to.be.false
 
   describe '#patched', ->
     it 'returns patched state', ->
