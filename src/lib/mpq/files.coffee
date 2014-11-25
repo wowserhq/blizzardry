@@ -14,7 +14,7 @@ class Files
     @mpq.handle
 
   contains: (file) ->
-    @handle && StormLib.SFileHasFile @handle, file
+    !!@handle && StormLib.SFileHasFile @handle, file
 
   get: (file) ->
     if @handle
