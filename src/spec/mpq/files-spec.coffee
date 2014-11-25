@@ -3,7 +3,7 @@
 File = require('../../lib/mpq/file')
 MPQ = require('../../lib/mpq')
 
-describe 'MPQ#files', ->
+describe 'MPQ.Files', ->
 
   dummy = memo().is ->
     MPQ.open(fixtures + 'dummy.w3m').files

@@ -6,7 +6,7 @@ File = require('../../lib/mpq/file');
 
 MPQ = require('../../lib/mpq');
 
-describe('MPQ#files', function() {
+describe('MPQ.Files', function() {
   var dummy;
   dummy = memo().is(function() {
     return MPQ.open(fixtures + 'dummy.w3m').files;
