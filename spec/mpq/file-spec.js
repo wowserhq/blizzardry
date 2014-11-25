@@ -9,6 +9,11 @@ describe('MPQ.File', function() {
   dummy = memo().is(function() {
     return MPQ.open(fixtures + 'dummy.w3m').files.get('(listfile)');
   });
+  describe('#name', function() {
+    return it('returns file name', function() {
+      return expect(dummy().name).to.eq('(listfile)');
+    });
+  });
   return describe('#size', function() {
     return it('returns file size in bytes', function() {
       return expect(dummy().size).to.eq(214);

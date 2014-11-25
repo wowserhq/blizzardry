@@ -1,7 +1,7 @@
 ffi = require('ffi')
+ref = require('ref')
 ArrayType = require('ref-array')
 Struct = require('ref-struct')
-ref = require('ref')
 
 {bool, int32, uint32} = ref.types
 string = ref.types.CString
@@ -150,10 +150,10 @@ module.exports = new ffi.Library 'libstorm',
 #     LPDWORD
 #   ]]
 
-#   SFileGetFileName: [ref.types.char, [
-#     HANDLE,
-#     ref.types.CString
-#   ]]
+  SFileGetFileName: [bool, [
+    HANDLE,
+    voidPtr
+  ]]
 
 #   SFileFreeFileInfo: [ref.types.char, [
 #     voidPtr,
