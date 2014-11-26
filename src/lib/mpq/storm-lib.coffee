@@ -123,20 +123,20 @@ module.exports = new ffi.Library 'libstorm',
     LPDWORD
   ]]
 
-#   SFileSetFilePointer: [ref.types.uint32, [
-#     HANDLE,
-#     ref.types.int32,
-#     LONG,
-#     ref.types.uint32
-#   ]]
+  SFileSetFilePointer: [uint32, [
+    HANDLE,
+    int32,
+    int32,
+    uint32
+  ]]
 
-#   SFileReadFile: [ref.types.char, [
-#     HANDLE,
-#     voidPtr,
-#     ref.types.uint32,
-#     LPDWORD,
-#     LPOVERLAPPED
-#   ]]
+  SFileReadFile: [bool, [
+    HANDLE,
+    voidPtr,
+    uint32,
+    LPDWORD,
+    voidPtr
+  ]]
 
 #   SFileCloseFile: [ref.types.char, [
 #     HANDLE
