@@ -4,9 +4,12 @@ File = require('./file')
 StormLib = require('./storm-lib')
 
 class Files
-  module.exports = this
+  module.exports = self = this
 
   [get] = attr.accessors(this)
+
+  @FROM_MPQ   = 0x00000000
+  @FROM_LOCAL = 0xFFFFFFFF
 
   constructor: (@mpq) ->
 
@@ -19,6 +22,6 @@ class Files
   get: (file) ->
     if @handle
       fileHandlePtr = ref.alloc(StormLib.HANDLEPtr)
-      if StormLib.SFileOpenFileEx @handle, file, 0, fileHandlePtr
+      if StormLib.SFileOpenFileEx @handle, file, self.FROM_MPQ, fileHandlePtr
         return new File(fileHandlePtr.deref())
     return null
