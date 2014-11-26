@@ -8,6 +8,15 @@ class MPQ
 
   [get, set, @get] = attr.accessors(this)
 
+  @READ_ONLY        = 0x00000100
+  @WRITE_SHARE      = 0x00000200
+  @USE_BITMAP       = 0x00000400
+  @NO_LISTFILE      = 0x00010000
+  @NO_ATTRIBUTES    = 0x00020000
+  @NO_HEADER_SEARCH = 0x00040000
+  @FORCE_MPQ_V1     = 0x00080000
+  @CHECK_SECTOR_CRC = 0x00100000
+
   constructor: (@path, @handle) ->
     @files = new Files(this)
 
@@ -26,10 +35,13 @@ class MPQ
   @get locale: ->
     StormLib.SFileGetLocale()
 
-  @open: (path, callback) ->
-    handlePtr = ref.alloc(StormLib.HANDLEPtr)
+  @open: (path, flags = 0, callback) ->
+    if typeof flags == 'function' && !callback?
+      return @open path, null, flags
 
-    if StormLib.SFileOpenArchive path, 0, 0, handlePtr
+    priority = 0
+    handlePtr = ref.alloc(StormLib.HANDLEPtr)
+    if StormLib.SFileOpenArchive path, priority, flags, handlePtr
       handle = handlePtr.deref()
       mpq = new this(path, handle)
 
