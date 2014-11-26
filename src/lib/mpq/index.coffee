@@ -68,8 +68,10 @@ class MPQ
       throw new Error "archive could not be found or opened (#{errno})"
 
   @create: (path, callback) ->
+    flags = 0
+    maxFileCount = 0
     handlePtr = ref.alloc(StormLib.HANDLEPtr)
-    if StormLib.SFileCreateArchive path, 0, 0, handlePtr
+    if StormLib.SFileCreateArchive path, flags, maxFileCount, handlePtr
       @open(path, callback)
     else
       errno = StormLib.GetLastError()
