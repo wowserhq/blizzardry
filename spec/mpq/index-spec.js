@@ -13,6 +13,11 @@ describe('MPQ', function() {
   dummy = memo().is(function() {
     return MPQ.open(fixtures + 'dummy.w3m');
   });
+  describe('#flags', function() {
+    return it('exposes flags', function() {
+      return expect(dummy().flags).to.eq(0);
+    });
+  });
   describe('#files', function() {
     return it('exposes files object', function() {
       return expect(dummy().files).to.be.an["instanceof"](Files);

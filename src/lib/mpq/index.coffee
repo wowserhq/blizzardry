@@ -29,7 +29,7 @@ class MPQ
     ARCHIVE_V4: 0x03000000
   }
 
-  constructor: (@path, @handle) ->
+  constructor: (@path, @flags, @handle) ->
     @files = new Files(this)
 
   close: ->
@@ -55,7 +55,7 @@ class MPQ
     handlePtr = ref.alloc(StormLib.HANDLEPtr)
     if StormLib.SFileOpenArchive path, priority, flags, handlePtr
       handle = handlePtr.deref()
-      mpq = new this(path, handle)
+      mpq = new this(path, flags, handle)
 
       if callback?
         callback(mpq)

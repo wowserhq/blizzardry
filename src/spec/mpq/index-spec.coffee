@@ -10,6 +10,10 @@ describe 'MPQ', ->
   dummy = memo().is ->
     MPQ.open fixtures + 'dummy.w3m'
 
+  describe '#flags', ->
+    it 'exposes flags', ->
+      expect(dummy().flags).to.eq 0
+
   describe '#files', ->
     it 'exposes files object', ->
       expect(dummy().files).to.be.an.instanceof Files
