@@ -52,7 +52,8 @@ describe 'MPQ', ->
 
     context 'when given a callback', ->
       it 'invokes callback with MPQ instance', ->
-        callback = @sandbox.spy()
+        callback = @sandbox.spy (mpq) ->
+          expect(mpq).to.be.an.instanceof MPQ
         result = MPQ.open dummy().path, callback
         expect(callback).to.have.been.called
         expect(result).to.be.true

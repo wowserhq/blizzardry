@@ -66,7 +66,9 @@ describe('MPQ', function() {
     context('when given a callback', function() {
       return it('invokes callback with MPQ instance', function() {
         var callback, result;
-        callback = this.sandbox.spy();
+        callback = this.sandbox.spy(function(mpq) {
+          return expect(mpq).to.be.an["instanceof"](MPQ);
+        });
         result = MPQ.open(dummy().path, callback);
         expect(callback).to.have.been.called;
         return expect(result).to.be["true"];
