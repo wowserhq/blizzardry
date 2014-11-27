@@ -79,6 +79,26 @@ describe('MPQ', function() {
         return expect(result).to.be["true"];
       });
     });
+    context('when given flags and omitting a callback', function() {
+      return it('returns an MPQ instance and honors flags', function() {
+        var mpq;
+        mpq = MPQ.open(dummy().path, MPQ.OPEN.READ_ONLY);
+        expect(mpq).to.be.an["instanceof"](MPQ);
+        return expect(mpq.flags & MPQ.OPEN.READ_ONLY).to.be.above(0);
+      });
+    });
+    context('when given flags and a callback', function() {
+      return it('invokes callback with MPQ instance and honors flag', function() {
+        var callback, result;
+        callback = this.sandbox.spy(function(mpq) {
+          expect(mpq).to.be.an["instanceof"](MPQ);
+          return expect(mpq.flags & MPQ.OPEN.READ_ONLY).to.be.above(0);
+        });
+        result = MPQ.open(dummy().path, MPQ.OPEN.READ_ONLY, callback);
+        expect(callback).to.have.been.called;
+        return expect(result).to.be["true"];
+      });
+    });
     return context('when given a malformed or non-existent archive', function() {
       return it('throws an error', function() {
         return expect(function() {

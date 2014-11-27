@@ -62,6 +62,21 @@ describe 'MPQ', ->
         expect(callback).to.have.been.called
         expect(result).to.be.true
 
+    context 'when given flags and omitting a callback', ->
+      it 'returns an MPQ instance and honors flags', ->
+        mpq = MPQ.open dummy().path, MPQ.OPEN.READ_ONLY
+        expect(mpq).to.be.an.instanceof MPQ
+        expect(mpq.flags & MPQ.OPEN.READ_ONLY).to.be.above 0
+
+    context 'when given flags and a callback', ->
+      it 'invokes callback with MPQ instance and honors flag', ->
+        callback = @sandbox.spy (mpq) ->
+          expect(mpq).to.be.an.instanceof MPQ
+          expect(mpq.flags & MPQ.OPEN.READ_ONLY).to.be.above 0
+        result = MPQ.open dummy().path, MPQ.OPEN.READ_ONLY, callback
+        expect(callback).to.have.been.called
+        expect(result).to.be.true
+
     context 'when given a malformed or non-existent archive', ->
       it 'throws an error', ->
         expect ->
