@@ -30,6 +30,13 @@ describe 'MPQ.Files', ->
         result = dummy().get 'non-existent.txt'
         expect(result).to.be.null
 
+  describe '#all', ->
+    it 'proxies to #find with predefined pattern', ->
+      spy = @sandbox.spy dummy(), 'find'
+      results = dummy().all()
+      expect(spy).to.have.been.calledWith('*')
+      expect(results.length).to.eq 18
+
   describe '#find', ->
     it 'returns search results for given pattern', ->
       results = dummy().find 'war3map.w3*'

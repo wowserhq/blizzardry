@@ -26,6 +26,9 @@ class Files
         return new File(fileHandlePtr.deref())
     null
 
+  all: ->
+    @find '*'
+
   find: (pattern) ->
     handle = null
 

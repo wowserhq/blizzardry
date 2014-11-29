@@ -43,6 +43,15 @@ describe('MPQ.Files', function() {
       });
     });
   });
+  describe('#all', function() {
+    return it('proxies to #find with predefined pattern', function() {
+      var results, spy;
+      spy = this.sandbox.spy(dummy(), 'find');
+      results = dummy().all();
+      expect(spy).to.have.been.calledWith('*');
+      return expect(results.length).to.eq(18);
+    });
+  });
   return describe('#find', function() {
     return it('returns search results for given pattern', function() {
       var results;
