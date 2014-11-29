@@ -27,7 +27,7 @@ describe('MPQ.Files', function() {
       });
     });
   });
-  return describe('#get', function() {
+  describe('#get', function() {
     context('when archive contains given file', function() {
       return it('returns file instance', function() {
         var file;
@@ -41,6 +41,13 @@ describe('MPQ.Files', function() {
         result = dummy().get('non-existent.txt');
         return expect(result).to.be["null"];
       });
+    });
+  });
+  return describe('#find', function() {
+    return it('returns search results for given pattern', function() {
+      var results;
+      results = dummy().find('war3map.w3*');
+      return expect(results.length).to.eq(6);
     });
   });
 });

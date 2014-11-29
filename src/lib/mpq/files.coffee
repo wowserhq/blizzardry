@@ -25,3 +25,20 @@ class Files
       if StormLib.SFileOpenFileEx @handle, file, self.FROM_MPQ, fileHandlePtr
         return new File(fileHandlePtr.deref())
     null
+
+  find: (pattern) ->
+    handle = null
+
+    next = =>
+      data = new StormLib.FIND_DATA()
+      if !handle
+        handle = StormLib.SFileFindFirstFile @handle, pattern, data.ref(), null
+        data unless handle.isNull()
+      else
+        data if StormLib.SFileFindNextFile handle, data.ref()
+
+    results = while data = next()
+      data
+
+    StormLib.SFileFindClose handle
+    results

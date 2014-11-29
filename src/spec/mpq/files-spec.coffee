@@ -29,3 +29,8 @@ describe 'MPQ.Files', ->
       it 'returns null', ->
         result = dummy().get 'non-existent.txt'
         expect(result).to.be.null
+
+  describe '#find', ->
+    it 'returns search results for given pattern', ->
+      results = dummy().find 'war3map.w3*'
+      expect(results.length).to.eq 6

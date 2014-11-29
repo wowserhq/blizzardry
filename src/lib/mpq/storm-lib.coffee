@@ -8,6 +8,29 @@ string = ref.types.CString
 
 voidPtr = ref.refType(ref.types.void)
 
+FixedString = (length) ->
+  {
+    size: length,
+    alignment: length,
+    indirection: 1,
+    name: 'pointer',
+    get: (buffer, offset) ->
+      buffer.readCString(offset)
+  }
+
+FIND_DATA = Struct(
+  filename:   FixedString(1024),
+  name:       string,
+  hashIndex:  uint32,
+  blockIndex: uint32,
+  fileSize:   uint32,
+  fileFlags:  uint32,
+  compSize:   uint32,
+  fileTimeLo: uint32,
+  fileTimeHi: uint32,
+  locale:     uint32
+)
+
 HANDLE = voidPtr
 HANDLEPtr = ref.refType(HANDLE)
 
@@ -190,21 +213,21 @@ module.exports = new ffi.Library 'libstorm',
 #     HANDLE
 #   ]]
 
-#   SFileFindFirstFile: [HANDLE, [
-#     HANDLE,
-#     ref.types.CString,
-#     SFILE_FIND_DATAPtr,
-#     ref.types.CString
-#   ]]
+  SFileFindFirstFile: [HANDLE, [
+    HANDLE,
+    string,
+    voidPtr,
+    string
+  ]]
 
-#   SFileFindNextFile: [ref.types.char, [
-#     HANDLE,
-#     SFILE_FIND_DATAPtr
-#   ]]
+  SFileFindNextFile: [bool, [
+    HANDLE,
+    voidPtr
+  ]]
 
-#   SFileFindClose: [ref.types.char, [
-#     HANDLE
-#   ]]
+  SFileFindClose: [bool, [
+    HANDLE
+  ]]
 
 #   SListFileFindFirstFile: [HANDLE, [
 #     HANDLE,
@@ -341,6 +364,8 @@ module.exports = new ffi.Library 'libstorm',
 #   ]]
 
   GetLastError: [int32, []]
+
+module.exports.FIND_DATA = FIND_DATA
 
 module.exports.HANDLE = HANDLE
 module.exports.HANDLEPtr = HANDLEPtr
