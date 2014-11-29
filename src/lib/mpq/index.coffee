@@ -6,7 +6,7 @@ StormLib = require('./storm-lib')
 class MPQ
   module.exports = this
 
-  [get, set, @get] = attr.accessors(this)
+  [get, set, @get, @set] = attr.accessors(this)
 
   @OPEN = {
     READ_ONLY:        0x00000100
@@ -46,6 +46,9 @@ class MPQ
 
   @get locale: ->
     StormLib.SFileGetLocale()
+
+  @set locale: (locale) ->
+    StormLib.SFileSetLocale locale
 
   @open: (path, flags = 0, callback) ->
     if typeof flags == 'function' && !callback?

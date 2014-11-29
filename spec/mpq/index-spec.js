@@ -60,6 +60,13 @@ describe('MPQ', function() {
       return expect(MPQ.locale).to.eq(0);
     });
   });
+  describe('.locale=', function() {
+    return it('sets default locale', function() {
+      MPQ.locale = 1;
+      expect(MPQ.locale).to.eq(1);
+      return MPQ.locale = 0;
+    });
+  });
   describe('.open', function() {
     context('when omitting a callback', function() {
       return it('returns an MPQ instance', function() {

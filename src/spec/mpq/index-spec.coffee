@@ -48,6 +48,12 @@ describe 'MPQ', ->
     it 'returns default locale', ->
       expect(MPQ.locale).to.eq 0
 
+  describe '.locale=', ->
+    it 'sets default locale', ->
+      MPQ.locale = 1
+      expect(MPQ.locale).to.eq 1
+      MPQ.locale = 0
+
   describe '.open', ->
     context 'when omitting a callback', ->
       it 'returns an MPQ instance', ->

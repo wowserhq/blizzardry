@@ -40,9 +40,9 @@ module.exports = new ffi.Library 'libstorm',
 
   SFileGetLocale: [uint32, []]
 
-  # SFileSetLocale: [uint32, [
-  #   uint32
-  # ]]
+  SFileSetLocale: [uint32, [
+    uint32
+  ]]
 
   SFileOpenArchive: [bool, [
     string,
