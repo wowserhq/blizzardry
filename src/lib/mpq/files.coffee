@@ -24,4 +24,4 @@ class Files
       fileHandlePtr = ref.alloc(StormLib.HANDLEPtr)
       if StormLib.SFileOpenFileEx @handle, file, self.FROM_MPQ, fileHandlePtr
         return new File(fileHandlePtr.deref())
-    return null
+    null

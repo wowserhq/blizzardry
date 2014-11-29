@@ -60,9 +60,9 @@ class MPQ
       if callback?
         callback(mpq)
         mpq.close()
-        return true
+        true
       else
-        return mpq
+        mpq
     else
       errno = StormLib.GetLastError()
       throw new Error "archive could not be found or opened (#{errno})"
