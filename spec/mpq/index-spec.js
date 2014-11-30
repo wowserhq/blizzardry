@@ -50,6 +50,23 @@ describe('MPQ', function() {
       });
     });
   });
+  describe('#patch', function() {
+    context('when archive is writable', function() {
+      return it('throws an error', function() {
+        return expect(function() {
+          return dummy().patch(fixtures + 'dummy.w3m');
+        }).to["throw"]('archive must be read-only');
+      });
+    });
+    return context('when archive is read-only', function() {
+      return it('patches archive', function() {
+        var mpq;
+        mpq = MPQ.open(fixtures + 'dummy.w3m', MPQ.OPEN.READ_ONLY);
+        mpq.patch(fixtures + 'dummy.w3m');
+        return expect(mpq.patched).to.be["true"];
+      });
+    });
+  });
   describe('#patched', function() {
     return it('returns patched state', function() {
       return expect(dummy().patched).to.be["false"];

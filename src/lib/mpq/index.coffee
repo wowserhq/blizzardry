@@ -4,7 +4,7 @@ Files = require('./files')
 StormLib = require('./storm-lib')
 
 class MPQ
-  module.exports = this
+  module.exports = self = this
 
   [get, set, @get, @set] = attr.accessors(this)
 
@@ -39,6 +39,13 @@ class MPQ
 
   get opened: ->
     !!@handle
+
+  patch: (path, prefix = null) ->
+    unless @flags & self.OPEN.READ_ONLY
+      throw new Error 'archive must be read-only'
+
+    flags = 0
+    StormLib.SFileOpenPatchArchive @handle, path, prefix, flags
 
   get patched: ->
     if @handle

@@ -40,6 +40,19 @@ describe 'MPQ', ->
         dummy().close()
         expect(dummy().opened).to.be.false
 
+  describe '#patch', ->
+    context 'when archive is writable', ->
+      it 'throws an error', ->
+        expect ->
+          dummy().patch fixtures + 'dummy.w3m'
+        .to.throw 'archive must be read-only'
+
+    context 'when archive is read-only', ->
+      it 'patches archive', ->
+        mpq = MPQ.open fixtures + 'dummy.w3m', MPQ.OPEN.READ_ONLY
+        mpq.patch fixtures + 'dummy.w3m'
+        expect(mpq.patched).to.be.true
+
   describe '#patched', ->
     it 'returns patched state', ->
       expect(dummy().patched).to.be.false

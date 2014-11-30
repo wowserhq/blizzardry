@@ -118,12 +118,12 @@ module.exports = new ffi.Library 'libstorm',
 #     ref.types.CString
 #   ]]
 
-#   SFileOpenPatchArchive: [ref.types.char, [
-#     HANDLE,
-#     TCHARPtr,
-#     ref.types.CString,
-#     ref.types.uint32
-#   ]]
+  SFileOpenPatchArchive: [bool, [
+    HANDLE,
+    string,
+    string,
+    uint32
+  ]]
 
   SFileIsPatchedArchive: [bool, [
     HANDLE
