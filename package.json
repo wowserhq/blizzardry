@@ -4,7 +4,6 @@
   "description": "JavaScript library for mastering the wizardry that is Blizzard's game files",
   "main": "lib/index.js",
   "files": [
-    "dist",
     "lib",
     "LICENSE.md"
   ],
@@ -17,9 +16,7 @@
   "keywords": [
     "blizzardry",
     "blizzard",
-    "mpq",
-    "blp",
-    "m2"
+    "mpq"
   ],
   "dependencies": {
     "attr-accessor": "^0.2.1",
