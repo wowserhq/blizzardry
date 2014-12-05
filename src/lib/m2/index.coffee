@@ -1,26 +1,8 @@
 r = require('restructure')
+{floatle, uint32le} = require('../types')
+vec3float = require('./vec3-float')
+vertex = require('./vertex')
 Nofs = require('./nofs')
-
-uint32le = new r.Number('UInt32', 'LE')
-floatle = new r.Number('Float', 'LE')
-
-float2 = new r.Array(floatle, 2)
-float3 = new r.Array(floatle, 2)
-
-Vec3Float = new r.Struct(
-  x: floatle
-  y: floatle
-  z: floatle
-)
-
-vertex = new r.Struct(
-  position: float3
-  boneWeights: new r.Array(r.uint8, 4)
-  boneIndices: new r.Array(r.uint8, 4)
-  normal: float3
-  textureCoords: float2
-  random: float2
-)
 
 module.exports = new r.Struct(
 
@@ -51,12 +33,12 @@ module.exports = new r.Struct(
   transparencyLookups: new Nofs()
   uvAnimationLookups: new Nofs()
 
-  minVertexBox: Vec3Float
-  maxVertexBox: Vec3Float
+  minVertexBox: vec3float
+  maxVertexBox: vec3float
   vertexRadius: floatle
 
-  minBoundingBox: Vec3Float
-  maxBoundingBox: Vec3Float
+  minBoundingBox: vec3float
+  maxBoundingBox: vec3float
   boundingRadius: floatle
 
   boundingTriangles: new Nofs()

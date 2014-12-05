@@ -1,6 +1,5 @@
 r = require('restructure')
-
-uint32le = new r.Number('UInt32', 'LE')
+{uint32le} = require('../types')
 
 class Nofs
   module.exports = this
