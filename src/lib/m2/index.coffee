@@ -1,5 +1,5 @@
-r = require('restructure')
 {floatle, uint32le} = require('../types')
+r = require('restructure')
 vec3float = require('./vec3-float')
 vertex = require('./vertex')
 Nofs = require('./nofs')

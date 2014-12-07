@@ -1,5 +1,5 @@
-r = require('restructure')
 {float2, float3} = require('../types')
+r = require('restructure')
 
 module.exports = new r.Struct(
   position: float3
