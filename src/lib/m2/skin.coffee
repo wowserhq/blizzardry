@@ -3,7 +3,6 @@ r = require('restructure')
 Nofs = require('./nofs')
 
 module.exports = new r.Struct(
-
   id: uint32le
 
   indices: new Nofs(uint16le)
@@ -12,5 +11,4 @@ module.exports = new r.Struct(
   submeshes: new Nofs()
   textureUnits: new Nofs()
   bones: uint32le
-
 )

@@ -5,7 +5,6 @@ vertex = require('./vertex')
 Nofs = require('./nofs')
 
 module.exports = new r.Struct(
-
   signature: new r.String(4)
   version: uint32le
 
@@ -55,5 +54,4 @@ module.exports = new r.Struct(
 
   unknown1: new r.Optional(uint32le, -> @flags == 8)
   unknown2: new r.Optional(uint32le, -> @flags == 8)
-
 )
