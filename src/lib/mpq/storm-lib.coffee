@@ -183,12 +183,12 @@ module.exports = new ffi.Library 'libstorm',
 #     ref.types.uint32
 #   ]]
 
-#   SFileExtractFile: [ref.types.char, [
-#     HANDLE,
-#     ref.types.CString,
-#     TCHARPtr,
-#     ref.types.uint32
-#   ]]
+  SFileExtractFile: [bool, [
+    HANDLE,
+    string,
+    string,
+    uint32
+  ]]
 
 #   SFileGetFileChecksums: [ref.types.char, [
 #     HANDLE,

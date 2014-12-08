@@ -1,4 +1,5 @@
 attr = require('attr-accessor')
+path = require('path')
 ref = require('ref')
 File = require('./file')
 StormLib = require('./storm-lib')
@@ -25,6 +26,12 @@ class Files
       if StormLib.SFileOpenFileEx @handle, file, self.FROM_MPQ, fileHandlePtr
         return new File(fileHandlePtr.deref())
     null
+
+  extract: (file, target) ->
+    unless StormLib.SFileExtractFile @handle, file, target, self.FROM_MPQ
+      errno = StormLib.GetLastError()
+      throw new Error "file could not be extracted (#{errno})"
+    true
 
   all: ->
     @find '*'

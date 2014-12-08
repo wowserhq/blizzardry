@@ -30,6 +30,9 @@ describe 'MPQ.Files', ->
         result = dummy().get 'non-existent.txt'
         expect(result).to.be.null
 
+  describe '#extract', ->
+    xit 'extracts given file'
+
   describe '#all', ->
     it 'proxies to #find with predefined pattern', ->
       spy = @sandbox.spy dummy(), 'find'

@@ -43,6 +43,9 @@ describe('MPQ.Files', function() {
       });
     });
   });
+  describe('#extract', function() {
+    return xit('extracts given file');
+  });
   describe('#all', function() {
     return it('proxies to #find with predefined pattern', function() {
       var results, spy;
