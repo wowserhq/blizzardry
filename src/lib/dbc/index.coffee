@@ -9,12 +9,11 @@ DBC = new r.Struct(
   fieldCount: uint32le
   recordSize: uint32le
   stringBlockSize: uint32le
+  stringBlockOffset: -> 4 * 5 + @recordCount * @recordSize
 
   records: new r.Array(new r.Buffer(-> @recordSize), -> @recordCount)
   stringBlock: new r.Buffer(-> @stringBlockSize)
 )
-
-DBC.HEADER_SIZE = 4 * 5
 
 DBC.for = (type) ->
   fields = xtend(@fields,
