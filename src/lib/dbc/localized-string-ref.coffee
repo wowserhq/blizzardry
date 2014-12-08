@@ -6,7 +6,7 @@ class LocalizedStringRef
   module.exports = new(this)
 
   constructor: ->
-    @strings = new r.Array(StringRef, 16)
+    @strings = new r.Array(StringRef, 17)
 
   decode: (stream, parent) ->
     # TODO: Add support for multiple locales
