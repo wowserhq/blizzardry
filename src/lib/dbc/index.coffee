@@ -21,9 +21,4 @@ DBC.for = (type) ->
   )
   new r.Struct(fields)
 
-DBC.Entry = (fields) ->
-  type = new r.Struct(fields)
-  type.dbc = DBC.for(type)
-  type
-
 module.exports = DBC
