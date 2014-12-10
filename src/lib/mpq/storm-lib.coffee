@@ -36,7 +36,7 @@ HANDLEPtr = ref.refType(HANDLE)
 
 LPDWORD = voidPtr
 
-module.exports = new ffi.Library 'libstorm',
+module.exports = new ffi.Library('libstorm',
 
   SFileGetLocale: [uint32, []]
 
@@ -364,6 +364,7 @@ module.exports = new ffi.Library 'libstorm',
 #   ]]
 
   GetLastError: [int32, []]
+)
 
 module.exports.FIND_DATA = FIND_DATA
 
