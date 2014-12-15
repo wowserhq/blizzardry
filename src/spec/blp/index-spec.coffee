@@ -1,7 +1,5 @@
 {expect, fixtures, memo, sinon} = require('../spec-helper')
 
-fs = require('fs')
-
 BLP = require('../../lib/blp')
 Mipmap = require('../../lib/blp/mipmap')
 
