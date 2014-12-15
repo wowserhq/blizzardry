@@ -19,3 +19,7 @@ describe 'BLP.Mipmap', ->
   describe '#height', ->
     it 'returns texture height', ->
       expect(dummy().height).to.eq 128
+
+  describe '#data', ->
+    it 'returns pixel data', ->
+      expect(dummy().data.length).to.eq 65536

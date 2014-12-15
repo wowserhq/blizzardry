@@ -21,9 +21,14 @@ describe('BLP.Mipmap', function() {
       return expect(dummy().width).to.eq(128);
     });
   });
-  return describe('#height', function() {
+  describe('#height', function() {
     return it('returns texture height', function() {
       return expect(dummy().height).to.eq(128);
+    });
+  });
+  return describe('#data', function() {
+    return it('returns pixel data', function() {
+      return expect(dummy().data.length).to.eq(65536);
     });
   });
 });

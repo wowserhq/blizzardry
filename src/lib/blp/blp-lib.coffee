@@ -9,6 +9,7 @@ BLP = voidPtr
 FILE = voidPtr
 
 module.exports = new ffi.Library('libblp',
+  blp_convert:     [voidPtr, [FILE, BLP, uint8]]
   blp_height:      [uint32, [BLP, uint8]]
   blp_nbMipLevels: [uint32, [BLP]]
   blp_processFile: [BLP, [FILE]]
