@@ -1,6 +1,5 @@
 ffi = require('ffi')
 ref = require('ref')
-ArrayType = require('ref-array')
 Struct = require('ref-struct')
 
 {bool, int32, uint32} = ref.types
