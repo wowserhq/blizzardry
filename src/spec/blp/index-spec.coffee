@@ -3,6 +3,7 @@
 fs = require('fs')
 
 BLP = require('../../lib/blp')
+Mipmap = require('../../lib/blp/mipmap')
 
 describe 'BLP', ->
 
@@ -34,6 +35,26 @@ describe 'BLP', ->
   describe '#mipmapCount', ->
     it 'returns amount of mipmaps', ->
       expect(dummy().mipmapCount).to.eq 8
+
+  describe '#mipmaps', ->
+    it 'contains mipmaps', ->
+      mipmaps = dummy().mipmaps
+      for i in [0...8]
+        expect(mipmaps[i]).to.be.an.instanceof Mipmap
+
+  describe '#smallest', ->
+    it 'returns smallest mipmap', ->
+      blp = dummy()
+      expect(blp.smallest).to.eq blp.mipmaps[7]
+      expect(blp.smallest.width).to.eq 1
+      expect(blp.smallest.height).to.eq 1
+
+  describe '#largest', ->
+    it 'returns largest mipmap', ->
+      blp = dummy()
+      expect(blp.largest).to.eq blp.mipmaps[0]
+      expect(blp.largest.width).to.eq 128
+      expect(blp.largest.height).to.eq 128
 
   describe '.open', ->
     context 'when omitting a callback', ->

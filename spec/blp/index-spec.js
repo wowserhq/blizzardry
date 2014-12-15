@@ -1,10 +1,12 @@
-var BLP, expect, fixtures, fs, memo, sinon, _ref;
+var BLP, Mipmap, expect, fixtures, fs, memo, sinon, _ref;
 
 _ref = require('../spec-helper'), expect = _ref.expect, fixtures = _ref.fixtures, memo = _ref.memo, sinon = _ref.sinon;
 
 fs = require('fs');
 
 BLP = require('../../lib/blp');
+
+Mipmap = require('../../lib/blp/mipmap');
 
 describe('BLP', function() {
   var dummy;
@@ -41,6 +43,35 @@ describe('BLP', function() {
   describe('#mipmapCount', function() {
     return it('returns amount of mipmaps', function() {
       return expect(dummy().mipmapCount).to.eq(8);
+    });
+  });
+  describe('#mipmaps', function() {
+    return it('contains mipmaps', function() {
+      var i, mipmaps, _i, _results;
+      mipmaps = dummy().mipmaps;
+      _results = [];
+      for (i = _i = 0; _i < 8; i = ++_i) {
+        _results.push(expect(mipmaps[i]).to.be.an["instanceof"](Mipmap));
+      }
+      return _results;
+    });
+  });
+  describe('#smallest', function() {
+    return it('returns smallest mipmap', function() {
+      var blp;
+      blp = dummy();
+      expect(blp.smallest).to.eq(blp.mipmaps[7]);
+      expect(blp.smallest.width).to.eq(1);
+      return expect(blp.smallest.height).to.eq(1);
+    });
+  });
+  describe('#largest', function() {
+    return it('returns largest mipmap', function() {
+      var blp;
+      blp = dummy();
+      expect(blp.largest).to.eq(blp.mipmaps[0]);
+      expect(blp.largest.width).to.eq(128);
+      return expect(blp.largest.height).to.eq(128);
     });
   });
   return describe('.open', function() {

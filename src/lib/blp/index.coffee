@@ -1,6 +1,7 @@
 attr = require('attr-accessor')
 BLPLib = require('./blp-lib')
 CLib = require('../c-lib')
+Mipmap = require('./mipmap')
 
 class BLP
   module.exports = this
@@ -9,6 +10,8 @@ class BLP
 
   constructor: (@path, @file) ->
     @handle = BLPLib.blp_processFile @file
+    @mipmaps = for i in [0...@mipmapCount]
+      new Mipmap(this, i)
 
   close: ->
     if handle = @handle
@@ -27,6 +30,12 @@ class BLP
 
   get mipmapCount: ->
     BLPLib.blp_nbMipLevels @handle
+
+  get smallest: ->
+    @mipmaps[@mipmapCount - 1]
+
+  get largest: ->
+    @mipmaps[0]
 
   @open: (path, callback) ->
     file = CLib.fopen path, 'r'
