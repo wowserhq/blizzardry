@@ -68,8 +68,14 @@ describe 'BLP', ->
         expect(callback).to.have.been.called
         expect(result).to.be.true
 
-    context 'when given a malformed or non-existent image', ->
+    context 'when given a malformed image', ->
+      it 'throws an error', ->
+        expect ->
+          BLP.open __filename
+        .to.throw 'image could not be opened'
+
+    context 'when given a non-existent image', ->
       it 'throws an error', ->
         expect ->
           BLP.open 'non-existent.blp'
-        .to.throw 'image could not be found or opened'
+        .to.throw 'image could not be found'

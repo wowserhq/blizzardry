@@ -91,11 +91,18 @@ describe('BLP', function() {
         return expect(result).to.be["true"];
       });
     });
-    return context('when given a malformed or non-existent image', function() {
+    context('when given a malformed image', function() {
+      return it('throws an error', function() {
+        return expect(function() {
+          return BLP.open(__filename);
+        }).to["throw"]('image could not be opened');
+      });
+    });
+    return context('when given a non-existent image', function() {
       return it('throws an error', function() {
         return expect(function() {
           return BLP.open('non-existent.blp');
-        }).to["throw"]('image could not be found or opened');
+        }).to["throw"]('image could not be found');
       });
     });
   });
