@@ -12,7 +12,7 @@ before_install:
 
   - git clone git://github.com/Kanma/BLPConverter.git
   - cd BLPConverter
-  - cmake CMakeLists.txt
+  - cmake CMakeLists.txt -DWITH_LIBRARY=YES
   - sudo make install
   - sudo ldconfig
   - cd $TRAVIS_BUILD_DIR
