@@ -11,6 +11,10 @@ class BLP
     @handle = BLPLib.blp_processFile @file
 
   close: ->
+    if handle = @handle
+      @handle = null
+      BLPLib.blp_release handle
+
     if file = @file
       @file = null
       CLib.fclose file
