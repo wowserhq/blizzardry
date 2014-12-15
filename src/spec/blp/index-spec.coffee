@@ -27,6 +27,10 @@ describe 'BLP', ->
         dummy().close()
         expect(dummy().opened).to.be.false
 
+  describe '#version', ->
+    it 'returns version identifier', ->
+      expect(dummy().version).to.eq 2
+
   describe '.open', ->
     context 'when omitting a callback', ->
       it 'returns a BLP instance', ->

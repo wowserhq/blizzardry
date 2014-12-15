@@ -33,6 +33,11 @@ describe('BLP', function() {
       });
     });
   });
+  describe('#version', function() {
+    return it('returns version identifier', function() {
+      return expect(dummy().version).to.eq(2);
+    });
+  });
   return describe('.open', function() {
     context('when omitting a callback', function() {
       return it('returns a BLP instance', function() {

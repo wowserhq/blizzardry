@@ -18,6 +18,9 @@ class BLP
   get opened: ->
     !!@file
 
+  get version: ->
+    BLPLib.blp_version @handle
+
   @open: (path, callback) ->
     file = CLib.fopen path, 'r'
     if !file.isNull()
