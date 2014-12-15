@@ -38,6 +38,11 @@ describe('BLP', function() {
       return expect(dummy().version).to.eq(2);
     });
   });
+  describe('#mipmapCount', function() {
+    return it('returns amount of mipmaps', function() {
+      return expect(dummy().mipmapCount).to.eq(8);
+    });
+  });
   return describe('.open', function() {
     context('when omitting a callback', function() {
       return it('returns a BLP instance', function() {

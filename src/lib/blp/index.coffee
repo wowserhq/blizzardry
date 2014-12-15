@@ -25,6 +25,9 @@ class BLP
   get version: ->
     BLPLib.blp_version @handle
 
+  get mipmapCount: ->
+    BLPLib.blp_nbMipLevels @handle
+
   @open: (path, callback) ->
     file = CLib.fopen path, 'r'
     if !file.isNull()

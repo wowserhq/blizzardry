@@ -31,6 +31,10 @@ describe 'BLP', ->
     it 'returns version identifier', ->
       expect(dummy().version).to.eq 2
 
+  describe '#mipmapCount', ->
+    it 'returns amount of mipmaps', ->
+      expect(dummy().mipmapCount).to.eq 8
+
   describe '.open', ->
     context 'when omitting a callback', ->
       it 'returns a BLP instance', ->
