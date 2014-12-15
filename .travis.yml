@@ -9,3 +9,10 @@ before_install:
   - sudo make install
   - sudo ldconfig
   - cd $TRAVIS_BUILD_DIR
+
+  - git clone git://github.com/Kanma/BLPConverter.git
+  - cd BLPConverter
+  - cmake CMakeLists.txt
+  - sudo make install
+  - sudo ldconfig
+  - cd $TRAVIS_BUILD_DIR
