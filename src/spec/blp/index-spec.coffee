@@ -1,5 +1,7 @@
 {expect, fixtures, memo, sinon} = require('../spec-helper')
 
+fs = require('fs')
+
 BLP = require('../../lib/blp')
 Mipmap = require('../../lib/blp/mipmap')
 
@@ -79,3 +81,25 @@ describe 'BLP', ->
         expect ->
           BLP.open 'non-existent.blp'
         .to.throw 'image could not be found'
+
+  describe '.from', ->
+    data = fs.readFileSync fixtures + 'RabbitSkin.blp'
+
+    context 'when omitting a callback', ->
+      it 'returns a BLP instance', ->
+        blp = BLP.from data
+        expect(blp).to.be.an.instanceof BLP
+
+    context 'when given a callback', ->
+      it 'invokes callback with BLP instance', ->
+        callback = @sandbox.spy (blp) ->
+          expect(blp).to.be.an.instanceof BLP
+        result = BLP.from data, callback
+        expect(callback).to.have.been.called
+        expect(result).to.be.true
+
+    context 'when given a malformed image', ->
+      it 'throws an error', ->
+        expect ->
+          BLP.from new Buffer([])
+        .to.throw 'image could not be opened'

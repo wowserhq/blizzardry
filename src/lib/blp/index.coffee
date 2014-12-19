@@ -1,4 +1,6 @@
 attr = require('attr-accessor')
+fs = require('fs')
+temp = require('temp')
 BLPLib = require('./blp-lib')
 CLib = require('../c-lib')
 Mipmap = require('./mipmap')
@@ -53,3 +55,8 @@ class BLP
         throw new Error 'image could not be opened'
     else
       throw new Error 'image could not be found'
+
+  @from: (buffer, callback) ->
+    path = temp.path prefix: 'blp-'
+    fs.writeFileSync path, buffer
+    @open path, callback

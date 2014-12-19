@@ -1,6 +1,8 @@
-var BLP, Mipmap, expect, fixtures, memo, sinon, _ref;
+var BLP, Mipmap, expect, fixtures, fs, memo, sinon, _ref;
 
 _ref = require('../spec-helper'), expect = _ref.expect, fixtures = _ref.fixtures, memo = _ref.memo, sinon = _ref.sinon;
+
+fs = require('fs');
 
 BLP = require('../../lib/blp');
 
@@ -72,7 +74,7 @@ describe('BLP', function() {
       return expect(blp.largest.height).to.eq(128);
     });
   });
-  return describe('.open', function() {
+  describe('.open', function() {
     context('when omitting a callback', function() {
       return it('returns a BLP instance', function() {
         var blp;
@@ -103,6 +105,35 @@ describe('BLP', function() {
         return expect(function() {
           return BLP.open('non-existent.blp');
         }).to["throw"]('image could not be found');
+      });
+    });
+  });
+  return describe('.from', function() {
+    var data;
+    data = fs.readFileSync(fixtures + 'RabbitSkin.blp');
+    context('when omitting a callback', function() {
+      return it('returns a BLP instance', function() {
+        var blp;
+        blp = BLP.from(data);
+        return expect(blp).to.be.an["instanceof"](BLP);
+      });
+    });
+    context('when given a callback', function() {
+      return it('invokes callback with BLP instance', function() {
+        var callback, result;
+        callback = this.sandbox.spy(function(blp) {
+          return expect(blp).to.be.an["instanceof"](BLP);
+        });
+        result = BLP.from(data, callback);
+        expect(callback).to.have.been.called;
+        return expect(result).to.be["true"];
+      });
+    });
+    return context('when given a malformed image', function() {
+      return it('throws an error', function() {
+        return expect(function() {
+          return BLP.from(new Buffer([]));
+        }).to["throw"]('image could not be opened');
       });
     });
   });
