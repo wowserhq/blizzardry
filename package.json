@@ -25,6 +25,7 @@
     "ref-array": "^1.0.0",
     "ref-struct": "^1.0.0",
     "restructure": "^0.1.11",
+    "temp": "^0.8.1",
     "xtend": "^4.0.0"
   },
   "devDependencies": {
