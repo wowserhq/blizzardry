@@ -9,17 +9,34 @@ BLP = require('../../lib/blp');
 Mipmap = require('../../lib/blp/mipmap');
 
 describe('BLP', function() {
-  var dummy;
+  var buffer, dummy;
   dummy = memo().is(function() {
     return BLP.open(fixtures + 'RabbitSkin.blp');
+  });
+  buffer = memo().is(function() {
+    return fs.readFileSync(fixtures + 'RabbitSkin.blp');
   });
   describe('#close', function() {
     it('closes this image', function() {
       return dummy().close();
     });
-    return it('is idempotent', function() {
+    it('is idempotent', function() {
       dummy().close();
       return dummy().close();
+    });
+    context('when instantiated from disk', function() {
+      return it('leaves file intact', function() {
+        dummy().close();
+        return expect(fs.existsSync(dummy().path)).to.eq(true);
+      });
+    });
+    return context('when instantiated from memory', function() {
+      return it('removes temporary file', function() {
+        var blp;
+        blp = BLP.from(buffer());
+        blp.close();
+        return expect(fs.existsSync(blp.path)).to.eq(false);
+      });
     });
   });
   describe('#opened', function() {
@@ -109,13 +126,12 @@ describe('BLP', function() {
     });
   });
   return describe('.from', function() {
-    var data;
-    data = fs.readFileSync(fixtures + 'RabbitSkin.blp');
     context('when omitting a callback', function() {
       return it('returns a BLP instance', function() {
         var blp;
-        blp = BLP.from(data);
-        return expect(blp).to.be.an["instanceof"](BLP);
+        blp = BLP.from(buffer());
+        expect(blp).to.be.an["instanceof"](BLP);
+        return blp.close();
       });
     });
     context('when given a callback', function() {
@@ -124,7 +140,7 @@ describe('BLP', function() {
         callback = this.sandbox.spy(function(blp) {
           return expect(blp).to.be.an["instanceof"](BLP);
         });
-        result = BLP.from(data, callback);
+        result = BLP.from(buffer(), callback);
         expect(callback).to.have.been.called;
         return expect(result).to.be["true"];
       });

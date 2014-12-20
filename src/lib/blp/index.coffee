@@ -1,14 +1,18 @@
 attr = require('attr-accessor')
+crypto = require('crypto')
 fs = require('fs')
+path = require('path')
 temp = require('temp')
 BLPLib = require('./blp-lib')
 CLib = require('../c-lib')
 Mipmap = require('./mipmap')
 
 class BLP
-  module.exports = this
+  module.exports = self = this
 
   [get] = attr.accessors(this)
+
+  @TMP_PREFIX = "blp-#{crypto.randomBytes(6).toString('hex')}-"
 
   constructor: (@path, @handle, @file) ->
     @mipmaps = for i in [0...@mipmapCount]
@@ -22,6 +26,9 @@ class BLP
     if file = @file
       @file = null
       CLib.fclose file
+
+      if @path.match self.TMP_PREFIX
+        fs.unlinkSync @path
 
   get opened: ->
     !!@file
@@ -57,6 +64,10 @@ class BLP
       throw new Error 'image could not be found'
 
   @from: (buffer, callback) ->
-    path = temp.path prefix: 'blp-'
-    fs.writeFileSync path, buffer
-    @open path, callback
+    tmp = temp.path prefix: @TMP_PREFIX
+    fs.writeFileSync tmp, buffer
+    try
+      @open tmp, callback
+    catch e
+      fs.unlinkSync tmp
+      throw e

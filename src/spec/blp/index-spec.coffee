@@ -10,6 +10,9 @@ describe 'BLP', ->
   dummy = memo().is ->
     BLP.open fixtures + 'RabbitSkin.blp'
 
+  buffer = memo().is ->
+    fs.readFileSync fixtures + 'RabbitSkin.blp'
+
   describe '#close', ->
     it 'closes this image', ->
       dummy().close()
@@ -17,6 +20,17 @@ describe 'BLP', ->
     it 'is idempotent', ->
       dummy().close()
       dummy().close()
+
+    context 'when instantiated from disk', ->
+      it 'leaves file intact', ->
+        dummy().close()
+        expect(fs.existsSync(dummy().path)).to.eq true
+
+    context 'when instantiated from memory', ->
+      it 'removes temporary file', ->
+        blp = BLP.from buffer()
+        blp.close()
+        expect(fs.existsSync(blp.path)).to.eq false
 
   describe '#opened', ->
     context 'when image is open', ->
@@ -83,18 +97,17 @@ describe 'BLP', ->
         .to.throw 'image could not be found'
 
   describe '.from', ->
-    data = fs.readFileSync fixtures + 'RabbitSkin.blp'
-
     context 'when omitting a callback', ->
       it 'returns a BLP instance', ->
-        blp = BLP.from data
+        blp = BLP.from buffer()
         expect(blp).to.be.an.instanceof BLP
+        blp.close()
 
     context 'when given a callback', ->
       it 'invokes callback with BLP instance', ->
         callback = @sandbox.spy (blp) ->
           expect(blp).to.be.an.instanceof BLP
-        result = BLP.from data, callback
+        result = BLP.from buffer(), callback
         expect(callback).to.have.been.called
         expect(result).to.be.true
 
