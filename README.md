@@ -70,3 +70,18 @@ blp = BLP.open('RabbitSkin.blp')
 // ...
 blp.close()
 ```
+
+
+### [DBC](src/lib/dbc)
+
+Usage coming soon.
+
+
+### [M2](src/lib/m2)
+
+Usage coming soon.
+
+
+### [MPQ](src/lib/mpq)
+
+Usage coming soon.
