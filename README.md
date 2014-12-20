@@ -39,4 +39,34 @@ Compile these libraries from source and ensure they end up on the load path.
 
 ## Usage
 
-Documentation to follow shortly.
+### [BLP](src/lib/blp)
+
+Texture format holding up to 16 pre-rendered [mipmaps](https://en.wikipedia.org/wiki/Mipmap).
+
+Blizzardry uses [BLPConverter](https://github.com/Kanma/BLPConverter) to process BLPs.
+
+```javascript
+BLP.open('RabbitSkin.blp', function(blp) {
+  blp.version     // 2
+  blp.mipmapCount // 8
+
+  blp.largest.width  // 128
+  blp.largest.height // 128
+  blp.largest.data   // <Buffer a2 a2 a2 dd a2 ...>
+
+  blp.smallest.width  // 1
+  blp.smallest.height // 1
+  blp.smallest.data   // <Buffer 7e 98 af ee>
+
+  // Or directly:
+
+  blp.mipmaps[3].width  // 16
+  blp.mipmaps[3].height // 16
+});
+
+// Or alternatively:
+
+blp = BLP.open('RabbitSkin.blp')
+// ...
+blp.close()
+```
