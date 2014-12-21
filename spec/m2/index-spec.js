@@ -33,6 +33,11 @@ describe('M2', function() {
       return expect(dummy().names).to.deep.eq(['Rabbit', '', '', '', '', '', '']);
     });
   });
+  describe('#name', function() {
+    return it('returns first name', function() {
+      return expect(dummy().name).to.eq('Rabbit');
+    });
+  });
   describe('#flags', function() {
     return it('returns flags', function() {
       return expect(dummy().flags).to.eq(1);

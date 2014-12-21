@@ -27,6 +27,10 @@ describe 'M2', ->
         'Rabbit', '', '', '', '', '', ''
       ]
 
+  describe '#name', ->
+    it 'returns first name', ->
+      expect(dummy().name).to.eq 'Rabbit'
+
   describe '#flags', ->
     it 'returns flags', ->
       expect(dummy().flags).to.eq 1

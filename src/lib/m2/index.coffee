@@ -9,6 +9,8 @@ module.exports = new r.Struct(
   version: uint32le
 
   names: new Nofs(new r.String())
+  name: -> @names[0]
+
   flags: uint32le
 
   sequences: new Nofs(uint32le)
