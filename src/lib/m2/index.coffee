@@ -11,7 +11,7 @@ module.exports = new r.Struct(
   names: new Nofs(new r.String())
   flags: uint32le
 
-  sequences: new Nofs()
+  sequences: new Nofs(uint32le)
   animations: new Nofs()
   animationLookups: new Nofs()
   bones: new Nofs()
