@@ -1,7 +1,6 @@
 {expect, fixtures, memo, sinon} = require('../spec-helper')
 
 fs =require('fs')
-util = require('util')
 r = require('restructure')
 
 M2 = require('../../lib/m2')
