@@ -1,7 +1,6 @@
-{floatle, uint32le} = require('../types')
+{floatle, uint32le, Vec3Float} = require('../types')
 r = require('restructure')
 Nofs = require('./nofs')
-Vec3Float = require('./vec3-float')
 Vertex = require('./vertex')
 
 module.exports = new r.Struct(
