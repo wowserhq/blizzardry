@@ -22,4 +22,18 @@ describe 'BLP.Mipmap', ->
 
   describe '#data', ->
     it 'returns pixel data', ->
-      expect(dummy().data.length).to.eq 65536
+      pixels = dummy().data
+      expect(pixels.length).to.eq 65536
+      expect(pixels[0..3]).to.deep.eq new Buffer [0xa2, 0xa2, 0xa2, 0xdd]
+      expect(pixels[-4..]).to.deep.eq new Buffer [0x2c, 0x4a, 0x65, 0xdd]
+
+  describe '#bgra', ->
+    it 'returns pixel data in BGRA format', ->
+      expect(dummy().bgra).to.deep.eq dummy().data
+
+  describe '#rgba', ->
+    it 'returns pixel data in RGBA format', ->
+      pixels = dummy().rgba
+      expect(pixels.length).to.eq 65536
+      expect(pixels[0..3]).to.deep.eq new Buffer [0xa2, 0xa2, 0xa2, 0xdd]
+      expect(pixels[-4..]).to.deep.eq new Buffer [0x65, 0x4a, 0x2c, 0xdd]

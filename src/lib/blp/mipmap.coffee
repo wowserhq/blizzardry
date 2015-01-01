@@ -18,3 +18,14 @@ class Mipmap
     data = BLPLib.blp_convert @blp.file, @blp.handle, @level
     size = @width * @height * 4
     data.reinterpret(size, 0)
+
+  get bgra: ->
+    @data
+
+  get rgba: ->
+    pixels = @data
+    for blue, i in pixels by 4
+      red = pixels[i + 2]
+      pixels[i] = red
+      pixels[i + 2] = blue
+    pixels
