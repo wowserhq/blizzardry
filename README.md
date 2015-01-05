@@ -39,6 +39,10 @@ Compile these libraries from source and ensure they end up on the load path.
 
 ## Usage
 
+### [ADT](src/lib/adt)
+
+Usage coming soon.
+
 ### [BLP](src/lib/blp)
 
 Texture format holding up to 16 pre-rendered [mipmaps](https://en.wikipedia.org/wiki/Mipmap).
@@ -71,17 +75,18 @@ blp = BLP.open('RabbitSkin.blp')
 blp.close()
 ```
 
-
 ### [DBC](src/lib/dbc)
 
 Usage coming soon.
-
 
 ### [M2](src/lib/m2)
 
 Usage coming soon.
 
-
 ### [MPQ](src/lib/mpq)
+
+Usage coming soon.
+
+### [WDT](src/lib/wdt)
 
 Usage coming soon.
