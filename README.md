@@ -24,15 +24,10 @@ Or for usage in the browser, [soon™](http://www.wowwiki.com/Soon).
 ## Requirements
 
 - [StormLib](https://github.com/ladislav-zezula/StormLib) (MPQ support)
-- [BLPConverter](https://github.com/Kanma/BLPConverter) (BLP support)
 
 ### OSX
 
 Install these libraries easily using [Homebrew](http://brew.sh/):
-
-```
-brew install https://raw.githubusercontent.com/timkurvers/homebrew-games/formula/blp-converter/blp-converter.rb
-```
 
 ```
 brew install https://raw.githubusercontent.com/timkurvers/homebrew-games/formula/storm-lib/storm-lib.rb
@@ -53,7 +48,14 @@ Usage coming soon.
 
 Texture format holding up to 16 pre-rendered [mipmaps](https://en.wikipedia.org/wiki/Mipmap).
 
-Blizzardry uses [BLPConverter](https://github.com/Kanma/BLPConverter) to process BLPs.
+Blizzardry uses [BLPConverter](https://github.com/Kanma/BLPConverter) to process BLPs, which on OSX can be installed using [Homebrew](http://brew.sh/):
+
+````
+brew install https://raw.githubusercontent.com/timkurvers/homebrew-games/formula/blp-converter/blp-converter.rb
+````
+
+For all other platforms, compile from source and ensure the library ends up on the load path.
+
 
 ```javascript
 BLP.open('RabbitSkin.blp', function(blp) {
