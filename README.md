@@ -21,23 +21,6 @@ npm install blizzardry
 Or for usage in the browser, [soon™](http://www.wowwiki.com/Soon).
 
 
-## Requirements
-
-- [StormLib](https://github.com/ladislav-zezula/StormLib) (MPQ support)
-
-### OSX
-
-Install these libraries easily using [Homebrew](http://brew.sh/):
-
-```
-brew install https://raw.githubusercontent.com/timkurvers/homebrew-games/formula/storm-lib/storm-lib.rb
-```
-
-### Other platforms
-
-Compile these libraries from source and ensure they end up on the load path.
-
-
 ## Usage
 
 ### [ADT](src/lib/adt)
@@ -92,6 +75,16 @@ Usage coming soon.
 Usage coming soon.
 
 ### [MPQ](src/lib/mpq)
+
+Generic archive format, used in [most](http://en.wikipedia.org/wiki/MPQ#Usage_in_gaming) Blizzard games.
+
+Blizzardry uses [StormLib](https://github.com/ladislav-zezula/StormLib) to handle MPQ archives, which on OSX can be installed using [Homebrew](http://brew.sh/):
+
+```
+brew install https://raw.githubusercontent.com/timkurvers/homebrew-games/formula/storm-lib/storm-lib.rb
+```
+
+For all other platforms, compile from source and ensure the library ends up on the load path.
 
 Usage coming soon.
 
