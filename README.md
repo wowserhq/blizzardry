@@ -12,7 +12,13 @@ Licensed under the **MIT** license, see LICENSE for more information.
 
 ## Installation
 
-Documentation to follow shortly.
+Blizzardry is available via [npm](https://www.npmjs.org/package/blizzardry):
+
+```shell
+npm install blizzardry
+```
+
+Or for usage in the browser, [soon™](http://www.wowwiki.com/Soon).
 
 
 ## Requirements
