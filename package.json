@@ -14,9 +14,14 @@
   "author": "Tim Kurvers <tim@moonsphere.net>",
   "license": "MIT",
   "keywords": [
+    "adt",
     "blizzardry",
     "blizzard",
-    "mpq"
+    "blp",
+    "dbc",
+    "m2",
+    "mpq",
+    "wdt"
   ],
   "dependencies": {
     "attr-accessor": "^0.2.1",
