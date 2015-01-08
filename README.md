@@ -63,9 +63,9 @@ BLP.open('RabbitSkin.blp', function(blp) {
 
 // Or alternatively:
 
-blp = BLP.open('RabbitSkin.blp')
+blp = BLP.open('RabbitSkin.blp');
 // ...
-blp.close()
+blp.close();
 ```
 
 ### [DBC](src/lib/dbc)
