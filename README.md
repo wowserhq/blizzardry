@@ -41,6 +41,8 @@ For all other platforms, compile from source and ensure the library ends up on t
 
 
 ```javascript
+BLP = require('blizzardry/lib/blp');
+
 BLP.open('RabbitSkin.blp', function(blp) {
   blp.version     // 2
   blp.mipmapCount // 8
