@@ -88,7 +88,38 @@ brew install https://raw.githubusercontent.com/timkurvers/homebrew-games/formula
 
 For all other platforms, compile from source and ensure the library ends up on the load path.
 
-Usage coming soon.
+```javascript
+MPQ = require('blizzardry/lib/mpq');
+
+MPQ.open('common.MPQ', function(mpq) {
+  mpq.files.contains('Creature\\Illidan\\Illidan.m2') // true
+
+  // Extract to local filesystem
+  mpq.files.extract('Creature\\Illidan\\Illidan.m2', '~/Illidan.m2');
+
+  // Iterate over all entries
+  mpq.files.all.forEach(function(result)) {
+    result.filename // 'SPELLS\\ArcaneBomb_Missle.M2'
+    result.name     // 'ArcaneBomb_Missle.M2'
+    result.filesize // 28928
+  });
+
+  // Or search for entries (supports wildcards)
+  mpq.files.find('*Illidan*');
+
+  // Accessing file data
+  file = mpq.files.get('Creature\\Illidan\\Illidan.m2');
+  file.name // 'Creature\\Illidan\\Illidan.m2'
+  file.size // 1888368
+  file.data // <Buffer 4d 44 32 30 08 01 00 00 ...>
+});
+
+// Or alternatively:
+
+var mpq = MPQ.open('common.MPQ');
+// ...
+mpq.close();
+```
 
 ### [WDT](src/lib/wdt)
 
