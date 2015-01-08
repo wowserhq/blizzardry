@@ -56,13 +56,11 @@ BLP.open('RabbitSkin.blp', function(blp) {
   blp.smallest.data   // <Buffer 7e 98 af ee>
 
   // Or directly:
-
   blp.mipmaps[3].width  // 16
   blp.mipmaps[3].height // 16
 });
 
 // Or alternatively:
-
 var blp = BLP.open('RabbitSkin.blp');
 // ...
 blp.close();
@@ -104,7 +102,7 @@ MPQ.open('common.MPQ', function(mpq) {
     result.filesize // 28928
   });
 
-  // Or search for entries (supports wildcards)
+  // Search for entries (supports wildcards)
   mpq.files.find('*Illidan*');
 
   // Accessing file data
@@ -115,7 +113,6 @@ MPQ.open('common.MPQ', function(mpq) {
 });
 
 // Or alternatively:
-
 var mpq = MPQ.open('common.MPQ');
 // ...
 mpq.close();
