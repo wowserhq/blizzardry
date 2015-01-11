@@ -16,3 +16,5 @@ before_install:
   - sudo make install
   - sudo ldconfig
   - cd $TRAVIS_BUILD_DIR
+script: npm test --coverage
+after_script: codeclimate < coverage/lcov.info
