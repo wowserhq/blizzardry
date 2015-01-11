@@ -8,7 +8,7 @@
     "LICENSE.md"
   ],
   "scripts": {
-    "test": "mocha spec --recursive"
+    "test": "istanbul cover --include-all-sources ./node_modules/mocha/bin/_mocha -- spec --recursive"
   },
   "repository": "timkurvers/blizzardry",
   "author": "Tim Kurvers <tim@moonsphere.net>",
@@ -45,6 +45,7 @@
     "gulp-rename": "^1.2.0",
     "gulp-rimraf": "^0.1.0",
     "gulp-uglify": "^1.0.0",
+    "istanbul": "^0.3.5",
     "memo-is": "0.0.2",
     "mocha": "^1.21.4",
     "sinon": "^1.10.3",
