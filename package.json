@@ -8,7 +8,7 @@
     "LICENSE.md"
   ],
   "scripts": {
-    "test": "istanbul cover --include-all-sources ./node_modules/mocha/bin/_mocha -- spec --recursive"
+    "test": "istanbul test ./node_modules/mocha/bin/_mocha -- spec --recursive"
   },
   "repository": "timkurvers/blizzardry",
   "author": "Tim Kurvers <tim@moonsphere.net>",
