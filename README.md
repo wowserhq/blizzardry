@@ -69,7 +69,34 @@ blp.close();
 
 ### [DBC](src/lib/dbc)
 
-Usage coming soon.
+Client database format, containing data on items, NPCs, environments and more.
+
+```javascript
+r = require('blizzardry/lib/restructure');
+DBC = require('blizzardry/lib/dbc');
+
+io = fs.fileReadSync('Faction.dbc');
+stream = new r.DecodeStream(io);
+
+dbc = DBC.decode(stream);
+dbc.signature   // 'WDBC'
+dbc.recordCount // 396
+dbc.records[0]  // <Buffer 01 00 00 00 ff ff ff ff ...>
+```
+
+To avoid parsing records manually, use one of the [pre-defined DBC entities](src/lib/dbc/entities):
+
+```javascript
+Faction = require('blizzardry/lib/dbc/entities/faction');
+
+dbc = Faction.dbc.decode(stream);
+dbc.records.forEach(function(record) {
+  record.id          // 576
+  record.parentID    // 1118
+  record.name        // 'Timbermaw Hold'
+  record.description // 'As the last uncorrupted furbolg tribe ...'
+});
+```
 
 ### [M2](src/lib/m2)
 
