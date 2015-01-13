@@ -75,7 +75,7 @@ Client database format, containing data on items, NPCs, environments and more.
 r = require('blizzardry/lib/restructure');
 DBC = require('blizzardry/lib/dbc');
 
-io = fs.fileReadSync('Faction.dbc');
+io = fs.readFileSync('Faction.dbc');
 stream = new r.DecodeStream(io);
 
 dbc = DBC.decode(stream);
