@@ -100,7 +100,20 @@ dbc.records.forEach(function(record) {
 
 ### [M2](src/lib/m2)
 
-Usage coming soon.
+3D model format for player characters, NPCs and doodads, among others.
+
+```javascript
+r = require('blizzardry/lib/restructure');
+M2 = require('blizzardry/lib/m2');
+
+io = fs.readFileSync('Rabbit.m2');
+stream = new r.DecodeStream(io);
+
+m2 = M2.decode(stream);
+m2.signature // 'MD20'
+m2.name      // 'Rabbit'
+m2.vertices[0].position // [ -0.2735.., -0.0035.., 0.3579.. ]
+```
 
 ### [MPQ](src/lib/mpq)
 
