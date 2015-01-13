@@ -124,7 +124,7 @@ MPQ.open('common.MPQ', function(mpq) {
   mpq.files.extract('Creature\\Illidan\\Illidan.m2', '~/Illidan.m2');
 
   // Iterate over all entries
-  mpq.files.all.forEach(function(result)) {
+  mpq.files.all.forEach(function(result) {
     result.filename // 'SPELLS\\ArcaneBomb_Missle.M2'
     result.name     // 'ArcaneBomb_Missle.M2'
     result.filesize // 28928
