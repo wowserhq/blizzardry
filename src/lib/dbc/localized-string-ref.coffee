@@ -3,7 +3,7 @@ r = require('restructure')
 StringRef = require('./string-ref')
 
 class LocalizedStringRef
-  module.exports = new(this)
+  module.exports = new this()
 
   constructor: ->
     @strings = new r.Array(StringRef, 17)
