@@ -60,8 +60,9 @@ describe('DBC', function() {
   });
   return describe('#records', function() {
     return it('returns records', function() {
-      var first, last, _ref2;
-      _ref2 = dummy().records, first = _ref2[0], last = _ref2[_ref2.length - 1];
+      var first, last, records, _ref2;
+      _ref2 = records = dummy().records, first = _ref2[0], last = _ref2[_ref2.length - 1];
+      expect(records.length).to.eq(8);
       expect(first).to.deep.eq({
         id: 1,
         name: 'John',

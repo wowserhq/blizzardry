@@ -48,8 +48,8 @@ describe 'DBC', ->
 
   describe '#records', ->
     it 'returns records', ->
-      [first, ..., last] = dummy().records
-
+      [first, ..., last] = records = dummy().records
+      expect(records.length).to.eq 8
       expect(first).to.deep.eq(
         id: 1
         name: 'John'
@@ -58,7 +58,6 @@ describe 'DBC', ->
         friend1: 2
         friend2: 0
       )
-
       expect(last).to.deep.eq(
         id: 10
         name: 'Brad'
