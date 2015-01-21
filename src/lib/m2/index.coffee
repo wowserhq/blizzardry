@@ -1,25 +1,25 @@
-{floatle, uint32le, Vec3Float} = require('../types')
+{Vec3Float} = require('../types')
 r = require('restructure')
 Nofs = require('./nofs')
 Vertex = require('./vertex')
 
 module.exports = new r.Struct(
   signature: new r.String(4)
-  version: uint32le
+  version: r.uint32le
 
   names: new Nofs(new r.String())
   name: -> @names[0]
 
-  flags: uint32le
+  flags: r.uint32le
 
-  sequences: new Nofs(uint32le)
+  sequences: new Nofs(r.uint32le)
   animations: new Nofs()
   animationLookups: new Nofs()
   bones: new Nofs()
   keyBoneLookups: new Nofs()
   vertices: new Nofs(Vertex)
 
-  viewCount: uint32le
+  viewCount: r.uint32le
 
   colors: new Nofs()
   textures: new Nofs()
@@ -35,11 +35,11 @@ module.exports = new r.Struct(
 
   minVertexBox: Vec3Float
   maxVertexBox: Vec3Float
-  vertexRadius: floatle
+  vertexRadius: r.floatle
 
   minBoundingBox: Vec3Float
   maxBoundingBox: Vec3Float
-  boundingRadius: floatle
+  boundingRadius: r.floatle
 
   boundingTriangles: new Nofs()
   boundingVertices: new Nofs()
@@ -53,6 +53,6 @@ module.exports = new r.Struct(
   ribbonEmitters: new Nofs()
   particleEmitters: new Nofs()
 
-  unknown1: new r.Optional(uint32le, -> @flags == 8)
-  unknown2: new r.Optional(uint32le, -> @flags == 8)
+  unknown1: new r.Optional(r.uint32le, -> @flags == 8)
+  unknown2: new r.Optional(r.uint32le, -> @flags == 8)
 )

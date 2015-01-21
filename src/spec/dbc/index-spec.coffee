@@ -1,6 +1,5 @@
 {expect, fixtures, memo, sinon} = require('../spec-helper')
 
-{floatle, int32le, uint32le} = require('../../lib/types')
 fs = require('fs')
 r = require('restructure')
 Entity = require('../../lib/dbc/entity')
@@ -9,12 +8,12 @@ StringRef = require('../../lib/dbc/string-ref')
 describe 'DBC', ->
 
   Sample = Entity(
-    id: uint32le
+    id: r.uint32le
     name: StringRef
-    points: int32le
-    height: floatle
-    friend1: uint32le
-    friend2: uint32le
+    points: r.int32le
+    height: r.floatle
+    friend1: r.uint32le
+    friend2: r.uint32le
   )
 
   dummy = memo().is ->

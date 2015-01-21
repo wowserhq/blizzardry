@@ -1,17 +1,16 @@
 r = require('restructure')
-{uint32le} = require('../types')
 Chunk = require('../chunked/chunk')
 Chunked = require('../chunked')
 SkipChunk = require('../chunked/skip-chunk')
 
 MPHD = Chunk(
-  flags: uint32le
-  skip: new r.Reserved(uint32le, 7)
+  flags: r.uint32le
+  skip: new r.Reserved(r.uint32le, 7)
 )
 
 MapChunk = new r.Struct(
-  flags: uint32le
-  skip: new r.Reserved(uint32le)
+  flags: r.uint32le
+  skip: new r.Reserved(r.uint32le)
 )
 
 MAIN = Chunk(

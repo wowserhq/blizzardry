@@ -1,6 +1,6 @@
-{uint32le} = require('../types')
+r = require('restructure')
 Chunk = require('./chunk')
 
 module.exports = Chunk(
-  version: uint32le
+  version: r.uint32le
 )

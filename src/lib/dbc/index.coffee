@@ -1,14 +1,13 @@
 r = require('restructure')
-{uint32le} = require('../types')
 xtend = require('xtend')
 
 DBC = new r.Struct(
   signature: new r.String(4)
 
-  recordCount: uint32le
-  fieldCount: uint32le
-  recordSize: uint32le
-  stringBlockSize: uint32le
+  recordCount: r.uint32le
+  fieldCount: r.uint32le
+  recordSize: r.uint32le
+  stringBlockSize: r.uint32le
   stringBlockOffset: -> 4 * 5 + @recordCount * @recordSize
 
   records: new r.Array(new r.Buffer(-> @recordSize), -> @recordCount)

@@ -1,29 +1,28 @@
-{floatle, int32le, uint32le} = require('../../types')
 r = require('restructure')
 Entity = require('../entity')
 LocalizedStringRef = require('../localized-string-ref')
 StringRef = require('../string-ref')
 
 module.exports = Entity(
-  id: uint32le
+  id: r.uint32le
   internalName: StringRef
-  type: uint32le
-  pvp: uint32le
+  type: r.uint32le
+  pvp: r.uint32le
   name: LocalizedStringRef
-  areaTableID: uint32le
+  areaTableID: r.uint32le
 
   hordeIntro: LocalizedStringRef
   allianceIntro: LocalizedStringRef
 
-  loadingScreenID: uint32le
+  loadingScreenID: r.uint32le
   minimapIconScale: floatle
 
-  corpseMapID: int32le
-  corpseStartX: floatle
-  corpseStartY: floatle
+  corpseMapID: r.int32le
+  corpseStartX: r.floatle
+  corpseStartY: r.floatle
 
-  timeOfDayOverride: int32le
-  expansionID: uint32le
-  maxPlayers: uint32le
-  numberOfPlayers: uint32le
+  timeOfDayOverride: r.int32le
+  expansionID: r.uint32le
+  maxPlayers: r.uint32le
+  numberOfPlayers: r.uint32le
 )

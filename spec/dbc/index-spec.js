@@ -1,8 +1,6 @@
-var Entity, StringRef, expect, fixtures, floatle, fs, int32le, memo, r, sinon, uint32le, _ref, _ref1;
+var Entity, StringRef, expect, fixtures, fs, memo, r, sinon, _ref;
 
 _ref = require('../spec-helper'), expect = _ref.expect, fixtures = _ref.fixtures, memo = _ref.memo, sinon = _ref.sinon;
-
-_ref1 = require('../../lib/types'), floatle = _ref1.floatle, int32le = _ref1.int32le, uint32le = _ref1.uint32le;
 
 fs = require('fs');
 
@@ -15,12 +13,12 @@ StringRef = require('../../lib/dbc/string-ref');
 describe('DBC', function() {
   var Sample, dummy;
   Sample = Entity({
-    id: uint32le,
+    id: r.uint32le,
     name: StringRef,
-    points: int32le,
-    height: floatle,
-    friend1: uint32le,
-    friend2: uint32le
+    points: r.int32le,
+    height: r.floatle,
+    friend1: r.uint32le,
+    friend2: r.uint32le
   });
   dummy = memo().is(function() {
     var data, stream;
@@ -60,8 +58,8 @@ describe('DBC', function() {
   });
   return describe('#records', function() {
     return it('returns records', function() {
-      var first, last, records, _ref2;
-      _ref2 = records = dummy().records, first = _ref2[0], last = _ref2[_ref2.length - 1];
+      var first, last, records, _ref1;
+      _ref1 = records = dummy().records, first = _ref1[0], last = _ref1[_ref1.length - 1];
       expect(records.length).to.eq(8);
       expect(first).to.deep.eq({
         id: 1,
