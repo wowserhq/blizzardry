@@ -51,7 +51,41 @@ describe 'M2', ->
     xit 'returns key bone lookups'
 
   describe '#vertices', ->
-    xit 'returns vertices'
+    it 'returns vertices', ->
+      [first, ..., last] = vertices = dummy().vertices
+      expect(vertices.length).to.eq 154
+      expect(first).to.deep.eq(
+        position: [
+          -0.2735399901866913,
+          -0.003535992233082652,
+          0.3579200804233551
+        ]
+        boneWeights: [255, 0, 0, 0]
+        boneIndices: [2, 0, 0, 0]
+        normal: [
+          -0.44266101717948914,
+          0.004395408555865288,
+          0.8966782689094543
+        ]
+        textureCoords: [0.9776850342750549, 0.27029675245285034]
+        random: [0, 0]
+      )
+      expect(last).to.deep.eq(
+        position: [
+          0.1501760482788086,
+          -0.0035360539332032204,
+          0.05207005515694618
+        ]
+        boneWeights: [64, 64, 64, 63]
+        boneIndices: [7, 8, 14, 9]
+        normal: [
+          0.48488274216651917,
+          -0.00041133747436106205,
+          -0.8745790719985962
+        ]
+        textureCoords: [0.16209588944911957, 0.3589469790458679]
+        random: [0, 0]
+      )
 
   describe '#viewCount', ->
     it 'returns view count', ->
