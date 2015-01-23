@@ -11,7 +11,7 @@ class Nofs
       length = @length.call(null, length)
 
     if @type
-      pointer = new r.Pointer(r.uint32le, new r.Array(@type, length))
+      pointer = new r.Pointer(r.uint32le, new r.Array(@type, length), 'global')
       pointer.decode(stream, parent)
     else
       r.uint32le.decode(stream)
