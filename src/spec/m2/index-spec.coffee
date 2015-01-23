@@ -138,7 +138,7 @@ describe 'M2', ->
           globalSequenceID: -1
           timestamps: []
           values: []
-        },
+        }
         pivotPoint: { x: 0, y: 0, z: 0 }
       )
 
