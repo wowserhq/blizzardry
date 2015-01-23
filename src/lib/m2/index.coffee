@@ -1,5 +1,6 @@
 {Vec3Float} = require('../types')
 r = require('restructure')
+Bone = require('./bone')
 Nofs = require('./nofs')
 Vertex = require('./vertex')
 
@@ -15,7 +16,7 @@ module.exports = new r.Struct(
   sequences: new Nofs(r.uint32le)
   animations: new Nofs()
   animationLookups: new Nofs()
-  bones: new Nofs()
+  bones: new Nofs(Bone)
   keyBoneLookups: new Nofs()
   vertices: new Nofs(Vertex)
 
