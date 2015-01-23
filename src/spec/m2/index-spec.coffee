@@ -143,7 +143,11 @@ describe 'M2', ->
       )
 
   describe '#keyBoneLookups', ->
-    xit 'returns key bone lookups'
+    it 'returns key bone lookups', ->
+      expect(dummy().keyBoneLookups).to.deep.eq [
+        -1, -1, -1, -1, -1, -1, 7, -1, -1, -1, -1, -1, -1, -1,
+        -1, -1, -1, -1, -1, -1, -1, 35, 20, -1, -1, -1, 1
+      ]
 
   describe '#vertices', ->
     it 'returns vertices', ->

@@ -312,7 +312,9 @@ describe('M2', function() {
     });
   });
   describe('#keyBoneLookups', function() {
-    return xit('returns key bone lookups');
+    return it('returns key bone lookups', function() {
+      return expect(dummy().keyBoneLookups).to.deep.eq([-1, -1, -1, -1, -1, -1, 7, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 35, 20, -1, -1, -1, 1]);
+    });
   });
   describe('#vertices', function() {
     return it('returns vertices', function() {

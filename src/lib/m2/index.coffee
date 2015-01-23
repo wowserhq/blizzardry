@@ -17,7 +17,8 @@ module.exports = new r.Struct(
   animations: new Nofs()
   animationLookups: new Nofs()
   bones: new Nofs(Bone)
-  keyBoneLookups: new Nofs()
+  keyBoneLookups: new Nofs(r.int16le)
+
   vertices: new Nofs(Vertex)
 
   viewCount: r.uint32le
