@@ -4,11 +4,17 @@ DBC = require('../../lib/dbc/entities')
 
 describe 'DBC.Entities', ->
 
+  entity = (name) ->
+    require("../../lib/dbc/entities/#{name}")
+
   it 'exposes AnimationData entity', ->
-    expect(DBC.AnimationData).to.eq require('../../lib/dbc/entities/animation-data')
+    expect(DBC.AnimationData).to.eq entity('animation-data')
+
+  it 'exposes CreatureDisplayInfo entity', ->
+    expect(DBC.CreatureDisplayInfo).to.eq entity('creature-display-info')
 
   it 'exposes Faction entity', ->
-    expect(DBC.Faction).to.eq require('../../lib/dbc/entities/faction')
+    expect(DBC.Faction).to.eq entity('faction')
 
   it 'exposes Map entity', ->
-    expect(DBC.Map).to.eq require('../../lib/dbc/entities/map')
+    expect(DBC.Map).to.eq entity('map')

@@ -5,13 +5,20 @@ _ref = require('../spec-helper'), expect = _ref.expect, fixtures = _ref.fixtures
 DBC = require('../../lib/dbc/entities');
 
 describe('DBC.Entities', function() {
+  var entity;
+  entity = function(name) {
+    return require("../../lib/dbc/entities/" + name);
+  };
   it('exposes AnimationData entity', function() {
-    return expect(DBC.AnimationData).to.eq(require('../../lib/dbc/entities/animation-data'));
+    return expect(DBC.AnimationData).to.eq(entity('animation-data'));
+  });
+  it('exposes CreatureDisplayInfo entity', function() {
+    return expect(DBC.CreatureDisplayInfo).to.eq(entity('creature-display-info'));
   });
   it('exposes Faction entity', function() {
-    return expect(DBC.Faction).to.eq(require('../../lib/dbc/entities/faction'));
+    return expect(DBC.Faction).to.eq(entity('faction'));
   });
   return it('exposes Map entity', function() {
-    return expect(DBC.Map).to.eq(require('../../lib/dbc/entities/map'));
+    return expect(DBC.Map).to.eq(entity('map'));
   });
 });
