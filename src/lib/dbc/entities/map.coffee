@@ -15,7 +15,7 @@ module.exports = Entity(
   allianceIntro: LocalizedStringRef
 
   loadingScreenID: r.uint32le
-  minimapIconScale: floatle
+  minimapIconScale: r.floatle
 
   corpseMapID: r.int32le
   corpseStartX: r.floatle
