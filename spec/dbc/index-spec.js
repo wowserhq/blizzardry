@@ -20,46 +20,46 @@ describe('DBC', function() {
     friend1: r.uint32le,
     friend2: r.uint32le
   });
-  dummy = memo().is(function() {
+  dummy = (function() {
     var data, stream;
     data = fs.readFileSync(fixtures + 'Sample.dbc');
     stream = new r.DecodeStream(data);
     return Sample.dbc.decode(stream);
-  });
+  })();
   describe('#signature', function() {
     return it('returns WDBC', function() {
-      return expect(dummy().signature).to.eq('WDBC');
+      return expect(dummy.signature).to.eq('WDBC');
     });
   });
   describe('#recordCount', function() {
     return it('returns amount of records', function() {
-      return expect(dummy().recordCount).to.eq(8);
+      return expect(dummy.recordCount).to.eq(8);
     });
   });
   describe('#fieldCount', function() {
     return it('returns amount of fields', function() {
-      return expect(dummy().fieldCount).to.eq(6);
+      return expect(dummy.fieldCount).to.eq(6);
     });
   });
   describe('#recordSize', function() {
     return it('returns size of a single record', function() {
-      return expect(dummy().recordSize).to.eq(24);
+      return expect(dummy.recordSize).to.eq(24);
     });
   });
   describe('#stringBlockSize', function() {
     return it('returns size of string block', function() {
-      return expect(dummy().stringBlockSize).to.eq(96);
+      return expect(dummy.stringBlockSize).to.eq(96);
     });
   });
   describe('#stringBlockOffset', function() {
     return it('returns offset of string block', function() {
-      return expect(dummy().stringBlockOffset).to.eq(212);
+      return expect(dummy.stringBlockOffset).to.eq(212);
     });
   });
   return describe('#records', function() {
     return it('returns records', function() {
       var first, last, records, _ref1;
-      _ref1 = records = dummy().records, first = _ref1[0], last = _ref1[_ref1.length - 1];
+      _ref1 = records = dummy.records, first = _ref1[0], last = _ref1[_ref1.length - 1];
       expect(records.length).to.eq(8);
       expect(first).to.deep.eq({
         id: 1,

@@ -7,36 +7,36 @@ M2 = require('../../lib/m2')
 
 describe 'M2', ->
 
-  dummy = memo().is ->
+  dummy = do ->
     data = fs.readFileSync fixtures + 'Rabbit.m2'
     stream = new r.DecodeStream data
     M2.decode stream
 
   describe '#signature', ->
     it 'returns MD20', ->
-      expect(dummy().signature).to.eq 'MD20'
+      expect(dummy.signature).to.eq 'MD20'
 
   describe '#version', ->
     it 'returns version number', ->
-      expect(dummy().version).to.eq 264
+      expect(dummy.version).to.eq 264
 
   describe '#names', ->
     it 'returns all names', ->
-      expect(dummy().names).to.deep.eq [
+      expect(dummy.names).to.deep.eq [
         'Rabbit', '', '', '', '', '', ''
       ]
 
   describe '#name', ->
     it 'returns first name', ->
-      expect(dummy().name).to.eq 'Rabbit'
+      expect(dummy.name).to.eq 'Rabbit'
 
   describe '#flags', ->
     it 'returns flags', ->
-      expect(dummy().flags).to.eq 1
+      expect(dummy.flags).to.eq 1
 
   describe '#sequences', ->
     it 'returns sequences', ->
-      expect(dummy().sequences).to.deep.eq [0]
+      expect(dummy.sequences).to.deep.eq [0]
 
   describe '#animations', ->
     xit 'returns animations'
@@ -46,7 +46,7 @@ describe 'M2', ->
 
   describe '#bones', ->
     it 'returns bones', ->
-      [bone] = bones = dummy().bones
+      [bone] = bones = dummy.bones
       expect(bones.length).to.eq 40
       expect(bone).to.deep.eq(
         keyBoneID: -1
@@ -144,14 +144,14 @@ describe 'M2', ->
 
   describe '#keyBoneLookups', ->
     it 'returns key bone lookups', ->
-      expect(dummy().keyBoneLookups).to.deep.eq [
+      expect(dummy.keyBoneLookups).to.deep.eq [
         -1, -1, -1, -1, -1, -1, 7, -1, -1, -1, -1, -1, -1, -1,
         -1, -1, -1, -1, -1, -1, -1, 35, 20, -1, -1, -1, 1
       ]
 
   describe '#vertices', ->
     it 'returns vertices', ->
-      [first, ..., last] = vertices = dummy().vertices
+      [first, ..., last] = vertices = dummy.vertices
       expect(vertices.length).to.eq 154
       expect(first).to.deep.eq(
         position: [
@@ -188,7 +188,7 @@ describe 'M2', ->
 
   describe '#viewCount', ->
     it 'returns view count', ->
-      expect(dummy().viewCount).to.eq 1
+      expect(dummy.viewCount).to.eq 1
 
   describe '#colors', ->
     xit 'returns colors'
@@ -225,7 +225,7 @@ describe 'M2', ->
 
   describe '#minVertexBox', ->
     it 'returns minimum vertex box', ->
-      expect(dummy().minVertexBox).to.deep.eq {
+      expect(dummy.minVertexBox).to.deep.eq {
         x: -0.6340768337249756
         y: -0.3105764091014862
         z: -0.15670306980609894
@@ -233,7 +233,7 @@ describe 'M2', ->
 
   describe '#maxVertexBox', ->
     it 'returns maximum vertex box', ->
-      expect(dummy().maxVertexBox).to.deep.eq {
+      expect(dummy.maxVertexBox).to.deep.eq {
         x: 0.47685110569000244
         y: 0.47006168961524963
         z: 0.8000571727752686
@@ -244,7 +244,7 @@ describe 'M2', ->
 
   describe '#minBoundingBox', ->
     it 'returns minimum bounding box', ->
-      expect(dummy().minBoundingBox).to.deep.eq {
+      expect(dummy.minBoundingBox).to.deep.eq {
         x: -0.3055555522441864
         y: -0.3055555522441864
         z: 0
@@ -252,7 +252,7 @@ describe 'M2', ->
 
   describe '#maxBoundingBox', ->
     it 'returns maximum bounding box', ->
-      expect(dummy().maxBoundingBox).to.deep.eq {
+      expect(dummy.maxBoundingBox).to.deep.eq {
         x: 0.3055555522441864
         y: 0.3055555522441864
         z: 2.031277894973755

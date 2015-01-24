@@ -10,40 +10,40 @@ M2 = require('../../lib/m2');
 
 describe('M2', function() {
   var dummy;
-  dummy = memo().is(function() {
+  dummy = (function() {
     var data, stream;
     data = fs.readFileSync(fixtures + 'Rabbit.m2');
     stream = new r.DecodeStream(data);
     return M2.decode(stream);
-  });
+  })();
   describe('#signature', function() {
     return it('returns MD20', function() {
-      return expect(dummy().signature).to.eq('MD20');
+      return expect(dummy.signature).to.eq('MD20');
     });
   });
   describe('#version', function() {
     return it('returns version number', function() {
-      return expect(dummy().version).to.eq(264);
+      return expect(dummy.version).to.eq(264);
     });
   });
   describe('#names', function() {
     return it('returns all names', function() {
-      return expect(dummy().names).to.deep.eq(['Rabbit', '', '', '', '', '', '']);
+      return expect(dummy.names).to.deep.eq(['Rabbit', '', '', '', '', '', '']);
     });
   });
   describe('#name', function() {
     return it('returns first name', function() {
-      return expect(dummy().name).to.eq('Rabbit');
+      return expect(dummy.name).to.eq('Rabbit');
     });
   });
   describe('#flags', function() {
     return it('returns flags', function() {
-      return expect(dummy().flags).to.eq(1);
+      return expect(dummy.flags).to.eq(1);
     });
   });
   describe('#sequences', function() {
     return it('returns sequences', function() {
-      return expect(dummy().sequences).to.deep.eq([0]);
+      return expect(dummy.sequences).to.deep.eq([0]);
     });
   });
   describe('#animations', function() {
@@ -55,7 +55,7 @@ describe('M2', function() {
   describe('#bones', function() {
     return it('returns bones', function() {
       var bone, bones;
-      bone = (bones = dummy().bones)[0];
+      bone = (bones = dummy.bones)[0];
       expect(bones.length).to.eq(40);
       return expect(bone).to.deep.eq({
         keyBoneID: -1,
@@ -313,13 +313,13 @@ describe('M2', function() {
   });
   describe('#keyBoneLookups', function() {
     return it('returns key bone lookups', function() {
-      return expect(dummy().keyBoneLookups).to.deep.eq([-1, -1, -1, -1, -1, -1, 7, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 35, 20, -1, -1, -1, 1]);
+      return expect(dummy.keyBoneLookups).to.deep.eq([-1, -1, -1, -1, -1, -1, 7, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 35, 20, -1, -1, -1, 1]);
     });
   });
   describe('#vertices', function() {
     return it('returns vertices', function() {
       var first, last, vertices, _ref1;
-      _ref1 = vertices = dummy().vertices, first = _ref1[0], last = _ref1[_ref1.length - 1];
+      _ref1 = vertices = dummy.vertices, first = _ref1[0], last = _ref1[_ref1.length - 1];
       expect(vertices.length).to.eq(154);
       expect(first).to.deep.eq({
         position: [-0.2735399901866913, -0.003535992233082652, 0.3579200804233551],
@@ -341,7 +341,7 @@ describe('M2', function() {
   });
   describe('#viewCount', function() {
     return it('returns view count', function() {
-      return expect(dummy().viewCount).to.eq(1);
+      return expect(dummy.viewCount).to.eq(1);
     });
   });
   describe('#colors', function() {
@@ -379,7 +379,7 @@ describe('M2', function() {
   });
   describe('#minVertexBox', function() {
     return it('returns minimum vertex box', function() {
-      return expect(dummy().minVertexBox).to.deep.eq({
+      return expect(dummy.minVertexBox).to.deep.eq({
         x: -0.6340768337249756,
         y: -0.3105764091014862,
         z: -0.15670306980609894
@@ -388,7 +388,7 @@ describe('M2', function() {
   });
   describe('#maxVertexBox', function() {
     return it('returns maximum vertex box', function() {
-      return expect(dummy().maxVertexBox).to.deep.eq({
+      return expect(dummy.maxVertexBox).to.deep.eq({
         x: 0.47685110569000244,
         y: 0.47006168961524963,
         z: 0.8000571727752686
@@ -400,7 +400,7 @@ describe('M2', function() {
   });
   describe('#minBoundingBox', function() {
     return it('returns minimum bounding box', function() {
-      return expect(dummy().minBoundingBox).to.deep.eq({
+      return expect(dummy.minBoundingBox).to.deep.eq({
         x: -0.3055555522441864,
         y: -0.3055555522441864,
         z: 0
@@ -409,7 +409,7 @@ describe('M2', function() {
   });
   describe('#maxBoundingBox', function() {
     return it('returns maximum bounding box', function() {
-      return expect(dummy().maxBoundingBox).to.deep.eq({
+      return expect(dummy.maxBoundingBox).to.deep.eq({
         x: 0.3055555522441864,
         y: 0.3055555522441864,
         z: 2.031277894973755
