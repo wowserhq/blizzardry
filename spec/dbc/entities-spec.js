@@ -5,6 +5,9 @@ _ref = require('../spec-helper'), expect = _ref.expect, fixtures = _ref.fixtures
 DBC = require('../../lib/dbc/entities');
 
 describe('DBC.Entities', function() {
+  it('exposes AnimationData entity', function() {
+    return expect(DBC.AnimationData).to.eq(require('../../lib/dbc/entities/animation-data'));
+  });
   it('exposes Faction entity', function() {
     return expect(DBC.Faction).to.eq(require('../../lib/dbc/entities/faction'));
   });
