@@ -3,6 +3,7 @@
 fs = require('fs')
 r = require('restructure')
 Entity = require('../../lib/dbc/entity')
+LocalizedStringRef = require('../../lib/dbc/localized-string-ref')
 StringRef = require('../../lib/dbc/string-ref')
 
 describe 'DBC', ->
@@ -10,10 +11,9 @@ describe 'DBC', ->
   Sample = Entity(
     id: r.uint32le
     name: StringRef
+    localizedName: LocalizedStringRef
     points: r.int32le
     height: r.floatle
-    friend1: r.uint32le
-    friend2: r.uint32le
   )
 
   dummy = do ->
@@ -27,41 +27,39 @@ describe 'DBC', ->
 
   describe '#recordCount', ->
     it 'returns amount of records', ->
-      expect(dummy.recordCount).to.eq 8
+      expect(dummy.recordCount).to.eq 3
 
   describe '#fieldCount', ->
     it 'returns amount of fields', ->
-      expect(dummy.fieldCount).to.eq 6
+      expect(dummy.fieldCount).to.eq 21
 
   describe '#recordSize', ->
     it 'returns size of a single record', ->
-      expect(dummy.recordSize).to.eq 24
+      expect(dummy.recordSize).to.eq 84
 
   describe '#stringBlockSize', ->
     it 'returns size of string block', ->
-      expect(dummy.stringBlockSize).to.eq 96
+      expect(dummy.stringBlockSize).to.eq 10
 
   describe '#stringBlockOffset', ->
     it 'returns offset of string block', ->
-      expect(dummy.stringBlockOffset).to.eq 212
+      expect(dummy.stringBlockOffset).to.eq 272
 
   describe '#records', ->
     it 'returns records', ->
       [first, ..., last] = records = dummy.records
-      expect(records.length).to.eq 8
+      expect(records.length).to.eq 3
       expect(first).to.deep.eq(
         id: 1
         name: 'John'
-        points: 100
+        localizedName: 'Jon'
+        points: -1
         height: 1.7999999523162842
-        friend1: 2
-        friend2: 0
       )
       expect(last).to.deep.eq(
-        id: 10
+        id: 3
         name: 'Brad'
+        localizedName: 'Bradley'
         points: -10
         height: 1.5499999523162842
-        friend1: 0
-        friend2: 0
       )
