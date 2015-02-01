@@ -33,7 +33,7 @@ class Files
       throw new Error "file could not be extracted (#{errno})"
     true
 
-  all: ->
+  get all: ->
     @find '*'
 
   find: (pattern) ->

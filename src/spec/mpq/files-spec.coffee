@@ -36,7 +36,7 @@ describe 'MPQ.Files', ->
   describe '#all', ->
     it 'proxies to #find with predefined pattern', ->
       spy = @sandbox.spy dummy(), 'find'
-      results = dummy().all()
+      results = dummy().all
       expect(spy).to.have.been.calledWith('*')
       expect(results.length).to.eq 18
 

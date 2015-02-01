@@ -50,7 +50,7 @@ describe('MPQ.Files', function() {
     return it('proxies to #find with predefined pattern', function() {
       var results, spy;
       spy = this.sandbox.spy(dummy(), 'find');
-      results = dummy().all();
+      results = dummy().all;
       expect(spy).to.have.been.calledWith('*');
       return expect(results.length).to.eq(18);
     });
