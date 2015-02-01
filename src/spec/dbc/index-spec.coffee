@@ -2,6 +2,8 @@
 
 fs = require('fs')
 r = require('restructure')
+
+DBC = require('../../lib/dbc')
 Entity = require('../../lib/dbc/entity')
 LocalizedStringRef = require('../../lib/dbc/localized-string-ref')
 StringRef = require('../../lib/dbc/string-ref')
@@ -16,10 +18,12 @@ describe 'DBC', ->
     height: r.floatle
   )
 
-  dummy = do ->
+  stream = ->
     data = fs.readFileSync fixtures + 'Sample.dbc'
-    stream = new r.DecodeStream data
-    Sample.dbc.decode stream
+    new r.DecodeStream data
+
+  dummy = do ->
+    DBC.decode stream()
 
   describe '#signature', ->
     it 'returns WDBC', ->
@@ -46,20 +50,29 @@ describe 'DBC', ->
       expect(dummy.stringBlockOffset).to.eq 272
 
   describe '#records', ->
-    it 'returns records', ->
-      [first, ..., last] = records = dummy.records
-      expect(records.length).to.eq 3
-      expect(first).to.deep.eq(
-        id: 1
-        name: 'John'
-        localizedName: 'Jon'
-        points: -1
-        height: 1.7999999523162842
-      )
-      expect(last).to.deep.eq(
-        id: 3
-        name: 'Brad'
-        localizedName: 'Bradley'
-        points: -10
-        height: 1.5499999523162842
-      )
+    context 'when not using an entity', ->
+      it 'returns raw records', ->
+        [record, ...] = records = dummy.records
+        expect(records.length).to.eq 3
+        expect(record).to.be.an.instanceof Buffer
+        expect(record).to.have.length dummy.recordSize
+
+    context 'when using an entity', ->
+      it 'returns records', ->
+        sample = Sample.dbc.decode stream()
+        [first, ..., last] = records = sample.records
+        expect(records.length).to.eq 3
+        expect(first).to.deep.eq(
+          id: 1
+          name: 'John'
+          localizedName: 'Jon'
+          points: -1
+          height: 1.7999999523162842
+        )
+        expect(last).to.deep.eq(
+          id: 3
+          name: 'Brad'
+          localizedName: 'Bradley'
+          points: -10
+          height: 1.5499999523162842
+        )

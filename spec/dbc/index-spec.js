@@ -1,10 +1,12 @@
-var Entity, LocalizedStringRef, StringRef, expect, fixtures, fs, memo, r, sinon, _ref;
+var DBC, Entity, LocalizedStringRef, StringRef, expect, fixtures, fs, memo, r, sinon, _ref;
 
 _ref = require('../spec-helper'), expect = _ref.expect, fixtures = _ref.fixtures, memo = _ref.memo, sinon = _ref.sinon;
 
 fs = require('fs');
 
 r = require('restructure');
+
+DBC = require('../../lib/dbc');
 
 Entity = require('../../lib/dbc/entity');
 
@@ -13,7 +15,7 @@ LocalizedStringRef = require('../../lib/dbc/localized-string-ref');
 StringRef = require('../../lib/dbc/string-ref');
 
 describe('DBC', function() {
-  var Sample, dummy;
+  var Sample, dummy, stream;
   Sample = Entity({
     id: r.uint32le,
     name: StringRef,
@@ -21,11 +23,13 @@ describe('DBC', function() {
     points: r.int32le,
     height: r.floatle
   });
-  dummy = (function() {
-    var data, stream;
+  stream = function() {
+    var data;
     data = fs.readFileSync(fixtures + 'Sample.dbc');
-    stream = new r.DecodeStream(data);
-    return Sample.dbc.decode(stream);
+    return new r.DecodeStream(data);
+  };
+  dummy = (function() {
+    return DBC.decode(stream());
   })();
   describe('#signature', function() {
     return it('returns WDBC', function() {
@@ -58,23 +62,35 @@ describe('DBC', function() {
     });
   });
   return describe('#records', function() {
-    return it('returns records', function() {
-      var first, last, records, _ref1;
-      _ref1 = records = dummy.records, first = _ref1[0], last = _ref1[_ref1.length - 1];
-      expect(records.length).to.eq(3);
-      expect(first).to.deep.eq({
-        id: 1,
-        name: 'John',
-        localizedName: 'Jon',
-        points: -1,
-        height: 1.7999999523162842
+    context('when not using an entity', function() {
+      return it('returns raw records', function() {
+        var record, records, _ref1;
+        _ref1 = records = dummy.records, record = _ref1[0];
+        expect(records.length).to.eq(3);
+        expect(record).to.be.an["instanceof"](Buffer);
+        return expect(record).to.have.length(dummy.recordSize);
       });
-      return expect(last).to.deep.eq({
-        id: 3,
-        name: 'Brad',
-        localizedName: 'Bradley',
-        points: -10,
-        height: 1.5499999523162842
+    });
+    return context('when using an entity', function() {
+      return it('returns records', function() {
+        var first, last, records, sample, _ref1;
+        sample = Sample.dbc.decode(stream());
+        _ref1 = records = sample.records, first = _ref1[0], last = _ref1[_ref1.length - 1];
+        expect(records.length).to.eq(3);
+        expect(first).to.deep.eq({
+          id: 1,
+          name: 'John',
+          localizedName: 'Jon',
+          points: -1,
+          height: 1.7999999523162842
+        });
+        return expect(last).to.deep.eq({
+          id: 3,
+          name: 'Brad',
+          localizedName: 'Bradley',
+          points: -10,
+          height: 1.5499999523162842
+        });
       });
     });
   });
