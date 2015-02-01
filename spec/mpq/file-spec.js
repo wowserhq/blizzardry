@@ -11,6 +11,28 @@ describe('MPQ.File', function() {
   dummy = memo().is(function() {
     return MPQ.open(fixtures + 'dummy.w3m').files.get('(listfile)');
   });
+  describe('#close', function() {
+    it('closes this file', function() {
+      return dummy().close();
+    });
+    return it('is idempotent', function() {
+      dummy().close();
+      return dummy().close();
+    });
+  });
+  describe('#opened', function() {
+    context('when file is open', function() {
+      return it('returns true', function() {
+        return expect(dummy().opened).to.be["true"];
+      });
+    });
+    return context('when file is closed', function() {
+      return it('returns false', function() {
+        dummy().close();
+        return expect(dummy().opened).to.be["false"];
+      });
+    });
+  });
   describe('#name', function() {
     return it('returns file name', function() {
       return expect(dummy().name).to.eq('(listfile)');

@@ -160,9 +160,9 @@ module.exports = new ffi.Library('libstorm',
     voidPtr
   ]]
 
-#   SFileCloseFile: [ref.types.char, [
-#     HANDLE
-#   ]]
+  SFileCloseFile: [bool, [
+    HANDLE
+  ]]
 
 #   SFileGetFileInfo: [ref.types.char, [
 #     HANDLE,

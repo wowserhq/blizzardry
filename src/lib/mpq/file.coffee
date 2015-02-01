@@ -15,6 +15,14 @@ class File
 
   constructor: (@handle) ->
 
+  close: ->
+    if handle = @handle
+      @handle = null
+      StormLib.SFileCloseFile handle
+
+  get opened: ->
+    !!@handle
+
   get name: ->
     if @handle
       name = new Buffer(self.MAX_PATH)
