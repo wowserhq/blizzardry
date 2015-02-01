@@ -1,6 +1,8 @@
-var File, MPQ, expect, fixtures, memo, sinon, _ref;
+var File, MPQ, expect, fixtures, fs, memo, sinon, _ref;
 
 _ref = require('../spec-helper'), expect = _ref.expect, fixtures = _ref.fixtures, memo = _ref.memo, sinon = _ref.sinon;
+
+fs = require('fs');
 
 File = require('../../lib/mpq/file');
 
@@ -44,7 +46,23 @@ describe('MPQ.Files', function() {
     });
   });
   describe('#extract', function() {
-    return xit('extracts given file');
+    context('when archive contains given file', function() {
+      return it('extracts given file', function() {
+        var name, target;
+        name = '(attributes)';
+        target = fixtures + name;
+        dummy().extract(name, target);
+        expect(fs.existsSync(target)).to.be["true"];
+        return fs.unlinkSync(target);
+      });
+    });
+    return context('when archive does not contain given file', function() {
+      return it('throws an error', function() {
+        return expect(function() {
+          return dummy().extract('non-existent.txt');
+        }).to["throw"]('file could not be extracted');
+      });
+    });
   });
   describe('#all', function() {
     return it('proxies to #find with predefined pattern', function() {

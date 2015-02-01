@@ -1,5 +1,7 @@
 {expect, fixtures, memo, sinon} = require('../spec-helper')
 
+fs = require('fs')
+
 File = require('../../lib/mpq/file')
 MPQ = require('../../lib/mpq')
 
@@ -31,7 +33,19 @@ describe 'MPQ.Files', ->
         expect(result).to.be.null
 
   describe '#extract', ->
-    xit 'extracts given file'
+    context 'when archive contains given file', ->
+      it 'extracts given file', ->
+        name = '(attributes)'
+        target = fixtures + name
+        dummy().extract name, target
+        expect(fs.existsSync(target)).to.be.true
+        fs.unlinkSync(target)
+
+    context 'when archive does not contain given file', ->
+      it 'throws an error', ->
+        expect ->
+          dummy().extract 'non-existent.txt'
+        .to.throw 'file could not be extracted'
 
   describe '#all', ->
     it 'proxies to #find with predefined pattern', ->
