@@ -10,6 +10,9 @@ describe 'DBC.Entities', ->
   it 'exposes AnimationData entity', ->
     expect(DBC.AnimationData).to.eq entity('animation-data')
 
+  it 'exposes ChrClasses entity', ->
+    expect(DBC.ChrClasses).to.eq entity('chr-classes')
+
   it 'exposes CreatureDisplayInfo entity', ->
     expect(DBC.CreatureDisplayInfo).to.eq entity('creature-display-info')
 

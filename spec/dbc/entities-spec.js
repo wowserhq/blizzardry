@@ -12,6 +12,9 @@ describe('DBC.Entities', function() {
   it('exposes AnimationData entity', function() {
     return expect(DBC.AnimationData).to.eq(entity('animation-data'));
   });
+  it('exposes ChrClasses entity', function() {
+    return expect(DBC.ChrClasses).to.eq(entity('chr-classes'));
+  });
   it('exposes CreatureDisplayInfo entity', function() {
     return expect(DBC.CreatureDisplayInfo).to.eq(entity('creature-display-info'));
   });
