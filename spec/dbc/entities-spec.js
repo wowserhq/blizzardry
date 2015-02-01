@@ -15,6 +15,9 @@ describe('DBC.Entities', function() {
   it('exposes ChrClasses entity', function() {
     return expect(DBC.ChrClasses).to.eq(entity('chr-classes'));
   });
+  it('exposes ChrRaces entity', function() {
+    return expect(DBC.ChrRaces).to.eq(entity('chr-races'));
+  });
   it('exposes CreatureDisplayInfo entity', function() {
     return expect(DBC.CreatureDisplayInfo).to.eq(entity('creature-display-info'));
   });

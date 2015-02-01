@@ -13,6 +13,9 @@ describe 'DBC.Entities', ->
   it 'exposes ChrClasses entity', ->
     expect(DBC.ChrClasses).to.eq entity('chr-classes')
 
+  it 'exposes ChrRaces entity', ->
+    expect(DBC.ChrRaces).to.eq entity('chr-races')
+
   it 'exposes CreatureDisplayInfo entity', ->
     expect(DBC.CreatureDisplayInfo).to.eq entity('creature-display-info')
 
