@@ -7,6 +7,9 @@ describe 'DBC.Entities', ->
   entity = (name) ->
     require("../../lib/dbc/entities/#{name}")
 
+  it 'exposes Achievement entity', ->
+    expect(DBC.Achievement).to.eq entity('achievement')
+
   it 'exposes AnimationData entity', ->
     expect(DBC.AnimationData).to.eq entity('animation-data')
 

@@ -9,6 +9,9 @@ describe('DBC.Entities', function() {
   entity = function(name) {
     return require("../../lib/dbc/entities/" + name);
   };
+  it('exposes Achievement entity', function() {
+    return expect(DBC.Achievement).to.eq(entity('achievement'));
+  });
   it('exposes AnimationData entity', function() {
     return expect(DBC.AnimationData).to.eq(entity('animation-data'));
   });
