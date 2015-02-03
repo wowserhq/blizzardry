@@ -11,11 +11,10 @@ module.exports = Entity(
   description: LocalizedStringRef
   categoryID: r.uint32le
   points: r.uint32le
-
-  unknowns: new r.Reserved(r.uint32le, 2)
-
+  order: r.uint32le
+  flags: r.uint32le
   spellIconID: r.uint32le
   reward: LocalizedStringRef
-
-  unknowns2: new r.Reserved(r.uint32le, 2)
+  minimumCriteria: r.uint32le
+  criteriaTreeID: r.uint32le
 )
