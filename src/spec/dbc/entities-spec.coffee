@@ -10,6 +10,9 @@ describe 'DBC.Entities', ->
   it 'exposes Achievement entity', ->
     expect(DBC.Achievement).to.eq entity('achievement')
 
+  it 'exposes Achievement_Category entity', ->
+    expect(DBC.Achievement_Category).to.eq entity('achievement-category')
+
   it 'exposes AnimationData entity', ->
     expect(DBC.AnimationData).to.eq entity('animation-data')
 
