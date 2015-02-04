@@ -1,6 +1,7 @@
 module.exports = {
   Achievement: require('./achievement')
   Achievement_Category: require('./achievement-category')
+  Achievement_Criteria: require('./achievement-criteria')
   AnimationData: require('./animation-data')
   ChrClasses: require('./chr-classes')
   ChrRaces: require('./chr-races')

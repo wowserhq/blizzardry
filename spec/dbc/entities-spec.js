@@ -15,6 +15,9 @@ describe('DBC.Entities', function() {
   it('exposes Achievement_Category entity', function() {
     return expect(DBC.Achievement_Category).to.eq(entity('achievement-category'));
   });
+  it('exposes Achievement_Criteria entity', function() {
+    return expect(DBC.Achievement_Criteria).to.eq(entity('achievement-criteria'));
+  });
   it('exposes AnimationData entity', function() {
     return expect(DBC.AnimationData).to.eq(entity('animation-data'));
   });

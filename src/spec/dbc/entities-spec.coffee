@@ -13,6 +13,9 @@ describe 'DBC.Entities', ->
   it 'exposes Achievement_Category entity', ->
     expect(DBC.Achievement_Category).to.eq entity('achievement-category')
 
+  it 'exposes Achievement_Criteria entity', ->
+    expect(DBC.Achievement_Criteria).to.eq entity('achievement-criteria')
+
   it 'exposes AnimationData entity', ->
     expect(DBC.AnimationData).to.eq entity('animation-data')
 
