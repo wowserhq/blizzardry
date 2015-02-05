@@ -15,3 +15,7 @@ describe 'WDT', ->
   describe '#version', ->
     it 'returns version identifier', ->
       expect(dummy.version).to.eq 18
+
+  describe '#flags', ->
+    it 'returns flags', ->
+      expect(dummy.flags).to.eq 0

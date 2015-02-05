@@ -22,4 +22,6 @@ module.exports = Chunked(
   MAIN: MAIN
   MWMO: require('../chunked/mwmo')
   # TODO: Optional MODF chunk
+
+  flags: -> @MPHD.flags
 )

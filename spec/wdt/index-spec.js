@@ -16,9 +16,14 @@ describe('WDT', function() {
     stream = new r.DecodeStream(data);
     return WDT.decode(stream);
   })();
-  return describe('#version', function() {
+  describe('#version', function() {
     return it('returns version identifier', function() {
       return expect(dummy.version).to.eq(18);
+    });
+  });
+  return describe('#flags', function() {
+    return it('returns flags', function() {
+      return expect(dummy.flags).to.eq(0);
     });
   });
 });
