@@ -11,7 +11,7 @@ MPQ = require('../../lib/mpq');
 describe('MPQ.Files', function() {
   var dummy;
   dummy = memo().is(function() {
-    return MPQ.open(fixtures + 'dummy.w3m').files;
+    return MPQ.open(fixtures + 'TheDeathSheep.w3m').files;
   });
   describe('#contains', function() {
     context('when archive contains given file', function() {

@@ -9,7 +9,7 @@ MPQ = require('../../lib/mpq');
 describe('MPQ.File', function() {
   var dummy;
   dummy = memo().is(function() {
-    return MPQ.open(fixtures + 'dummy.w3m').files.get('(listfile)');
+    return MPQ.open(fixtures + 'TheDeathSheep.w3m').files.get('(listfile)');
   });
   describe('#close', function() {
     it('closes this file', function() {

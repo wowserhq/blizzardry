@@ -7,7 +7,7 @@ MPQ = require('../../lib/mpq')
 describe 'MPQ.File', ->
 
   dummy = memo().is ->
-    MPQ.open(fixtures + 'dummy.w3m').files.get '(listfile)'
+    MPQ.open(fixtures + 'TheDeathSheep.w3m').files.get '(listfile)'
 
   describe '#close', ->
     it 'closes this file', ->

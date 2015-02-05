@@ -11,7 +11,7 @@ MPQ = require('../../lib/mpq');
 describe('MPQ', function() {
   var dummy;
   dummy = memo().is(function() {
-    return MPQ.open(fixtures + 'dummy.w3m');
+    return MPQ.open(fixtures + 'TheDeathSheep.w3m');
   });
   describe('#flags', function() {
     return it('exposes flags', function() {
@@ -25,7 +25,7 @@ describe('MPQ', function() {
   });
   describe('#path', function() {
     return it('exposes path to this archive', function() {
-      return expect(dummy().path).to.eq(fixtures + 'dummy.w3m');
+      return expect(dummy().path).to.eq(fixtures + 'TheDeathSheep.w3m');
     });
   });
   describe('#close', function() {
@@ -54,15 +54,15 @@ describe('MPQ', function() {
     context('when archive is writable', function() {
       return it('throws an error', function() {
         return expect(function() {
-          return dummy().patch(fixtures + 'dummy.w3m');
+          return dummy().patch(fixtures + 'TheDeathSheep.w3m');
         }).to["throw"]('archive must be read-only');
       });
     });
     return context('when archive is read-only', function() {
       return it('patches archive', function() {
         var mpq;
-        mpq = MPQ.open(fixtures + 'dummy.w3m', MPQ.OPEN.READ_ONLY);
-        mpq.patch(fixtures + 'dummy.w3m');
+        mpq = MPQ.open(fixtures + 'TheDeathSheep.w3m', MPQ.OPEN.READ_ONLY);
+        mpq.patch(fixtures + 'TheDeathSheep.w3m');
         return expect(mpq.patched).to.be["true"];
       });
     });

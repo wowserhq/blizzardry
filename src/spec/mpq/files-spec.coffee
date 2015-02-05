@@ -8,7 +8,7 @@ MPQ = require('../../lib/mpq')
 describe 'MPQ.Files', ->
 
   dummy = memo().is ->
-    MPQ.open(fixtures + 'dummy.w3m').files
+    MPQ.open(fixtures + 'TheDeathSheep.w3m').files
 
   describe '#contains', ->
     context 'when archive contains given file', ->

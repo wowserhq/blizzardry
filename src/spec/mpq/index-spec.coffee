@@ -8,7 +8,7 @@ MPQ = require('../../lib/mpq')
 describe 'MPQ', ->
 
   dummy = memo().is ->
-    MPQ.open fixtures + 'dummy.w3m'
+    MPQ.open fixtures + 'TheDeathSheep.w3m'
 
   describe '#flags', ->
     it 'exposes flags', ->
@@ -20,7 +20,7 @@ describe 'MPQ', ->
 
   describe '#path', ->
     it 'exposes path to this archive', ->
-      expect(dummy().path).to.eq fixtures + 'dummy.w3m'
+      expect(dummy().path).to.eq fixtures + 'TheDeathSheep.w3m'
 
   describe '#close', ->
     it 'closes this archive', ->
@@ -44,13 +44,13 @@ describe 'MPQ', ->
     context 'when archive is writable', ->
       it 'throws an error', ->
         expect ->
-          dummy().patch fixtures + 'dummy.w3m'
+          dummy().patch fixtures + 'TheDeathSheep.w3m'
         .to.throw 'archive must be read-only'
 
     context 'when archive is read-only', ->
       it 'patches archive', ->
-        mpq = MPQ.open fixtures + 'dummy.w3m', MPQ.OPEN.READ_ONLY
-        mpq.patch fixtures + 'dummy.w3m'
+        mpq = MPQ.open fixtures + 'TheDeathSheep.w3m', MPQ.OPEN.READ_ONLY
+        mpq.patch fixtures + 'TheDeathSheep.w3m'
         expect(mpq.patched).to.be.true
 
   describe '#patched', ->
