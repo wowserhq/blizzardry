@@ -22,6 +22,9 @@ describe 'DBC.Entities', ->
   it 'exposes AreaGroup entity', ->
     expect(DBC.AreaGroup).to.eq entity('area-group')
 
+  it 'exposes AreaPOI entity', ->
+    expect(DBC.AreaPOI).to.eq entity('area-poi')
+
   it 'exposes ChrClasses entity', ->
     expect(DBC.ChrClasses).to.eq entity('chr-classes')
 
