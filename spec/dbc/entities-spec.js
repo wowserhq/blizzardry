@@ -27,6 +27,9 @@ describe('DBC.Entities', function() {
   it('exposes AreaPOI entity', function() {
     return expect(DBC.AreaPOI).to.eq(entity('area-poi'));
   });
+  it('exposes AreaTable entity', function() {
+    return expect(DBC.AreaTable).to.eq(entity('area-table'));
+  });
   it('exposes ChrClasses entity', function() {
     return expect(DBC.ChrClasses).to.eq(entity('chr-classes'));
   });
