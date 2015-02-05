@@ -1,8 +1,8 @@
 r = require('restructure')
-{Vec3Float} = require('../types')
 Chunk = require('../chunked/chunk')
 Chunked = require('../chunked')
 SkipChunk = require('../chunked/skip-chunk')
+{Vec3Float} = require('../types')
 
 MHDR = Chunk(
   flags: r.uint32le
