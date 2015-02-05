@@ -161,4 +161,16 @@ mpq.close();
 
 ### [WDT](src/lib/wdt)
 
-Usage coming soon.
+World definition file specifying which map tiles are present.
+
+```javascript
+r = require('blizzardry/lib/restructure');
+WDT = require('blizzardry/lib/wdt');
+
+io = fs.readFileSync('Azeroth.wdt');
+stream = new r.DecodeStream(io);
+
+wdt = WDT.decode(stream);
+wdt.version // 18
+wdt.flags   // 0
+```
