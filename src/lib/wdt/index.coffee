@@ -24,4 +24,6 @@ module.exports = Chunked(
   # TODO: Optional MODF chunk
 
   flags: -> @MPHD.flags
+  chunks: ->
+    @MAIN.chunks.map (chunk) -> chunk.flags
 )
