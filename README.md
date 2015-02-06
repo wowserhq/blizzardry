@@ -163,7 +163,7 @@ mpq.close();
 
 World definition file specifying which map tiles are present.
 
-A map consists of 64 by 64 [map tiles](#ADT).
+A map consists of 64 by 64 [map tiles](#adt).
 
 ```javascript
 r = require('blizzardry/lib/restructure');
