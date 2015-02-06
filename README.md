@@ -163,6 +163,8 @@ mpq.close();
 
 World definition file specifying which map tiles are present.
 
+A map consists of 64 by 64 [map tiles](#ADT).
+
 ```javascript
 r = require('blizzardry/lib/restructure');
 WDT = require('blizzardry/lib/wdt');
@@ -173,4 +175,6 @@ stream = new r.DecodeStream(io);
 wdt = WDT.decode(stream);
 wdt.version // 18
 wdt.flags   // 0
+wdt.tiles[30 * 64 + 24] // 0
+wdt.tiles[30 * 64 + 25] // 1
 ```
