@@ -20,10 +20,10 @@ describe 'WDT', ->
     it 'returns flags', ->
       expect(dummy.flags).to.eq 0
 
-  describe '#chunks', ->
-    it 'returns chunks', ->
-      expect(dummy.chunks.length).to.eq 64 * 64
-      expect(dummy.chunks[2000...2064]).to.deep.eq [
+  describe '#tiles', ->
+    it 'returns tiles', ->
+      expect(dummy.tiles.length).to.eq 64 * 64
+      expect(dummy.tiles[2000...2064]).to.deep.eq [
         0, 0, 0, 0, 0, 0, 0, 0,
         0, 1, 1, 1, 1, 1, 1, 1,
         1, 1, 1, 1, 1, 1, 1, 1,

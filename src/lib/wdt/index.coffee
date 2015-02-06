@@ -8,13 +8,13 @@ MPHD = Chunk(
   skip: new r.Reserved(r.uint32le, 7)
 )
 
-MapChunk = new r.Struct(
+Tile = new r.Struct(
   flags: r.uint32le
   skip: new r.Reserved(r.uint32le)
 )
 
 MAIN = Chunk(
-  chunks: new r.Array(MapChunk, 4096)
+  tiles: new r.Array(Tile, 4096)
 )
 
 module.exports = Chunked(
@@ -24,6 +24,6 @@ module.exports = Chunked(
   # TODO: Optional MODF chunk
 
   flags: -> @MPHD.flags
-  chunks: ->
-    @MAIN.chunks.map (chunk) -> chunk.flags
+  tiles: ->
+    @MAIN.tiles.map (tile) -> tile.flags
 )

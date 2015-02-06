@@ -26,10 +26,10 @@ describe('WDT', function() {
       return expect(dummy.flags).to.eq(0);
     });
   });
-  return describe('#chunks', function() {
-    return it('returns chunks', function() {
-      expect(dummy.chunks.length).to.eq(64 * 64);
-      return expect(dummy.chunks.slice(2000, 2064)).to.deep.eq([0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  return describe('#tiles', function() {
+    return it('returns tiles', function() {
+      expect(dummy.tiles.length).to.eq(64 * 64);
+      return expect(dummy.tiles.slice(2000, 2064)).to.deep.eq([0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
     });
   });
 });
