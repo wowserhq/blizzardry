@@ -111,4 +111,6 @@ module.exports = Chunked(
   MFBO: new r.Optional(SkipChunk, -> @offsetMFBO)
   MTXF: new r.Optional(SkipChunk, -> @offsetMTXF)
   MTXP: new r.Optional(SkipChunk, -> @offsetMTXP)
+
+  flags: -> @MHDR.flags
 )
