@@ -106,7 +106,7 @@ module.exports = Chunked(
   MWID: SkipChunk
   MDDF: SkipChunk
   MODF: SkipChunk
-  MH2O: SkipChunk
+  MH2O: new r.Optional(SkipChunk, -> @offsetMH2O)
   MCNKs: new r.Array(MCNK, 256)
   MFBO: new r.Optional(SkipChunk, -> @offsetMFBO)
   MTXF: new r.Optional(SkipChunk, -> @offsetMTXF)
