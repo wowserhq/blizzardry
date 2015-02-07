@@ -8,7 +8,7 @@ r = require('restructure');
 
 ADT = require('../../lib/adt');
 
-describe.only('ADT', function() {
+describe('ADT', function() {
   var dummy;
   dummy = (function() {
     var data, stream;

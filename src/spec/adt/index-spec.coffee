@@ -5,7 +5,7 @@ r = require('restructure')
 
 ADT = require('../../lib/adt')
 
-describe.only 'ADT', ->
+describe 'ADT', ->
 
   dummy = do ->
     data = fs.readFileSync fixtures + 'Azeroth_38_46.adt'
