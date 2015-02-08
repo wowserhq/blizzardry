@@ -1,4 +1,3 @@
-
 r = require('restructure')
 Entity = require('../entity')
 {Vec3Float} = require('../../types')
