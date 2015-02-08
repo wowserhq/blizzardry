@@ -28,6 +28,9 @@ describe 'DBC.Entities', ->
   it 'exposes AreaTable entity', ->
     expect(DBC.AreaTable).to.eq entity('area-table')
 
+  it 'exposes AreaTrigger entity', ->
+    expect(DBC.AreaTrigger).to.eq entity('area-trigger')
+
   it 'exposes ChrClasses entity', ->
     expect(DBC.ChrClasses).to.eq entity('chr-classes')
 
