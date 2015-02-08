@@ -33,6 +33,9 @@ describe('DBC.Entities', function() {
   it('exposes AreaTrigger entity', function() {
     return expect(DBC.AreaTrigger).to.eq(entity('area-trigger'));
   });
+  it('exposes AttackAnimKits entity', function() {
+    return expect(DBC.AttackAnimKits).to.eq(entity('attack-anim-kits'));
+  });
   it('exposes ChrClasses entity', function() {
     return expect(DBC.ChrClasses).to.eq(entity('chr-classes'));
   });

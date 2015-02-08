@@ -31,6 +31,9 @@ describe 'DBC.Entities', ->
   it 'exposes AreaTrigger entity', ->
     expect(DBC.AreaTrigger).to.eq entity('area-trigger')
 
+  it 'exposes AttackAnimKits entity', ->
+    expect(DBC.AttackAnimKits).to.eq entity('attack-anim-kits')
+
   it 'exposes ChrClasses entity', ->
     expect(DBC.ChrClasses).to.eq entity('chr-classes')
 

@@ -7,6 +7,7 @@ module.exports = {
   AreaPOI: require('./area-poi')
   AreaTable: require('./area-table')
   AreaTrigger: require('./area-trigger')
+  AttackAnimKits: require('./attack-anim-kits')
   ChrClasses: require('./chr-classes')
   ChrRaces: require('./chr-races')
   CreatureDisplayInfo: require('./creature-display-info')
