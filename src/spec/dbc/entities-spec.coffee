@@ -34,6 +34,9 @@ describe 'DBC.Entities', ->
   it 'exposes AttackAnimKits entity', ->
     expect(DBC.AttackAnimKits).to.eq entity('attack-anim-kits')
 
+  it 'exposes AttackAnimTypes entity', ->
+    expect(DBC.AttackAnimTypes).to.eq entity('attack-anim-types')
+
   it 'exposes ChrClasses entity', ->
     expect(DBC.ChrClasses).to.eq entity('chr-classes')
 
