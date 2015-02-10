@@ -40,6 +40,9 @@ describe 'DBC.Entities', ->
   it 'exposes AuctionHouse entity', ->
     expect(DBC.AuctionHouse).to.eq entity('auction-house')
 
+  it 'exposes BankBagSlotPrices entity', ->
+    expect(DBC.BankBagSlotPrices).to.eq entity('bank-bag-slot-prices')
+
   it 'exposes ChrClasses entity', ->
     expect(DBC.ChrClasses).to.eq entity('chr-classes')
 

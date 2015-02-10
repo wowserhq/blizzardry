@@ -42,6 +42,9 @@ describe('DBC.Entities', function() {
   it('exposes AuctionHouse entity', function() {
     return expect(DBC.AuctionHouse).to.eq(entity('auction-house'));
   });
+  it('exposes BankBagSlotPrices entity', function() {
+    return expect(DBC.BankBagSlotPrices).to.eq(entity('bank-bag-slot-prices'));
+  });
   it('exposes ChrClasses entity', function() {
     return expect(DBC.ChrClasses).to.eq(entity('chr-classes'));
   });
