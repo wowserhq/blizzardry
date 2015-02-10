@@ -39,6 +39,9 @@ describe('DBC.Entities', function() {
   it('exposes AttackAnimTypes entity', function() {
     return expect(DBC.AttackAnimTypes).to.eq(entity('attack-anim-types'));
   });
+  it('exposes AuctionHouse entity', function() {
+    return expect(DBC.AuctionHouse).to.eq(entity('auction-house'));
+  });
   it('exposes ChrClasses entity', function() {
     return expect(DBC.ChrClasses).to.eq(entity('chr-classes'));
   });
