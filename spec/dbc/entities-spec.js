@@ -48,6 +48,9 @@ describe('DBC.Entities', function() {
   it('exposes BannedAddOns entity', function() {
     return expect(DBC.BannedAddOns).to.eq(entity('banned-add-ons'));
   });
+  it('exposes BarberShopStyle entity', function() {
+    return expect(DBC.BarberShopStyle).to.eq(entity('barber-shop-style'));
+  });
   it('exposes ChrClasses entity', function() {
     return expect(DBC.ChrClasses).to.eq(entity('chr-classes'));
   });
