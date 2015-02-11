@@ -45,6 +45,9 @@ describe('DBC.Entities', function() {
   it('exposes BankBagSlotPrices entity', function() {
     return expect(DBC.BankBagSlotPrices).to.eq(entity('bank-bag-slot-prices'));
   });
+  it('exposes BannedAddOns entity', function() {
+    return expect(DBC.BannedAddOns).to.eq(entity('banned-add-ons'));
+  });
   it('exposes ChrClasses entity', function() {
     return expect(DBC.ChrClasses).to.eq(entity('chr-classes'));
   });

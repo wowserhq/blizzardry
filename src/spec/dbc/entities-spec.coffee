@@ -43,6 +43,9 @@ describe 'DBC.Entities', ->
   it 'exposes BankBagSlotPrices entity', ->
     expect(DBC.BankBagSlotPrices).to.eq entity('bank-bag-slot-prices')
 
+  it 'exposes BannedAddOns entity', ->
+    expect(DBC.BannedAddOns).to.eq entity('banned-add-ons')
+
   it 'exposes ChrClasses entity', ->
     expect(DBC.ChrClasses).to.eq entity('chr-classes')
 
