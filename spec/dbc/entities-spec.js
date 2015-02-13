@@ -51,6 +51,9 @@ describe('DBC.Entities', function() {
   it('exposes BarberShopStyle entity', function() {
     return expect(DBC.BarberShopStyle).to.eq(entity('barber-shop-style'));
   });
+  it('exposes BattlemasterList entity', function() {
+    return expect(DBC.BattlemasterList).to.eq(entity('battlemaster-list'));
+  });
   it('exposes ChrClasses entity', function() {
     return expect(DBC.ChrClasses).to.eq(entity('chr-classes'));
   });

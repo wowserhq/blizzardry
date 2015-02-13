@@ -49,6 +49,9 @@ describe 'DBC.Entities', ->
   it 'exposes BarberShopStyle entity', ->
     expect(DBC.BarberShopStyle).to.eq entity('barber-shop-style')
 
+  it 'exposes BattlemasterList entity', ->
+    expect(DBC.BattlemasterList).to.eq entity('battlemaster-list')
+
   it 'exposes ChrClasses entity', ->
     expect(DBC.ChrClasses).to.eq entity('chr-classes')
 

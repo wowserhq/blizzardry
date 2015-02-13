@@ -13,6 +13,7 @@ module.exports = {
   BankBagSlotPrices: require('./bank-bag-slot-prices')
   BannedAddOns: require('./banned-add-ons')
   BarberShopStyle: require('./barber-shop-style')
+  BattlemasterList: require('./battlemaster-list')
   ChrClasses: require('./chr-classes')
   ChrRaces: require('./chr-races')
   CreatureDisplayInfo: require('./creature-display-info')
