@@ -57,6 +57,9 @@ describe('DBC.Entities', function() {
   it('exposes CameraShakes entity', function() {
     return expect(DBC.CameraShakes).to.eq(entity('camera-shakes'));
   });
+  it('exposes Cfg_Categories entity', function() {
+    return expect(DBC.Cfg_Categories).to.eq(entity('cfg-categories'));
+  });
   it('exposes ChrClasses entity', function() {
     return expect(DBC.ChrClasses).to.eq(entity('chr-classes'));
   });

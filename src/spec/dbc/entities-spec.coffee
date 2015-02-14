@@ -55,6 +55,9 @@ describe 'DBC.Entities', ->
   it 'exposes CameraShakes entity', ->
     expect(DBC.CameraShakes).to.eq entity('camera-shakes')
 
+  it 'exposes Cfg_Categories entity', ->
+    expect(DBC.Cfg_Categories).to.eq entity('cfg-categories')
+
   it 'exposes ChrClasses entity', ->
     expect(DBC.ChrClasses).to.eq entity('chr-classes')
 
