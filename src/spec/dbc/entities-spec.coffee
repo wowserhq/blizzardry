@@ -61,6 +61,9 @@ describe 'DBC.Entities', ->
   it 'exposes Cfg_Configs entity', ->
     expect(DBC.Cfg_Configs).to.eq entity('cfg-configs')
 
+  it 'exposes CharBaseInfo entity', ->
+    expect(DBC.CharBaseInfo).to.eq entity('char-base-info')
+
   it 'exposes ChrClasses entity', ->
     expect(DBC.ChrClasses).to.eq entity('chr-classes')
 

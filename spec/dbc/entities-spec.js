@@ -63,6 +63,9 @@ describe('DBC.Entities', function() {
   it('exposes Cfg_Configs entity', function() {
     return expect(DBC.Cfg_Configs).to.eq(entity('cfg-configs'));
   });
+  it('exposes CharBaseInfo entity', function() {
+    return expect(DBC.CharBaseInfo).to.eq(entity('char-base-info'));
+  });
   it('exposes ChrClasses entity', function() {
     return expect(DBC.ChrClasses).to.eq(entity('chr-classes'));
   });
