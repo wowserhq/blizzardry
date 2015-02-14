@@ -14,6 +14,7 @@ module.exports = {
   BannedAddOns: require('./banned-add-ons')
   BarberShopStyle: require('./barber-shop-style')
   BattlemasterList: require('./battlemaster-list')
+  CameraShakes: require('./camera-shakes')
   ChrClasses: require('./chr-classes')
   ChrRaces: require('./chr-races')
   CreatureDisplayInfo: require('./creature-display-info')

@@ -52,6 +52,9 @@ describe 'DBC.Entities', ->
   it 'exposes BattlemasterList entity', ->
     expect(DBC.BattlemasterList).to.eq entity('battlemaster-list')
 
+  it 'exposes CameraShakes entity', ->
+    expect(DBC.CameraShakes).to.eq entity('camera-shakes')
+
   it 'exposes ChrClasses entity', ->
     expect(DBC.ChrClasses).to.eq entity('chr-classes')
 

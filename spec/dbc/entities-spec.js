@@ -54,6 +54,9 @@ describe('DBC.Entities', function() {
   it('exposes BattlemasterList entity', function() {
     return expect(DBC.BattlemasterList).to.eq(entity('battlemaster-list'));
   });
+  it('exposes CameraShakes entity', function() {
+    return expect(DBC.CameraShakes).to.eq(entity('camera-shakes'));
+  });
   it('exposes ChrClasses entity', function() {
     return expect(DBC.ChrClasses).to.eq(entity('chr-classes'));
   });
