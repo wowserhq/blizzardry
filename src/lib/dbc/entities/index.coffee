@@ -19,6 +19,7 @@ module.exports = {
   Cfg_Configs: require('./cfg-configs')
   CharBaseInfo: require('./char-base-info')
   CharHairGeosets: require('./char-hair-geosets')
+  CharSections: require('./char-sections')
   ChrClasses: require('./chr-classes')
   ChrRaces: require('./chr-races')
   CreatureDisplayInfo: require('./creature-display-info')

@@ -69,6 +69,9 @@ describe('DBC.Entities', function() {
   it('exposes CharHairGeosets entity', function() {
     return expect(DBC.CharHairGeosets).to.eq(entity('char-hair-geosets'));
   });
+  it('exposes CharSections entity', function() {
+    return expect(DBC.CharSections).to.eq(entity('char-sections'));
+  });
   it('exposes ChrClasses entity', function() {
     return expect(DBC.ChrClasses).to.eq(entity('chr-classes'));
   });

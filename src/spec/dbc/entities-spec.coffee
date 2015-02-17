@@ -67,6 +67,9 @@ describe 'DBC.Entities', ->
   it 'exposes CharHairGeosets entity', ->
     expect(DBC.CharHairGeosets).to.eq entity('char-hair-geosets')
 
+  it 'exposes CharSections entity', ->
+    expect(DBC.CharSections).to.eq entity('char-sections')
+
   it 'exposes ChrClasses entity', ->
     expect(DBC.ChrClasses).to.eq entity('chr-classes')
 
