@@ -73,6 +73,9 @@ describe 'DBC.Entities', ->
   it 'exposes CharStartOutfit entity', ->
     expect(DBC.CharStartOutfit).to.eq entity('char-start-outfit')
 
+  it 'exposes CharTitles entity', ->
+    expect(DBC.CharTitles).to.eq entity('char-titles')
+
   it 'exposes ChrClasses entity', ->
     expect(DBC.ChrClasses).to.eq entity('chr-classes')
 

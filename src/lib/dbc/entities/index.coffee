@@ -21,6 +21,7 @@ module.exports = {
   CharHairGeosets: require('./char-hair-geosets')
   CharSections: require('./char-sections')
   CharStartOutfit: require('./char-start-outfit')
+  CharTitles: require('./char-titles')
   ChrClasses: require('./chr-classes')
   ChrRaces: require('./chr-races')
   CreatureDisplayInfo: require('./creature-display-info')

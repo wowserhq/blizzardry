@@ -75,6 +75,9 @@ describe('DBC.Entities', function() {
   it('exposes CharStartOutfit entity', function() {
     return expect(DBC.CharStartOutfit).to.eq(entity('char-start-outfit'));
   });
+  it('exposes CharTitles entity', function() {
+    return expect(DBC.CharTitles).to.eq(entity('char-titles'));
+  });
   it('exposes ChrClasses entity', function() {
     return expect(DBC.ChrClasses).to.eq(entity('chr-classes'));
   });
