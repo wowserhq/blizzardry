@@ -28,6 +28,7 @@ module.exports = {
   ChrClasses: require('./chr-classes')
   ChrRaces: require('./chr-races')
   CinematicCamera: require('./cinematic-camera')
+  CinematicSequences: require('./cinematic-sequences')
   CreatureDisplayInfo: require('./creature-display-info')
   CreatureModelData: require('./creature-model-data')
   Faction: require('./faction')
