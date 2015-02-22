@@ -23,6 +23,7 @@ module.exports = {
   CharStartOutfit: require('./char-start-outfit')
   CharTitles: require('./char-titles')
   CharacterFacialHairStyles: require('./character-facial-hair-styles')
+  ChatChannels: require('./chat-channels')
   ChrClasses: require('./chr-classes')
   ChrRaces: require('./chr-races')
   CreatureDisplayInfo: require('./creature-display-info')

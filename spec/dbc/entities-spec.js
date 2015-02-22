@@ -81,6 +81,9 @@ describe('DBC.Entities', function() {
   it('exposes CharacterFacialHairStyles entity', function() {
     return expect(DBC.CharacterFacialHairStyles).to.eq(entity('character-facial-hair-styles'));
   });
+  it('exposes ChatChannels entity', function() {
+    return expect(DBC.ChatChannels).to.eq(entity('chat-channels'));
+  });
   it('exposes ChrClasses entity', function() {
     return expect(DBC.ChrClasses).to.eq(entity('chr-classes'));
   });
