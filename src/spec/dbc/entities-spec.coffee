@@ -82,6 +82,9 @@ describe 'DBC.Entities', ->
   it 'exposes ChatChannels entity', ->
     expect(DBC.ChatChannels).to.eq entity('chat-channels')
 
+  it 'exposes ChatProfanity entity', ->
+    expect(DBC.ChatProfanity).to.eq entity('chat-profanity')
+
   it 'exposes ChrClasses entity', ->
     expect(DBC.ChrClasses).to.eq entity('chr-classes')
 

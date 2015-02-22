@@ -84,6 +84,9 @@ describe('DBC.Entities', function() {
   it('exposes ChatChannels entity', function() {
     return expect(DBC.ChatChannels).to.eq(entity('chat-channels'));
   });
+  it('exposes ChatProfanity entity', function() {
+    return expect(DBC.ChatProfanity).to.eq(entity('chat-profanity'));
+  });
   it('exposes ChrClasses entity', function() {
     return expect(DBC.ChrClasses).to.eq(entity('chr-classes'));
   });
