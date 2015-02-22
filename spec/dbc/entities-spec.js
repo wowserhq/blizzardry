@@ -93,6 +93,9 @@ describe('DBC.Entities', function() {
   it('exposes ChrRaces entity', function() {
     return expect(DBC.ChrRaces).to.eq(entity('chr-races'));
   });
+  it('exposes CinematicCamera entity', function() {
+    return expect(DBC.CinematicCamera).to.eq(entity('cinematic-camera'));
+  });
   it('exposes CreatureDisplayInfo entity', function() {
     return expect(DBC.CreatureDisplayInfo).to.eq(entity('creature-display-info'));
   });

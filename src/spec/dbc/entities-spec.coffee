@@ -91,6 +91,9 @@ describe 'DBC.Entities', ->
   it 'exposes ChrRaces entity', ->
     expect(DBC.ChrRaces).to.eq entity('chr-races')
 
+  it 'exposes CinematicCamera entity', ->
+    expect(DBC.CinematicCamera).to.eq entity('cinematic-camera')
+
   it 'exposes CreatureDisplayInfo entity', ->
     expect(DBC.CreatureDisplayInfo).to.eq entity('creature-display-info')
 
