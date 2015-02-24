@@ -30,6 +30,7 @@ module.exports = {
   CinematicCamera: require('./cinematic-camera')
   CinematicSequences: require('./cinematic-sequences')
   CreatureDisplayInfo: require('./creature-display-info')
+  CreatureDisplayInfoExtra: require('./creature-display-info-extra')
   CreatureModelData: require('./creature-model-data')
   Faction: require('./faction')
   Map: require('./map')

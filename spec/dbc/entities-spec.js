@@ -102,6 +102,9 @@ describe('DBC.Entities', function() {
   it('exposes CreatureDisplayInfo entity', function() {
     return expect(DBC.CreatureDisplayInfo).to.eq(entity('creature-display-info'));
   });
+  it('exposes CreatureDisplayInfoExtra entity', function() {
+    return expect(DBC.CreatureDisplayInfoExtra).to.eq(entity('creature-display-info-extra'));
+  });
   it('exposes CreatureModelData entity', function() {
     return expect(DBC.CreatureModelData).to.eq(entity('creature-model-data'));
   });
