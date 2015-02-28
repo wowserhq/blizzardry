@@ -106,6 +106,9 @@ describe 'DBC.Entities', ->
   it 'exposes CreatureModelData entity', ->
     expect(DBC.CreatureModelData).to.eq entity('creature-model-data')
 
+  it 'exposes CreatureMovementInfo entity', ->
+    expect(DBC.CreatureMovementInfo).to.eq entity('creature-movement-info')
+
   it 'exposes Faction entity', ->
     expect(DBC.Faction).to.eq entity('faction')
 
