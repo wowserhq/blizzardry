@@ -111,6 +111,9 @@ describe('DBC.Entities', function() {
   it('exposes CreatureMovementInfo entity', function() {
     return expect(DBC.CreatureMovementInfo).to.eq(entity('creature-movement-info'));
   });
+  it('exposes CreatureSpellData entity', function() {
+    return expect(DBC.CreatureSpellData).to.eq(entity('creature-spell-data'));
+  });
   it('exposes Faction entity', function() {
     return expect(DBC.Faction).to.eq(entity('faction'));
   });

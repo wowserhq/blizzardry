@@ -33,6 +33,7 @@ module.exports = {
   CreatureDisplayInfoExtra: require('./creature-display-info-extra')
   CreatureModelData: require('./creature-model-data')
   CreatureMovementInfo: require('./creature-movement-info')
+  CreatureSpellData: require('./creature-spell-data')
   Faction: require('./faction')
   Map: require('./map')
 }
