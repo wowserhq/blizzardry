@@ -114,6 +114,9 @@ describe('DBC.Entities', function() {
   it('exposes CreatureSpellData entity', function() {
     return expect(DBC.CreatureSpellData).to.eq(entity('creature-spell-data'));
   });
+  it('exposes CreatureType entity', function() {
+    return expect(DBC.CreatureType).to.eq(entity('creature-type'));
+  });
   it('exposes Faction entity', function() {
     return expect(DBC.Faction).to.eq(entity('faction'));
   });
