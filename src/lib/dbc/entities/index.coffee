@@ -35,6 +35,7 @@ module.exports = {
   CreatureMovementInfo: require('./creature-movement-info')
   CreatureSpellData: require('./creature-spell-data')
   CreatureType: require('./creature-type')
+  CurrencyCategory: require('./currency-category')
   Faction: require('./faction')
   Map: require('./map')
 }

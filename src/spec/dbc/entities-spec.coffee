@@ -115,6 +115,9 @@ describe 'DBC.Entities', ->
   it 'exposes CreatureType entity', ->
     expect(DBC.CreatureType).to.eq entity('creature-type')
 
+  it 'exposes CurrencyCategory entity', ->
+    expect(DBC.CurrencyCategory).to.eq entity('currency-category')
+
   it 'exposes Faction entity', ->
     expect(DBC.Faction).to.eq entity('faction')
 

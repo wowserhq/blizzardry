@@ -117,6 +117,9 @@ describe('DBC.Entities', function() {
   it('exposes CreatureType entity', function() {
     return expect(DBC.CreatureType).to.eq(entity('creature-type'));
   });
+  it('exposes CurrencyCategory entity', function() {
+    return expect(DBC.CurrencyCategory).to.eq(entity('currency-category'));
+  });
   it('exposes Faction entity', function() {
     return expect(DBC.Faction).to.eq(entity('faction'));
   });
