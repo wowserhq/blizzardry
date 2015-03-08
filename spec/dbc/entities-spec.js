@@ -120,6 +120,9 @@ describe('DBC.Entities', function() {
   it('exposes CurrencyCategory entity', function() {
     return expect(DBC.CurrencyCategory).to.eq(entity('currency-category'));
   });
+  it('exposes CurrencyTypes entity', function() {
+    return expect(DBC.CurrencyTypes).to.eq(entity('currency-types'));
+  });
   it('exposes Faction entity', function() {
     return expect(DBC.Faction).to.eq(entity('faction'));
   });
