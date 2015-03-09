@@ -7,5 +7,5 @@ module.exports = Entity(
   gender: r.uint32le
   hairType: r.uint32le
   geoset: r.uint32le
-  bald: r.uint32le
+  bald: new r.Boolean(r.uint32le)
 )

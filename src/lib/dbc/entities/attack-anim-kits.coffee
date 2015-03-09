@@ -6,5 +6,5 @@ module.exports = Entity(
   animationID: r.uint32le
   typeID: r.uint32le
   flags: r.uint32le
-  unknown: new r.Reserved(r.uint32le)
+  unknown: new r.Reserved(new r.Boolean(r.uint32le))
 )

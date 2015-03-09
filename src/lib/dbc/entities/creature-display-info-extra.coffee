@@ -25,6 +25,6 @@ module.exports = Entity(
   tabardID: r.uint32le
   capeID: r.uint32le
 
-  canEquip: r.uint32le
+  canEquip: new r.Boolean(r.uint32le)
   texture: StringRef
 )
