@@ -37,6 +37,7 @@ module.exports = {
   CreatureType: require('./creature-type')
   CurrencyCategory: require('./currency-category')
   CurrencyTypes: require('./currency-types')
+  DanceMoves: require('./dance-moves')
   Faction: require('./faction')
   Map: require('./map')
 }

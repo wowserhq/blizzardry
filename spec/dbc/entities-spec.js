@@ -123,6 +123,9 @@ describe('DBC.Entities', function() {
   it('exposes CurrencyTypes entity', function() {
     return expect(DBC.CurrencyTypes).to.eq(entity('currency-types'));
   });
+  it('exposes DanceMoves entity', function() {
+    return expect(DBC.DanceMoves).to.eq(entity('dance-moves'));
+  });
   it('exposes Faction entity', function() {
     return expect(DBC.Faction).to.eq(entity('faction'));
   });
