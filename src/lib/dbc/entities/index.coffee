@@ -38,6 +38,7 @@ module.exports = {
   CurrencyCategory: require('./currency-category')
   CurrencyTypes: require('./currency-types')
   DanceMoves: require('./dance-moves')
+  DungeonEncounter: require('./dungeon-encounter')
   Faction: require('./faction')
   Map: require('./map')
 }

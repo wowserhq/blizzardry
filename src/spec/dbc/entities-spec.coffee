@@ -124,6 +124,9 @@ describe 'DBC.Entities', ->
   it 'exposes DanceMoves entity', ->
     expect(DBC.DanceMoves).to.eq entity('dance-moves')
 
+  it 'exposes DungeonEncounter entity', ->
+    expect(DBC.DungeonEncounter).to.eq entity('dungeon-encounter')
+
   it 'exposes Faction entity', ->
     expect(DBC.Faction).to.eq entity('faction')
 
