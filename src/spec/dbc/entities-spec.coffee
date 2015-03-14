@@ -127,6 +127,9 @@ describe 'DBC.Entities', ->
   it 'exposes DungeonEncounter entity', ->
     expect(DBC.DungeonEncounter).to.eq entity('dungeon-encounter')
 
+  it 'exposes DungeonMap entity', ->
+    expect(DBC.DungeonMap).to.eq entity('dungeon-map')
+
   it 'exposes Faction entity', ->
     expect(DBC.Faction).to.eq entity('faction')
 

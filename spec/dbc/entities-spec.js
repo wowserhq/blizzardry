@@ -129,6 +129,9 @@ describe('DBC.Entities', function() {
   it('exposes DungeonEncounter entity', function() {
     return expect(DBC.DungeonEncounter).to.eq(entity('dungeon-encounter'));
   });
+  it('exposes DungeonMap entity', function() {
+    return expect(DBC.DungeonMap).to.eq(entity('dungeon-map'));
+  });
   it('exposes Faction entity', function() {
     return expect(DBC.Faction).to.eq(entity('faction'));
   });
