@@ -45,6 +45,7 @@ module.exports = {
   EmotesText: require('./emotes-text')
   EmotesTextData: require('./emotes-text-data')
   EmotesTextSound: require('./emotes-text-sound')
+  EnvironmentalDamage: require('./environmental-damage')
   Faction: require('./faction')
   Map: require('./map')
 }
