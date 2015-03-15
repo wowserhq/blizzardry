@@ -43,6 +43,7 @@ module.exports = {
   DungeonMapChunk: require('./dungeon-map-chunk')
   Emotes: require('./emotes')
   EmotesText: require('./emotes-text')
+  EmotesTextData: require('./emotes-text-data')
   Faction: require('./faction')
   Map: require('./map')
 }
