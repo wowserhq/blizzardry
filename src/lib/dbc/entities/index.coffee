@@ -50,5 +50,6 @@ module.exports = {
   Faction: require('./faction')
   FactionGroup: require('./faction-group')
   FactionTemplate: require('./faction-template')
+  FileData: require('./file-data')
   Map: require('./map')
 }
