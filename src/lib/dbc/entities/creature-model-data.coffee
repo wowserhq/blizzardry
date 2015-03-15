@@ -5,7 +5,7 @@ StringRef = require('../string-ref')
 module.exports = Entity(
   id: r.uint32le
   flags: r.uint32le
-  path: StringRef
+  file: StringRef
   sizeClass: r.uint32le
   scale: r.floatle
   bloodID: r.int32le

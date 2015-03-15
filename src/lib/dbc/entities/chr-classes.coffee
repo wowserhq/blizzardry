@@ -14,7 +14,7 @@ module.exports = Entity(
   name: LocalizedStringRef
   nameFemale: LocalizedStringRef
   nameMale: LocalizedStringRef
-  fileName: StringRef
+  filename: StringRef
 
   spellClassSet: r.uint32le
   flags: r.uint32le
