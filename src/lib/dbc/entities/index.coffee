@@ -53,5 +53,6 @@ module.exports = {
   FileData: require('./file-data')
   FootprintTextures: require('./footprint-textures')
   GameObjectArtKit: require('./game-object-art-kit')
+  GameObjectDisplayInfo: require('./game-object-display-info')
   Map: require('./map')
 }
