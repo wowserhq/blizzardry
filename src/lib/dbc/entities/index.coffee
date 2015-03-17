@@ -59,5 +59,6 @@ module.exports = {
   HolidayNames: require('./holiday-names')
   Item: require('./item')
   ItemBagFamily: require('./item-bag-family')
+  ItemClass: require('./item-class')
   Map: require('./map')
 }
