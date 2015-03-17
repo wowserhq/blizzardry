@@ -62,5 +62,6 @@ module.exports = {
   ItemClass: require('./item-class')
   ItemDisplayInfo: require('./item-display-info')
   ItemExtendedCost: require('./item-extended-cost')
+  ItemPetFood: require('./item-pet-food')
   Map: require('./map')
 }
