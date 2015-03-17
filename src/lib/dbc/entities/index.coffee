@@ -57,5 +57,6 @@ module.exports = {
   GameTips: require('./game-tips')
   HolidayDescriptions: require('./holiday-descriptions')
   HolidayNames: require('./holiday-names')
+  Item: require('./item')
   Map: require('./map')
 }
