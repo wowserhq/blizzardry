@@ -60,5 +60,6 @@ module.exports = {
   Item: require('./item')
   ItemBagFamily: require('./item-bag-family')
   ItemClass: require('./item-class')
+  ItemDisplayInfo: require('./item-display-info')
   Map: require('./map')
 }
