@@ -55,5 +55,6 @@ module.exports = {
   GameObjectArtKit: require('./game-object-art-kit')
   GameObjectDisplayInfo: require('./game-object-display-info')
   GameTips: require('./game-tips')
+  HolidayDescriptions: require('./holiday-descriptions')
   Map: require('./map')
 }
