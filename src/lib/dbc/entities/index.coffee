@@ -75,5 +75,6 @@ module.exports = {
   Languages: require('./languages')
   Light: require('./light')
   LightSkybox: require('./light-skybox')
+  LoadingScreens: require('./loading-screens')
   Map: require('./map')
 }
