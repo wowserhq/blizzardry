@@ -71,5 +71,6 @@ module.exports = {
   ItemSubClassMask: require('./item-sub-class-mask')
   ItemVisualEffects: require('./item-visual-effects')
   ItemVisuals: require('./item-visuals')
+  LanguageWords: require('./language-words')
   Map: require('./map')
 }
