@@ -64,5 +64,6 @@ module.exports = {
   ItemExtendedCost: require('./item-extended-cost')
   ItemPetFood: require('./item-pet-food')
   ItemPurchaseGroup: require('./item-purchase-group')
+  ItemRandomProperties: require('./item-random-properties')
   Map: require('./map')
 }
