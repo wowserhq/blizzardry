@@ -67,5 +67,6 @@ module.exports = {
   ItemRandomProperties: require('./item-random-properties')
   ItemRandomSuffix: require('./item-random-suffix')
   ItemSet: require('./item-set')
+  ItemSubClass: require('./item-sub-class')
   Map: require('./map')
 }
