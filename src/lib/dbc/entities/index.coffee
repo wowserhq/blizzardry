@@ -72,5 +72,6 @@ module.exports = {
   ItemVisualEffects: require('./item-visual-effects')
   ItemVisuals: require('./item-visuals')
   LanguageWords: require('./language-words')
+  Languages: require('./languages')
   Map: require('./map')
 }
