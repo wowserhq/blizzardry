@@ -73,5 +73,6 @@ module.exports = {
   ItemVisuals: require('./item-visuals')
   LanguageWords: require('./language-words')
   Languages: require('./languages')
+  Light: require('./light')
   Map: require('./map')
 }
