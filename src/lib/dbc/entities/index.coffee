@@ -77,5 +77,6 @@ module.exports = {
   LightSkybox: require('./light-skybox')
   LoadingScreens: require('./loading-screens')
   Lock: require('./lock')
+  LockType: require('./lock-type')
   Map: require('./map')
 }
