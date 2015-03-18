@@ -63,5 +63,6 @@ module.exports = {
   ItemDisplayInfo: require('./item-display-info')
   ItemExtendedCost: require('./item-extended-cost')
   ItemPetFood: require('./item-pet-food')
+  ItemPurchaseGroup: require('./item-purchase-group')
   Map: require('./map')
 }
