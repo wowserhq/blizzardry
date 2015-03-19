@@ -79,4 +79,5 @@ module.exports = {
   Lock: require('./lock')
   LockType: require('./lock-type')
   Map: require('./map')
+  MailTemplate: require('./mail-template')
 }
