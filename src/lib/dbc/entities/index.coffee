@@ -86,4 +86,5 @@ module.exports = {
   MovieFileData: require('./movie-file-data')
   MovieVariation: require('./movie-variation')
   NameGen: require('./name-gen')
+  NamesProfanity: require('./names-profanity')
 }
