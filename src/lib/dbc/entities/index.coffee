@@ -84,4 +84,5 @@ module.exports = {
   Material: require('./material')
   Movie: require('./movie')
   MovieFileData: require('./movie-file-data')
+  MovieVariation: require('./movie-variation')
 }
