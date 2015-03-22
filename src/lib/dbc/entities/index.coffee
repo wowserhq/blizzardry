@@ -78,6 +78,7 @@ module.exports = {
   LoadingScreens: require('./loading-screens')
   Lock: require('./lock')
   LockType: require('./lock-type')
-  Map: require('./map')
   MailTemplate: require('./mail-template')
+  Map: require('./map')
+  MapDifficulty: require('./map-difficulty')
 }
