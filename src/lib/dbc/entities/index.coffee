@@ -83,4 +83,5 @@ module.exports = {
   MapDifficulty: require('./map-difficulty')
   Material: require('./material')
   Movie: require('./movie')
+  MovieFileData: require('./movie-file-data')
 }
