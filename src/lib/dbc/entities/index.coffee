@@ -82,4 +82,5 @@ module.exports = {
   Map: require('./map')
   MapDifficulty: require('./map-difficulty')
   Material: require('./material')
+  Movie: require('./movie')
 }
