@@ -81,4 +81,5 @@ module.exports = {
   MailTemplate: require('./mail-template')
   Map: require('./map')
   MapDifficulty: require('./map-difficulty')
+  Material: require('./material')
 }
