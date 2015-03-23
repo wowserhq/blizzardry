@@ -94,4 +94,5 @@ module.exports = {
   ObjectEffectPackage: require('./object-effect-package')
   ObjectEffectPackageElem: require('./object-effect-package-elem')
   OverrideSpellData: require('./override-spell-data')
+  Package: require('./package')
 }
