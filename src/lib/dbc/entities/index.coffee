@@ -96,4 +96,5 @@ module.exports = {
   OverrideSpellData: require('./override-spell-data')
   Package: require('./package')
   PageTextMaterial: require('./page-text-material')
+  PaperDollItemFrame: require('./paper-doll-item-frame')
 }
