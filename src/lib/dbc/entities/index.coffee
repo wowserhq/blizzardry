@@ -92,4 +92,5 @@ module.exports = {
   ObjectEffect: require('./object-effect')
   ObjectEffectGroup: require('./object-effect-group')
   ObjectEffectPackage: require('./object-effect-package')
+  ObjectEffectPackageElem: require('./object-effect-package-elem')
 }
