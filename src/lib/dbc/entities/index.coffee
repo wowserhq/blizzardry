@@ -101,4 +101,5 @@ module.exports = {
   PetPersonality: require('./pet-personality')
   PowerDisplay: require('./power-display')
   QuestInfo: require('./quest-info')
+  QuestSort: require('./quest-sort')
 }
