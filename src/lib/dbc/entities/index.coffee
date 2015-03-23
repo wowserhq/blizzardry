@@ -91,4 +91,5 @@ module.exports = {
   NPCSounds: require('./npc-sounds')
   ObjectEffect: require('./object-effect')
   ObjectEffectGroup: require('./object-effect-group')
+  ObjectEffectPackage: require('./object-effect-package')
 }
