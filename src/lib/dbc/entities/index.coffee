@@ -98,4 +98,5 @@ module.exports = {
   PageTextMaterial: require('./page-text-material')
   PaperDollItemFrame: require('./paper-doll-item-frame')
   PetitionType: require('./petition-type')
+  PetPersonality: require('./pet-personality')
 }
