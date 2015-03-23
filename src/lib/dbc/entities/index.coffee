@@ -97,4 +97,5 @@ module.exports = {
   Package: require('./package')
   PageTextMaterial: require('./page-text-material')
   PaperDollItemFrame: require('./paper-doll-item-frame')
+  PetitionType: require('./petition-type')
 }
