@@ -99,4 +99,5 @@ module.exports = {
   PaperDollItemFrame: require('./paper-doll-item-frame')
   PetitionType: require('./petition-type')
   PetPersonality: require('./pet-personality')
+  PowerDisplay: require('./power-display')
 }
