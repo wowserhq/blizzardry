@@ -100,4 +100,5 @@ module.exports = {
   PetitionType: require('./petition-type')
   PetPersonality: require('./pet-personality')
   PowerDisplay: require('./power-display')
+  QuestInfo: require('./quest-info')
 }
