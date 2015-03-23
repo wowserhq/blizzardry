@@ -89,4 +89,5 @@ module.exports = {
   NamesProfanity: require('./names-profanity')
   NamesReserved: require('./names-reserved')
   NPCSounds: require('./npc-sounds')
+  ObjectEffect: require('./object-effect')
 }
