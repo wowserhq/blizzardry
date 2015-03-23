@@ -102,4 +102,5 @@ module.exports = {
   PowerDisplay: require('./power-display')
   QuestInfo: require('./quest-info')
   QuestSort: require('./quest-sort')
+  Resistances: require('./resistances')
 }
