@@ -88,4 +88,5 @@ module.exports = {
   NameGen: require('./name-gen')
   NamesProfanity: require('./names-profanity')
   NamesReserved: require('./names-reserved')
+  NPCSounds: require('./npc-sounds')
 }
