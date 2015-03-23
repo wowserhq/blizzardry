@@ -90,4 +90,5 @@ module.exports = {
   NamesReserved: require('./names-reserved')
   NPCSounds: require('./npc-sounds')
   ObjectEffect: require('./object-effect')
+  ObjectEffectGroup: require('./object-effect-group')
 }
