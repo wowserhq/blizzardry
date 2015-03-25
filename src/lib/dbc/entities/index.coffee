@@ -105,4 +105,5 @@ module.exports = {
   Resistances: require('./resistances')
   ScreenEffect: require('./screen-effect')
   ServerMessages: require('./server-messages')
+  SkillLine: require('./skill-line')
 }
