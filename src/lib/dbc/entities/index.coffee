@@ -112,4 +112,5 @@ module.exports = {
   SkillTiers: require('./skill-tiers')
   SoundAmbience: require('./sound-ambience')
   SoundEmitters: require('./sound-emitters')
+  SoundFilter: require('./sound-filter')
 }
