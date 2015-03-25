@@ -111,4 +111,5 @@ module.exports = {
   SkillRaceClassInfo: require('./skill-race-class-info')
   SkillTiers: require('./skill-tiers')
   SoundAmbience: require('./sound-ambience')
+  SoundEmitters: require('./sound-emitters')
 }
