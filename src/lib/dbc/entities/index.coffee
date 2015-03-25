@@ -106,4 +106,5 @@ module.exports = {
   ScreenEffect: require('./screen-effect')
   ServerMessages: require('./server-messages')
   SkillLine: require('./skill-line')
+  SkillLineAbility: require('./skill-line-ability')
 }
