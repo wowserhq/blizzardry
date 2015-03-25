@@ -108,4 +108,5 @@ module.exports = {
   SkillLine: require('./skill-line')
   SkillLineAbility: require('./skill-line-ability')
   SkillLineCategory: require('./skill-line-category')
+  SkillRaceClassInfo: require('./skill-race-class-info')
 }
