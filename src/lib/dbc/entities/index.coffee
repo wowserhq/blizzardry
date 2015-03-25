@@ -104,4 +104,5 @@ module.exports = {
   QuestSort: require('./quest-sort')
   Resistances: require('./resistances')
   ScreenEffect: require('./screen-effect')
+  ServerMessages: require('./server-messages')
 }
