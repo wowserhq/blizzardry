@@ -107,4 +107,5 @@ module.exports = {
   ServerMessages: require('./server-messages')
   SkillLine: require('./skill-line')
   SkillLineAbility: require('./skill-line-ability')
+  SkillLineCategory: require('./skill-line-category')
 }
