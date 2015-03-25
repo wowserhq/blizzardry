@@ -110,4 +110,5 @@ module.exports = {
   SkillLineCategory: require('./skill-line-category')
   SkillRaceClassInfo: require('./skill-race-class-info')
   SkillTiers: require('./skill-tiers')
+  SoundAmbience: require('./sound-ambience')
 }
