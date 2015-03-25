@@ -113,4 +113,5 @@ module.exports = {
   SoundAmbience: require('./sound-ambience')
   SoundEmitters: require('./sound-emitters')
   SoundFilter: require('./sound-filter')
+  SoundFilterElem: require('./sound-filter-elem')
 }
