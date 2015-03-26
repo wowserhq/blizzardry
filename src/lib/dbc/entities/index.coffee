@@ -116,4 +116,5 @@ module.exports = {
   SoundEntries: require('./sound-entries')
   SoundFilter: require('./sound-filter')
   SoundFilterElem: require('./sound-filter-elem')
+  SpamMessages: require('./spam-messages')
 }
