@@ -37,7 +37,7 @@ Texture format holding up to 16 pre-rendered [mipmaps](https://en.wikipedia.org/
 Blizzardry uses [BLPConverter](https://github.com/Kanma/BLPConverter) to process BLPs, which on OSX can be installed using [Homebrew](http://brew.sh/):
 
 ````
-brew install https://raw.githubusercontent.com/timkurvers/homebrew-games/formula/blp-converter/blp-converter.rb
+brew install --HEAD https://raw.githubusercontent.com/timkurvers/homebrew-games/formula/blp-converter/blp-converter.rb
 ````
 
 For all other platforms, compile from source and ensure the library ends up on the load path.
