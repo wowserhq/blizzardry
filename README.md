@@ -124,7 +124,8 @@ Generic archive format, used in [most](http://en.wikipedia.org/wiki/MPQ#Usage_in
 Blizzardry uses [StormLib](https://github.com/ladislav-zezula/StormLib) to handle MPQ archives, which on OSX can be installed using [Homebrew](http://brew.sh/):
 
 ```
-brew install https://raw.githubusercontent.com/timkurvers/homebrew-games/formula/storm-lib/storm-lib.rb
+brew tap homebrew/games
+brew install stormlib
 ```
 
 For all other platforms, compile from source and ensure the library ends up on the load path.
