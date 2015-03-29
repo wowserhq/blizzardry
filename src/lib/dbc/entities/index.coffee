@@ -118,4 +118,5 @@ module.exports = {
   SoundFilterElem: require('./sound-filter-elem')
   SpamMessages: require('./spam-messages')
   Spell: require('./spell')
+  SpellCastTimes: require('./spell-cast-times')
 }
