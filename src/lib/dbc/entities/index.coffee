@@ -128,4 +128,5 @@ module.exports = {
   SpellFocusObject: require('./spell-focus-object')
   SpellIcon: require('./spell-icon')
   SpellItemEnchantment: require('./spell-item-enchantment')
+  SpellItemEnchantmentCondition: require('./spell-item-enchantment-condition')
 }
