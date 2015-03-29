@@ -126,4 +126,5 @@ module.exports = {
   SpellDuration: require('./spell-duration')
   SpellEffectCameraShakes: require('./spell-effect-camera-shakes')
   SpellFocusObject: require('./spell-focus-object')
+  SpellIcon: require('./spell-icon')
 }
