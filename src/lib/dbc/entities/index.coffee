@@ -123,4 +123,5 @@ module.exports = {
   SpellDescriptionVariables: require('./spell-description-variables')
   SpellDifficulty: require('./spell-difficulty')
   SpellDispelType: require('./spell-dispel-type')
+  SpellDuration: require('./spell-duration')
 }
