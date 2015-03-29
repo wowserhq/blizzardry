@@ -119,4 +119,5 @@ module.exports = {
   SpamMessages: require('./spam-messages')
   Spell: require('./spell')
   SpellCastTimes: require('./spell-cast-times')
+  SpellCategory: require('./spell-category')
 }
