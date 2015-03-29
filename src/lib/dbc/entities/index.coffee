@@ -124,4 +124,5 @@ module.exports = {
   SpellDifficulty: require('./spell-difficulty')
   SpellDispelType: require('./spell-dispel-type')
   SpellDuration: require('./spell-duration')
+  SpellEffectCameraShakes: require('./spell-effect-camera-shakes')
 }
