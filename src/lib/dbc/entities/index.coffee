@@ -121,4 +121,5 @@ module.exports = {
   SpellCastTimes: require('./spell-cast-times')
   SpellCategory: require('./spell-category')
   SpellDescriptionVariables: require('./spell-description-variables')
+  SpellDifficulty: require('./spell-difficulty')
 }
