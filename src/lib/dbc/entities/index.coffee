@@ -130,5 +130,6 @@ module.exports = {
   SpellItemEnchantment: require('./spell-item-enchantment')
   SpellItemEnchantmentCondition: require('./spell-item-enchantment-condition')
   SpellMechanic: require('./spell-mechanic')
+  SpellRange: require('./spell-range')
   TaxiNodes: require('./taxi-nodes')
 }
