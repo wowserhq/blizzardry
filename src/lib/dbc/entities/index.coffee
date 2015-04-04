@@ -137,5 +137,6 @@ module.exports = {
   SpellVisualKitAreaModel: require('./spell-visual-kit-area-model')
   SpellVisualKitModelAttach: require('./spell-visual-kit-model-attach')
   SpellVisualPrecastTransitions: require('./spell-visual-precast-transitions')
+  StableSlotPrices: require('./stable-slot-prices')
   TaxiNodes: require('./taxi-nodes')
 }
