@@ -139,5 +139,6 @@ module.exports = {
   SpellVisualPrecastTransitions: require('./spell-visual-precast-transitions')
   StableSlotPrices: require('./stable-slot-prices')
   Startup_Strings: require('./startup-strings')
+  Stationery: require('./stationery')
   TaxiNodes: require('./taxi-nodes')
 }
