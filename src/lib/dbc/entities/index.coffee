@@ -135,5 +135,6 @@ module.exports = {
   SpellRuneCost: require('./spell-rune-cost')
   SpellVisualEffectName: require('./spell-visual-effect-name')
   SpellVisualKitAreaModel: require('./spell-visual-kit-area-model')
+  SpellVisualKitModelAttach: require('./spell-visual-kit-model-attach')
   TaxiNodes: require('./taxi-nodes')
 }
