@@ -138,5 +138,6 @@ module.exports = {
   SpellVisualKitModelAttach: require('./spell-visual-kit-model-attach')
   SpellVisualPrecastTransitions: require('./spell-visual-precast-transitions')
   StableSlotPrices: require('./stable-slot-prices')
+  Startup_Strings: require('./startup-strings')
   TaxiNodes: require('./taxi-nodes')
 }
