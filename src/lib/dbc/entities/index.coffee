@@ -136,5 +136,6 @@ module.exports = {
   SpellVisualEffectName: require('./spell-visual-effect-name')
   SpellVisualKitAreaModel: require('./spell-visual-kit-area-model')
   SpellVisualKitModelAttach: require('./spell-visual-kit-model-attach')
+  SpellVisualPrecastTransitions: require('./spell-visual-precast-transitions')
   TaxiNodes: require('./taxi-nodes')
 }
