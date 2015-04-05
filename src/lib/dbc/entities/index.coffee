@@ -142,5 +142,6 @@ module.exports = {
   Stationery: require('./stationery')
   StringLookups: require('./string-lookups')
   Talent: require('./talent')
+  TalentTab: require('./talent-tab')
   TaxiNodes: require('./taxi-nodes')
 }
