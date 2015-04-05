@@ -144,4 +144,5 @@ module.exports = {
   Talent: require('./talent')
   TalentTab: require('./talent-tab')
   TaxiNodes: require('./taxi-nodes')
+  TaxiPath: require('./taxi-path')
 }
