@@ -146,4 +146,5 @@ module.exports = {
   TaxiNodes: require('./taxi-nodes')
   TaxiPath: require('./taxi-path')
   TaxiPathNode: require('./taxi-path-node')
+  TeamContributionPoints: require('./team-contribution-points')
 }
