@@ -149,4 +149,5 @@ module.exports = {
   TeamContributionPoints: require('./team-contribution-points')
   TerrainType: require('./terrain-type')
   TerrainTypeSounds: require('./terrain-type-sounds')
+  TotemCategory: require('./totem-category')
 }
