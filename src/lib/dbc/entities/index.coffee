@@ -150,4 +150,5 @@ module.exports = {
   TerrainType: require('./terrain-type')
   TerrainTypeSounds: require('./terrain-type-sounds')
   TotemCategory: require('./totem-category')
+  TransportAnimation: require('./transport-animation')
 }
