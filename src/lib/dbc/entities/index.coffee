@@ -157,4 +157,5 @@ module.exports = {
   VocalUISounds: require('./vocal-ui-sounds')
   WMOAreaTable: require('./wmo-area-table')
   Weather: require('./weather')
+  WorldMapArea: require('./world-map-area')
 }
