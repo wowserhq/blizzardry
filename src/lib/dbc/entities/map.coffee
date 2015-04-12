@@ -9,7 +9,7 @@ module.exports = Entity(
   type: r.uint32le
   pvp: new r.Boolean(r.uint32le)
   name: LocalizedStringRef
-  areaTableID: r.uint32le
+  areaID: r.uint32le
 
   hordeIntro: LocalizedStringRef
   allianceIntro: LocalizedStringRef

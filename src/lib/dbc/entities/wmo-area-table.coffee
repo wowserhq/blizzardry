@@ -11,6 +11,6 @@ module.exports = Entity(
   unknowns: new r.Reserved(r.uint32le, 5)
 
   flags: r.uint32le
-  areaTableID: r.uint32le
+  areaID: r.uint32le
   name: LocalizedStringRef
 )
