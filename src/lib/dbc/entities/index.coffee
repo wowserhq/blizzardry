@@ -153,4 +153,5 @@ module.exports = {
   TransportAnimation: require('./transport-animation')
   UISoundLookups: require('./ui-sound-lookups')
   VehicleUIIndicator: require('./vehicle-ui-indicator')
+  VehicleUIIndSeat: require('./vehicle-ui-ind-seat')
 }
