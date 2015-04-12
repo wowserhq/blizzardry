@@ -152,4 +152,5 @@ module.exports = {
   TotemCategory: require('./totem-category')
   TransportAnimation: require('./transport-animation')
   UISoundLookups: require('./ui-sound-lookups')
+  VehicleUIIndicator: require('./vehicle-ui-indicator')
 }
