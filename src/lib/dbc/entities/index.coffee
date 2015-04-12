@@ -154,4 +154,5 @@ module.exports = {
   UISoundLookups: require('./ui-sound-lookups')
   VehicleUIIndicator: require('./vehicle-ui-indicator')
   VehicleUIIndSeat: require('./vehicle-ui-ind-seat')
+  VocalUISounds: require('./vocal-ui-sounds')
 }
