@@ -155,4 +155,5 @@ module.exports = {
   VehicleUIIndicator: require('./vehicle-ui-indicator')
   VehicleUIIndSeat: require('./vehicle-ui-ind-seat')
   VocalUISounds: require('./vocal-ui-sounds')
+  WMOAreaTable: require('./wmo-area-table')
 }
