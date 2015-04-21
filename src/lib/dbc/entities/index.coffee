@@ -159,4 +159,5 @@ module.exports = {
   Weather: require('./weather')
   WorldMapArea: require('./world-map-area')
   WorldMapContinent: require('./world-map-continent')
+  WorldMapOverlay: require('./world-map-overlay')
 }
