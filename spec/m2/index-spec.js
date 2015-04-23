@@ -1,6 +1,6 @@
-var M2, expect, fixtures, fs, memo, r, sinon, _ref;
+var M2, expect, fixtures, fs, memo, r, ref, sinon;
 
-_ref = require('../spec-helper'), expect = _ref.expect, fixtures = _ref.fixtures, memo = _ref.memo, sinon = _ref.sinon;
+ref = require('../spec-helper'), expect = ref.expect, fixtures = ref.fixtures, memo = ref.memo, sinon = ref.sinon;
 
 fs = require('fs');
 
@@ -318,8 +318,8 @@ describe('M2', function() {
   });
   describe('#vertices', function() {
     return it('returns vertices', function() {
-      var first, last, vertices, _ref1;
-      _ref1 = vertices = dummy.vertices, first = _ref1[0], last = _ref1[_ref1.length - 1];
+      var first, last, ref1, vertices;
+      ref1 = vertices = dummy.vertices, first = ref1[0], last = ref1[ref1.length - 1];
       expect(vertices.length).to.eq(154);
       expect(first).to.deep.eq({
         position: [-0.2735399901866913, -0.003535992233082652, 0.3579200804233551],

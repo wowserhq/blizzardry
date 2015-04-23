@@ -1,6 +1,6 @@
-var DBC, Entity, LocalizedStringRef, StringRef, expect, fixtures, fs, memo, r, sinon, _ref;
+var DBC, Entity, LocalizedStringRef, StringRef, expect, fixtures, fs, memo, r, ref, sinon;
 
-_ref = require('../spec-helper'), expect = _ref.expect, fixtures = _ref.fixtures, memo = _ref.memo, sinon = _ref.sinon;
+ref = require('../spec-helper'), expect = ref.expect, fixtures = ref.fixtures, memo = ref.memo, sinon = ref.sinon;
 
 fs = require('fs');
 
@@ -64,8 +64,8 @@ describe('DBC', function() {
   return describe('#records', function() {
     context('when not using an entity', function() {
       return it('returns raw records', function() {
-        var record, records, _ref1;
-        _ref1 = records = dummy.records, record = _ref1[0];
+        var record, records, ref1;
+        ref1 = records = dummy.records, record = ref1[0];
         expect(records.length).to.eq(3);
         expect(record).to.be.an["instanceof"](Buffer);
         return expect(record).to.have.length(dummy.recordSize);
@@ -73,9 +73,9 @@ describe('DBC', function() {
     });
     return context('when using an entity', function() {
       return it('returns records', function() {
-        var first, last, records, sample, _ref1;
+        var first, last, records, ref1, sample;
         sample = Sample.dbc.decode(stream());
-        _ref1 = records = sample.records, first = _ref1[0], last = _ref1[_ref1.length - 1];
+        ref1 = records = sample.records, first = ref1[0], last = ref1[ref1.length - 1];
         expect(records.length).to.eq(3);
         expect(first).to.deep.eq({
           id: 1,

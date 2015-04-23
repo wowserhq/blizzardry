@@ -1,16 +1,16 @@
-var entities, expect, fixtures, inflect, memo, sinon, _ref;
+var entities, expect, fixtures, inflect, memo, ref, sinon;
 
-_ref = require('../spec-helper'), expect = _ref.expect, fixtures = _ref.fixtures, memo = _ref.memo, sinon = _ref.sinon;
+ref = require('../spec-helper'), expect = ref.expect, fixtures = ref.fixtures, memo = ref.memo, sinon = ref.sinon;
 
 inflect = require('inflected');
 
 entities = require('../../lib/dbc/entities');
 
 describe('DBC.Entities', function() {
-  var name, _results;
-  _results = [];
+  var name, results;
+  results = [];
   for (name in entities) {
-    _results.push((function(name) {
+    results.push((function(name) {
       return it("exposes " + name + " entity", function() {
         var entity, filename;
         entity = entities[name];
@@ -19,5 +19,5 @@ describe('DBC.Entities', function() {
       });
     })(name));
   }
-  return _results;
+  return results;
 });

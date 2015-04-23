@@ -1,6 +1,6 @@
-var ADT, expect, fixtures, fs, memo, r, sinon, _ref;
+var ADT, expect, fixtures, fs, memo, r, ref, sinon;
 
-_ref = require('../spec-helper'), expect = _ref.expect, fixtures = _ref.fixtures, memo = _ref.memo, sinon = _ref.sinon;
+ref = require('../spec-helper'), expect = ref.expect, fixtures = ref.fixtures, memo = ref.memo, sinon = ref.sinon;
 
 fs = require('fs');
 

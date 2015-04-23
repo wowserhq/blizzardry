@@ -1,6 +1,6 @@
-var BLP, Mipmap, expect, fixtures, fs, memo, sinon, _ref;
+var BLP, Mipmap, expect, fixtures, fs, memo, ref, sinon;
 
-_ref = require('../spec-helper'), expect = _ref.expect, fixtures = _ref.fixtures, memo = _ref.memo, sinon = _ref.sinon;
+ref = require('../spec-helper'), expect = ref.expect, fixtures = ref.fixtures, memo = ref.memo, sinon = ref.sinon;
 
 fs = require('fs');
 
@@ -64,13 +64,13 @@ describe('BLP', function() {
   });
   describe('#mipmaps', function() {
     return it('contains mipmaps', function() {
-      var i, mipmaps, _i, _results;
+      var i, j, mipmaps, results;
       mipmaps = dummy().mipmaps;
-      _results = [];
-      for (i = _i = 0; _i < 8; i = ++_i) {
-        _results.push(expect(mipmaps[i]).to.be.an["instanceof"](Mipmap));
+      results = [];
+      for (i = j = 0; j < 8; i = ++j) {
+        results.push(expect(mipmaps[i]).to.be.an["instanceof"](Mipmap));
       }
-      return _results;
+      return results;
     });
   });
   describe('#smallest', function() {
