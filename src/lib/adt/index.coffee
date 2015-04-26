@@ -15,9 +15,9 @@ MHDR = Chunk(
   offsetMWID: r.uint32le
   offsetMDDF: r.uint32le
   offsetMODF: r.uint32le
+  offsetMFBO: r.uint32le
   offsetMH2O: r.uint32le
   offsetMCNKs: r.uint32le
-  offsetMFBO: r.uint32le
   offsetMXTF: r.uint32le
   offsetMXTP: r.uint32le
 
@@ -106,7 +106,7 @@ module.exports = Chunked(
   MWID: SkipChunk
   MDDF: SkipChunk
   MODF: SkipChunk
-  MH2O: new r.Optional(SkipChunk, -> @offsetMH2O)
+  MH2O: new r.Optional(SkipChunk, -> @MHDR.offsetMH2O)
   MCNKs: new r.Array(MCNK, 256)
   MFBO: new r.Optional(SkipChunk, -> @offsetMFBO)
   MTXF: new r.Optional(SkipChunk, -> @offsetMTXF)
