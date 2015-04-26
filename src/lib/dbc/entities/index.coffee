@@ -163,4 +163,5 @@ module.exports = {
   WorldMapTransforms: require('./world-map-transforms')
   WorldSafeLocs: require('./world-safe-locs')
   WorldStateUI: require('./world-state-ui')
+  WowError_Strings: require('./wow-error-strings')
 }
