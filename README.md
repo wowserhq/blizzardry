@@ -28,7 +28,31 @@ Or for usage in the browser, [soon™](http://www.wowwiki.com/Soon).
 
 ### [ADT](src/lib/adt)
 
-Usage coming soon.
+Map tiles containing terrain and object information.
+
+A map tile consists of 16 by 16 map chunks.
+
+```javascript
+r = require('blizzardry/lib/restructure');
+ADT = require('blizzardry/lib/adt');
+
+io = fs.readFileSync('Azeroth_31_39.adt');
+stream = new r.DecodeStream(io);
+
+adt = ADT.decode(stream);
+adt.version // 18
+adt.flags   // 0
+
+adt.MTEX.filenames // ['Tileset\\Wetlands\\Wetlandsdirt01.blp', ...]
+adt.MMDX.filenames // ['WORLD\\AZEROTH\\ELWYNN\\PASSIVEDOODADS\\BUSH\\ELWYNNBUSH09.M2', ...]
+
+adt.MCNKs.forEach(function(chunk) {
+  chunk.areaID   // 2365
+  chunk.position // { x: -3733.33, y: 533.33, z: -462.37 }
+  chunk.indexX   // 0
+  chunk.indexY   // 0
+});
+```
 
 ### [BLP](src/lib/blp)
 
@@ -41,7 +65,6 @@ brew install --HEAD https://raw.githubusercontent.com/timkurvers/homebrew-games/
 ````
 
 For all other platforms, compile from source and ensure the library ends up on the load path.
-
 
 ```javascript
 BLP = require('blizzardry/lib/blp');
