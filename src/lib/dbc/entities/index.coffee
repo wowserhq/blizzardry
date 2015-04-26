@@ -164,4 +164,5 @@ module.exports = {
   WorldSafeLocs: require('./world-safe-locs')
   WorldStateUI: require('./world-state-ui')
   WowError_Strings: require('./wow-error-strings')
+  ZoneIntroMusicTable: require('./zone-intro-music-table')
 }
