@@ -162,4 +162,5 @@ module.exports = {
   WorldMapOverlay: require('./world-map-overlay')
   WorldMapTransforms: require('./world-map-transforms')
   WorldSafeLocs: require('./world-safe-locs')
+  WorldStateUI: require('./world-state-ui')
 }
