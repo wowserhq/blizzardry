@@ -160,4 +160,5 @@ module.exports = {
   WorldMapArea: require('./world-map-area')
   WorldMapContinent: require('./world-map-continent')
   WorldMapOverlay: require('./world-map-overlay')
+  WorldMapTransforms: require('./world-map-transforms')
 }
