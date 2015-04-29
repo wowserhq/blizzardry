@@ -31,6 +31,7 @@ module.exports = {
   CinematicSequences: require('./cinematic-sequences')
   CreatureDisplayInfo: require('./creature-display-info')
   CreatureDisplayInfoExtra: require('./creature-display-info-extra')
+  CreatureFamily: require('./creature-family')
   CreatureModelData: require('./creature-model-data')
   CreatureMovementInfo: require('./creature-movement-info')
   CreatureSpellData: require('./creature-spell-data')
