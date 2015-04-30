@@ -40,6 +40,7 @@ module.exports = {
   CurrencyTypes: require('./currency-types')
   DanceMoves: require('./dance-moves')
   DeclinedWord: require('./declined-word')
+  DeclinedWordCases: require('./declined-word-cases')
   DungeonEncounter: require('./dungeon-encounter')
   DungeonMap: require('./dungeon-map')
   DungeonMapChunk: require('./dungeon-map-chunk')
