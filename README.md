@@ -143,6 +143,7 @@ m2.vertices[0].position // [ -0.2735.., -0.0035.., 0.3579.. ]
 ### [MPQ](src/lib/mpq)
 
 Generic archive format, used in [most](http://en.wikipedia.org/wiki/MPQ#Usage_in_gaming) Blizzard games.
+Superseded by [CASC](http://en.wikipedia.org/wiki/MPQ#Replacement:_CASC).
 
 Blizzardry uses [StormLib](https://github.com/ladislav-zezula/StormLib) to handle MPQ archives, which on OSX can be installed using [Homebrew](http://brew.sh/):
 
