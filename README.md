@@ -94,7 +94,7 @@ blp.close();
 
 ### CASC
 
-Generic archive format, used in [recent]((http://en.wikipedia.org/wiki/MPQ#Replacement:_CASC)) Blizzard games.
+Generic archive format, used in [recent](http://en.wikipedia.org/wiki/MPQ#Replacement:_CASC) Blizzard games.
 Supersedes [MPQ](#mpq).
 
 Blizzardry will use [CascLib](https://github.com/ladislav-zezula/CascLib) to handle CASC storage containers.
