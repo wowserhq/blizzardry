@@ -1,12 +1,8 @@
-const browserify = require('gulp-browserify');
 const babel      = require('gulp-babel');
 const clean      = require('gulp-rimraf');
 const gulp       = require('gulp');
 const mocha      = require('gulp-mocha');
-const pkg        = require('./package.json');
 const plumber    = require('gulp-plumber');
-const rename     = require('gulp-rename');
-const uglify     = require('gulp-uglify');
 
 gulp.task('clean', function() {
   return gulp.src([
@@ -28,17 +24,6 @@ gulp.task('spec', function() {
     .pipe(plumber())
     .pipe(mocha({bail: true}));
 });
-
-// gulp.task 'release', gulp.series 'clean', 'build', ->
-//   gulp.src 'lib/index.js'
-//       .pipe browserify(standalone: 'Blizzardry')
-//       .pipe rename("#{pkg.name}.js")
-//       .pipe header(pkg)
-//       .pipe gulp.dest('dist')
-//       .pipe uglify()
-//       .pipe header(pkg)
-//       .pipe rename("#{pkg.name}.min.js")
-//       .pipe gulp.dest('dist')
 
 gulp.task('rebuild', gulp.series(
   'clean', 'build'
