@@ -1,15 +1,10 @@
-'use strict';
+const r = require('restructure')
+const Chunk = require('../chunked/chunk')
+const Chunked = require('../chunked')
+const SkipChunk = require('../chunked/skip-chunk')
+const {Vec3Float} = require('../types')
 
-var r = require('restructure');
-var Chunk = require('../chunked/chunk');
-var Chunked = require('../chunked');
-var SkipChunk = require('../chunked/skip-chunk');
-
-var _require = require('../types');
-
-var Vec3Float = _require.Vec3Float;
-
-var MHDR = Chunk({
+const MHDR = Chunk({
   flags: r.uint32le,
 
   offsetMCIN: r.uint32le,
@@ -27,39 +22,39 @@ var MHDR = Chunk({
   offsetMTXP: r.uint32le,
 
   skip: new r.Reserved(r.uint32le, 2)
-});
+})
 
-var MTEX = Chunk({
+const MTEX = Chunk({
   filenames: new r.Array(new r.String(null), 'size', 'bytes')
-});
+})
 
-var MMDX = Chunk({
+const MMDX = Chunk({
   filenames: new r.Array(new r.String(null), 'size', 'bytes')
-});
+})
 
-var MCVT = Chunk({
+const MCVT = Chunk({
   heights: new r.Array(r.floatle, 145)
-});
+})
 
-var MCNR = Chunk({
+const MCNR = Chunk({
   normals: new r.Array(new r.Struct({
     x: r.int8,
     z: r.int8,
     y: r.int8
   }), 145),
   skip: new r.Reserved(r.uint8, 13)
-});
+})
 
-var MCLY = Chunk({
+const MCLY = Chunk({
   layers: new r.Array(new r.Struct({
     textureID: r.uint32le,
     offsetMCAL: r.uint32le,
     skip: r.uint32le,
     skip2: r.int32le
   }), 'size', 'bytes')
-});
+})
 
-var MCNK = Chunk({
+const MCNK = Chunk({
   flags: r.uint32le,
   indexX: r.uint32le,
   indexY: r.uint32le,
@@ -91,19 +86,19 @@ var MCNK = Chunk({
   skip: new r.Reserved(r.uint32le, 2),
 
   MCVT: MCVT,
-  MCCV: new r.Optional(SkipChunk, function () {
-    return this.offsetMCCV;
+  MCCV: new r.Optional(SkipChunk, function() {
+    return this.offsetMCCV
   }),
   MCNR: MCNR,
   MCLY: MCLY,
   MCRF: SkipChunk,
   MCSH: SkipChunk,
   MCAL: SkipChunk,
-  MLCQ: new r.Optional(SkipChunk, function () {
-    return this.offsetMCLQ;
+  MLCQ: new r.Optional(SkipChunk, function() {
+    return this.offsetMCLQ
   }),
   MCSE: SkipChunk
-});
+})
 
 module.exports = Chunked({
   MHDR: MHDR,
@@ -115,21 +110,21 @@ module.exports = Chunked({
   MWID: SkipChunk,
   MDDF: SkipChunk,
   MODF: SkipChunk,
-  MH2O: new r.Optional(SkipChunk, function () {
-    return this.MHDR.offsetMH2O;
+  MH2O: new r.Optional(SkipChunk, function() {
+    return this.MHDR.offsetMH2O
   }),
   MCNKs: new r.Array(MCNK, 256),
-  MFBO: new r.Optional(SkipChunk, function () {
-    return this.MHDR.offsetMFBO;
+  MFBO: new r.Optional(SkipChunk, function() {
+    return this.MHDR.offsetMFBO
   }),
-  MTXF: new r.Optional(SkipChunk, function () {
-    return this.MHDR.offsetMTXF;
+  MTXF: new r.Optional(SkipChunk, function() {
+    return this.MHDR.offsetMTXF
   }),
-  MTXP: new r.Optional(SkipChunk, function () {
-    return this.MHDR.offsetMTXP;
+  MTXP: new r.Optional(SkipChunk, function() {
+    return this.MHDR.offsetMTXP
   }),
 
-  flags: function flags() {
-    return this.MHDR.flags;
+  flags: function() {
+    return this.MHDR.flags
   }
-});
+})
