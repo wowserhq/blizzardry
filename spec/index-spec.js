@@ -1,12 +1,18 @@
-var Blizzardry, expect, fixtures, memo, ref, sinon;
+'use strict';
 
-ref = require('./spec-helper'), expect = ref.expect, fixtures = ref.fixtures, memo = ref.memo, sinon = ref.sinon;
+var _require = require('./spec-helper');
 
-Blizzardry = require('../lib');
+var expect = _require.expect;
+var fixtures = _require.fixtures;
+var memo = _require.memo;
+var sinon = _require.sinon;
 
-describe('Blizzardry', function() {
-  return it('exposes restructure', function() {
+var Blizzardry = require('../lib');
+
+describe('Blizzardry', function () {
+
+  it('exposes restructure', function () {
     expect(Blizzardry.restructure).to.eq(require('../lib/restructure'));
-    return expect(Blizzardry.restructure).to.eq(require('restructure'));
+    expect(Blizzardry.restructure).to.eq(require('restructure'));
   });
 });
