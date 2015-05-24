@@ -34,7 +34,6 @@
     "xtend": "^4.0.0"
   },
   "devDependencies": {
-    "babel": "^5.4.7",
     "chai": "1.9.1",
     "codeclimate-test-reporter": "0.0.4",
     "del": "^1.2.0",
