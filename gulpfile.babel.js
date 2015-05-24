@@ -1,8 +1,8 @@
-const babel      = require('gulp-babel');
-const clean      = require('gulp-rimraf');
-const gulp       = require('gulp');
-const mocha      = require('gulp-mocha');
-const plumber    = require('gulp-plumber');
+const babel   = require('gulp-babel');
+const clean   = require('gulp-rimraf');
+const gulp    = require('gulp');
+const mocha   = require('gulp-mocha');
+const plumber = require('gulp-plumber');
 
 gulp.task('clean', function() {
   return gulp.src([
