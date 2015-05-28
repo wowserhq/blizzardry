@@ -1,23 +1,22 @@
-var entities, expect, fixtures, inflect, memo, ref, sinon;
+'use strict';
 
-ref = require('../spec-helper'), expect = ref.expect, fixtures = ref.fixtures, memo = ref.memo, sinon = ref.sinon;
+var _require = require('../spec-helper');
 
-inflect = require('inflected');
+var expect = _require.expect;
+var fixtures = _require.fixtures;
+var memo = _require.memo;
+var sinon = _require.sinon;
 
-entities = require('../../lib/dbc/entities');
+var inflect = require('inflected');
 
-describe('DBC.Entities', function() {
-  var name, results;
-  results = [];
-  for (name in entities) {
-    results.push((function(name) {
-      return it("exposes " + name + " entity", function() {
-        var entity, filename;
-        entity = entities[name];
-        filename = inflect.dasherize(inflect.underscore(name));
-        return expect(entity).to.eq(require("../../lib/dbc/entities/" + filename));
-      });
-    })(name));
+var entities = require('../../lib/dbc/entities');
+
+describe('DBC.Entities', function () {
+  for (var name in entities) {
+    it('exposes ' + name + ' entity', function () {
+      var entity = entities[name];
+      var filename = inflect.dasherize(inflect.underscore(name));
+      expect(entity).to.eq(require('../../lib/dbc/entities/' + filename));
+    });
   }
-  return results;
 });
