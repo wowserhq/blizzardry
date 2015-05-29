@@ -1,6 +1,6 @@
 browserify = require('gulp-browserify')
-clean      = require('gulp-rimraf')
 coffee     = require('gulp-coffee')
+del        = require('del')
 gulp       = require('gulp')
 # header     = require('./header')
 mocha      = require('gulp-mocha')
@@ -9,12 +9,12 @@ plumber    = require('gulp-plumber')
 rename     = require('gulp-rename')
 uglify     = require('gulp-uglify')
 
-gulp.task 'clean', ->
-  gulp.src([
+gulp.task 'clean', (cb) ->
+  del([
     'dist/*',
     'lib/*',
     'spec/**/*.js'
-  ]).pipe clean()
+  ], cb)
 
 gulp.task 'build', ->
   gulp.src 'src/**/*.coffee'
