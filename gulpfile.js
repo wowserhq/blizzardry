@@ -1,15 +1,15 @@
 var babel   = require('gulp-babel');
-var clean   = require('gulp-rimraf');
+var del     = require('del');
 var gulp    = require('gulp');
 var mocha   = require('gulp-mocha');
 var plumber = require('gulp-plumber');
 
-gulp.task('clean', function() {
-  return gulp.src([
+gulp.task('clean', function(cb) {
+  return del([
     'dist/*',
     'lib/*',
     'spec/**/*.js'
-  ]).pipe(clean());
+  ], cb)
 });
 
 gulp.task('build', function() {
