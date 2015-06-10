@@ -39,6 +39,7 @@
     "del": "^1.2.0",
     "gulp": "git://github.com/gulpjs/gulp.git#4.0",
     "gulp-babel": "^5.1.0",
+    "gulp-cached": "^1.1.0",
     "gulp-mocha": "1.0.0",
     "gulp-plumber": "^0.6.5",
     "inflected": "^1.1.6",

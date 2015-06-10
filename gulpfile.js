@@ -1,4 +1,5 @@
 var babel   = require('gulp-babel');
+var cache   = require('gulp-cached');
 var del     = require('del');
 var gulp    = require('gulp');
 var mocha   = require('gulp-mocha');
@@ -14,6 +15,7 @@ gulp.task('clean', function(cb) {
 
 gulp.task('build', function() {
   return gulp.src('src/**/*.js')
+    .pipe(cache('babel'))
     .pipe(plumber())
     .pipe(babel())
     .pipe(gulp.dest('.'));
