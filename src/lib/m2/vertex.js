@@ -1,11 +1,5 @@
-'use strict';
-
-var _require = require('../types');
-
-var float2 = _require.float2;
-var float3 = _require.float3;
-
-var r = require('restructure');
+const {float2, float3} = require('../types')
+const r = require('restructure')
 
 module.exports = new r.Struct({
   position: float3,
@@ -14,4 +8,4 @@ module.exports = new r.Struct({
   normal: float3,
   textureCoords: float2,
   random: float2
-});
+})

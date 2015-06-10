@@ -1,21 +1,16 @@
-'use strict';
-
-var _require = require('../types');
-
-var Vec3Float = _require.Vec3Float;
-
-var r = require('restructure');
-var Bone = require('./bone');
-var Nofs = require('./nofs');
-var Vertex = require('./vertex');
+const {Vec3Float} = require('../types')
+const r = require('restructure')
+const Bone = require('./bone')
+const Nofs = require('./nofs')
+const Vertex = require('./vertex')
 
 module.exports = new r.Struct({
   signature: new r.String(4),
   version: r.uint32le,
 
   names: new Nofs(new r.String()),
-  name: function name() {
-    return this.names[0];
+  name: function() {
+    return this.names[0]
   },
 
   flags: r.uint32le,
@@ -62,10 +57,10 @@ module.exports = new r.Struct({
   ribbonEmitters: new Nofs(),
   particleEmitters: new Nofs(),
 
-  unknown1: new r.Optional(r.uint32le, function () {
-    return this.flags == 8;
+  unknown1: new r.Optional(r.uint32le, function() {
+    return this.flags == 8
   }),
-  unknown2: new r.Optional(r.uint32le, function () {
-    return this.flags == 8;
+  unknown2: new r.Optional(r.uint32le, function() {
+    return this.flags == 8
   })
-});
+})

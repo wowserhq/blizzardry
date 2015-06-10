@@ -1,13 +1,7 @@
-'use strict';
-
-var r = require('restructure');
-var AnimationBlock = require('./animation-block');
-var Nofs = require('./nofs');
-
-var _require = require('../types');
-
-var QuatShort = _require.QuatShort;
-var Vec3Float = _require.Vec3Float;
+const r = require('restructure')
+const AnimationBlock = require('./animation-block')
+const Nofs = require('./nofs')
+const {QuatShort, Vec3Float} = require('../types')
 
 module.exports = new r.Struct({
   keyBoneID: r.int32le,
@@ -22,4 +16,4 @@ module.exports = new r.Struct({
   scaling: new AnimationBlock(Vec3Float),
 
   pivotPoint: Vec3Float
-});
+})
