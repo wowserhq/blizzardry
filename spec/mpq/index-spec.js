@@ -1,151 +1,168 @@
-var Files, MPQ, expect, fixtures, fs, memo, ref, sinon;
+'use strict';
 
-ref = require('../spec-helper'), expect = ref.expect, fixtures = ref.fixtures, memo = ref.memo, sinon = ref.sinon;
+var _require = require('../spec-helper');
 
-fs = require('fs');
+var expect = _require.expect;
+var fixtures = _require.fixtures;
+var memo = _require.memo;
+var sinon = _require.sinon;
 
-Files = require('../../lib/mpq/files');
+var fs = require('fs');
 
-MPQ = require('../../lib/mpq');
+var Files = require('../../lib/mpq/files');
+var MPQ = require('../../lib/mpq');
 
-describe('MPQ', function() {
-  var dummy;
-  dummy = memo().is(function() {
+describe('MPQ', function () {
+
+  var dummy = memo().is(function () {
     return MPQ.open(fixtures + 'TheDeathSheep.w3m');
   });
-  describe('#flags', function() {
-    return it('exposes flags', function() {
-      return expect(dummy().flags).to.eq(0);
+
+  describe('#flags', function () {
+    it('exposes flags', function () {
+      expect(dummy().flags).to.eq(0);
     });
   });
-  describe('#files', function() {
-    return it('exposes files object', function() {
-      return expect(dummy().files).to.be.an["instanceof"](Files);
+
+  describe('#files', function () {
+    it('exposes files object', function () {
+      expect(dummy().files).to.be.an['instanceof'](Files);
     });
   });
-  describe('#path', function() {
-    return it('exposes path to this archive', function() {
-      return expect(dummy().path).to.eq(fixtures + 'TheDeathSheep.w3m');
+
+  describe('#path', function () {
+    it('exposes path to this archive', function () {
+      expect(dummy().path).to.eq(fixtures + 'TheDeathSheep.w3m');
     });
   });
-  describe('#close', function() {
-    it('closes this archive', function() {
-      return dummy().close();
-    });
-    return it('is idempotent', function() {
+
+  describe('#close', function () {
+    it('closes this archive', function () {
       dummy().close();
-      return dummy().close();
+    });
+
+    it('is idempotent', function () {
+      dummy().close();
+      dummy().close();
     });
   });
-  describe('#opened', function() {
-    context('when archive is open', function() {
-      return it('returns true', function() {
-        return expect(dummy().opened).to.be["true"];
+
+  describe('#opened', function () {
+    context('when archive is open', function () {
+      it('returns true', function () {
+        expect(dummy().opened).to.be['true'];
       });
     });
-    return context('when archive is closed', function() {
-      return it('returns false', function() {
+
+    context('when archive is closed', function () {
+      it('returns false', function () {
         dummy().close();
-        return expect(dummy().opened).to.be["false"];
+        expect(dummy().opened).to.be['false'];
       });
     });
   });
-  describe('#patch', function() {
-    context('when archive is writable', function() {
-      return it('throws an error', function() {
-        return expect(function() {
-          return dummy().patch(fixtures + 'TheDeathSheep.w3m');
-        }).to["throw"]('archive must be read-only');
+
+  describe('#patch', function () {
+    context('when archive is writable', function () {
+      it('throws an error', function () {
+        expect(function () {
+          dummy().patch(fixtures + 'TheDeathSheep.w3m');
+        }).to['throw']('archive must be read-only');
       });
     });
-    return context('when archive is read-only', function() {
-      return it('patches archive', function() {
-        var mpq;
-        mpq = MPQ.open(fixtures + 'TheDeathSheep.w3m', MPQ.OPEN.READ_ONLY);
+
+    context('when archive is read-only', function () {
+      it('patches archive', function () {
+        var mpq = MPQ.open(fixtures + 'TheDeathSheep.w3m', MPQ.OPEN.READ_ONLY);
         mpq.patch(fixtures + 'TheDeathSheep.w3m');
-        return expect(mpq.patched).to.be["true"];
+        expect(mpq.patched).to.be['true'];
       });
     });
   });
-  describe('#patched', function() {
-    return it('returns patched state', function() {
-      return expect(dummy().patched).to.be["false"];
+
+  describe('#patched', function () {
+    it('returns patched state', function () {
+      expect(dummy().patched).to.be['false'];
     });
   });
-  describe('.locale', function() {
-    return it('returns default locale', function() {
-      return expect(MPQ.locale).to.eq(0);
+
+  describe('.locale', function () {
+    it('returns default locale', function () {
+      expect(MPQ.locale).to.eq(0);
     });
   });
-  describe('.locale=', function() {
-    return it('sets default locale', function() {
+
+  describe('.locale=', function () {
+    it('sets default locale', function () {
       MPQ.locale = 1;
       expect(MPQ.locale).to.eq(1);
-      return MPQ.locale = 0;
+      MPQ.locale = 0;
     });
   });
-  describe('.open', function() {
-    context('when omitting a callback', function() {
-      return it('returns an MPQ instance', function() {
-        var mpq;
-        mpq = MPQ.open(dummy().path);
-        return expect(mpq).to.be.an["instanceof"](MPQ);
+
+  describe('.open', function () {
+    context('when omitting a callback', function () {
+      it('returns an MPQ instance', function () {
+        var mpq = MPQ.open(dummy().path);
+        expect(mpq).to.be.an['instanceof'](MPQ);
       });
     });
-    context('when given a callback', function() {
-      return it('invokes callback with MPQ instance', function() {
-        var callback, result;
-        callback = this.sandbox.spy(function(mpq) {
-          return expect(mpq).to.be.an["instanceof"](MPQ);
+
+    context('when given a callback', function () {
+      it('invokes callback with MPQ instance', function () {
+        var callback = this.sandbox.spy(function (mpq) {
+          expect(mpq).to.be.an['instanceof'](MPQ);
         });
-        result = MPQ.open(dummy().path, callback);
+        var result = MPQ.open(dummy().path, callback);
         expect(callback).to.have.been.called;
-        return expect(result).to.be["true"];
+        expect(result).to.be['true'];
       });
     });
-    context('when given flags and omitting a callback', function() {
-      return it('returns an MPQ instance and honors flags', function() {
-        var mpq;
-        mpq = MPQ.open(dummy().path, MPQ.OPEN.READ_ONLY);
-        expect(mpq).to.be.an["instanceof"](MPQ);
-        return expect(mpq.flags & MPQ.OPEN.READ_ONLY).to.be.above(0);
+
+    context('when given flags and omitting a callback', function () {
+      it('returns an MPQ instance and honors flags', function () {
+        var mpq = MPQ.open(dummy().path, MPQ.OPEN.READ_ONLY);
+        expect(mpq).to.be.an['instanceof'](MPQ);
+        expect(mpq.flags & MPQ.OPEN.READ_ONLY).to.be.above(0);
       });
     });
-    context('when given flags and a callback', function() {
-      return it('invokes callback with MPQ instance and honors flag', function() {
-        var callback, result;
-        callback = this.sandbox.spy(function(mpq) {
-          expect(mpq).to.be.an["instanceof"](MPQ);
-          return expect(mpq.flags & MPQ.OPEN.READ_ONLY).to.be.above(0);
+
+    context('when given flags and a callback', function () {
+      it('invokes callback with MPQ instance and honors flag', function () {
+        var callback = this.sandbox.spy(function (mpq) {
+          expect(mpq).to.be.an['instanceof'](MPQ);
+          expect(mpq.flags & MPQ.OPEN.READ_ONLY).to.be.above(0);
         });
-        result = MPQ.open(dummy().path, MPQ.OPEN.READ_ONLY, callback);
+        var result = MPQ.open(dummy().path, MPQ.OPEN.READ_ONLY, callback);
         expect(callback).to.have.been.called;
-        return expect(result).to.be["true"];
+        expect(result).to.be['true'];
       });
     });
-    return context('when given a malformed or non-existent archive', function() {
-      return it('throws an error', function() {
-        return expect(function() {
-          return MPQ.open('non-existent.mpq');
-        }).to["throw"]('archive could not be found or opened');
+
+    context('when given a malformed or non-existent archive', function () {
+      it('throws an error', function () {
+        expect(function () {
+          MPQ.open('non-existent.mpq');
+        }).to['throw']('archive could not be found or opened (2)');
       });
     });
   });
-  return describe('.create', function() {
-    context('when archive does not yet exist', function() {
-      return it('creates a new archive', function() {
-        var mpq, path;
-        path = fixtures + 'new.mpq';
-        mpq = MPQ.create(path);
-        expect(mpq).to.be.an["instanceof"](MPQ);
-        return fs.unlinkSync(path);
+
+  describe('.create', function () {
+    context('when archive does not yet exist', function () {
+      it('creates a new archive', function () {
+        var path = fixtures + 'new.mpq';
+        var mpq = MPQ.create(path);
+        expect(mpq).to.be.an['instanceof'](MPQ);
+        fs.unlinkSync(path);
       });
     });
-    return context('when archive already exists', function() {
-      return it('throws an error', function() {
-        return expect(function() {
-          return MPQ.create(dummy().path);
-        }).to["throw"]('archive could not be created');
+
+    context('when archive already exists', function () {
+      it('throws an error', function () {
+        expect(function () {
+          MPQ.create(dummy().path);
+        }).to['throw']('archive could not be created (17)');
       });
     });
   });

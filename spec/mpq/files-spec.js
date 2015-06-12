@@ -1,83 +1,88 @@
-var File, MPQ, expect, fixtures, fs, memo, ref, sinon;
+'use strict';
 
-ref = require('../spec-helper'), expect = ref.expect, fixtures = ref.fixtures, memo = ref.memo, sinon = ref.sinon;
+var _require = require('../spec-helper');
 
-fs = require('fs');
+var expect = _require.expect;
+var fixtures = _require.fixtures;
+var memo = _require.memo;
+var sinon = _require.sinon;
 
-File = require('../../lib/mpq/file');
+var fs = require('fs');
 
-MPQ = require('../../lib/mpq');
+var File = require('../../lib/mpq/file');
+var MPQ = require('../../lib/mpq');
 
-describe('MPQ.Files', function() {
-  var dummy;
-  dummy = memo().is(function() {
+describe('MPQ.Files', function () {
+
+  var dummy = memo().is(function () {
     return MPQ.open(fixtures + 'TheDeathSheep.w3m').files;
   });
-  describe('#contains', function() {
-    context('when archive contains given file', function() {
-      return it('returns true', function() {
-        var presence;
-        presence = dummy().contains('(listfile)');
-        return expect(presence).to.be["true"];
+
+  describe('#contains', function () {
+    context('when archive contains given file', function () {
+      it('returns true', function () {
+        var presence = dummy().contains('(listfile)');
+        expect(presence).to.be['true'];
       });
     });
-    return context('when archive does not contain given file', function() {
-      return it('returns false', function() {
-        var presence;
-        presence = dummy().contains('non-existent.txt');
-        return expect(presence).to.be["false"];
-      });
-    });
-  });
-  describe('#get', function() {
-    context('when archive contains given file', function() {
-      return it('returns file instance', function() {
-        var file;
-        file = dummy().get('(listfile)');
-        return expect(file).to.be.an["instanceof"](File);
-      });
-    });
-    return context('when archive does not contain given file', function() {
-      return it('returns null', function() {
-        var result;
-        result = dummy().get('non-existent.txt');
-        return expect(result).to.be["null"];
+
+    context('when archive does not contain given file', function () {
+      it('returns false', function () {
+        var presence = dummy().contains('non-existent.txt');
+        expect(presence).to.be['false'];
       });
     });
   });
-  describe('#extract', function() {
-    context('when archive contains given file', function() {
-      return it('extracts given file', function() {
-        var name, target;
-        name = '(attributes)';
-        target = fixtures + name;
+
+  describe('#get', function () {
+    context('when archive contains given file', function () {
+      it('returns file instance', function () {
+        var file = dummy().get('(listfile)');
+        expect(file).to.be.an['instanceof'](File);
+      });
+    });
+
+    context('when archive does not contain given file', function () {
+      it('returns null', function () {
+        var result = dummy().get('non-existent.txt');
+        expect(result).to.be['null'];
+      });
+    });
+  });
+
+  describe('#extract', function () {
+    context('when archive contains given file', function () {
+      it('extracts given file', function () {
+        var name = '(attributes)';
+        var target = fixtures + name;
         dummy().extract(name, target);
-        expect(fs.existsSync(target)).to.be["true"];
-        return fs.unlinkSync(target);
+        expect(fs.existsSync(target)).to.be['true'];
+        fs.unlinkSync(target);
       });
     });
-    return context('when archive does not contain given file', function() {
-      return it('throws an error', function() {
-        return expect(function() {
-          return dummy().extract('non-existent.txt');
-        }).to["throw"]('file could not be extracted');
+
+    context('when archive does not contain given file', function () {
+      it('throws an error', function () {
+        expect(function () {
+          dummy().extract('non-existent.txt');
+        }).to['throw']('file could not be extracted (2)');
       });
     });
   });
-  describe('#all', function() {
-    return it('proxies to #find with predefined pattern', function() {
-      var results, spy;
-      spy = this.sandbox.spy(dummy(), 'find');
-      results = dummy().all;
+
+  describe('#all', function () {
+    it('proxies to #find with predefined pattern', function () {
+      var spy = this.sandbox.spy(dummy(), 'find');
+      var results = dummy().all;
       expect(spy).to.have.been.calledWith('*');
-      return expect(results.length).to.eq(18);
+      expect(results.length).to.eq(18);
     });
   });
-  return describe('#find', function() {
-    return it('returns search results for given pattern', function() {
-      var results;
-      results = dummy().find('war3map.w3*');
-      return expect(results.length).to.eq(6);
+
+  describe('#find', function () {
+    it('returns search results for given pattern', function () {
+      var results = dummy().find('war3map.w3*');
+      expect(results.length).to.eq(6);
     });
   });
 });

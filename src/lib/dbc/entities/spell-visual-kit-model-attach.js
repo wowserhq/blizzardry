@@ -1,0 +1,14 @@
+const r = require('restructure')
+const Entity = require('../entity')
+const {Vec3Float} = require('../../types')
+
+module.exports = Entity({
+  id: r.uint32le,
+  parentKitID: r.uint32le,
+  effectID: r.uint32le,
+  attachmentID: r.uint32le,
+  offset: Vec3Float,
+  yaw: r.floatle,
+  pitch: r.floatle,
+  roll: r.floatle
+})

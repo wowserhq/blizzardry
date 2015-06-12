@@ -1,16 +1,13 @@
-var bridge, chai, fixtures, memo, sinon;
+'use strict';
 
-bridge = require('sinon-chai');
-
-chai = require('chai');
-
-memo = require('memo-is');
-
-sinon = require('sinon');
+var bridge = require('sinon-chai');
+var chai = require('chai');
+var memo = require('memo-is');
+var sinon = require('sinon');
 
 chai.use(bridge);
 
-fixtures = 'spec/fixtures/';
+var fixtures = 'spec/fixtures/';
 
 module.exports = {
   expect: chai.expect,
@@ -19,10 +16,10 @@ module.exports = {
   sinon: sinon
 };
 
-beforeEach(function() {
-  return this.sandbox = sinon.sandbox.create();
+beforeEach(function () {
+  this.sandbox = sinon.sandbox.create();
 });
 
-afterEach(function() {
-  return this.sandbox.restore();
+afterEach(function () {
+  this.sandbox.restore();
 });

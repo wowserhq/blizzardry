@@ -1,53 +1,64 @@
-var MPQ, expect, fixtures, fs, memo, ref, sinon;
+'use strict';
 
-ref = require('../spec-helper'), expect = ref.expect, fixtures = ref.fixtures, memo = ref.memo, sinon = ref.sinon;
+var _require = require('../spec-helper');
 
-fs = require('fs');
+var expect = _require.expect;
+var fixtures = _require.fixtures;
+var memo = _require.memo;
+var sinon = _require.sinon;
 
-MPQ = require('../../lib/mpq');
+var fs = require('fs');
 
-describe('MPQ.File', function() {
-  var dummy;
-  dummy = memo().is(function() {
+var MPQ = require('../../lib/mpq');
+
+describe('MPQ.File', function () {
+
+  var dummy = memo().is(function () {
     return MPQ.open(fixtures + 'TheDeathSheep.w3m').files.get('(listfile)');
   });
-  describe('#close', function() {
-    it('closes this file', function() {
-      return dummy().close();
-    });
-    return it('is idempotent', function() {
+
+  describe('#close', function () {
+    it('closes this file', function () {
       dummy().close();
-      return dummy().close();
+    });
+
+    it('is idempotent', function () {
+      dummy().close();
+      dummy().close();
     });
   });
-  describe('#opened', function() {
-    context('when file is open', function() {
-      return it('returns true', function() {
-        return expect(dummy().opened).to.be["true"];
+
+  describe('#opened', function () {
+    context('when file is open', function () {
+      it('returns true', function () {
+        expect(dummy().opened).to.be['true'];
       });
     });
-    return context('when file is closed', function() {
-      return it('returns false', function() {
+
+    context('when file is closed', function () {
+      it('returns false', function () {
         dummy().close();
-        return expect(dummy().opened).to.be["false"];
+        expect(dummy().opened).to.be['false'];
       });
     });
   });
-  describe('#name', function() {
-    return it('returns file name', function() {
-      return expect(dummy().name).to.eq('(listfile)');
+
+  describe('#name', function () {
+    it('returns file name', function () {
+      expect(dummy().name).to.eq('(listfile)');
     });
   });
-  describe('#size', function() {
-    return it('returns file size in bytes', function() {
-      return expect(dummy().size).to.eq(214);
+
+  describe('#size', function () {
+    it('returns file size in bytes', function () {
+      expect(dummy().size).to.eq(214);
     });
   });
-  return describe('#data', function() {
-    return it('returns file contents in a buffer', function() {
-      var listfile;
-      listfile = fs.readFileSync(fixtures + '(listfile)');
-      return expect(dummy().data).to.deep.eq(listfile);
+
+  describe('#data', function () {
+    it('returns file contents in a buffer', function () {
+      var listfile = fs.readFileSync(fixtures + '(listfile)');
+      expect(dummy().data).to.deep.eq(listfile);
     });
   });
 });

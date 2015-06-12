@@ -1,29 +1,34 @@
-var ADT, expect, fixtures, fs, memo, r, ref, sinon;
+'use strict';
 
-ref = require('../spec-helper'), expect = ref.expect, fixtures = ref.fixtures, memo = ref.memo, sinon = ref.sinon;
+var _require = require('../spec-helper');
 
-fs = require('fs');
+var expect = _require.expect;
+var fixtures = _require.fixtures;
+var memo = _require.memo;
+var sinon = _require.sinon;
 
-r = require('restructure');
+var fs = require('fs');
+var r = require('restructure');
 
-ADT = require('../../lib/adt');
+var ADT = require('../../lib/adt');
 
-describe('ADT', function() {
-  var dummy;
-  dummy = (function() {
-    var data, stream;
-    data = fs.readFileSync(fixtures + 'Azeroth_38_46.adt');
-    stream = new r.DecodeStream(data);
+describe('ADT', function () {
+
+  var dummy = (function () {
+    var data = fs.readFileSync(fixtures + 'Azeroth_38_46.adt');
+    var stream = new r.DecodeStream(data);
     return ADT.decode(stream);
   })();
-  describe('#version', function() {
-    return it('returns version', function() {
-      return expect(dummy.version).to.eq(18);
+
+  describe('#version', function () {
+    it('returns version', function () {
+      expect(dummy.version).to.eq(18);
     });
   });
-  return describe('#flags', function() {
-    return it('returns flags', function() {
-      return expect(dummy.flags).to.eq(0);
+
+  describe('#flags', function () {
+    it('returns flags', function () {
+      expect(dummy.flags).to.eq(0);
     });
   });
 });

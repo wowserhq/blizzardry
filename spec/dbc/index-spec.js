@@ -1,81 +1,107 @@
-var DBC, Entity, LocalizedStringRef, StringRef, expect, fixtures, fs, memo, r, ref, sinon;
+'use strict';
 
-ref = require('../spec-helper'), expect = ref.expect, fixtures = ref.fixtures, memo = ref.memo, sinon = ref.sinon;
+function _slicedToArray(arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i['return']) _i['return'](); } finally { if (_d) throw _e; } } return _arr; } else { throw new TypeError('Invalid attempt to destructure non-iterable instance'); } }
 
-fs = require('fs');
+function _toArray(arr) { return Array.isArray(arr) ? arr : Array.from(arr); }
 
-r = require('restructure');
+var _require = require('../spec-helper');
 
-DBC = require('../../lib/dbc');
+var expect = _require.expect;
+var fixtures = _require.fixtures;
+var memo = _require.memo;
+var sinon = _require.sinon;
 
-Entity = require('../../lib/dbc/entity');
+var fs = require('fs');
+var r = require('restructure');
 
-LocalizedStringRef = require('../../lib/dbc/localized-string-ref');
+var DBC = require('../../lib/dbc');
+var Entity = require('../../lib/dbc/entity');
+var LocalizedStringRef = require('../../lib/dbc/localized-string-ref');
+var StringRef = require('../../lib/dbc/string-ref');
 
-StringRef = require('../../lib/dbc/string-ref');
+describe('DBC', function () {
 
-describe('DBC', function() {
-  var Sample, dummy, stream;
-  Sample = Entity({
+  var Sample = Entity({
     id: r.uint32le,
     name: StringRef,
     localizedName: LocalizedStringRef,
     points: r.int32le,
     height: r.floatle
   });
-  stream = function() {
-    var data;
-    data = fs.readFileSync(fixtures + 'Sample.dbc');
+
+  var stream = function stream() {
+    var data = fs.readFileSync(fixtures + 'Sample.dbc');
     return new r.DecodeStream(data);
   };
-  dummy = (function() {
+
+  var dummy = (function () {
     return DBC.decode(stream());
   })();
-  describe('#signature', function() {
-    return it('returns WDBC', function() {
-      return expect(dummy.signature).to.eq('WDBC');
+
+  describe('#signature', function () {
+    it('returns WDBC', function () {
+      expect(dummy.signature).to.eq('WDBC');
     });
   });
-  describe('#recordCount', function() {
-    return it('returns amount of records', function() {
-      return expect(dummy.recordCount).to.eq(3);
+
+  describe('#recordCount', function () {
+    it('returns amount of records', function () {
+      expect(dummy.recordCount).to.eq(3);
     });
   });
-  describe('#fieldCount', function() {
-    return it('returns amount of fields', function() {
-      return expect(dummy.fieldCount).to.eq(21);
+
+  describe('#fieldCount', function () {
+    it('returns amount of fields', function () {
+      expect(dummy.fieldCount).to.eq(21);
     });
   });
-  describe('#recordSize', function() {
-    return it('returns size of a single record', function() {
-      return expect(dummy.recordSize).to.eq(84);
+
+  describe('#recordSize', function () {
+    it('returns size of a single record', function () {
+      expect(dummy.recordSize).to.eq(84);
     });
   });
-  describe('#stringBlockSize', function() {
-    return it('returns size of string block', function() {
-      return expect(dummy.stringBlockSize).to.eq(10);
+
+  describe('#stringBlockSize', function () {
+    it('returns size of string block', function () {
+      expect(dummy.stringBlockSize).to.eq(10);
     });
   });
-  describe('#stringBlockOffset', function() {
-    return it('returns offset of string block', function() {
-      return expect(dummy.stringBlockOffset).to.eq(272);
+
+  describe('#stringBlockOffset', function () {
+    it('returns offset of string block', function () {
+      expect(dummy.stringBlockOffset).to.eq(272);
     });
   });
-  return describe('#records', function() {
-    context('when not using an entity', function() {
-      return it('returns raw records', function() {
-        var record, records, ref1;
-        ref1 = records = dummy.records, record = ref1[0];
+
+  describe('#records', function () {
+    context('when not using an entity', function () {
+      it('returns raw records', function () {
+        var records = dummy.records;
+
+        var _records = _toArray(records);
+
+        var record = _records[0];
+
+        var rest = _records.slice(1);
+
         expect(records.length).to.eq(3);
-        expect(record).to.be.an["instanceof"](Buffer);
-        return expect(record).to.have.length(dummy.recordSize);
+        expect(record).to.be.an['instanceof'](Buffer);
+        expect(record).to.have.length(dummy.recordSize);
       });
     });
-    return context('when using an entity', function() {
-      return it('returns records', function() {
-        var first, last, records, ref1, sample;
-        sample = Sample.dbc.decode(stream());
-        ref1 = records = sample.records, first = ref1[0], last = ref1[ref1.length - 1];
+
+    context('when using an entity', function () {
+      it('returns records', function () {
+        var sample = Sample.dbc.decode(stream());
+        var records = sample.records;
+
+        var _records2 = _slicedToArray(records, 3);
+
+        var first = _records2[0];
+        var second = _records2[1];
+        var last = _records2[2];
+
         expect(records.length).to.eq(3);
         expect(first).to.deep.eq({
           id: 1,
@@ -84,7 +110,7 @@ describe('DBC', function() {
           points: -1,
           height: 1.7999999523162842
         });
-        return expect(last).to.deep.eq({
+        expect(last).to.deep.eq({
           id: 3,
           name: 'Brad',
           localizedName: 'Bradley',
