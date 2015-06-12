@@ -1,35 +1,41 @@
-var WDT, expect, fixtures, fs, memo, r, ref, sinon;
+'use strict';
 
-ref = require('../spec-helper'), expect = ref.expect, fixtures = ref.fixtures, memo = ref.memo, sinon = ref.sinon;
+var _require = require('../spec-helper');
 
-fs = require('fs');
+var expect = _require.expect;
+var fixtures = _require.fixtures;
+var memo = _require.memo;
+var sinon = _require.sinon;
 
-r = require('restructure');
+var fs = require('fs');
+var r = require('restructure');
 
-WDT = require('../../lib/wdt');
+var WDT = require('../../lib/wdt');
 
-describe('WDT', function() {
-  var dummy;
-  dummy = (function() {
-    var data, stream;
-    data = fs.readFileSync(fixtures + 'Azeroth.wdt');
-    stream = new r.DecodeStream(data);
+describe('WDT', function () {
+
+  var dummy = (function () {
+    var data = fs.readFileSync(fixtures + 'Azeroth.wdt');
+    var stream = new r.DecodeStream(data);
     return WDT.decode(stream);
   })();
-  describe('#version', function() {
-    return it('returns version identifier', function() {
-      return expect(dummy.version).to.eq(18);
+
+  describe('#version', function () {
+    it('returns version identifier', function () {
+      expect(dummy.version).to.eq(18);
     });
   });
-  describe('#flags', function() {
-    return it('returns flags', function() {
-      return expect(dummy.flags).to.eq(0);
+
+  describe('#flags', function () {
+    it('returns flags', function () {
+      expect(dummy.flags).to.eq(0);
     });
   });
-  return describe('#tiles', function() {
-    return it('returns tiles', function() {
+
+  describe('#tiles', function () {
+    it('returns tiles', function () {
       expect(dummy.tiles.length).to.eq(64 * 64);
-      return expect(dummy.tiles.slice(2000, 2064)).to.deep.eq([0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+      expect(dummy.tiles.slice(2000, 2064)).to.deep.eq([0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
     });
   });
 });
