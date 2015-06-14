@@ -214,3 +214,35 @@ wdt.flags   // 0
 wdt.tiles[30 * 64 + 24] // 0
 wdt.tiles[30 * 64 + 25] // 1
 ```
+
+
+## Development & Contribution
+
+Blizzardry is written in [ES2015](https://babeljs.io/docs/learn-es2015/), compiled by [Babel](https://babeljs.io/), developed with [Gulp](http://gulpjs.com/) and tested through [Mocha](http://mochajs.org/).
+
+Getting this toolchain up and running, is easy and straight-forward:
+
+1. Get the code:
+   
+   ```
+   git clone git://github.com/timkurvers/blizzardry.git
+   ```
+
+2. Download and install [NodeJS](http://nodejs.org/#download) (includes `npm`) for your platform.
+
+3. Install dependencies:
+
+   ```shell
+   npm install
+   ```
+
+4. Install [BLPConverter](#blp) and [StormLib](#mpq) as outlined above.
+
+5. Run `gulp` which will automatically build and test the project when source files change.
+
+
+When contributing, please:
+
+* Fork the repository
+* Accompany each logical unit of operation with at least one test
+* Open a pull request
