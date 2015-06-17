@@ -240,6 +240,8 @@ Getting this toolchain up and running, is easy and straight-forward:
 
 5. Run `gulp` which will automatically build and test the project when source files change.
 
+   When not available, run `./node_modules/.bin/gulp` instead.
+
 
 When contributing, please:
 
