@@ -1,5 +1,7 @@
 # Blizzardry
 
+[![Join the chat at https://gitter.im/timkurvers/blizzardry](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/timkurvers/blizzardry?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![Version](https://img.shields.io/npm/v/blizzardry.svg?style=flat)](https://www.npmjs.org/package/blizzardry)
 [![Build Status](https://img.shields.io/travis/timkurvers/blizzardry.svg?style=flat)](https://travis-ci.org/timkurvers/blizzardry)
 [![Dependency Status](https://img.shields.io/gemnasium/timkurvers/blizzardry.svg?style=flat)](https://gemnasium.com/timkurvers/blizzardry)
