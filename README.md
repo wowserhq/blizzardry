@@ -59,13 +59,25 @@ adt.MCNKs.forEach(function(chunk) {
 
 Texture format holding up to 16 pre-rendered [mipmaps](https://en.wikipedia.org/wiki/Mipmap).
 
-Blizzardry uses [BLPConverter](https://github.com/Kanma/BLPConverter) to process BLPs, which on OSX can be installed using [Homebrew](http://brew.sh/):
+Blizzardry uses [BLPConverter](https://github.com/Kanma/BLPConverter) to process BLPs.
+
+#### OSX
+
+Install using [Homebrew](http://brew.sh/):
 
 ````
 brew install --HEAD https://raw.githubusercontent.com/timkurvers/homebrew-games/formula/blp-converter/blp-converter.rb
 ````
 
-For all other platforms, compile from source and ensure the library ends up on the load path.
+#### Windows
+
+Download [petersandor's BLPConverter fork](https://github.com/petersandor/BLPConverter) until these changes land in the main repository.
+
+Build the DLL, rename it to `libblp.dll` and ensure the library ends up on the load path.
+
+#### Other platforms
+
+Compile from source and ensure the library ends up on the load path.
 
 ```javascript
 BLP = require('blizzardry/lib/blp');
@@ -155,14 +167,45 @@ m2.vertices[0].position // [ -0.2735.., -0.0035.., 0.3579.. ]
 Generic archive format, used in [most](http://en.wikipedia.org/wiki/MPQ#Usage_in_gaming) Blizzard games.
 Superseded by [CASC](#casc).
 
-Blizzardry uses [StormLib](https://github.com/ladislav-zezula/StormLib) to handle MPQ archives, which on OSX can be installed using [Homebrew](http://brew.sh/):
+Blizzardry uses [StormLib](https://github.com/ladislav-zezula/StormLib) to handle MPQ archives.
+
+#### OSX
+
+Install using [Homebrew](http://brew.sh/):
 
 ```
 brew tap homebrew/games
 brew install stormlib
 ```
 
-For all other platforms, compile from source and ensure the library ends up on the load path.
+#### Windows
+
+Download the [source](https://github.com/ladislav-zezula/StormLib) and apply the following patch:
+
+```diff
+diff --git a/src/StormLib.h b/src/StormLib.h
+index b6cb0c9..e8dfc40 100644
+--- a/src/StormLib.h
++++ b/src/StormLib.h
+@@ -1079,6 +1079,11 @@ int   GetLastError();
+ 
+ #endif
+ 
++#ifdef PLATFORM_WINDOWS
++    #pragma comment(linker, "/export:GetLastError=Kernel32.GetLastError")
++    #pragma comment(linker, "/export:SetLastError=Kernel32.SetLastError")
++#endif
++
+ //-----------------------------------------------------------------------------
+ // Functions from Storm.dll. They use slightly different names for keeping
+ // possibility to use them together with StormLib (StormXXX instead of SFileXXX)
+ ```
+
+Build the DLL, rename it to `libstorm.dll` and ensure it ends up on the load path.
+
+#### Other platforms
+
+Compile from source and ensure the library ends up on the load path.
 
 ```javascript
 MPQ = require('blizzardry/lib/mpq');
