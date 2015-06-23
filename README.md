@@ -65,13 +65,17 @@ Blizzardry uses [BLPConverter](https://github.com/Kanma/BLPConverter) to process
 
 Install using [Homebrew](http://brew.sh/):
 
-````
+```
 brew install --HEAD https://raw.githubusercontent.com/timkurvers/homebrew-games/formula/blp-converter/blp-converter.rb
-````
+```
 
 #### Windows
 
-Download [petersandor's BLPConverter fork](https://github.com/petersandor/BLPConverter) until these changes land in the main repository.
+Download [BLPConverter](https://github.com/petersandor/BLPConverter) and generate project using [CMake](http://www.cmake.org/):
+
+```
+cmake -DWITH_LIBRARY=YES CMakeLists.txt
+```
 
 Build the DLL, rename it to `libblp.dll` and ensure the library ends up on the load path.
 
