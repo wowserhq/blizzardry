@@ -184,7 +184,13 @@ brew install stormlib
 
 #### Windows
 
-Download the [source](https://github.com/ladislav-zezula/StormLib) and apply the following patch:
+Download [StormLib](https://github.com/ladislav-zezula/StormLib) and generate the project using [CMake](http://www.cmake.org):
+
+```
+cmake -DWITH_LIBRARY=YES CMakeLists.txt
+```
+
+Apply the following patch:
 
 ```diff
 diff --git a/src/StormLib.h b/src/StormLib.h
