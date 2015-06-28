@@ -7,7 +7,6 @@ var plumber = require('gulp-plumber')
 
 gulp.task('clean', function(cb) {
   return del([
-    'dist/*',
     'lib/*',
     'spec/**/*.js'
   ], cb)
