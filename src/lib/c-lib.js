@@ -8,7 +8,9 @@ const voidPtr = ref.refType(ref.types.void)
 
 const FILE = voidPtr
 
-module.exports = new ffi.Library('libc', {
+const library = (process.platform.match(/win32/)) ? 'msvcr120' : 'libc'
+
+module.exports = new ffi.Library(library, {
   fopen: [FILE, [string, string]],
   fclose: [bool, [FILE]]
 })
