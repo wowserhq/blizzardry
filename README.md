@@ -71,13 +71,13 @@ brew install --HEAD https://raw.githubusercontent.com/timkurvers/homebrew-games/
 
 #### Windows
 
-Download [BLPConverter](https://github.com/petersandor/BLPConverter) and generate project using [CMake](http://www.cmake.org/):
+Download [BLPConverter](https://github.com/petersandor/BLPConverter) and generate the project using [CMake](http://www.cmake.org/):
 
 ```
 cmake -DWITH_LIBRARY=YES CMakeLists.txt
 ```
 
-Build the DLL, rename it to `libblp.dll` and ensure the library ends up on the load path.
+Build the DLL using Visual Studio 2013 in release mode, rename it to `libblp.dll` and ensure the library ends up on the load path.
 
 #### Other platforms
 
@@ -190,7 +190,7 @@ Download [StormLib](https://github.com/ladislav-zezula/StormLib) and generate th
 cmake -DWITH_LIBRARY=YES CMakeLists.txt
 ```
 
-Build the DLL, rename it to `libstorm.dll` and ensure it ends up on the load path.
+Build the DLL using Visual Studio 2013 in release mode, rename it to `libstorm.dll` and ensure it ends up on the load path.
 
 #### Other platforms
 
