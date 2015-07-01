@@ -2,3 +2,4 @@ coverage/
 lib/
 node_modules/
 spec/**/*.js
+*.dll
