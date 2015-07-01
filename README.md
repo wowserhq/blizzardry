@@ -190,27 +190,6 @@ Download [StormLib](https://github.com/ladislav-zezula/StormLib) and generate th
 cmake -DWITH_LIBRARY=YES CMakeLists.txt
 ```
 
-Apply the following patch:
-
-```diff
-diff --git a/src/StormLib.h b/src/StormLib.h
-index b6cb0c9..e8dfc40 100644
---- a/src/StormLib.h
-+++ b/src/StormLib.h
-@@ -1079,6 +1079,11 @@ int   GetLastError();
- 
- #endif
- 
-+#ifdef PLATFORM_WINDOWS
-+    #pragma comment(linker, "/export:GetLastError=Kernel32.GetLastError")
-+    #pragma comment(linker, "/export:SetLastError=Kernel32.SetLastError")
-+#endif
-+
- //-----------------------------------------------------------------------------
- // Functions from Storm.dll. They use slightly different names for keeping
- // possibility to use them together with StormLib (StormXXX instead of SFileXXX)
- ```
-
 Build the DLL, rename it to `libstorm.dll` and ensure it ends up on the load path.
 
 #### Other platforms
