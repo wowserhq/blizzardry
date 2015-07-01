@@ -1,4 +1,3 @@
-const attr = require('attr-accessor')
 const ref = require('ref')
 const StormLib = require('./storm-lib')
 

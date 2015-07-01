@@ -1,4 +1,3 @@
-const attr = require('attr-accessor')
 const path = require('path')
 const ref = require('ref')
 const File = require('./file')

@@ -1,4 +1,3 @@
-const attr = require('attr-accessor')
 const crypto = require('crypto')
 const fs = require('fs')
 const path = require('path')

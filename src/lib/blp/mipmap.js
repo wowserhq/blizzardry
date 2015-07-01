@@ -1,4 +1,3 @@
-const attr = require('attr-accessor')
 const BLPLib = require('./blp-lib')
 
 module.exports = class Mipmap {

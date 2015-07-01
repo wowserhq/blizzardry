@@ -24,7 +24,6 @@
     "wdt"
   ],
   "dependencies": {
-    "attr-accessor": "^0.2.1",
     "ffi": "^1.2.7",
     "ref": "^1.0.0",
     "ref-array": "^1.0.0",
