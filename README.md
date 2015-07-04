@@ -271,10 +271,7 @@ Getting this toolchain up and running, is easy and straight-forward:
 
 4. Install [BLPConverter](#blp) and [StormLib](#mpq) as outlined above.
 
-5. Run `gulp` which will automatically build and test the project when source files change.
-
-   When not available, run `./node_modules/.bin/gulp` instead.
-
+5. Run `npm run gulp` which will automatically build and test the project when source files change.
 
 When contributing, please:
 
