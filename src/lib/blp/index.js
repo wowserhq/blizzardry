@@ -74,6 +74,7 @@ module.exports = class BLP {
           return blp
         }
       } else {
+        CLib.fclose(file)
         throw new Error('image could not be opened')
       }
     } else {
