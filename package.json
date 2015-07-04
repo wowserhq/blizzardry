@@ -8,6 +8,7 @@
     "LICENSE.md"
   ],
   "scripts": {
+    "gulp": "gulp",
     "pretest": "gulp rebuild",
     "test": "istanbul test ./node_modules/mocha/bin/_mocha -- spec --recursive"
   },
