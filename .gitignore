@@ -1,5 +1,5 @@
-coverage/
-lib/
-node_modules/
-spec/**/*.js
+/coverage/
+/lib/
+/node_modules/
+/spec/**/*.js
 *.dll
