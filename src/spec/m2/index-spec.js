@@ -1,69 +1,69 @@
-const {expect, fixtures, memo, sinon} = require('../spec-helper')
+const {expect, fixtures, memo, sinon} = require('../spec-helper');
 
-const fs = require('fs')
-const r = require('restructure')
+const fs = require('fs');
+const r = require('restructure');
 
-const M2 = require('../../lib/m2')
+const M2 = require('../../lib/m2');
 
 describe('M2', function() {
 
   const dummy = function() {
-    const data = fs.readFileSync(fixtures + 'Rabbit.m2')
-    const stream = new r.DecodeStream(data)
-    return M2.decode(stream)
-  }()
+    const data = fs.readFileSync(fixtures + 'Rabbit.m2');
+    const stream = new r.DecodeStream(data);
+    return M2.decode(stream);
+  }();
 
   describe('#signature', function() {
     it('returns MD20', function() {
-      expect(dummy.signature).to.eq('MD20')
-    })
-  })
+      expect(dummy.signature).to.eq('MD20');
+    });
+  });
 
   describe('#version', function() {
     it('returns version number', function() {
-      expect(dummy.version).to.eq(264)
-    })
-  })
+      expect(dummy.version).to.eq(264);
+    });
+  });
 
   describe('#names', function() {
     it('returns all names', function() {
       expect(dummy.names).to.deep.eq([
         'Rabbit', '', '', '', '', '', ''
-      ])
-    })
-  })
+      ]);
+    });
+  });
 
   describe('#name', function() {
     it('returns first name', function() {
-      expect(dummy.name).to.eq('Rabbit')
-    })
-  })
+      expect(dummy.name).to.eq('Rabbit');
+    });
+  });
 
   describe('#flags', function() {
     it('returns flags', function() {
-      expect(dummy.flags).to.eq(1)
-    })
-  })
+      expect(dummy.flags).to.eq(1);
+    });
+  });
 
   describe('#sequences', function() {
     it('returns sequences', function() {
-      expect(dummy.sequences).to.deep.eq([0])
-    })
-  })
+      expect(dummy.sequences).to.deep.eq([0]);
+    });
+  });
 
   describe('#animations', function() {
-    xit('returns animations')
-  })
+    xit('returns animations');
+  });
 
   describe('#animationLookups', function() {
-    xit('returns animation lookups')
-  })
+    xit('returns animation lookups');
+  });
 
   describe('#bones', function() {
     it('returns bones', function() {
-      const bones = dummy.bones
-      const [bone] = bones
-      expect(bones.length).to.eq(40)
+      const bones = dummy.bones;
+      const [bone] = bones;
+      expect(bones.length).to.eq(40);
       expect(bone).to.deep.eq({
         keyBoneID: -1,
         flags: 512,
@@ -156,25 +156,25 @@ describe('M2', function() {
           values: []
         },
         pivotPoint: { x: 0, y: 0, z: 0 }
-      })
-    })
-  })
+      });
+    });
+  });
 
   describe('#keyBoneLookups', function() {
     it('returns key bone lookups', function() {
       expect(dummy.keyBoneLookups).to.deep.eq([
         -1, -1, -1, -1, -1, -1, 7, -1, -1, -1, -1, -1, -1, -1,
         -1, -1, -1, -1, -1, -1, -1, 35, 20, -1, -1, -1, 1
-      ])
-    })
-  })
+      ]);
+    });
+  });
 
   describe('#vertices', function() {
     it('returns vertices', function() {
-      const vertices = dummy.vertices
-      const first = vertices[0]
-      const last = vertices[vertices.length - 1]
-      expect(vertices.length).to.eq(154)
+      const vertices = dummy.vertices;
+      const first = vertices[0];
+      const last = vertices[vertices.length - 1];
+      expect(vertices.length).to.eq(154);
       expect(first).to.deep.eq({
         position: [
           -0.2735399901866913,
@@ -190,7 +190,7 @@ describe('M2', function() {
         ],
         textureCoords: [0.9776850342750549, 0.27029675245285034],
         random: [0, 0]
-      })
+      });
       expect(last).to.deep.eq({
         position: [
           0.1501760482788086,
@@ -206,59 +206,59 @@ describe('M2', function() {
         ],
         textureCoords: [0.16209588944911957, 0.3589469790458679],
         random: [0, 0]
-      })
-    })
-  })
+      });
+    });
+  });
 
   describe('#viewCount', function() {
     it('returns view count', function() {
-      expect(dummy.viewCount).to.eq(1)
-    })
-  })
+      expect(dummy.viewCount).to.eq(1);
+    });
+  });
 
   describe('#colors', function() {
-    xit('returns colors')
-  })
+    xit('returns colors');
+  });
 
   describe('#textures', function() {
-    xit('returns textures')
-  })
+    xit('returns textures');
+  });
 
   describe('#transparencies', function() {
-    xit('returns transparencies')
-  })
+    xit('returns transparencies');
+  });
 
   describe('#uvAnimations', function() {
-    xit('returns UV animations')
-  })
+    xit('returns UV animations');
+  });
 
   describe('#replacableTextures', function() {
-    xit('returns replacable textures')
-  })
+    xit('returns replacable textures');
+  });
 
   describe('#renderFlags', function() {
-    xit('returns render flags')
-  })
+    xit('returns render flags');
+  });
 
   describe('#boneLookups', function() {
-    xit('returns bone lookups')
-  })
+    xit('returns bone lookups');
+  });
 
   describe('#textureLookups', function() {
-    xit('returns texture lookups')
-  })
+    xit('returns texture lookups');
+  });
 
   describe('#textureUnits', function() {
-    xit('returns texture units')
-  })
+    xit('returns texture units');
+  });
 
   describe('#transparencyLookups', function() {
-    xit('returns transparency lookups')
-  })
+    xit('returns transparency lookups');
+  });
 
   describe('#uvAnimationLookups', function() {
-    xit('returns UV animation lookups')
-  })
+    xit('returns UV animation lookups');
+  });
 
   describe('#minVertexBox', function() {
     it('returns minimum vertex box', function() {
@@ -266,9 +266,9 @@ describe('M2', function() {
         x: -0.6340768337249756,
         y: -0.3105764091014862,
         z: -0.15670306980609894
-      })
-    })
-  })
+      });
+    });
+  });
 
   describe('#maxVertexBox', function() {
     it('returns maximum vertex box', function() {
@@ -276,13 +276,13 @@ describe('M2', function() {
         x: 0.47685110569000244,
         y: 0.47006168961524963,
         z: 0.8000571727752686
-      })
-    })
-  })
+      });
+    });
+  });
 
   describe('#vertexRadius', function() {
-    xit('returns vertex radius')
-  })
+    xit('returns vertex radius');
+  });
 
   describe('#minBoundingBox', function() {
     it('returns minimum bounding box', function() {
@@ -290,9 +290,9 @@ describe('M2', function() {
         x: -0.3055555522441864,
         y: -0.3055555522441864,
         z: 0
-      })
-    })
-  })
+      });
+    });
+  });
 
   describe('#maxBoundingBox', function() {
     it('returns maximum bounding box', function() {
@@ -300,56 +300,56 @@ describe('M2', function() {
         x: 0.3055555522441864,
         y: 0.3055555522441864,
         z: 2.031277894973755
-      })
-    })
-  })
+      });
+    });
+  });
 
   describe('#boundingRadius', function() {
-    xit('returns bounding radius')
-  })
+    xit('returns bounding radius');
+  });
 
   describe('#boundingTriangles', function() {
-    xit('returns bounding triangles')
-  })
+    xit('returns bounding triangles');
+  });
 
   describe('#boundingVertices', function() {
-    xit('returns bounding vertices')
-  })
+    xit('returns bounding vertices');
+  });
 
   describe('#boundingNormals', function() {
-    xit('returns bounding normals')
-  })
+    xit('returns bounding normals');
+  });
 
   describe('#attachments', function() {
-    xit('returns attachments')
-  })
+    xit('returns attachments');
+  });
 
   describe('#attachmentLookups', function() {
-    xit('returns attachment lookups')
-  })
+    xit('returns attachment lookups');
+  });
 
   describe('#events', function() {
-    xit('returns events')
-  })
+    xit('returns events');
+  });
 
   describe('#lights', function() {
-    xit('returns lights')
-  })
+    xit('returns lights');
+  });
 
   describe('#cameras', function() {
-    xit('returns cameras')
-  })
+    xit('returns cameras');
+  });
 
   describe('#cameraLookups', function() {
-    xit('returns camera lookups')
-  })
+    xit('returns camera lookups');
+  });
 
   describe('#ribbonEmitters', function() {
-    xit('returns ribbon emitters')
-  })
+    xit('returns ribbon emitters');
+  });
 
   describe('#particleEmitters', function() {
-    xit('returns particle emitters')
-  })
+    xit('returns particle emitters');
+  });
 
-})
+});
