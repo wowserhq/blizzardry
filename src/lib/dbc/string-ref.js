@@ -1,4 +1,4 @@
-const r = require('restructure')
+const r = require('restructure');
 
 module.exports = new r.Pointer(
   r.uint32le,
@@ -7,4 +7,4 @@ module.exports = new r.Pointer(
     type: 'global',
     relativeTo: 'parent.stringBlockOffset'
   }
-)
+);

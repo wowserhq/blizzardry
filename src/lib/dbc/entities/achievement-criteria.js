@@ -1,6 +1,6 @@
-const r = require('restructure')
-const Entity = require('../entity')
-const LocalizedStringRef = require('../localized-string-ref')
+const r = require('restructure');
+const Entity = require('../entity');
+const LocalizedStringRef = require('../localized-string-ref');
 
 module.exports = Entity({
   id: r.uint32le,
@@ -21,4 +21,4 @@ module.exports = Entity({
   timerAssetID: r.uint32le,
   timerTime: r.uint32le,
   order: r.uint32le
-})
+});

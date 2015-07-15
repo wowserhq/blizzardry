@@ -1,7 +1,7 @@
-const r = require('restructure')
-const Entity = require('../entity')
-const StringRef = require('../string-ref')
-const {Vec3Float} = require('../../types')
+const r = require('restructure');
+const Entity = require('../entity');
+const StringRef = require('../string-ref');
+const {Vec3Float} = require('../../types');
 
 module.exports = Entity({
   id: r.uint32le,
@@ -10,4 +10,4 @@ module.exports = Entity({
   minBoundingBox: Vec3Float,
   maxBoundingBox: Vec3Float,
   objectEffectPackageID: r.uint32le
-})
+});

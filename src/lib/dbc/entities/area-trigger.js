@@ -1,6 +1,6 @@
-const r = require('restructure')
-const Entity = require('../entity')
-const {Vec3Float} = require('../../types')
+const r = require('restructure');
+const Entity = require('../entity');
+const {Vec3Float} = require('../../types');
 
 module.exports = Entity({
   id: r.uint32le,
@@ -13,4 +13,4 @@ module.exports = Entity({
     height: r.floatle,
     yaw: r.floatle
   })
-})
+});

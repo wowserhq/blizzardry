@@ -1,6 +1,6 @@
-const r = require('restructure')
-const Entity = require('../entity')
-const LocalizedStringRef = require('../localized-string-ref')
+const r = require('restructure');
+const Entity = require('../entity');
+const LocalizedStringRef = require('../localized-string-ref');
 
 module.exports = Entity({
   id: r.uint32le,
@@ -11,4 +11,4 @@ module.exports = Entity({
   spellIconID: r.uint32le,
   verb: LocalizedStringRef,
   canLink: new r.Boolean(r.uint32le)
-})
+});

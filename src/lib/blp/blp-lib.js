@@ -1,12 +1,11 @@
-const ffi = require('ffi')
-const ref = require('ref')
+const ffi = require('ffi');
+const ref = require('ref');
 
-const {bool, uint8, uint32} = ref.types
+const {bool, uint8, uint32} = ref.types;
+const voidPtr = ref.refType(ref.types.void);
 
-const voidPtr = ref.refType(ref.types.void)
-
-const BLP = voidPtr
-const FILE = voidPtr
+const BLP = voidPtr;
+const FILE = voidPtr;
 
 module.exports = new ffi.Library('libblp', {
   blp_convert:     [voidPtr, [FILE, BLP, uint8]],
@@ -16,4 +15,4 @@ module.exports = new ffi.Library('libblp', {
   blp_release:     [bool, [BLP]],
   blp_version:     [uint8, [BLP]],
   blp_width:       [uint32, [BLP, uint8]]
-})
+});

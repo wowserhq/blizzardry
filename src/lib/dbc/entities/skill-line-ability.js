@@ -1,5 +1,5 @@
-const r = require('restructure')
-const Entity = require('../entity')
+const r = require('restructure');
+const Entity = require('../entity');
 
 module.exports = Entity({
   id: r.uint32le,
@@ -20,4 +20,4 @@ module.exports = Entity({
   yellowLevel: r.uint32le,
 
   charactersPoints: new r.Array(r.uint32le, 2)
-})
+});

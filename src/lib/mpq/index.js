@@ -1,6 +1,6 @@
-const ref = require('ref')
-const Files = require('./files')
-const StormLib = require('./storm-lib')
+const ref = require('ref');
+const Files = require('./files');
+const StormLib = require('./storm-lib');
 
 module.exports = class MPQ {
 
@@ -26,81 +26,81 @@ module.exports = class MPQ {
   }
 
   constructor(path, flags, handle) {
-    this.path = path
-    this.flags = flags
-    this.handle = handle
-    this.files = new Files(this)
+    this.path = path;
+    this.flags = flags;
+    this.handle = handle;
+    this.files = new Files(this);
   }
 
   close() {
-    const handle = this.handle
+    const handle = this.handle;
     if(handle) {
-      this.handle = null
-      return StormLib.SFileCloseArchive(handle)
+      this.handle = null;
+      return StormLib.SFileCloseArchive(handle);
     }
   }
 
   get opened() {
-    return !!this.handle
+    return !!this.handle;
   }
 
   patch(path, prefix = null) {
     if(!(this.flags & this.constructor.OPEN.READ_ONLY)) {
-      throw new Error('archive must be read-only')
+      throw new Error('archive must be read-only');
     }
 
-    const flags = 0
-    return StormLib.SFileOpenPatchArchive(this.handle, path, prefix, flags)
+    const flags = 0;
+    return StormLib.SFileOpenPatchArchive(this.handle, path, prefix, flags);
   }
 
   get patched() {
     if(this.handle) {
-      return StormLib.SFileIsPatchedArchive(this.handle)
+      return StormLib.SFileIsPatchedArchive(this.handle);
     }
   }
 
   static get locale() {
-    return StormLib.SFileGetLocale()
+    return StormLib.SFileGetLocale();
   }
 
   static set locale(locale) {
-    StormLib.SFileSetLocale(locale)
+    StormLib.SFileSetLocale(locale);
   }
 
   static open(path, flags = 0, callback) {
     if(typeof flags == 'function' && callback === undefined) {
-      return this.open(path, null, flags)
+      return this.open(path, null, flags);
     }
 
-    const priority = 0
-    const handlePtr = ref.alloc(StormLib.HANDLEPtr)
+    const priority = 0;
+    const handlePtr = ref.alloc(StormLib.HANDLEPtr);
     if(StormLib.SFileOpenArchive(path, priority, flags, handlePtr)) {
-      const handle = handlePtr.deref()
-      const mpq = new this(path, flags, handle)
+      const handle = handlePtr.deref();
+      const mpq = new this(path, flags, handle);
 
       if(callback !== undefined) {
-        callback(mpq)
-        mpq.close()
-        return true
+        callback(mpq);
+        mpq.close();
+        return true;
       } else {
-        return mpq
+        return mpq;
       }
     } else {
-      const errno = StormLib.GetLastError()
-      throw new Error(`archive could not be found or opened (${errno})`)
+      const errno = StormLib.GetLastError();
+      throw new Error(`archive could not be found or opened (${errno})`);
     }
   }
 
   static create(path, callback) {
-    const flags = 0
-    const maxFileCount = 0
-    const handlePtr = ref.alloc(StormLib.HANDLEPtr)
+    const flags = 0;
+    const maxFileCount = 0;
+    const handlePtr = ref.alloc(StormLib.HANDLEPtr);
     if(StormLib.SFileCreateArchive(path, flags, maxFileCount, handlePtr)) {
-      return this.open(path, callback)
+      return this.open(path, callback);
     } else {
-      const errno = StormLib.GetLastError()
-      throw new Error(`archive could not be created (${errno})`)
+      const errno = StormLib.GetLastError();
+      throw new Error(`archive could not be created (${errno})`);
     }
   }
 
-}
+};

@@ -1,8 +1,8 @@
-const r = require('restructure')
-const Chunk = require('../chunked/chunk')
-const Chunked = require('../chunked')
-const SkipChunk = require('../chunked/skip-chunk')
-const {Vec3Float} = require('../types')
+const r = require('restructure');
+const Chunk = require('../chunked/chunk');
+const Chunked = require('../chunked');
+const SkipChunk = require('../chunked/skip-chunk');
+const {Vec3Float} = require('../types');
 
 const MHDR = Chunk({
   flags: r.uint32le,
@@ -22,19 +22,19 @@ const MHDR = Chunk({
   offsetMTXP: r.uint32le,
 
   skip: new r.Reserved(r.uint32le, 2)
-})
+});
 
 const MTEX = Chunk({
   filenames: new r.Array(new r.String(null), 'size', 'bytes')
-})
+});
 
 const MMDX = Chunk({
   filenames: new r.Array(new r.String(null), 'size', 'bytes')
-})
+});
 
 const MCVT = Chunk({
   heights: new r.Array(r.floatle, 145)
-})
+});
 
 const MCNR = Chunk({
   normals: new r.Array(new r.Struct({
@@ -43,7 +43,7 @@ const MCNR = Chunk({
     y: r.int8
   }), 145),
   skip: new r.Reserved(r.uint8, 13)
-})
+});
 
 const MCLY = Chunk({
   layers: new r.Array(new r.Struct({
@@ -52,7 +52,7 @@ const MCLY = Chunk({
     skip: r.uint32le,
     skip2: r.int32le
   }), 'size', 'bytes')
-})
+});
 
 const MCNK = Chunk({
   flags: r.uint32le,
@@ -87,7 +87,7 @@ const MCNK = Chunk({
 
   MCVT: MCVT,
   MCCV: new r.Optional(SkipChunk, function() {
-    return this.offsetMCCV
+    return this.offsetMCCV;
   }),
   MCNR: MCNR,
   MCLY: MCLY,
@@ -95,10 +95,10 @@ const MCNK = Chunk({
   MCSH: SkipChunk,
   MCAL: SkipChunk,
   MLCQ: new r.Optional(SkipChunk, function() {
-    return this.offsetMCLQ
+    return this.offsetMCLQ;
   }),
   MCSE: SkipChunk
-})
+});
 
 module.exports = Chunked({
   MHDR: MHDR,
@@ -111,20 +111,20 @@ module.exports = Chunked({
   MDDF: SkipChunk,
   MODF: SkipChunk,
   MH2O: new r.Optional(SkipChunk, function() {
-    return this.MHDR.offsetMH2O
+    return this.MHDR.offsetMH2O;
   }),
   MCNKs: new r.Array(MCNK, 256),
   MFBO: new r.Optional(SkipChunk, function() {
-    return this.MHDR.offsetMFBO
+    return this.MHDR.offsetMFBO;
   }),
   MTXF: new r.Optional(SkipChunk, function() {
-    return this.MHDR.offsetMTXF
+    return this.MHDR.offsetMTXF;
   }),
   MTXP: new r.Optional(SkipChunk, function() {
-    return this.MHDR.offsetMTXP
+    return this.MHDR.offsetMTXP;
   }),
 
   flags: function() {
-    return this.MHDR.flags
+    return this.MHDR.flags;
   }
-})
+});

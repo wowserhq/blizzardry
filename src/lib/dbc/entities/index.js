@@ -170,4 +170,4 @@ module.exports = {
   WowError_Strings: require('./wow-error-strings'),
   ZoneIntroMusicTable: require('./zone-intro-music-table'),
   ZoneMusic: require('./zone-music')
-}
+};

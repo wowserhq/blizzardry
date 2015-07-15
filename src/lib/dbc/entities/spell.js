@@ -1,6 +1,6 @@
-const r = require('restructure')
-const Entity = require('../entity')
-const LocalizedStringRef = require('../localized-string-ref')
+const r = require('restructure');
+const Entity = require('../entity');
+const LocalizedStringRef = require('../localized-string-ref');
 
 module.exports = Entity({
   id: r.uint32le,
@@ -114,4 +114,4 @@ module.exports = Entity({
   effectBonusMultipliers: new r.Array(r.floatle, 3),
 
   unknown3: new r.Reserved(r.uint32le)
-})
+});

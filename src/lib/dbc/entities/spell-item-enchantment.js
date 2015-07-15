@@ -1,6 +1,6 @@
-const r = require('restructure')
-const Entity = require('../entity')
-const LocalizedStringRef = require('../localized-string-ref')
+const r = require('restructure');
+const Entity = require('../entity');
+const LocalizedStringRef = require('../localized-string-ref');
 
 module.exports = Entity({
   id: r.uint32le,
@@ -17,4 +17,4 @@ module.exports = Entity({
   skillLineID: r.uint32le,
   skillLevel: r.uint32le,
   requiredLevel: r.uint32le
-})
+});

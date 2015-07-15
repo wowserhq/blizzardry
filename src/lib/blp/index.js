@@ -1,96 +1,96 @@
-const crypto = require('crypto')
-const fs = require('fs')
-const path = require('path')
-const temp = require('temp')
-const BLPLib = require('./blp-lib')
-const CLib = require('../c-lib')
-const Mipmap = require('./mipmap')
+const crypto = require('crypto');
+const fs = require('fs');
+const path = require('path');
+const temp = require('temp');
+const BLPLib = require('./blp-lib');
+const CLib = require('../c-lib');
+const Mipmap = require('./mipmap');
 
 module.exports = class BLP {
 
   static TMP_PREFIX = `blp-${crypto.randomBytes(6).toString('hex')}-`
 
   constructor(path, handle, file) {
-    this.path = path
-    this.handle = handle
-    this.file = file
+    this.path = path;
+    this.handle = handle;
+    this.file = file;
 
-    this.mipmaps = []
+    this.mipmaps = [];
     for(var i = 0; i < this.mipmapCount; ++i) {
-      this.mipmaps.push(new Mipmap(this, i))
+      this.mipmaps.push(new Mipmap(this, i));
     }
   }
 
   close() {
-    const handle = this.handle
+    const handle = this.handle;
     if(handle) {
-      this.handle = null
-      BLPLib.blp_release(handle)
+      this.handle = null;
+      BLPLib.blp_release(handle);
     }
 
-    const file = this.file
+    const file = this.file;
     if(file) {
-      this.file = null
-      CLib.fclose(file)
+      this.file = null;
+      CLib.fclose(file);
 
       if(this.path.match(this.constructor.TMP_PREFIX)) {
-        fs.unlinkSync(this.path)
+        fs.unlinkSync(this.path);
       }
     }
   }
 
   get opened() {
-    return !!this.file
+    return !!this.file;
   }
 
   get version() {
-    return BLPLib.blp_version(this.handle)
+    return BLPLib.blp_version(this.handle);
   }
 
   get mipmapCount() {
-    return BLPLib.blp_nbMipLevels(this.handle)
+    return BLPLib.blp_nbMipLevels(this.handle);
   }
 
   get smallest() {
-    return this.mipmaps[this.mipmapCount - 1]
+    return this.mipmaps[this.mipmapCount - 1];
   }
 
   get largest() {
-    return this.mipmaps[0]
+    return this.mipmaps[0];
   }
 
   static open(path, callback) {
-    const file = CLib.fopen(path, 'r')
+    const file = CLib.fopen(path, 'r');
     if(!file.isNull()) {
-      const handle = BLPLib.blp_processFile(file)
+      const handle = BLPLib.blp_processFile(file);
       if(!handle.isNull()) {
-        const blp = new this(path, handle, file)
+        const blp = new this(path, handle, file);
 
         if(callback) {
-          callback(blp)
-          blp.close()
-          return true
+          callback(blp);
+          blp.close();
+          return true;
         } else {
-          return blp
+          return blp;
         }
       } else {
-        CLib.fclose(file)
-        throw new Error('image could not be opened')
+        CLib.fclose(file);
+        throw new Error('image could not be opened');
       }
     } else {
-      throw new Error('image could not be found')
+      throw new Error('image could not be found');
     }
   }
 
   static from(buffer, callback) {
-    const tmp = temp.path({prefix: this.TMP_PREFIX})
-    fs.writeFileSync(tmp, buffer)
+    const tmp = temp.path({prefix: this.TMP_PREFIX});
+    fs.writeFileSync(tmp, buffer);
     try {
-      return this.open(tmp, callback)
+      return this.open(tmp, callback);
     } catch(e) {
-      fs.unlinkSync(tmp)
-      throw e
+      fs.unlinkSync(tmp);
+      throw e;
     }
   }
 
-}
+};

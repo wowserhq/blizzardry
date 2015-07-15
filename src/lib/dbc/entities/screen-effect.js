@@ -1,6 +1,6 @@
-const r = require('restructure')
-const Entity = require('../entity')
-const StringRef = require('../string-ref')
+const r = require('restructure');
+const Entity = require('../entity');
+const StringRef = require('../string-ref');
 
 module.exports = Entity({
   id: r.uint32le,
@@ -13,4 +13,4 @@ module.exports = Entity({
   lightParamsID: r.int32le,
   soundAmbienceID: r.uint32le,
   zoneMusicID: r.uint32le
-})
+});

@@ -1,6 +1,6 @@
-const r = require('restructure')
-const Entity = require('../entity')
-const {Vec3Float} = require('../../types')
+const r = require('restructure');
+const Entity = require('../entity');
+const {Vec3Float} = require('../../types');
 
 module.exports = Entity({
   id: r.uint32le,
@@ -8,4 +8,4 @@ module.exports = Entity({
   timeIndex: r.uint32le,
   position: Vec3Float,
   sequenceID: r.uint32le
-})
+});

@@ -1,5 +1,5 @@
-const ref = require('ref')
-const StormLib = require('./storm-lib')
+const ref = require('ref');
+const StormLib = require('./storm-lib');
 
 module.exports = class File {
 
@@ -10,48 +10,48 @@ module.exports = class File {
   static MAX_PATH = 260
 
   constructor(handle) {
-    this.handle = handle
+    this.handle = handle;
   }
 
   close() {
-    const handle = this.handle
+    const handle = this.handle;
     if(handle) {
-      this.handle = null
-      return StormLib.SFileCloseFile(handle)
+      this.handle = null;
+      return StormLib.SFileCloseFile(handle);
     }
   }
 
   get opened() {
-    return !!this.handle
+    return !!this.handle;
   }
 
   get name() {
     if(this.handle) {
-      const name = new Buffer(this.constructor.MAX_PATH)
+      const name = new Buffer(this.constructor.MAX_PATH);
       if(!StormLib.SFileGetFileName(this.handle, name)) {
-        return null
+        return null;
       }
-      return name.readCString()
+      return name.readCString();
     }
   }
 
   get size() {
-    return this.handle && StormLib.SFileGetFileSize(this.handle, null)
+    return this.handle && StormLib.SFileGetFileSize(this.handle, null);
   }
 
   get data() {
     if(this.handle) {
-      const data = new Buffer(this.size)
-      this.position = 0
+      const data = new Buffer(this.size);
+      this.position = 0;
       if(!StormLib.SFileReadFile(this.handle, data, this.size, null, null)) {
-        return null
+        return null;
       }
-      return data
+      return data;
     }
   }
 
   set position(offset) {
-    return StormLib.SFileSetFilePointer(this.handle, offset, null, this.constructor.FILE_BEGIN)
+    return StormLib.SFileSetFilePointer(this.handle, offset, null, this.constructor.FILE_BEGIN);
   }
 
-}
+};

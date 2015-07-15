@@ -1,11 +1,11 @@
-const ffi = require('ffi')
-const ref = require('ref')
-const Struct = require('ref-struct')
+const ffi = require('ffi');
+const ref = require('ref');
+const Struct = require('ref-struct');
 
-const {bool, int32, uint32} = ref.types
-const string = ref.types.CString
+const {bool, int32, uint32} = ref.types;
+const string = ref.types.CString;
 
-const voidPtr = ref.refType(ref.types.void)
+const voidPtr = ref.refType(ref.types.void);
 
 const FixedString = function(length) {
   return {
@@ -14,10 +14,10 @@ const FixedString = function(length) {
     indirection: 1,
     name: 'pointer',
     get: function(buffer, offset) {
-      return buffer.readCString(offset)
+      return buffer.readCString(offset);
     }
-  }
-}
+  };
+};
 
 const FIND_DATA = Struct({
   filename:   FixedString(1024),
@@ -30,12 +30,12 @@ const FIND_DATA = Struct({
   fileTimeLo: uint32,
   fileTimeHi: uint32,
   locale:     uint32
-})
+});
 
-const HANDLE = voidPtr
-const HANDLEPtr = ref.refType(HANDLE)
+const HANDLE = voidPtr;
+const HANDLEPtr = ref.refType(HANDLE);
 
-const LPDWORD = voidPtr
+const LPDWORD = voidPtr;
 
 module.exports = new ffi.Library('libstorm', {
 
@@ -363,11 +363,11 @@ module.exports = new ffi.Library('libstorm', {
 //   ]]
 
   GetLastError: [int32, []]
-})
+});
 
-module.exports.FIND_DATA = FIND_DATA
+module.exports.FIND_DATA = FIND_DATA;
 
-module.exports.HANDLE = HANDLE
-module.exports.HANDLEPtr = HANDLEPtr
+module.exports.HANDLE = HANDLE;
+module.exports.HANDLEPtr = HANDLEPtr;
 
-module.exports.LPDWORD = LPDWORD
+module.exports.LPDWORD = LPDWORD;

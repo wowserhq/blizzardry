@@ -1,5 +1,5 @@
-const r = require('restructure')
-const Nofs = require('./nofs')
+const r = require('restructure');
+const Nofs = require('./nofs');
 
 module.exports = function(type) {
   return new r.Struct({
@@ -7,5 +7,5 @@ module.exports = function(type) {
     globalSequenceID: r.int16le,
     timestamps: new Nofs(new Nofs(r.uint32le)),
     values: new Nofs(new Nofs(type))
-  })
-}
+  });
+};

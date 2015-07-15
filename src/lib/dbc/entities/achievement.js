@@ -1,6 +1,6 @@
-const r = require('restructure')
-const Entity = require('../entity')
-const LocalizedStringRef = require('../localized-string-ref')
+const r = require('restructure');
+const Entity = require('../entity');
+const LocalizedStringRef = require('../localized-string-ref');
 
 module.exports = Entity({
   id: r.uint32le,
@@ -17,4 +17,4 @@ module.exports = Entity({
   reward: LocalizedStringRef,
   minimumCriteria: r.uint32le,
   criteriaTreeID: r.uint32le
-})
+});

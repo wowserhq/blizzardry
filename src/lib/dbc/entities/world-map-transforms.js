@@ -1,5 +1,5 @@
-const r = require('restructure')
-const Entity = require('../entity')
+const r = require('restructure');
+const Entity = require('../entity');
 
 module.exports = Entity({
   id: r.uint32le,
@@ -12,4 +12,4 @@ module.exports = Entity({
   regionOffsetX: r.floatle,
   regionOffsetY: r.floatle,
   unknown: new r.Reserved(r.uint32le)
-})
+});

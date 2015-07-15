@@ -1,6 +1,6 @@
-const r = require('restructure')
-const Entity = require('../entity')
-const StringRef = require('../string-ref')
+const r = require('restructure');
+const Entity = require('../entity');
+const StringRef = require('../string-ref');
 
 module.exports = Entity({
   id: r.uint32le,
@@ -8,4 +8,4 @@ module.exports = Entity({
   effectType: r.uint32le,
   effectColors: new r.Array(r.floatle, 3),
   effectTexture: StringRef
-})
+});

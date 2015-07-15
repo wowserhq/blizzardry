@@ -1,6 +1,6 @@
-const r = require('restructure')
-const Entity = require('../entity')
-const StringRef = require('../string-ref')
+const r = require('restructure');
+const Entity = require('../entity');
+const StringRef = require('../string-ref');
 
 module.exports = Entity({
   id: r.uint32le,
@@ -9,4 +9,4 @@ module.exports = Entity({
   flags: r.uint32le,
   unknowns: new r.Reserved(r.uint32le, 2),
   soundID: r.uint32le
-})
+});

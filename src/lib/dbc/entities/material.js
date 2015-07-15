@@ -1,5 +1,5 @@
-const r = require('restructure')
-const Entity = require('../entity')
+const r = require('restructure');
+const Entity = require('../entity');
 
 module.exports = Entity({
   id: r.uint32le,
@@ -7,4 +7,4 @@ module.exports = Entity({
   foleySoundID: r.uint32le,
   sheathSoundID: r.uint32le,
   unsheathSoundID: r.uint32le
-})
+});

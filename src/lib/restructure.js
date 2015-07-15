@@ -1,1 +1,1 @@
-module.exports = require('restructure')
+module.exports = require('restructure');

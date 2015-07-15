@@ -1,5 +1,5 @@
-const r = require('restructure')
-const xtend = require('xtend')
+const r = require('restructure');
+const xtend = require('xtend');
 
 const DBC = new r.Struct({
   signature: new r.String(4),
@@ -9,27 +9,27 @@ const DBC = new r.Struct({
   recordSize: r.uint32le,
   stringBlockSize: r.uint32le,
   stringBlockOffset: function() {
-    return 4 * 5 + this.recordCount * this.recordSize
+    return 4 * 5 + this.recordCount * this.recordSize;
   },
 
   records: new r.Array(new r.Buffer(function() {
-    return this.recordSize
+    return this.recordSize;
   }), function() {
-    return this.recordCount
+    return this.recordCount;
   }),
 
   stringBlock: new r.Buffer(function() {
-    return this.stringBlockSize
+    return this.stringBlockSize;
   })
-})
+});
 
 DBC.for = function(type) {
   const fields = xtend(this.fields, {
     records: new r.Array(type, function() {
-      return this.recordCount
+      return this.recordCount;
     })
-  })
-  return new r.Struct(fields)
-}
+  });
+  return new r.Struct(fields);
+};
 
-module.exports = DBC
+module.exports = DBC;

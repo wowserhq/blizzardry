@@ -1,5 +1,5 @@
-const r = require('restructure')
-const Entity = require('../entity')
+const r = require('restructure');
+const Entity = require('../entity');
 
 module.exports = Entity({
   id: r.uint32le,
@@ -7,4 +7,4 @@ module.exports = Entity({
   farewellSoundID: r.int32le,
   pissedSoundID: r.int32le,
   unknown: new r.Reserved(r.int32le)
-})
+});

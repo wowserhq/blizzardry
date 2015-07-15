@@ -1,13 +1,13 @@
-const r = require('restructure')
-const Entity = require('../entity')
-const LocalizedStringRef = require('../localized-string-ref')
-const {Vec3Float} = require('../../types')
+const r = require('restructure');
+const Entity = require('../entity');
+const LocalizedStringRef = require('../localized-string-ref');
+const {Vec3Float} = require('../../types');
 
 const Icon = new r.Struct({
   regular: r.uint32le,
   damaged: r.uint32le,
   destroyed: r.uint32le
-})
+});
 
 module.exports = Entity({
   id: r.uint32le,
@@ -28,4 +28,4 @@ module.exports = Entity({
 
   worldStateID: r.uint32le,
   worldMapLink: r.uint32le
-})
+});

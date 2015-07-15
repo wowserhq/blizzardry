@@ -1,5 +1,5 @@
-const r = require('restructure')
-const Entity = require('../entity')
+const r = require('restructure');
+const Entity = require('../entity');
 
 module.exports = Entity({
   id: r.uint32le,
@@ -10,4 +10,4 @@ module.exports = Entity({
   displayInfoID: r.uint32le,
   inventorySlotID: r.uint32le,
   sheathID: r.uint32le
-})
+});

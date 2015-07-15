@@ -1,7 +1,7 @@
-const r = require('restructure')
-const Entity = require('../entity')
-const LocalizedStringRef = require('../localized-string-ref')
-const StringRef = require('../string-ref')
+const r = require('restructure');
+const Entity = require('../entity');
+const LocalizedStringRef = require('../localized-string-ref');
+const StringRef = require('../string-ref');
 
 module.exports = Entity({
   id: r.uint32le,
@@ -11,4 +11,4 @@ module.exports = Entity({
   raidDuration: r.uint32le,
   maxPlayers: r.uint32le,
   name: StringRef
-})
+});
