@@ -9,6 +9,7 @@
   ],
   "scripts": {
     "gulp": "gulp",
+    "lint": "eslint src *.js",
     "pretest": "gulp rebuild",
     "test": "istanbul test ./node_modules/mocha/bin/_mocha -- spec --recursive"
   },
@@ -35,9 +36,11 @@
     "xtend": "^4.0.0"
   },
   "devDependencies": {
+    "babel-eslint": "^4.0.5",
     "chai": "1.9.1",
     "codeclimate-test-reporter": "0.0.4",
     "del": "^1.2.0",
+    "eslint": "^1.0.0",
     "gulp": "git://github.com/gulpjs/gulp.git#4.0",
     "gulp-babel": "^5.1.0",
     "gulp-cached": "^1.1.0",
