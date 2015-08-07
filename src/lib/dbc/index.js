@@ -23,9 +23,12 @@ const DBC = new r.Struct({
   })
 });
 
-DBC.for = function(type) {
+DBC.for = function(entity) {
   const fields = xtend(this.fields, {
-    records: new r.Array(type, function() {
+    entity: function() {
+      return entity;
+    },
+    records: new r.Array(entity, function() {
       return this.recordCount;
     })
   });

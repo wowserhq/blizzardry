@@ -27,6 +27,10 @@ describe('DBC', function() {
     return DBC.decode(stream());
   }());
 
+  const withEntity = (function() {
+    return Sample.dbc.decode(stream());
+  }());
+
   describe('#signature', function() {
     it('returns WDBC', function() {
       expect(dummy.signature).to.eq('WDBC');
@@ -76,8 +80,7 @@ describe('DBC', function() {
 
     context('when using an entity', function() {
       it('returns records', function() {
-        const sample = Sample.dbc.decode(stream());
-        const records = sample.records;
+        const records = withEntity.records;
         const [first, second, last] = records;
         expect(records.length).to.eq(3);
         expect(first).to.deep.eq({
@@ -94,6 +97,20 @@ describe('DBC', function() {
           points: -10,
           height: 1.5499999523162842
         });
+      });
+    });
+  });
+
+  describe('#entity', function() {
+    context('when not using an entity', function() {
+      it('is not present', function() {
+        expect(dummy.entity).to.be.undefined;
+      });
+    });
+
+    context('when using an entity', function() {
+      it('returns entity', function() {
+        expect(withEntity.entity).to.eq(Sample);
       });
     });
   });
