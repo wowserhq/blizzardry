@@ -1,4 +1,4 @@
-const {expect, fixtures, memo, sinon} = require('../spec-helper');
+const {expect, fixtures} = require('../spec-helper');
 
 const fs = require('fs');
 const r = require('restructure');
@@ -7,11 +7,11 @@ const Skin = require('../../lib/m2/skin');
 
 describe('Skin', function() {
 
-  const dummy = function() {
+  const dummy = (function() {
     const data = fs.readFileSync(fixtures + 'Rabbit00.skin');
     const stream = new r.DecodeStream(data);
     return Skin.decode(stream);
-  }();
+  }());
 
   describe('#id', function() {
     xit('returns identifier');

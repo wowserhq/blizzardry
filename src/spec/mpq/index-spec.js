@@ -1,4 +1,4 @@
-const {expect, fixtures, memo, sinon} = require('../spec-helper');
+const {expect, fixtures, memo} = require('../spec-helper');
 
 const fs = require('fs');
 

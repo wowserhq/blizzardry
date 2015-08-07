@@ -1,4 +1,4 @@
-const {expect, fixtures, memo, sinon} = require('../spec-helper');
+const {expect, fixtures} = require('../spec-helper');
 
 const fs = require('fs');
 const r = require('restructure');
@@ -7,11 +7,11 @@ const WDT = require('../../lib/wdt');
 
 describe('WDT', function() {
 
-  const dummy = function() {
+  const dummy = (function() {
     const data = fs.readFileSync(fixtures + 'Azeroth.wdt');
     const stream = new r.DecodeStream(data);
     return WDT.decode(stream);
-  }();
+  }());
 
   describe('#version', function() {
     it('returns version identifier', function() {

@@ -1,4 +1,4 @@
-const {expect, fixtures, memo, sinon} = require('../spec-helper');
+const {expect, fixtures} = require('../spec-helper');
 
 const fs = require('fs');
 const r = require('restructure');
@@ -23,9 +23,9 @@ describe('DBC', function() {
     return new r.DecodeStream(data);
   };
 
-  const dummy = function() {
+  const dummy = (function() {
     return DBC.decode(stream());
-  }();
+  }());
 
   describe('#signature', function() {
     it('returns WDBC', function() {

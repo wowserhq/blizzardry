@@ -58,9 +58,9 @@ module.exports = new r.Struct({
   particleEmitters: new Nofs(),
 
   unknown1: new r.Optional(r.uint32le, function() {
-    return this.flags == 8;
+    return this.flags === 8;
   }),
   unknown2: new r.Optional(r.uint32le, function() {
-    return this.flags == 8;
+    return this.flags === 8;
   })
 });

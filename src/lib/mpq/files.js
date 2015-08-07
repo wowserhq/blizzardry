@@ -1,4 +1,3 @@
-const path = require('path');
 const ref = require('ref');
 const File = require('./file');
 const StormLib = require('./storm-lib');
@@ -21,9 +20,9 @@ module.exports = class Files {
   }
 
   get(file) {
-    if(this.handle) {
+    if (this.handle) {
       const fileHandlePtr = ref.alloc(StormLib.HANDLEPtr);
-      if(StormLib.SFileOpenFileEx(this.handle, file, this.constructor.FROM_MPQ, fileHandlePtr)) {
+      if (StormLib.SFileOpenFileEx(this.handle, file, this.constructor.FROM_MPQ, fileHandlePtr)) {
         return new File(fileHandlePtr.deref());
       }
     }
@@ -31,7 +30,7 @@ module.exports = class Files {
   }
 
   extract(file, target) {
-    if(!StormLib.SFileExtractFile(this.handle, file, target, this.constructor.FROM_MPQ)) {
+    if (!StormLib.SFileExtractFile(this.handle, file, target, this.constructor.FROM_MPQ)) {
       const errno = StormLib.GetLastError();
       throw new Error(`file could not be extracted (${errno})`);
     }
@@ -43,25 +42,25 @@ module.exports = class Files {
   }
 
   find(pattern) {
-    var handle = null;
+    let handle = null;
 
     const next = () => {
       const data = new StormLib.FIND_DATA();
-      if(!handle) {
+      if (!handle) {
         handle = StormLib.SFileFindFirstFile(this.handle, pattern, data.ref(), null);
-        if(!handle.isNull()) {
+        if (!handle.isNull()) {
           return data;
         }
       } else {
-        if(StormLib.SFileFindNextFile(handle, data.ref())) {
+        if (StormLib.SFileFindNextFile(handle, data.ref())) {
           return data;
         }
       }
     };
 
     const results = [];
-    var data;
-    while(data = next()) {
+    let data;
+    while (data = next()) {
       results.push(data);
     }
 

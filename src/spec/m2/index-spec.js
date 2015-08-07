@@ -1,4 +1,4 @@
-const {expect, fixtures, memo, sinon} = require('../spec-helper');
+const {expect, fixtures} = require('../spec-helper');
 
 const fs = require('fs');
 const r = require('restructure');
@@ -7,11 +7,11 @@ const M2 = require('../../lib/m2');
 
 describe('M2', function() {
 
-  const dummy = function() {
+  const dummy = (function() {
     const data = fs.readFileSync(fixtures + 'Rabbit.m2');
     const stream = new r.DecodeStream(data);
     return M2.decode(stream);
-  }();
+  }());
 
   describe('#signature', function() {
     it('returns MD20', function() {

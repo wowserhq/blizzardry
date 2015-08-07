@@ -1,4 +1,3 @@
-const ref = require('ref');
 const StormLib = require('./storm-lib');
 
 module.exports = class File {
@@ -15,7 +14,7 @@ module.exports = class File {
 
   close() {
     const handle = this.handle;
-    if(handle) {
+    if (handle) {
       this.handle = null;
       return StormLib.SFileCloseFile(handle);
     }
@@ -26,9 +25,9 @@ module.exports = class File {
   }
 
   get name() {
-    if(this.handle) {
+    if (this.handle) {
       const name = new Buffer(this.constructor.MAX_PATH);
-      if(!StormLib.SFileGetFileName(this.handle, name)) {
+      if (!StormLib.SFileGetFileName(this.handle, name)) {
         return null;
       }
       return name.readCString();
@@ -40,10 +39,10 @@ module.exports = class File {
   }
 
   get data() {
-    if(this.handle) {
+    if (this.handle) {
       const data = new Buffer(this.size);
       this.position = 0;
-      if(!StormLib.SFileReadFile(this.handle, data, this.size, null, null)) {
+      if (!StormLib.SFileReadFile(this.handle, data, this.size, null, null)) {
         return null;
       }
       return data;

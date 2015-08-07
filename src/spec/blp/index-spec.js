@@ -1,4 +1,4 @@
-const {expect, fixtures, memo, sinon} = require('../spec-helper');
+const {expect, fixtures, memo} = require('../spec-helper');
 
 const fs = require('fs');
 
@@ -71,7 +71,7 @@ describe('BLP', function() {
   describe('#mipmaps', function() {
     it('contains mipmaps', function() {
       const mipmaps = dummy().mipmaps;
-      for(var i = 0; i < 8; ++i) {
+      for (let i = 0; i < 8; ++i) {
         expect(mipmaps[i]).to.be.an.instanceof(Mipmap);
       }
     });

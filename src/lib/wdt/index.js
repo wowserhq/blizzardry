@@ -1,7 +1,6 @@
 const r = require('restructure');
 const Chunk = require('../chunked/chunk');
 const Chunked = require('../chunked');
-const SkipChunk = require('../chunked/skip-chunk');
 
 const MPHD = Chunk({
   flags: r.uint32le,

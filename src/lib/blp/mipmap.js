@@ -29,9 +29,9 @@ module.exports = class Mipmap {
     const pixels = this.data;
     const length = pixels.length;
 
-    for(var i = 0; i < length; i += 4) {
-      let blue = pixels[i];
-      let red = pixels[i + 2];
+    for (let i = 0; i < length; i += 4) {
+      const blue = pixels[i];
+      const red = pixels[i + 2];
       pixels[i] = red;
       pixels[i + 2] = blue;
     }

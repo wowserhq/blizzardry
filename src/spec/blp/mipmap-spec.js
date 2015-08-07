@@ -1,7 +1,6 @@
-const {expect, fixtures, memo, sinon} = require('../spec-helper');
+const {expect, fixtures, memo} = require('../spec-helper');
 
 const BLP = require('../../lib/blp');
-const Mipmap = require('../../lib/blp/mipmap');
 
 describe('BLP.Mipmap', function() {
 

@@ -1,6 +1,5 @@
 const r = require('restructure');
 const AnimationBlock = require('./animation-block');
-const Nofs = require('./nofs');
 const {QuatShort, Vec3Float} = require('../types');
 
 module.exports = new r.Struct({

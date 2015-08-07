@@ -8,18 +8,18 @@ module.exports = class Nofs {
   }
 
   decode(stream, parent) {
-    var length = r.uint32le.decode(stream);
-    if(typeof this.length == 'function') {
+    let length = r.uint32le.decode(stream);
+    if (typeof this.length === 'function') {
       length = this.length.call(null, length);
     }
 
-    if(this.type) {
+    if (this.type) {
       const pointer = new r.Pointer(r.uint32le, new r.Array(this.type, length), 'global');
       return pointer.decode(stream, parent);
-    } else {
-      r.uint32le.decode(stream);
-      return length;
     }
+
+    r.uint32le.decode(stream);
+    return length;
   }
 
 };

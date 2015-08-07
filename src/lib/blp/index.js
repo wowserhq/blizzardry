@@ -1,6 +1,5 @@
 const crypto = require('crypto');
 const fs = require('fs');
-const path = require('path');
 const temp = require('temp');
 const BLPLib = require('./blp-lib');
 const CLib = require('../c-lib');
@@ -16,24 +15,24 @@ module.exports = class BLP {
     this.file = file;
 
     this.mipmaps = [];
-    for(var i = 0; i < this.mipmapCount; ++i) {
+    for (let i = 0; i < this.mipmapCount; ++i) {
       this.mipmaps.push(new Mipmap(this, i));
     }
   }
 
   close() {
     const handle = this.handle;
-    if(handle) {
+    if (handle) {
       this.handle = null;
       BLPLib.blp_release(handle);
     }
 
     const file = this.file;
-    if(file) {
+    if (file) {
       this.file = null;
       CLib.fclose(file);
 
-      if(this.path.match(this.constructor.TMP_PREFIX)) {
+      if (this.path.match(this.constructor.TMP_PREFIX)) {
         fs.unlinkSync(this.path);
       }
     }
@@ -61,25 +60,23 @@ module.exports = class BLP {
 
   static open(path, callback) {
     const file = CLib.fopen(path, 'r');
-    if(!file.isNull()) {
+    if (!file.isNull()) {
       const handle = BLPLib.blp_processFile(file);
-      if(!handle.isNull()) {
+      if (!handle.isNull()) {
         const blp = new this(path, handle, file);
 
-        if(callback) {
+        if (callback) {
           callback(blp);
           blp.close();
           return true;
-        } else {
-          return blp;
         }
-      } else {
-        CLib.fclose(file);
-        throw new Error('image could not be opened');
+
+        return blp;
       }
-    } else {
-      throw new Error('image could not be found');
+      CLib.fclose(file);
+      throw new Error('image could not be opened');
     }
+    throw new Error('image could not be found');
   }
 
   static from(buffer, callback) {

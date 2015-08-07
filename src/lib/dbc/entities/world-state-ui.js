@@ -8,7 +8,6 @@ module.exports = Entity({
   mapID: r.int32le,
   zoneID: r.uint32le,
   phase: r.uint32le,
-  //icon: StringRef,
   text: LocalizedStringRef,
   description: LocalizedStringRef,
   state: r.int32le,
