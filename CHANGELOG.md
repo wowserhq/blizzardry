@@ -1,5 +1,12 @@
 # Changelog
 
+### v0.2.1 - August 7, 2015
+
+- Windows support for BLPs, thanks [@petersandor](https://github.com/petersandor)!
+- Closes BLP file handle on failure.
+- Exposes `DBC#entity` for convenience.
+
+
 ### v0.2.0 - June 28, 2015
 
 - Exposes `restructure`.
