@@ -252,7 +252,7 @@ wdt.tiles[30 * 64 + 25] // 1
 
 Root world map definition file listing textures, doodads and orientation.
 
-Actual model data is stored in [group files](#wmo_group).
+Actual model data is stored in [group files](#wmo-group).
 
 ```javascript
 r = require('blizzardry/lib/restructure');
