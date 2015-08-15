@@ -37,9 +37,7 @@ const MOMT = Chunk({
     }), 3),
 
     unknowns: new r.Reserved(r.uint32le, 4)
-  }), function() {
-    return this.parent.MOHD.textureCount;
-  })
+  }), 'size', 'bytes')
 });
 
 const MOGN = Chunk({
