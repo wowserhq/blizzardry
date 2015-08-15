@@ -248,6 +248,36 @@ wdt.tiles[30 * 64 + 24] // 0
 wdt.tiles[30 * 64 + 25] // 1
 ```
 
+### [WMO](src/lib/wmo)
+
+Root world map definition file listing textures, doodads and orientation.
+
+Actual model data is stored in [group files](#wmo_group).
+
+```javascript
+r = require('blizzardry/lib/restructure');
+WMO = require('blizzardry/lib/wmo');
+
+io = fs.readFileSync('trolltent.wmo');
+stream = new r.DecodeStream(io);
+
+wmo = WMO.decode(stream);
+wmo.version    // 17
+wmo.flags      // 1
+wmo.groupCount // 1
+
+wmo.MOTX.filenames // ['DUNGEONS\\TEXTURES\\ROOF\\BM_TROLL_KOTOSKIN01.BLP', ...]
+```
+
+#### WMO Group
+
+For a root file named `trolltent.wmo`, its group files are named `trolltent_000.wmo`,
+`trolltent_001.wmo` and so forth.
+
+The amount of groups is exposed as `groupCount` in the root file (see above).
+
+WMO group parsing to be implemented [soon™](http://www.wowwiki.com/Soon).
+
 
 ## Development & Contribution
 
