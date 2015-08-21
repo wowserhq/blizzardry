@@ -1,5 +1,5 @@
 {
-  "extends": "eslint-config-airbnb-lite",
+  "extends": "airbnb/base",
   "rules" : {
     "comma-dangle": [2, "never"],
     "func-names": [0],
