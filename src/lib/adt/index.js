@@ -106,8 +106,12 @@ module.exports = Chunked({
   MMID: SkipChunk,
   MWMO: require('../chunked/mwmo'),
   MWID: SkipChunk,
-  MDDF: SkipChunk,
-  MODF: SkipChunk,
+  MDDF: new r.Optional(SkipChunk, function() {
+    return this.MHDR.offsetMDDF;
+  }),
+  MODF: new r.Optional(require('../chunked/modf'), function() {
+    return this.MHDR.offsetMODF;
+  }),
   MH2O: new r.Optional(SkipChunk, function() {
     return this.MHDR.offsetMH2O;
   }),
