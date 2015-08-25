@@ -17,11 +17,9 @@ const MHDR = Chunk({
   offsetMODF: r.uint32le,
   offsetMFBO: r.uint32le,
   offsetMH2O: r.uint32le,
-  offsetMCNKs: r.uint32le,
   offsetMTXF: r.uint32le,
-  offsetMTXP: r.uint32le,
 
-  skip: new r.Reserved(r.uint32le, 2)
+  skip: new r.Reserved(r.uint32le, 4)
 });
 
 const MTEX = Chunk({
