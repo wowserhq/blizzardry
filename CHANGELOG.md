@@ -1,5 +1,12 @@
 # Changelog
 
+### v0.2.2 - August 26, 2015
+
+- WMO support.
+- MODF chunk support.
+- Optimizes `M2.Skin#triangles` decoding.
+
+
 ### v0.2.1 - August 7, 2015
 
 - Windows support for BLPs, thanks [@petersandor](https://github.com/petersandor)!
