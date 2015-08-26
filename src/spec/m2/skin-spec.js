@@ -29,14 +29,14 @@ describe('Skin', function() {
   describe('#triangles', function() {
     it('returns triangles', function() {
       const triangles = dummy.triangles;
-      expect(triangles).to.have.length(107);
-      expect(triangles.slice(0, 2)).to.deep.eq([
-        [0, 1, 2],
-        [3, 4, 5]
+      expect(triangles).to.have.length(321);
+      expect(triangles.slice(0, 6)).to.deep.eq([
+        0, 1, 2,
+        3, 4, 5
       ]);
-      expect(triangles.slice(-2)).to.deep.eq([
-        [150, 137, 151],
-        [152, 148, 153]
+      expect(triangles.slice(-6)).to.deep.eq([
+        150, 137, 151,
+        152, 148, 153
       ]);
     });
   });
