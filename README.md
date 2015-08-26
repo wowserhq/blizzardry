@@ -276,7 +276,18 @@ For a root file named `trolltent.wmo`, its group files are named `trolltent_000.
 
 The amount of groups is exposed as `groupCount` in the root file (see above).
 
-WMO group parsing to be implemented [soon™](http://www.wowwiki.com/Soon).
+```javascript
+r = require('blizzardry/lib/restructure');
+WMOGroup = require('blizzardry/lib/wmo/group');
+
+io = fs.readFileSync('trolltent_000.wmo');
+stream = new r.DecodeStream(io);
+
+group = WMOGroup.decode(stream);
+group.version // 17
+group.flags   // 1
+group.MOVT.vertices[0] // [ 3.1721.., 10.4109.., 5.7666.. ]
+```
 
 
 ## Development & Contribution
