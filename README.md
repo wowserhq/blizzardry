@@ -269,7 +269,7 @@ wmo.groupCount // 1
 wmo.MOTX.filenames // ['DUNGEONS\\TEXTURES\\ROOF\\BM_TROLL_KOTOSKIN01.BLP', ...]
 ```
 
-#### [WMO Group](src/lib/wmo/group)
+#### [WMO Group](src/lib/wmo/group.js)
 
 For a root file named `trolltent.wmo`, its group files are named `trolltent_000.wmo`,
 `trolltent_001.wmo` and so forth.
