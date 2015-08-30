@@ -1,5 +1,10 @@
 # Changelog
 
+### v0.2.3 - August 30, 2015
+
+- Correct `WMO#MOMT`'s `materials` property.
+
+
 ### v0.2.2 - August 26, 2015
 
 - WMO support.
