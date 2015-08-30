@@ -25,7 +25,7 @@ const MOTX = Chunk({
 });
 
 const MOMT = Chunk({
-  textures: new r.Array(new r.Struct({
+  materials: new r.Array(new r.Struct({
     flags: r.uint32le,
     shader: r.uint32le,
     blendMode: r.uint32le,
