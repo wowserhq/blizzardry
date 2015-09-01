@@ -1,6 +1,7 @@
 const r = require('restructure');
 const Chunk = require('../chunked/chunk');
 const Chunked = require('../chunked');
+const PaddedStrings = require('../chunked/padded-strings');
 const SkipChunk = require('../chunked/skip-chunk');
 const {Vec3Float} = require('../types');
 
@@ -20,8 +21,7 @@ const MOHD = Chunk({
 });
 
 const MOTX = Chunk({
-  // TODO: Discard padding zeroes
-  filenames: new r.Array(new r.String(null), 'size', 'bytes')
+  filenames: new PaddedStrings('size', 'bytes')
 });
 
 const MOMT = Chunk({
