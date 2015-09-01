@@ -1,5 +1,10 @@
 # Changelog
 
+### v0.2.4 - September 1, 2015
+
+- Correctly index `WMO#MOTX`'s padded strings.
+
+
 ### v0.2.3 - August 30, 2015
 
 - Correct `WMO#MOMT`'s `materials` property.
