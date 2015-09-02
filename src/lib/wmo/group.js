@@ -43,6 +43,18 @@ const MOTV = Chunk({
   textureCoords: new r.Array(float2, 'size', 'bytes')
 });
 
+const MOBA = Chunk({
+  batches: new r.Array(new r.Struct({
+    skips: new r.Reserved(r.int16le, 2 * 3),
+    firstIndex: r.uint32le,
+    indexCount: r.uint16le,
+    firstVertex: r.uint16le,
+    lastVertex: r.uint16le,
+    skip: new r.Reserved(r.uint8),
+    materialID: r.uint8
+  }), 'size', 'bytes')
+});
+
 module.exports = Chunked({
   MOGP: MOGP,
   MOPY: MOPY,
@@ -50,7 +62,7 @@ module.exports = Chunked({
   MOVT: MOVT,
   MONR: MONR,
   MOTV: MOTV,
-  MOBA: SkipChunk,
+  MOBA: MOBA,
 
   flags: function() {
     return this.MOGP.flags;
