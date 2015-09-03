@@ -1,5 +1,10 @@
 # Changelog
 
+### v0.2.5 - September 3, 2015
+
+- Expose `WMO.Group#MOBA`'s render batches.
+
+
 ### v0.2.4 - September 1, 2015
 
 - Correctly index `WMO#MOTX`'s padded strings.
