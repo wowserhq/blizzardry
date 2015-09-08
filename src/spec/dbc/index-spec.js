@@ -71,7 +71,7 @@ describe('DBC', function() {
     context('when not using an entity', function() {
       it('returns raw records', function() {
         const records = dummy.records;
-        const [record, ...rest] = records;
+        const [record] = records;
         expect(records.length).to.eq(3);
         expect(record).to.be.an.instanceof(Buffer);
         expect(record).to.have.length(dummy.recordSize);
@@ -81,7 +81,7 @@ describe('DBC', function() {
     context('when using an entity', function() {
       it('returns records', function() {
         const records = withEntity.records;
-        const [first, second, last] = records;
+        const [first, , last] = records;
         expect(records.length).to.eq(3);
         expect(first).to.deep.eq({
           id: 1,
