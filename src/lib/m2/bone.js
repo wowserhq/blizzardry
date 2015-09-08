@@ -1,6 +1,6 @@
 const r = require('restructure');
 const AnimationBlock = require('./animation-block');
-const {QuatShort, Vec3Float} = require('../types');
+const {Quat16, Vec3Float} = require('../types');
 
 module.exports = new r.Struct({
   keyBoneID: r.int32le,
@@ -11,7 +11,7 @@ module.exports = new r.Struct({
   unknowns: new r.Reserved(r.uint16le, 2),
 
   translation: new AnimationBlock(Vec3Float),
-  rotation: new AnimationBlock(QuatShort),
+  rotation: new AnimationBlock(Quat16),
   scaling: new AnimationBlock(Vec3Float),
 
   pivotPoint: Vec3Float
