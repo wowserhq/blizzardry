@@ -1,8 +1,31 @@
-const {Vec3Float} = require('../types');
-const r = require('restructure');
-const Bone = require('./bone');
+const AnimationBlock = require('./animation-block');
 const Nofs = require('./nofs');
-const Vertex = require('./vertex');
+const {float2, float3, Quat16Float, Vec3Float} = require('../types');
+const r = require('restructure');
+
+const Bone = new r.Struct({
+  keyBoneID: r.int32le,
+  flags: r.uint32le,
+  parentID: r.int16le,
+  subMeshID: r.int16le,
+
+  unknowns: new r.Reserved(r.uint16le, 2),
+
+  translation: new AnimationBlock(Vec3Float),
+  rotation: new AnimationBlock(Quat16Float),
+  scaling: new AnimationBlock(Vec3Float),
+
+  pivotPoint: Vec3Float
+});
+
+const Vertex = new r.Struct({
+  position: float3,
+  boneWeights: new r.Array(r.uint8, 4),
+  boneIndices: new r.Array(r.uint8, 4),
+  normal: float3,
+  textureCoords: float2,
+  random: float2
+});
 
 module.exports = new r.Struct({
   signature: new r.String(4),
