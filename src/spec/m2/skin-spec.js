@@ -13,8 +13,10 @@ describe('Skin', function() {
     return Skin.decode(stream);
   }());
 
-  describe('#id', function() {
-    xit('returns identifier');
+  describe('#signature', function() {
+    it('returns SKIN', function() {
+      expect(dummy.signature).to.eq('SKIN');
+    });
   });
 
   describe('#indices', function() {

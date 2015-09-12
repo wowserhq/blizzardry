@@ -19,8 +19,7 @@ const Submesh = new r.Struct({
 });
 
 module.exports = new r.Struct({
-  id: r.uint32le,
-
+  signature: new r.String(4),
   indices: new Nofs(r.uint16le),
   triangles: new Nofs(r.uint16le),
   boneIndices: new Nofs(new r.Array(r.uint8, 4)),
