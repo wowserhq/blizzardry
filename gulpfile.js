@@ -1,9 +1,9 @@
-var babel   = require('gulp-babel');
-var cache   = require('gulp-cached');
-var del     = require('del');
-var gulp    = require('gulp');
-var mocha   = require('gulp-mocha');
-var plumber = require('gulp-plumber');
+const babel   = require('gulp-babel');
+const cache   = require('gulp-cached');
+const del     = require('del');
+const gulp    = require('gulp');
+const mocha   = require('gulp-mocha');
+const plumber = require('gulp-plumber');
 
 gulp.task('clean', function(cb) {
   return del([
