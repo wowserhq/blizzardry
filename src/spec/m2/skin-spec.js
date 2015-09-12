@@ -41,8 +41,21 @@ describe('Skin', function() {
     });
   });
 
-  describe('#properties', function() {
-    xit('returns properties');
+  describe('#boneIndices', function() {
+    it('returns bone indices', function() {
+      const indices = dummy.boneIndices;
+      expect(indices).to.have.length(154);
+      expect(indices.slice(0, 3)).to.deep.eq([
+        [1, 0, 0, 0],
+        [0, 2, 0, 0],
+        [0, 2, 3, 0]
+      ]);
+      expect(indices.slice(-3)).to.deep.eq([
+        [17, 16, 0, 0],
+        [17, 16, 0, 0],
+        [17, 0, 0, 0]
+      ]);
+    });
   });
 
   describe('#submeshes', function() {

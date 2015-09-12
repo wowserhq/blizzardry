@@ -6,7 +6,7 @@ module.exports = new r.Struct({
 
   indices: new Nofs(r.uint16le),
   triangles: new Nofs(r.uint16le),
-  properties: new Nofs(),
+  boneIndices: new Nofs(new r.Array(r.uint8, 4)),
   submeshes: new Nofs(),
   textureUnits: new Nofs(),
   bones: r.uint32le
