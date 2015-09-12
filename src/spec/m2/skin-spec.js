@@ -59,7 +59,33 @@ describe('Skin', function() {
   });
 
   describe('#submeshes', function() {
-    xit('returns submeshes');
+    it('returns submeshes', function() {
+      expect(dummy.submeshes).to.deep.eq([
+        {
+          id: 0,
+          level: 0,
+          startVertex: 0,
+          vertexCount: 154,
+          startTriangle: 0,
+          triangleCount: 321,
+          boneCount: 18,
+          startBone: 54,
+          boneInfluences: 4,
+          rootBone: 3,
+          centerMass: {
+            x: -0.028278673067688942,
+            y: -0.005275045055896044,
+            z: 0.09622777253389359
+          },
+          centerBoundingBox: {
+            x: -0.09150424599647522,
+            y: -0.0035360679030418396,
+            z: 0.24830669164657593
+          },
+          radius: 0.4231628179550171
+        }
+      ]);
+    });
   });
 
   describe('#textureUnits', function() {
