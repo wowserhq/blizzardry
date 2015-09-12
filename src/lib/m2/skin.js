@@ -9,5 +9,5 @@ module.exports = new r.Struct({
   boneIndices: new Nofs(new r.Array(r.uint8, 4)),
   submeshes: new Nofs(),
   textureUnits: new Nofs(),
-  bones: r.uint32le
+  boneCount: r.uint32le
 });

@@ -66,8 +66,10 @@ describe('Skin', function() {
     xit('returns texture units');
   });
 
-  describe('#bones', function() {
-    xit('returns bones');
+  describe('#boneCount', function() {
+    it('returns number of bones', function() {
+      expect(dummy.boneCount).to.eq(21);
+    });
   });
 
 });
