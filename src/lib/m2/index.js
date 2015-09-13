@@ -7,7 +7,7 @@ const Bone = new r.Struct({
   keyBoneID: r.int32le,
   flags: r.uint32le,
   parentID: r.int16le,
-  subMeshID: r.int16le,
+  submeshID: r.int16le,
 
   unknowns: new r.Reserved(r.uint16le, 2),
 

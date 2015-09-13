@@ -68,7 +68,7 @@ describe('M2', function() {
         keyBoneID: -1,
         flags: 512,
         parentID: -1,
-        subMeshID: 0,
+        submeshID: 0,
         translation: {
           interpolationType: 1,
           globalSequenceID: -1,
