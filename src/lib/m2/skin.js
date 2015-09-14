@@ -18,12 +18,27 @@ const Submesh = new r.Struct({
   radius: r.floatle
 });
 
+const TextureUnit = new r.Struct({
+  flags: r.uint16le,
+  shaderID: r.uint16le,
+  submeshIndex: r.uint16le,
+  submeshIndex2: r.uint16le,
+  colorIndex: r.int16le,
+  renderFlags: r.uint16le,
+  textureUnitNumber: r.uint16le,
+  opCount: r.uint16le,
+  textureIndex: r.uint16le,
+  textureUnitNumber2: r.uint16le,
+  transparencyIndex: r.uint16le,
+  textureAnimIndex: r.uint16le
+});
+
 module.exports = new r.Struct({
   signature: new r.String(4),
   indices: new Nofs(r.uint16le),
   triangles: new Nofs(r.uint16le),
   boneIndices: new Nofs(new r.Array(r.uint8, 4)),
   submeshes: new Nofs(Submesh),
-  textureUnits: new Nofs(),
+  textureUnits: new Nofs(TextureUnit),
   boneCount: r.uint32le
 });
