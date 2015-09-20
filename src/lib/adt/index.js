@@ -113,7 +113,9 @@ const MCNK = Chunk({
   MLCQ: new r.Optional(SkipChunk, function() {
     return this.offsetMCLQ;
   }),
-  MCSE: SkipChunk
+  MCSE: new r.Optional(SkipChunk, function() {
+    return this.soundEmitterCount;
+  })
 });
 
 module.exports = Chunked({
