@@ -75,7 +75,7 @@ const MCNK = Chunk({
   predTex: r.uint32le,
   noEffectDoodad: r.uint32le,
   offsetMCSE: r.uint32le,
-  soundEmittersCount: r.uint32le,
+  soundEmitterCount: r.uint32le,
   offsetMCLQ: r.uint32le,
   sizeLiquid: r.uint32le,
   position: Vec3Float,
