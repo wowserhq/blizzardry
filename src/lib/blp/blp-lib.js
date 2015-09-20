@@ -1,7 +1,7 @@
 const ffi = require('ffi');
 const ref = require('ref');
 
-const {bool, uint8, uint32} = ref.types;
+const { bool, uint8, uint32 } = ref.types;
 const voidPtr = ref.refType(ref.types.void);
 
 const BLP = voidPtr;

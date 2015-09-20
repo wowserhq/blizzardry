@@ -1,6 +1,6 @@
 const r = require('restructure');
 const Chunk = require('./chunk');
-const {Vec3Float} = require('../types');
+const { Vec3Float } = require('../types');
 
 module.exports = Chunk({
   entries: new r.Array(new r.Struct({

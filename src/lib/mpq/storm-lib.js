@@ -2,7 +2,7 @@ const ffi = require('ffi');
 const ref = require('ref');
 const Struct = require('ref-struct');
 
-const {bool, int32, uint32} = ref.types;
+const { bool, int32, uint32 } = ref.types;
 const string = ref.types.CString;
 
 const voidPtr = ref.refType(ref.types.void);

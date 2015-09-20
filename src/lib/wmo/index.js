@@ -3,7 +3,7 @@ const Chunk = require('../chunked/chunk');
 const Chunked = require('../chunked');
 const PaddedStrings = require('../chunked/padded-strings');
 const SkipChunk = require('../chunked/skip-chunk');
-const {Vec3Float} = require('../types');
+const { Vec3Float } = require('../types');
 
 const MOHD = Chunk({
   textureCount: r.uint32le,

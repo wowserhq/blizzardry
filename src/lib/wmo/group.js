@@ -2,7 +2,7 @@ const r = require('restructure');
 const Chunk = require('../chunked/chunk');
 const Chunked = require('../chunked');
 const SkipChunk = require('../chunked/skip-chunk');
-const {float2, float3, Vec3Float} = require('../types');
+const { float2, float3, Vec3Float } = require('../types');
 
 const MOGP = Chunk({
   nameOffset: r.uint32le,

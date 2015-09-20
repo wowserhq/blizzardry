@@ -1,6 +1,6 @@
 const AnimationBlock = require('./animation-block');
 const Nofs = require('./nofs');
-const {float2, float3, Quat16Float, Vec3Float} = require('../types');
+const { float2, float3, Quat16Float, Vec3Float } = require('../types');
 const r = require('restructure');
 
 const Bone = new r.Struct({

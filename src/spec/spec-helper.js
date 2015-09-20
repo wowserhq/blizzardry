@@ -11,7 +11,7 @@ module.exports = {
   expect: chai.expect,
   fixtures: fixtures,
   memo: memo,
-  sinon:  sinon
+  sinon: sinon
 };
 
 beforeEach(function() {

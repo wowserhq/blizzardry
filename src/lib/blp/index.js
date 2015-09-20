@@ -80,7 +80,7 @@ module.exports = class BLP {
   }
 
   static from(buffer, callback) {
-    const tmp = temp.path({prefix: this.TMP_PREFIX});
+    const tmp = temp.path({ prefix: this.TMP_PREFIX });
     fs.writeFileSync(tmp, buffer);
     try {
       return this.open(tmp, callback);

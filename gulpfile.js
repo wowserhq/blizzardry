@@ -21,9 +21,9 @@ gulp.task('build', function() {
 });
 
 gulp.task('spec', function() {
-  return gulp.src('spec/**/*.js', {read: false})
+  return gulp.src('spec/**/*.js', { read: false })
     .pipe(plumber())
-    .pipe(mocha({bail: true}));
+    .pipe(mocha({ bail: true }));
 });
 
 gulp.task('rebuild', gulp.series(

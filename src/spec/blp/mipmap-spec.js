@@ -1,4 +1,4 @@
-const {expect, fixtures, memo} = require('../spec-helper');
+const { expect, fixtures, memo } = require('../spec-helper');
 
 const BLP = require('../../lib/blp');
 

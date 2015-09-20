@@ -1,4 +1,4 @@
-const {expect} = require('../spec-helper');
+const { expect } = require('../spec-helper');
 
 const inflect = require('inflected');
 

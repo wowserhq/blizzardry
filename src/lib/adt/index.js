@@ -2,7 +2,7 @@ const r = require('restructure');
 const Chunk = require('../chunked/chunk');
 const Chunked = require('../chunked');
 const SkipChunk = require('../chunked/skip-chunk');
-const {Vec3Float} = require('../types');
+const { Vec3Float } = require('../types');
 
 const MHDR = Chunk({
   flags: r.uint32le,

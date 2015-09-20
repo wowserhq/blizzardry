@@ -1,6 +1,6 @@
 const r = require('restructure');
 const Nofs = require('./nofs');
-const {Vec3Float} = require('../types');
+const { Vec3Float } = require('../types');
 
 const Submesh = new r.Struct({
   id: r.uint16le,
