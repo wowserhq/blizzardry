@@ -91,7 +91,24 @@ describe('Skin', function() {
   });
 
   describe('#textureUnits', function() {
-    xit('returns texture units');
+    it('returns texture units', function() {
+      expect(dummy.textureUnits).to.deep.eq([
+        {
+          flags: 16,
+          shaderID: 0,
+          submeshIndex: 0,
+          submeshIndex2: 0,
+          colorIndex: -1,
+          renderFlags: 0,
+          textureUnitNumber: 0,
+          opCount: 1,
+          textureIndex: 0,
+          textureUnitNumber2: 0,
+          transparencyIndex: 0,
+          textureAnimIndex: 0
+        }
+      ]);
+    });
   });
 
   describe('#boneCount', function() {
