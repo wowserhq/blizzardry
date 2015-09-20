@@ -59,63 +59,63 @@ module.exports = new ffi.Library('libstorm', {
     HANDLEPtr
   ]],
 
-//   SFileCreateArchive2: [ref.types.char, [
-//     TCHARPtr,
-//     _SFILE_CREATE_MPQPtr,
-//     HANDLEPtr
-//   ]]
-//   SFileSetDownloadCallback: [ref.types.char, [
-//     HANDLE,
-//     SFILE_DOWNLOAD_CALLBACK,
-//     voidPtr
-//   ]]
-//   SFileFlushArchive: [ref.types.char, [
-//     HANDLE
-//   ]]
+  // SFileCreateArchive2: [ref.types.char, [
+  //   TCHARPtr,
+  //   _SFILE_CREATE_MPQPtr,
+  //   HANDLEPtr
+  // ]]
+  // SFileSetDownloadCallback: [ref.types.char, [
+  //   HANDLE,
+  //   SFILE_DOWNLOAD_CALLBACK,
+  //   voidPtr
+  // ]]
+  // SFileFlushArchive: [ref.types.char, [
+  //   HANDLE
+  // ]]
 
   SFileCloseArchive: [bool, [
     HANDLE
   ]],
 
-//   SFileAddListFile: [ref.types.int32, [
-//     HANDLE,
-//     ref.types.CString
-//   ]]
+  // SFileAddListFile: [ref.types.int32, [
+  //   HANDLE,
+  //   ref.types.CString
+  // ]]
 
-//   SFileSetCompactCallback: [ref.types.char, [
-//     HANDLE,
-//     SFILE_COMPACT_CALLBACK,
-//     voidPtr
-//   ]]
+  // SFileSetCompactCallback: [ref.types.char, [
+  //   HANDLE,
+  //   SFILE_COMPACT_CALLBACK,
+  //   voidPtr
+  // ]]
 
-//   SFileCompactArchive: [ref.types.char, [
-//     HANDLE,
-//     ref.types.CString,
-//     ref.types.char
-//   ]]
+  // SFileCompactArchive: [ref.types.char, [
+  //   HANDLE,
+  //   ref.types.CString,
+  //   ref.types.char
+  // ]]
 
-//   SFileGetMaxFileCount: [ref.types.uint32, [
-//     HANDLE
-//   ]]
+  // SFileGetMaxFileCount: [ref.types.uint32, [
+  //   HANDLE
+  // ]]
 
-//   SFileSetMaxFileCount: [ref.types.char, [
-//     HANDLE,
-//     ref.types.uint32
-//   ]]
+  // SFileSetMaxFileCount: [ref.types.char, [
+  //   HANDLE,
+  //   ref.types.uint32
+  // ]]
 
-//   SFileGetAttributes: [ref.types.uint32, [
-//     HANDLE
-//   ]]
+  // SFileGetAttributes: [ref.types.uint32, [
+  //   HANDLE
+  // ]]
 
-//   SFileSetAttributes: [ref.types.char, [
-//     HANDLE,
-//     ref.types.uint32
-//   ]]
+  // SFileSetAttributes: [ref.types.char, [
+  //   HANDLE,
+  //   ref.types.uint32
+  // ]]
 
-//   SFileUpdateFileAttributes: [ref.types.char, [
-//     HANDLE,
-//     ref.types.CString
-//   ]]
+  // SFileUpdateFileAttributes: [ref.types.char, [
+  //   HANDLE,
+  //   ref.types.CString
+  // ]]
 
   SFileOpenPatchArchive: [bool, [
     HANDLE,
@@ -164,23 +164,23 @@ module.exports = new ffi.Library('libstorm', {
     HANDLE
   ]],
 
-//   SFileGetFileInfo: [ref.types.char, [
-//     HANDLE,
-//     ref.types.uint32,
-//     voidPtr,
-//     ref.types.uint32,
-//     LPDWORD
-//   ]]
+  // SFileGetFileInfo: [ref.types.char, [
+  //   HANDLE,
+  //   ref.types.uint32,
+  //   voidPtr,
+  //   ref.types.uint32,
+  //   LPDWORD
+  // ]]
 
   SFileGetFileName: [bool, [
     HANDLE,
     voidPtr
   ]],
 
-//   SFileFreeFileInfo: [ref.types.char, [
-//     voidPtr,
-//     ref.types.uint32
-//   ]]
+  // SFileFreeFileInfo: [ref.types.char, [
+  //   voidPtr,
+  //   ref.types.uint32
+  // ]]
 
   SFileExtractFile: [bool, [
     HANDLE,
@@ -189,28 +189,28 @@ module.exports = new ffi.Library('libstorm', {
     uint32
   ]],
 
-//   SFileGetFileChecksums: [ref.types.char, [
-//     HANDLE,
-//     ref.types.CString,
-//     LPDWORD,
-//     ref.types.CString
-//   ]]
+  // SFileGetFileChecksums: [ref.types.char, [
+  //   HANDLE,
+  //   ref.types.CString,
+  //   LPDWORD,
+  //   ref.types.CString
+  // ]]
 
-//   SFileVerifyFile: [ref.types.uint32, [
-//     HANDLE,
-//     ref.types.CString,
-//     ref.types.uint32
-//   ]]
+  // SFileVerifyFile: [ref.types.uint32, [
+  //   HANDLE,
+  //   ref.types.CString,
+  //   ref.types.uint32
+  // ]]
 
-//   SFileVerifyRawData: [ref.types.int32, [
-//     HANDLE,
-//     ref.types.uint32,
-//     ref.types.CString
-//   ]]
+  // SFileVerifyRawData: [ref.types.int32, [
+  //   HANDLE,
+  //   ref.types.uint32,
+  //   ref.types.CString
+  // ]]
 
-//   SFileVerifyArchive: [ref.types.uint32, [
-//     HANDLE
-//   ]]
+  // SFileVerifyArchive: [ref.types.uint32, [
+  //   HANDLE
+  // ]]
 
   SFileFindFirstFile: [HANDLE, [
     HANDLE,
@@ -228,139 +228,139 @@ module.exports = new ffi.Library('libstorm', {
     HANDLE
   ]],
 
-//   SListFileFindFirstFile: [HANDLE, [
-//     HANDLE,
-//     ref.types.CString,
-//     ref.types.CString,
-//     SFILE_FIND_DATAPtr
-//   ]]
+  // SListFileFindFirstFile: [HANDLE, [
+  //   HANDLE,
+  //   ref.types.CString,
+  //   ref.types.CString,
+  //   SFILE_FIND_DATAPtr
+  // ]]
 
-//   SListFileFindNextFile: [ref.types.char, [
-//     HANDLE,
-//     SFILE_FIND_DATAPtr
-//   ]]
+  // SListFileFindNextFile: [ref.types.char, [
+  //   HANDLE,
+  //   SFILE_FIND_DATAPtr
+  // ]]
 
-//   SListFileFindClose: [ref.types.char, [
-//     HANDLE
-//   ]]
+  // SListFileFindClose: [ref.types.char, [
+  //   HANDLE
+  // ]]
 
-//   SFileEnumLocales: [ref.types.int32, [
-//     HANDLE,
-//     ref.types.CString,
-//     LCID,
-//     LPDWORD,
-//     ref.types.uint32
-//   ]]
+  // SFileEnumLocales: [ref.types.int32, [
+  //   HANDLE,
+  //   ref.types.CString,
+  //   LCID,
+  //   LPDWORD,
+  //   ref.types.uint32
+  // ]]
 
-//   SFileCreateFile: [ref.types.char, [
-//     HANDLE,
-//     ref.types.CString,
-//     ref.types.ulonglong,
-//     ref.types.uint32,
-//     ref.types.uint32,
-//     ref.types.uint32,
-//     HANDLEPtr
-//   ]]
+  // SFileCreateFile: [ref.types.char, [
+  //   HANDLE,
+  //   ref.types.CString,
+  //   ref.types.ulonglong,
+  //   ref.types.uint32,
+  //   ref.types.uint32,
+  //   ref.types.uint32,
+  //   HANDLEPtr
+  // ]]
 
-//   SFileWriteFile: [ref.types.char, [
-//     HANDLE,
-//     voidPtr,
-//     ref.types.uint32,
-//     ref.types.uint32
-//   ]]
+  // SFileWriteFile: [ref.types.char, [
+  //   HANDLE,
+  //   voidPtr,
+  //   ref.types.uint32,
+  //   ref.types.uint32
+  // ]]
 
-//   SFileFinishFile: [ref.types.char, [
-//     HANDLE
-//   ]]
+  // SFileFinishFile: [ref.types.char, [
+  //   HANDLE
+  // ]]
 
-//   SFileAddFileEx: [ref.types.char, [
-//     HANDLE,
-//     TCHARPtr,
-//     ref.types.CString,
-//     ref.types.uint32,
-//     ref.types.uint32,
-//     ref.types.uint32
-//   ]]
+  // SFileAddFileEx: [ref.types.char, [
+  //   HANDLE,
+  //   TCHARPtr,
+  //   ref.types.CString,
+  //   ref.types.uint32,
+  //   ref.types.uint32,
+  //   ref.types.uint32
+  // ]]
 
-//   SFileAddFile: [ref.types.char, [
-//     HANDLE,
-//     TCHARPtr,
-//     ref.types.CString,
-//     ref.types.uint32
-//   ]]
+  // SFileAddFile: [ref.types.char, [
+  //   HANDLE,
+  //   TCHARPtr,
+  //   ref.types.CString,
+  //   ref.types.uint32
+  // ]]
 
-//   SFileAddWave: [ref.types.char, [
-//     HANDLE,
-//     TCHARPtr,
-//     ref.types.CString,
-//     ref.types.uint32,
-//     ref.types.uint32
-//   ]]
+  // SFileAddWave: [ref.types.char, [
+  //   HANDLE,
+  //   TCHARPtr,
+  //   ref.types.CString,
+  //   ref.types.uint32,
+  //   ref.types.uint32
+  // ]]
 
-//   SFileRemoveFile: [ref.types.char, [
-//     HANDLE,
-//     ref.types.CString,
-//     ref.types.uint32
-//   ]]
+  // SFileRemoveFile: [ref.types.char, [
+  //   HANDLE,
+  //   ref.types.CString,
+  //   ref.types.uint32
+  // ]]
 
-//   SFileRenameFile: [ref.types.char, [
-//     HANDLE,
-//     ref.types.CString,
-//     ref.types.CString
-//   ]]
+  // SFileRenameFile: [ref.types.char, [
+  //   HANDLE,
+  //   ref.types.CString,
+  //   ref.types.CString
+  // ]]
 
-//   SFileSetFileLocale: [ref.types.char, [
-//     HANDLE,
-//     ref.types.uint32
-//   ]]
+  // SFileSetFileLocale: [ref.types.char, [
+  //   HANDLE,
+  //   ref.types.uint32
+  // ]]
 
-//   SFileSetDataCompression: [ref.types.char, [
-//     ref.types.uint32
-//   ]]
+  // SFileSetDataCompression: [ref.types.char, [
+  //   ref.types.uint32
+  // ]]
 
-//   SFileSetAddFileCallback: [ref.types.char, [
-//     HANDLE,
-//     SFILE_ADDFILE_CALLBACK,
-//     voidPtr
-//   ]]
+  // SFileSetAddFileCallback: [ref.types.char, [
+  //   HANDLE,
+  //   SFILE_ADDFILE_CALLBACK,
+  //   voidPtr
+  // ]]
 
-//   SCompImplode: [ref.types.int32, [
-//     voidPtr,
-//     ref.refType(ref.types.int32),
-//     voidPtr,
-//     ref.types.int32
-//   ]]
+  // SCompImplode: [ref.types.int32, [
+  //   voidPtr,
+  //   ref.refType(ref.types.int32),
+  //   voidPtr,
+  //   ref.types.int32
+  // ]]
 
-//   SCompExplode: [ref.types.int32, [
-//     voidPtr,
-//     ref.refType(ref.types.int32),
-//     voidPtr,
-//     ref.types.int32
-//   ]]
+  // SCompExplode: [ref.types.int32, [
+  //   voidPtr,
+  //   ref.refType(ref.types.int32),
+  //   voidPtr,
+  //   ref.types.int32
+  // ]]
 
-//   SCompCompress: [ref.types.int32, [
-//     voidPtr,
-//     ref.refType(ref.types.int32),
-//     voidPtr,
-//     ref.types.int32,
-//     ref.types.uint32,
-//     ref.types.int32,
-//     ref.types.int32
-//   ]]
+  // SCompCompress: [ref.types.int32, [
+  //   voidPtr,
+  //   ref.refType(ref.types.int32),
+  //   voidPtr,
+  //   ref.types.int32,
+  //   ref.types.uint32,
+  //   ref.types.int32,
+  //   ref.types.int32
+  // ]]
 
-//   SCompDecompress: [ref.types.int32, [
-//     voidPtr,
-//     ref.refType(ref.types.int32),
-//     voidPtr,
-//     ref.types.int32
-//   ]]
+  // SCompDecompress: [ref.types.int32, [
+  //   voidPtr,
+  //   ref.refType(ref.types.int32),
+  //   voidPtr,
+  //   ref.types.int32
+  // ]]
 
-//   SCompDecompress2: [ref.types.int32, [
-//     voidPtr,
-//     ref.refType(ref.types.int32),
-//     voidPtr,
-//     ref.types.int32
-//   ]]
+  // SCompDecompress2: [ref.types.int32, [
+  //   voidPtr,
+  //   ref.refType(ref.types.int32),
+  //   voidPtr,
+  //   ref.types.int32
+  // ]]
 
   GetLastError: [int32, []]
 });
