@@ -52,6 +52,22 @@ const MCLY = Chunk({
   }), 'size', 'bytes')
 });
 
+const MCSH = Chunk({
+  // Incorrect size reported by MCSH in some ADTs
+  actualSize: function() {
+    return this.parent.sizeMCSH;
+  },
+  skip: new r.Reserved(r.uint8, 'actualSize')
+});
+
+const MCAL = Chunk({
+  // Incorrect size reported by MCAL in some ADTs
+  actualSize: function() {
+    return this.parent.sizeMCAL;
+  },
+  skip: new r.Reserved(r.uint8, 'actualSize')
+});
+
 const MCNK = Chunk({
   flags: r.uint32le,
   indexX: r.uint32le,
@@ -63,9 +79,9 @@ const MCNK = Chunk({
   offsetMCLY: r.uint32le,
   offsetMCRF: r.uint32le,
   offsetMCAL: r.uint32le,
-  sizeAlpha: r.uint32le,
+  sizeMCAL: r.uint32le,
   offsetMCSH: r.uint32le,
-  sizeShadow: r.uint32le,
+  sizeMCSH: r.uint32le,
   areaID: r.uint32le,
   mapObjRefCount: r.uint32le,
   holes: r.uint32le,
@@ -90,8 +106,10 @@ const MCNK = Chunk({
   MCNR: MCNR,
   MCLY: MCLY,
   MCRF: SkipChunk,
-  MCSH: SkipChunk,
-  MCAL: SkipChunk,
+  MCSH: new r.Optional(MCSH, function() {
+    return this.flags & 0x01;
+  }),
+  MCAL: MCAL,
   MLCQ: new r.Optional(SkipChunk, function() {
     return this.offsetMCLQ;
   }),
