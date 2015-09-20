@@ -30,6 +30,21 @@ const MMDX = Chunk({
   filenames: new r.Array(new r.String(null), 'size', 'bytes')
 });
 
+const MDDF = Chunk({
+  entries: new r.Array(new r.Struct({
+    index: r.uint32le,
+    id: r.uint32le,
+    position: Vec3Float,
+    rotation: Vec3Float,
+    scale: r.uint16le,
+    flags: r.uint16le,
+
+    filename: function() {
+      return this.parent.parent.MMDX.filenames[this.index];
+    }
+  }), 'size', 'bytes')
+});
+
 const MCVT = Chunk({
   heights: new r.Array(r.floatle, 145)
 });
@@ -126,7 +141,7 @@ module.exports = Chunked({
   MMID: SkipChunk,
   MWMO: require('../chunked/mwmo'),
   MWID: SkipChunk,
-  MDDF: new r.Optional(SkipChunk, function() {
+  MDDF: new r.Optional(MDDF, function() {
     return this.MHDR.offsetMDDF;
   }),
   MODF: new r.Optional(require('../chunked/modf'), function() {
