@@ -18,6 +18,13 @@ const Bone = new r.Struct({
   pivotPoint: Vec3Float
 });
 
+const Texture = new r.Struct({
+  type: r.uint32le,
+  flags: r.uint32le,
+  length: r.uint32le,
+  filename: new r.Pointer(r.uint32le, new r.String(null), 'global')
+});
+
 const Vertex = new r.Struct({
   position: float3,
   boneWeights: new r.Array(r.uint8, 4),
@@ -49,7 +56,7 @@ module.exports = new r.Struct({
   viewCount: r.uint32le,
 
   colors: new Nofs(),
-  textures: new Nofs(),
+  textures: new Nofs(Texture),
   transparencies: new Nofs(),
   uvAnimations: new Nofs(),
   replacableTextures: new Nofs(),

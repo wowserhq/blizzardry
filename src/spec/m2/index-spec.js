@@ -221,7 +221,16 @@ describe('M2', function() {
   });
 
   describe('#textures', function() {
-    xit('returns textures');
+    it('returns textures', function() {
+      expect(dummy.textures).to.deep.eq([
+        {
+          type: 11,
+          flags: 0,
+          length: 1,
+          filename: ''
+        }
+      ]);
+    });
   });
 
   describe('#transparencies', function() {
