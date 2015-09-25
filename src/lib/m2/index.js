@@ -18,6 +18,11 @@ const Bone = new r.Struct({
   pivotPoint: Vec3Float
 });
 
+const RenderFlags = new r.Struct({
+  flags: r.uint16le,
+  blendingMode: r.uint16le
+});
+
 const Texture = new r.Struct({
   type: r.uint32le,
   flags: r.uint32le,
@@ -60,7 +65,7 @@ module.exports = new r.Struct({
   transparencies: new Nofs(),
   uvAnimations: new Nofs(),
   replacableTextures: new Nofs(),
-  renderFlags: new Nofs(),
+  renderFlags: new Nofs(RenderFlags),
   boneLookups: new Nofs(),
   textureLookups: new Nofs(),
   textureUnits: new Nofs(),

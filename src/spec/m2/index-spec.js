@@ -246,7 +246,14 @@ describe('M2', function() {
   });
 
   describe('#renderFlags', function() {
-    xit('returns render flags');
+    it('returns render flags', function() {
+      expect(dummy.renderFlags).to.deep.eq([
+        {
+          flags: 0,
+          blendingMode: 1
+        }
+      ]);
+    });
   });
 
   describe('#boneLookups', function() {
