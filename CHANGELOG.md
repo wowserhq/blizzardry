@@ -1,5 +1,25 @@
 # Changelog
 
+### v0.2.6 - September 26, 2015
+
+- Supports floats compressed in 16 bits as `Quat16Float`.
+- Corrects `M2.Bone#rotation` decoding as `Quat16Float`s.
+- Exposes following on `M2.Skin`:
+
+  - `boneCount`
+  - `boneIndices`
+  - `signature`
+  - `submeshes`
+  - `textureUnits`
+
+- `M2.Bone#subMeshID` is now `M2.Bone#submeshID`.
+- `ADT#soundEmittersCount` is now `ADT#soundEmitterCount`.
+- Deals with incorrect `MCAL` and `MCSH` sizes in `ADT`.
+- Decodes `MCSE` only when sound emitters are present in `ADT`.
+- Exposes `ADT#MDDF`.
+- Exposes `M2#textures` and `M2#renderFlags`.
+
+
 ### v0.2.5 - September 3, 2015
 
 - Exposes `WMO.Group#MOBA`'s render batches.
