@@ -2,7 +2,7 @@
 
 ### v0.2.5 - September 3, 2015
 
-- Expose `WMO.Group#MOBA`'s render batches.
+- Exposes `WMO.Group#MOBA`'s render batches.
 
 
 ### v0.2.4 - September 1, 2015
@@ -12,7 +12,7 @@
 
 ### v0.2.3 - August 30, 2015
 
-- Correct `WMO#MOMT`'s `materials` property.
+- Corrects `WMO#MOMT`'s `materials` property.
 
 
 ### v0.2.2 - August 26, 2015
