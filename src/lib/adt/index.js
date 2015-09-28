@@ -61,9 +61,10 @@ const MCNR = Chunk({
 const MCLY = Chunk({
   layers: new r.Array(new r.Struct({
     textureID: r.uint32le,
+    flags: r.uint32le,
     offsetMCAL: r.uint32le,
-    skip: r.uint32le,
-    skip2: r.int32le
+    effectID: r.int16le,
+    skip: r.int16le
   }), 'size', 'bytes')
 });
 
