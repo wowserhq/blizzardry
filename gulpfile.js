@@ -30,10 +30,11 @@ gulp.task('rebuild', gulp.series(
   'clean', 'build'
 ));
 
-gulp.task('watch', function() {
-  return gulp.watch('src/**/*.js', gulp.series(
+gulp.task('watch', function(done) {
+  gulp.watch('src/**/*.js', gulp.series(
     'build', 'spec'
   ));
+  done();
 });
 
 gulp.task('default', gulp.series(
