@@ -65,7 +65,13 @@ const MCLY = Chunk({
     offsetMCAL: r.uint32le,
     effectID: r.int16le,
     skip: r.int16le
-  }), 'size', 'bytes')
+  }), 'size', 'bytes'),
+
+  compressed: function() {
+    return this.layers.some(function(layer) {
+      return layer.flags & 0x200;
+    });
+  }
 });
 
 const MCSH = Chunk({
