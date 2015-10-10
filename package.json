@@ -41,6 +41,7 @@
     "codeclimate-test-reporter": "0.0.4",
     "del": "^1.2.0",
     "eslint": "^1.4.0",
+    "eslint-config-airbnb": "^0.1.0",
     "eslint-config-timkurvers": "^0.1.0",
     "gulp": "git://github.com/gulpjs/gulp.git#4.0",
     "gulp-babel": "^5.1.0",
