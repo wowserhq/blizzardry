@@ -2,5 +2,8 @@
   "extends": "timkurvers",
   "rules": {
     "new-cap": [0]
+  },
+  "env": {
+    "mocha": true
   }
 }
