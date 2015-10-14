@@ -84,7 +84,7 @@ module.exports = class BLP {
     fs.writeFileSync(tmp, buffer);
     try {
       return this.open(tmp, callback);
-    } catch(e) {
+    } catch (e) {
       fs.unlinkSync(tmp);
       throw e;
     }
