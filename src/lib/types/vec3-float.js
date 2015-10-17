@@ -1,6 +1,6 @@
-const r = require('restructure');
+import r from 'restructure';
 
-module.exports = new r.Struct({
+export default new r.Struct({
   x: r.floatle,
   y: r.floatle,
   z: r.floatle

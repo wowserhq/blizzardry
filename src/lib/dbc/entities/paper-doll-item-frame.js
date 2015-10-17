@@ -1,8 +1,8 @@
-const r = require('restructure');
-const Entity = require('../entity');
-const StringRef = require('../string-ref');
+import r from 'restructure';
+import Entity from '../entity';
+import StringRef from '../string-ref';
 
-module.exports = Entity({
+export default Entity({
   name: StringRef,
   slotIcon: StringRef,
   slotNumber: r.uint32le

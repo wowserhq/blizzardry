@@ -1,6 +1,6 @@
-const { expect, fixtures, memo } = require('../spec-helper');
+import { expect, fixtures, memo } from '../spec-helper';
 
-const BLP = require('../../lib/blp');
+import BLP from '../../lib/blp';
 
 describe('BLP.Mipmap', function() {
 

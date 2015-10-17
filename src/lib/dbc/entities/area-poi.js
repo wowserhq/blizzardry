@@ -1,7 +1,7 @@
-const r = require('restructure');
-const Entity = require('../entity');
-const LocalizedStringRef = require('../localized-string-ref');
-const { Vec3Float } = require('../../types');
+import r from 'restructure';
+import Entity from '../entity';
+import LocalizedStringRef from '../localized-string-ref';
+import { Vec3Float } from '../../types';
 
 const Icon = new r.Struct({
   regular: r.uint32le,
@@ -9,7 +9,7 @@ const Icon = new r.Struct({
   destroyed: r.uint32le
 });
 
-module.exports = Entity({
+export default Entity({
   id: r.uint32le,
   importance: r.uint32le,
 

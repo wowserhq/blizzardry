@@ -1,4 +1,4 @@
-const Quat16 = require('./quat16');
+import Quat16 from './quat16';
 
 class Quat16Float {
 
@@ -17,4 +17,4 @@ class Quat16Float {
 
 }
 
-module.exports = new Quat16Float();
+export default new Quat16Float();

@@ -1,7 +1,7 @@
-const AnimationBlock = require('./animation-block');
-const Nofs = require('./nofs');
-const { float2, float3, Quat16Float, Vec3Float } = require('../types');
-const r = require('restructure');
+import AnimationBlock from './animation-block';
+import Nofs from './nofs';
+import { float2, float3, Quat16Float, Vec3Float } from '../types';
+import r from 'restructure';
 
 const Bone = new r.Struct({
   keyBoneID: r.int32le,
@@ -39,7 +39,7 @@ const Vertex = new r.Struct({
   random: float2
 });
 
-module.exports = new r.Struct({
+export default new r.Struct({
   signature: new r.String(4),
   version: r.uint32le,
 

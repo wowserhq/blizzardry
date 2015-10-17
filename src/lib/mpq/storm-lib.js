@@ -1,6 +1,6 @@
-const ffi = require('ffi');
-const ref = require('ref');
-const Struct = require('ref-struct');
+import ffi from 'ffi';
+import ref from 'ref';
+import Struct from 'ref-struct';
 
 const { bool, int32, uint32 } = ref.types;
 const string = ref.types.CString;
@@ -37,7 +37,7 @@ const HANDLEPtr = ref.refType(HANDLE);
 
 const LPDWORD = voidPtr;
 
-module.exports = new ffi.Library('libstorm', {
+export default new ffi.Library('libstorm', {
 
   SFileGetLocale: [uint32, []],
 
@@ -365,9 +365,4 @@ module.exports = new ffi.Library('libstorm', {
   GetLastError: [int32, []]
 });
 
-module.exports.FIND_DATA = FIND_DATA;
-
-module.exports.HANDLE = HANDLE;
-module.exports.HANDLEPtr = HANDLEPtr;
-
-module.exports.LPDWORD = LPDWORD;
+export { FIND_DATA, HANDLEPtr };

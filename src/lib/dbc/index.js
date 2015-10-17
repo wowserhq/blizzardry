@@ -1,5 +1,5 @@
-const r = require('restructure');
-const xtend = require('xtend');
+import r from 'restructure';
+import xtend from 'xtend';
 
 const DBC = new r.Struct({
   signature: new r.String(4),
@@ -35,4 +35,4 @@ DBC.for = function(entity) {
   return new r.Struct(fields);
 };
 
-module.exports = DBC;
+export default DBC;

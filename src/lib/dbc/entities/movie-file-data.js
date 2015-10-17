@@ -1,7 +1,7 @@
-const r = require('restructure');
-const Entity = require('../entity');
+import r from 'restructure';
+import Entity from '../entity';
 
-module.exports = Entity({
+export default Entity({
   fileDataID: r.uint32le,
   resolution: r.uint32le
 });

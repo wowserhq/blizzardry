@@ -1,9 +1,9 @@
-const r = require('restructure');
-const Entity = require('../entity');
-const LocalizedStringRef = require('../localized-string-ref');
-const { Vec3Float } = require('../../types');
+import r from 'restructure';
+import Entity from '../entity';
+import LocalizedStringRef from '../localized-string-ref';
+import { Vec3Float } from '../../types';
 
-module.exports = Entity({
+export default Entity({
   id: r.uint32le,
   mapID: r.uint32le,
   position: Vec3Float,

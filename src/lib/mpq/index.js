@@ -1,8 +1,8 @@
-const ref = require('ref');
-const Files = require('./files');
-const StormLib = require('./storm-lib');
+import ref from 'ref';
+import Files from './files';
+import { default as StormLib, HANDLEPtr } from './storm-lib';
 
-module.exports = class MPQ {
+class MPQ {
 
   static OPEN = {
     READ_ONLY:        0x00000100,
@@ -73,7 +73,7 @@ module.exports = class MPQ {
     }
 
     const priority = 0;
-    const handlePtr = ref.alloc(StormLib.HANDLEPtr);
+    const handlePtr = ref.alloc(HANDLEPtr);
     if (StormLib.SFileOpenArchive(path, priority, flags, handlePtr)) {
       const handle = handlePtr.deref();
       const mpq = new this(path, flags, handle);
@@ -93,7 +93,7 @@ module.exports = class MPQ {
   static create(path, callback) {
     const flags = 0;
     const maxFileCount = 0;
-    const handlePtr = ref.alloc(StormLib.HANDLEPtr);
+    const handlePtr = ref.alloc(HANDLEPtr);
     if (StormLib.SFileCreateArchive(path, flags, maxFileCount, handlePtr)) {
       return this.open(path, callback);
     }
@@ -101,4 +101,6 @@ module.exports = class MPQ {
     throw new Error(`archive could not be created (${errno})`);
   }
 
-};
+}
+
+export default MPQ;

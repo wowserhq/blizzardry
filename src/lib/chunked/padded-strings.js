@@ -1,6 +1,6 @@
-const r = require('restructure');
+import r from 'restructure';
 
-module.exports = class PaddedStrings extends r.Array {
+class PaddedStrings extends r.Array {
 
   constructor(length, lengthType) {
     super(new r.String(null), length, lengthType);
@@ -21,4 +21,6 @@ module.exports = class PaddedStrings extends r.Array {
     return res;
   }
 
-};
+}
+
+export default PaddedStrings;

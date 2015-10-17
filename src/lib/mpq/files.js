@@ -1,8 +1,8 @@
-const ref = require('ref');
-const File = require('./file');
-const StormLib = require('./storm-lib');
+import ref from 'ref';
+import File from './file';
+import { default as StormLib, FIND_DATA, HANDLEPtr } from './storm-lib';
 
-module.exports = class Files {
+class Files {
 
   static FROM_MPQ   = 0x00000000
   static FROM_LOCAL = 0xFFFFFFFF
@@ -21,7 +21,7 @@ module.exports = class Files {
 
   get(file) {
     if (this.handle) {
-      const fileHandlePtr = ref.alloc(StormLib.HANDLEPtr);
+      const fileHandlePtr = ref.alloc(HANDLEPtr);
       if (StormLib.SFileOpenFileEx(this.handle, file, this.constructor.FROM_MPQ, fileHandlePtr)) {
         return new File(fileHandlePtr.deref());
       }
@@ -45,7 +45,7 @@ module.exports = class Files {
     let handle = null;
 
     const next = () => {
-      const data = new StormLib.FIND_DATA();
+      const data = new FIND_DATA();
       if (!handle) {
         handle = StormLib.SFileFindFirstFile(this.handle, pattern, data.ref(), null);
         if (!handle.isNull()) {
@@ -68,4 +68,6 @@ module.exports = class Files {
     return results;
   }
 
-};
+}
+
+export default Files;

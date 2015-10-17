@@ -1,8 +1,8 @@
-const r = require('restructure');
-const DBC = require('./');
+import r from 'restructure';
+import DBC from './';
 
-module.exports = function(fields) {
+export default function(fields) {
   const entity = new r.Struct(fields);
   entity.dbc = DBC.for(entity);
   return entity;
-};
+}

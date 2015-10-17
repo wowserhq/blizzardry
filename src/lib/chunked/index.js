@@ -1,12 +1,13 @@
-const r = require('restructure');
-const xtend = require('xtend');
+import r from 'restructure';
+import xtend from 'xtend';
+import MVER from './mver';
 
-module.exports = function(fields) {
+export default function(fields) {
   const definition = xtend({
-    MVER: require('./mver'),
+    MVER: MVER,
     version: function() {
       return this.MVER.version;
     }
   }, fields);
   return new r.Struct(definition);
-};
+}

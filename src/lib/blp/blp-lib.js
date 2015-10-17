@@ -1,5 +1,5 @@
-const ffi = require('ffi');
-const ref = require('ref');
+import ffi from 'ffi';
+import ref from 'ref';
 
 const { bool, uint8, uint32 } = ref.types;
 const voidPtr = ref.refType(ref.types.void);
@@ -7,7 +7,7 @@ const voidPtr = ref.refType(ref.types.void);
 const BLP = voidPtr;
 const FILE = voidPtr;
 
-module.exports = new ffi.Library('libblp', {
+export default new ffi.Library('libblp', {
   blp_convert:     [voidPtr, [FILE, BLP, uint8]],
   blp_height:      [uint32, [BLP, uint8]],
   blp_nbMipLevels: [uint32, [BLP]],

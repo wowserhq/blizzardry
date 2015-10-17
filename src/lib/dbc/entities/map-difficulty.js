@@ -1,9 +1,9 @@
-const r = require('restructure');
-const Entity = require('../entity');
-const LocalizedStringRef = require('../localized-string-ref');
-const StringRef = require('../string-ref');
+import r from 'restructure';
+import Entity from '../entity';
+import LocalizedStringRef from '../localized-string-ref';
+import StringRef from '../string-ref';
 
-module.exports = Entity({
+export default Entity({
   id: r.uint32le,
   mapID: r.uint32le,
   difficulty: r.uint32le,

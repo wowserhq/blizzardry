@@ -1,9 +1,9 @@
-const { expect, fixtures, memo } = require('../spec-helper');
+import { expect, fixtures, memo } from '../spec-helper';
 
-const fs = require('fs');
+import fs from 'fs';
 
-const File = require('../../lib/mpq/file');
-const MPQ = require('../../lib/mpq');
+import File from '../../lib/mpq/file';
+import MPQ from '../../lib/mpq';
 
 describe('MPQ.Files', function() {
 

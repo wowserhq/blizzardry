@@ -1,9 +1,9 @@
-const { expect, fixtures } = require('../spec-helper');
+import { expect, fixtures } from '../spec-helper';
 
-const fs = require('fs');
-const r = require('restructure');
+import fs from 'fs';
+import r from 'restructure';
 
-const M2 = require('../../lib/m2');
+import M2 from '../../lib/m2';
 
 describe('M2', function() {
 

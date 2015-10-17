@@ -1,5 +1,5 @@
-const r = require('restructure');
-const StringRef = require('./string-ref');
+import r from 'restructure';
+import StringRef from './string-ref';
 
 class LocalizedStringRef {
 
@@ -14,4 +14,4 @@ class LocalizedStringRef {
 
 }
 
-module.exports = new LocalizedStringRef();
+export default new LocalizedStringRef();

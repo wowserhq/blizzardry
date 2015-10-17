@@ -1,8 +1,10 @@
-const r = require('restructure');
-const Chunk = require('../chunked/chunk');
-const Chunked = require('../chunked');
-const SkipChunk = require('../chunked/skip-chunk');
-const { Vec3Float } = require('../types');
+import r from 'restructure';
+import Chunk from '../chunked/chunk';
+import Chunked from '../chunked';
+import MODF from '../chunked/modf';
+import MWMO from '../chunked/mwmo';
+import SkipChunk from '../chunked/skip-chunk';
+import { Vec3Float } from '../types';
 
 const MHDR = Chunk({
   flags: r.uint32le,
@@ -138,18 +140,18 @@ const MCNK = Chunk({
   })
 });
 
-module.exports = Chunked({
+export default Chunked({
   MHDR: MHDR,
   MCIN: SkipChunk,
   MTEX: MTEX,
   MMDX: MMDX,
   MMID: SkipChunk,
-  MWMO: require('../chunked/mwmo'),
+  MWMO: MWMO,
   MWID: SkipChunk,
   MDDF: new r.Optional(MDDF, function() {
     return this.MHDR.offsetMDDF;
   }),
-  MODF: new r.Optional(require('../chunked/modf'), function() {
+  MODF: new r.Optional(MODF, function() {
     return this.MHDR.offsetMODF;
   }),
   MH2O: new r.Optional(SkipChunk, function() {

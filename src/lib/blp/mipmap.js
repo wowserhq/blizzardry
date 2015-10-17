@@ -1,6 +1,6 @@
-const BLPLib = require('./blp-lib');
+import BLPLib from './blp-lib';
 
-module.exports = class Mipmap {
+class Mipmap {
 
   constructor(blp, level) {
     this.blp = blp;
@@ -39,4 +39,6 @@ module.exports = class Mipmap {
     return pixels;
   }
 
-};
+}
+
+export default Mipmap;

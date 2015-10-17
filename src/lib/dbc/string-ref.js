@@ -1,6 +1,6 @@
-const r = require('restructure');
+import r from 'restructure';
 
-module.exports = new r.Pointer(
+export default new r.Pointer(
   r.uint32le,
   new r.String(null, 'utf8'),
   {

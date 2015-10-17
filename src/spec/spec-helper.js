@@ -1,13 +1,13 @@
-const bridge = require('sinon-chai');
-const chai   = require('chai');
-const memo   = require('memo-is');
-const sinon  = require('sinon');
+import bridge from 'sinon-chai';
+import chai   from 'chai';
+import memo   from 'memo-is';
+import sinon  from 'sinon';
 
 chai.use(bridge);
 
 const fixtures = 'spec/fixtures/';
 
-module.exports = {
+export default {
   expect: chai.expect,
   fixtures: fixtures,
   memo: memo,

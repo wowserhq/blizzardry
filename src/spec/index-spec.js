@@ -1,6 +1,6 @@
-const { expect } = require('./spec-helper');
+import { expect } from './spec-helper';
 
-const Blizzardry = require('../lib');
+import Blizzardry from '../lib';
 
 describe('Blizzardry', function() {
 

@@ -1,8 +1,8 @@
-const r = require('restructure');
-const Chunk = require('../chunked/chunk');
-const Chunked = require('../chunked');
-const SkipChunk = require('../chunked/skip-chunk');
-const { float2, float3, Vec3Float } = require('../types');
+import r from 'restructure';
+import Chunk from '../chunked/chunk';
+import Chunked from '../chunked';
+import SkipChunk from '../chunked/skip-chunk';
+import { float2, float3, Vec3Float } from '../types';
 
 const MOGP = Chunk({
   nameOffset: r.uint32le,
@@ -55,7 +55,7 @@ const MOBA = Chunk({
   }), 'size', 'bytes')
 });
 
-module.exports = Chunked({
+export default Chunked({
   MOGP: MOGP,
   MOPY: MOPY,
   MOVI: MOVI,

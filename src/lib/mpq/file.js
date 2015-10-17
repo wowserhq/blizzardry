@@ -1,6 +1,6 @@
-const StormLib = require('./storm-lib');
+import StormLib from './storm-lib';
 
-module.exports = class File {
+class File {
 
   static FILE_BEGIN   = 0
   static FILE_CURRENT = 1
@@ -53,4 +53,6 @@ module.exports = class File {
     return StormLib.SFileSetFilePointer(this.handle, offset, null, this.constructor.FILE_BEGIN);
   }
 
-};
+}
+
+export default File;

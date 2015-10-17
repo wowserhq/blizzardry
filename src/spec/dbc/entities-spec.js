@@ -1,8 +1,8 @@
-const { expect } = require('../spec-helper');
+import { expect } from '../spec-helper';
 
-const inflect = require('inflected');
+import inflect from 'inflected';
 
-const entities = require('../../lib/dbc/entities');
+import entities from '../../lib/dbc/entities';
 
 describe('DBC.Entities', function() {
   for (const name in entities) {

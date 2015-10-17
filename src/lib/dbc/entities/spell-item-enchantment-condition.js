@@ -1,7 +1,7 @@
-const r = require('restructure');
-const Entity = require('../entity');
+import r from 'restructure';
+import Entity from '../entity';
 
-module.exports = Entity({
+export default Entity({
   id: r.uint32le,
   gemColors: new r.Array(r.uint8, 5),
   operands: new r.Array(r.uint32le, 5),

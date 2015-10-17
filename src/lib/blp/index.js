@@ -1,11 +1,11 @@
-const crypto = require('crypto');
-const fs = require('fs');
-const temp = require('temp');
-const BLPLib = require('./blp-lib');
-const CLib = require('../c-lib');
-const Mipmap = require('./mipmap');
+import crypto from 'crypto';
+import fs from 'fs';
+import temp from 'temp';
+import BLPLib from './blp-lib';
+import CLib from '../c-lib';
+import Mipmap from './mipmap';
 
-module.exports = class BLP {
+class BLP {
 
   static TMP_PREFIX = `blp-${crypto.randomBytes(6).toString('hex')}-`
 
@@ -90,4 +90,6 @@ module.exports = class BLP {
     }
   }
 
-};
+}
+
+export default BLP;

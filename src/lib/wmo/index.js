@@ -1,9 +1,9 @@
-const r = require('restructure');
-const Chunk = require('../chunked/chunk');
-const Chunked = require('../chunked');
-const PaddedStrings = require('../chunked/padded-strings');
-const SkipChunk = require('../chunked/skip-chunk');
-const { Vec3Float } = require('../types');
+import r from 'restructure';
+import Chunk from '../chunked/chunk';
+import Chunked from '../chunked';
+import PaddedStrings from '../chunked/padded-strings';
+import SkipChunk from '../chunked/skip-chunk';
+import { Vec3Float } from '../types';
 
 const MOHD = Chunk({
   textureCount: r.uint32le,
@@ -80,7 +80,7 @@ const MFOG = Chunk({
   }), 'size', 'bytes')
 });
 
-module.exports = Chunked({
+export default Chunked({
   MOHD: MOHD,
   MOTX: MOTX,
   MOMT: MOMT,

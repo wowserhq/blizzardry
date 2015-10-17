@@ -1,8 +1,8 @@
-const r = require('restructure');
-const Entity = require('../entity');
-const StringRef = require('../string-ref');
+import r from 'restructure';
+import Entity from '../entity';
+import StringRef from '../string-ref';
 
-module.exports = Entity({
+export default Entity({
   id: r.uint32le,
   modelID: r.uint32le,
   soundID: r.uint32le,

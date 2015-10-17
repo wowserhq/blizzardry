@@ -1,6 +1,7 @@
-const r = require('restructure');
-const Chunk = require('../chunked/chunk');
-const Chunked = require('../chunked');
+import r from 'restructure';
+import Chunk from '../chunked/chunk';
+import Chunked from '../chunked';
+import MWMO from '../chunked/mwmo';
 
 const MPHD = Chunk({
   flags: r.uint32le,
@@ -16,10 +17,10 @@ const MAIN = Chunk({
   tiles: new r.Array(Tile, 4096)
 });
 
-module.exports = Chunked({
+export default Chunked({
   MPHD: MPHD,
   MAIN: MAIN,
-  MWMO: require('../chunked/mwmo'),
+  MWMO: MWMO,
   // TODO: Optional MODF chunk
 
   flags: function() {

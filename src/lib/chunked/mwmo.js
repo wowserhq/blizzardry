@@ -1,6 +1,6 @@
-const r = require('restructure');
-const Chunk = require('./chunk');
+import r from 'restructure';
+import Chunk from './chunk';
 
-module.exports = Chunk({
+export default Chunk({
   filenames: new r.Array(new r.String(null), 'size', 'bytes')
 });

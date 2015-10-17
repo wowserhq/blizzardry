@@ -1,8 +1,8 @@
-const r = require('restructure');
-const Chunk = require('./chunk');
-const { Vec3Float } = require('../types');
+import r from 'restructure';
+import Chunk from './chunk';
+import { Vec3Float } from '../types';
 
-module.exports = Chunk({
+export default Chunk({
   entries: new r.Array(new r.Struct({
     index: r.uint32le,
     id: r.uint32le,

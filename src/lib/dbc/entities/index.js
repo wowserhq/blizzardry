@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   Achievement: require('./achievement'),
   Achievement_Category: require('./achievement-category'),
   Achievement_Criteria: require('./achievement-criteria'),

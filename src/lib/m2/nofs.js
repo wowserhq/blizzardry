@@ -1,6 +1,6 @@
-const r = require('restructure');
+import r from 'restructure';
 
-module.exports = class Nofs {
+class Nofs {
 
   constructor(type, length) {
     this.type = type;
@@ -22,4 +22,6 @@ module.exports = class Nofs {
     return length;
   }
 
-};
+}
+
+export default Nofs;

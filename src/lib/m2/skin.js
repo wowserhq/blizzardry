@@ -1,6 +1,6 @@
-const r = require('restructure');
-const Nofs = require('./nofs');
-const { Vec3Float } = require('../types');
+import r from 'restructure';
+import Nofs from './nofs';
+import { Vec3Float } from '../types';
 
 const Submesh = new r.Struct({
   id: r.uint16le,
@@ -33,7 +33,7 @@ const TextureUnit = new r.Struct({
   textureAnimIndex: r.uint16le
 });
 
-module.exports = new r.Struct({
+export default new r.Struct({
   signature: new r.String(4),
   indices: new Nofs(r.uint16le),
   triangles: new Nofs(r.uint16le),

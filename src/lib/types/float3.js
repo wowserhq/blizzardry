@@ -1,3 +1,3 @@
-const r = require('restructure');
+import r from 'restructure';
 
-module.exports = new r.Array(r.floatle, 3);
+export default new r.Array(r.floatle, 3);

@@ -1,12 +1,12 @@
-const { expect, fixtures } = require('../spec-helper');
+import { expect, fixtures } from '../spec-helper';
 
-const fs = require('fs');
-const r = require('restructure');
+import fs from 'fs';
+import r from 'restructure';
 
-const DBC = require('../../lib/dbc');
-const Entity = require('../../lib/dbc/entity');
-const LocalizedStringRef = require('../../lib/dbc/localized-string-ref');
-const StringRef = require('../../lib/dbc/string-ref');
+import DBC from '../../lib/dbc';
+import Entity from '../../lib/dbc/entity';
+import LocalizedStringRef from '../../lib/dbc/localized-string-ref';
+import StringRef from '../../lib/dbc/string-ref';
 
 describe('DBC', function() {
 
