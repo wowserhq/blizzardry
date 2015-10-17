@@ -13,7 +13,7 @@ class MPQ {
     NO_HEADER_SEARCH: 0x00040000,
     FORCE_MPQ_V1:     0x00080000,
     CHECK_SECTOR_CRC: 0x00100000
-  }
+  };
 
   static CREATE = {
     LISTFILE:   0x00100000,
@@ -23,7 +23,7 @@ class MPQ {
     ARCHIVE_V2: 0x01000000,
     ARCHIVE_V3: 0x02000000,
     ARCHIVE_V4: 0x03000000
-  }
+  };
 
   constructor(path, flags, handle) {
     this.path = path;

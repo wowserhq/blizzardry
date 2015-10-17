@@ -2,11 +2,11 @@ import StormLib from './storm-lib';
 
 class File {
 
-  static FILE_BEGIN   = 0
-  static FILE_CURRENT = 1
-  static FILE_END     = 2
+  static FILE_BEGIN   = 0;
+  static FILE_CURRENT = 1;
+  static FILE_END     = 2;
 
-  static MAX_PATH = 260
+  static MAX_PATH = 260;
 
   constructor(handle) {
     this.handle = handle;

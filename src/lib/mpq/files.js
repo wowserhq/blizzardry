@@ -4,8 +4,8 @@ import { default as StormLib, FIND_DATA, HANDLEPtr } from './storm-lib';
 
 class Files {
 
-  static FROM_MPQ   = 0x00000000
-  static FROM_LOCAL = 0xFFFFFFFF
+  static FROM_MPQ   = 0x00000000;
+  static FROM_LOCAL = 0xFFFFFFFF;
 
   constructor(mpq) {
     this.mpq = mpq;

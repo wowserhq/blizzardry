@@ -7,7 +7,7 @@ import Mipmap from './mipmap';
 
 class BLP {
 
-  static TMP_PREFIX = `blp-${crypto.randomBytes(6).toString('hex')}-`
+  static TMP_PREFIX = `blp-${crypto.randomBytes(6).toString('hex')}-`;
 
   constructor(path, handle, file) {
     this.path = path;
