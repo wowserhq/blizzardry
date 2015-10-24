@@ -19,21 +19,17 @@
 - Exposes `ADT#MDDF`.
 - Exposes `M2#textures` and `M2#renderFlags`.
 
-
 ### v0.2.5 - September 3, 2015
 
 - Exposes `WMO.Group#MOBA`'s render batches.
-
 
 ### v0.2.4 - September 1, 2015
 
 - Correctly index `WMO#MOTX`'s padded strings.
 
-
 ### v0.2.3 - August 30, 2015
 
 - Corrects `WMO#MOMT`'s `materials` property.
-
 
 ### v0.2.2 - August 26, 2015
 
@@ -41,13 +37,11 @@
 - MODF chunk support.
 - Optimizes `M2.Skin#triangles` decoding.
 
-
 ### v0.2.1 - August 7, 2015
 
 - Windows support for BLPs, thanks [@petersandor](https://github.com/petersandor)!
 - Closes BLP file handle on failure.
 - Exposes `DBC#entity` for convenience.
-
 
 ### v0.2.0 - June 28, 2015
 
@@ -61,12 +55,10 @@
 - `WDT#flags` and `WDT#tiles`.
 - Normalizes string encoding and decoding.
 
-
 ### v0.1.0 - January 7, 2015
 
 - `MPQ.Files#extract` allows extracting files easily.
 - Newly supported formats: ADT, BLP, DBC, M2 and WDT.
-
 
 ### v0.0.1 - November 30, 2014
 
