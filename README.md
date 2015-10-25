@@ -7,23 +7,21 @@
 [![Code Climate](https://img.shields.io/codeclimate/github/timkurvers/blizzardry.svg?style=flat)](https://codeclimate.com/github/timkurvers/blizzardry)
 [![Coverage](https://img.shields.io/codeclimate/coverage/github/timkurvers/blizzardry.svg?style=flat)](https://codeclimate.com/github/timkurvers/blizzardry)
 
-JavaScript library for mastering the wizardry that is [Blizzard](http://blizzard.com)'s game files.
+JavaScript library for mastering the wizardry that is [Blizzard]'s game files.
 
-The current version of Blizzardry focusses on [Wrath of the Lich King](http://us.blizzard.com/en-us/games/wrath/) game content.
+Blizzardry currently focusses on [Wrath of the Lich King] game content.
 
 Licensed under the **MIT** license, see LICENSE for more information.
 
-
 ## Installation
 
-Blizzardry is available via [npm](https://www.npmjs.org/package/blizzardry):
+Blizzardry is available via [npm]:
 
 ```shell
 npm install blizzardry
 ```
 
-Or for usage in the browser, [soon™](http://www.wowwiki.com/Soon).
-
+Or for usage in the browser, [soon™].
 
 ## Usage
 
@@ -45,7 +43,7 @@ adt.version // 18
 adt.flags   // 0
 
 adt.MTEX.filenames // ['Tileset\\Wetlands\\Wetlandsdirt01.blp', ...]
-adt.MMDX.filenames // ['WORLD\\AZEROTH\\ELWYNN\\PASSIVEDOODADS\\BUSH\\ELWYNNBUSH09.M2', ...]
+adt.MMDX.filenames // ['WORLD\\AZEROTH\\ELWYNN\\PASS...\\ELWYNNBUSH09.M2', ...]
 
 adt.MCNKs.forEach(function(chunk) {
   chunk.areaID   // 2365
@@ -57,27 +55,28 @@ adt.MCNKs.forEach(function(chunk) {
 
 ### [BLP](src/lib/blp)
 
-Texture format holding up to 16 pre-rendered [mipmaps](https://en.wikipedia.org/wiki/Mipmap).
+Texture format holding up to 16 pre-rendered [mipmaps].
 
-Blizzardry uses [BLPConverter](https://github.com/Kanma/BLPConverter) to process BLPs.
+Blizzardry uses [BLPConverter] to process BLPs.
 
 #### OSX
 
-Install using [Homebrew](http://brew.sh/):
+Install using [Homebrew]:
 
-```
+```shell
 brew install --HEAD https://raw.githubusercontent.com/timkurvers/homebrew-games/formula/blp-converter/blp-converter.rb
 ```
 
 #### Windows
 
-Download [BLPConverter](https://github.com/petersandor/BLPConverter) and generate the project using [CMake](http://www.cmake.org/):
+Download [BLPConverter] and generate the project using [CMake]:
 
-```
+```shell
 cmake -DWITH_LIBRARY=YES CMakeLists.txt
 ```
 
-Build the DLL using Visual Studio 2013 in release mode, rename it to `libblp.dll` and ensure the library ends up on the load path.
+Build the DLL using Visual Studio 2013 in release mode, rename to `libblp.dll`
+and ensure the library ends up on the load path.
 
 #### Other platforms
 
@@ -111,12 +110,11 @@ blp.close();
 
 ### CASC
 
-Generic archive format, used in [recent](http://en.wikipedia.org/wiki/MPQ#Replacement:_CASC) Blizzard games.
-Supersedes [MPQ](#mpq).
+Archive format, used in [recent Blizzard games]. Supersedes [MPQ](#mpq).
 
-Blizzardry will use [CascLib](https://github.com/ladislav-zezula/CascLib) to handle CASC storage containers.
+Blizzardry will use [CascLib] to handle CASC storage containers.
 
-Support to be added [soon™](http://www.wowwiki.com/Soon).
+Support to be added [soon™].
 
 ### [DBC](src/lib/dbc)
 
@@ -135,7 +133,7 @@ dbc.recordCount // 396
 dbc.records[0]  // <Buffer 01 00 00 00 ff ff ff ff ...>
 ```
 
-To avoid parsing records manually, use one of the [pre-defined DBC entities](src/lib/dbc/entities):
+Use [pre-defined DBC entities](src/lib/dbc/entities) for convenience:
 
 ```javascript
 Faction = require('blizzardry/lib/dbc/entities/faction');
@@ -168,29 +166,29 @@ m2.vertices[0].position // [ -0.2735.., -0.0035.., 0.3579.. ]
 
 ### [MPQ](src/lib/mpq)
 
-Generic archive format, used in [most](http://en.wikipedia.org/wiki/MPQ#Usage_in_gaming) Blizzard games.
-Superseded by [CASC](#casc).
+Archive format, used in [most Blizzard games]. Superseded by [CASC](#casc).
 
-Blizzardry uses [StormLib](https://github.com/ladislav-zezula/StormLib) to handle MPQ archives.
+Blizzardry uses [StormLib] to handle MPQ archives.
 
 #### OSX
 
-Install using [Homebrew](http://brew.sh/):
+Install using [Homebrew]:
 
-```
+```shell
 brew tap homebrew/games
 brew install stormlib
 ```
 
 #### Windows
 
-Download [StormLib](https://github.com/ladislav-zezula/StormLib) and generate the project using [CMake](http://www.cmake.org):
+Download [StormLib] and generate the project using [CMake]:
 
-```
+```shell
 cmake -DWITH_LIBRARY=YES CMakeLists.txt
 ```
 
-Build the DLL using Visual Studio 2013 in release mode, rename it to `libstorm.dll` and ensure it ends up on the load path.
+Build the DLL using Visual Studio 2013 in release mode, rename to `libstorm.dll`
+and ensure it ends up on the load path.
 
 #### Other platforms
 
@@ -292,17 +290,18 @@ group.MOVT.vertices[0] // [ 3.1721.., 10.4109.., 5.7666.. ]
 
 ## Development & Contribution
 
-Blizzardry is written in [ES2015](https://babeljs.io/docs/learn-es2015/), compiled by [Babel](https://babeljs.io/), developed with [Gulp](http://gulpjs.com/) and tested through [Mocha](http://mochajs.org/).
+Blizzardry is written in [ES2015], compiled by [Babel], developed with [Gulp]
+and tested through [Mocha].
 
 Getting this toolchain up and running, is easy and straight-forward:
 
 1. Get the code:
 
-   ```
+   ```shell
    git clone git://github.com/timkurvers/blizzardry.git
    ```
 
-2. Download and install [Node.js](http://nodejs.org/#download) (includes `npm`) for your platform.
+2. Download and install [Node.js] – including `npm` – for your platform.
 
 3. Install dependencies:
 
@@ -312,10 +311,29 @@ Getting this toolchain up and running, is easy and straight-forward:
 
 4. Install [BLPConverter](#blp) and [StormLib](#mpq) as outlined above.
 
-5. Run `npm run gulp` which will automatically build and test the project when source files change.
+5. Run `npm run gulp` which will automatically build and test the project when
+   source files change.
 
 When contributing, please:
 
-* Fork the repository
-* Accompany each logical unit of operation with at least one test
-* Open a pull request
+- Fork the repository
+- Accompany each logical unit of operation with at least one test
+- Open a pull request
+
+[Babel]: https://babeljs.io/
+[Blizzard]: http://blizzard.com
+[BLPConverter]: https://github.com/Kanma/BLPConverter
+[CascLib]: https://github.com/ladislav-zezula/CascLib
+[CMake]: http://www.cmake.org
+[ES2015]: https://babeljs.io/docs/learn-es2015/
+[Gulp]: http://gulpjs.com/
+[Homebrew]: http://brew.sh/
+[Mocha]: http://mochajs.org/
+[Node.js]: http://nodejs.org/#download
+[StormLib]: https://github.com/ladislav-zezula/StormLib
+[Wrath of the Lich King]: http://us.blizzard.com/en-us/games/wrath/
+[mipmaps]: https://en.wikipedia.org/wiki/Mipmap
+[npm]: https://www.npmjs.com/
+[most Blizzard games]: http://en.wikipedia.org/wiki/MPQ#Usage_in_gaming
+[recent Blizzard games]: http://en.wikipedia.org/wiki/MPQ#Replacement:_CASC
+[soon™]: http://www.wowwiki.com/Soon
