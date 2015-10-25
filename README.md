@@ -32,13 +32,13 @@ Map tiles containing terrain and object information.
 A map tile consists of 16 by 16 map chunks.
 
 ```javascript
-r = require('blizzardry/lib/restructure');
-ADT = require('blizzardry/lib/adt');
+var r = require('blizzardry/lib/restructure');
+var ADT = require('blizzardry/lib/adt');
 
-io = fs.readFileSync('Azeroth_31_39.adt');
-stream = new r.DecodeStream(io);
+var io = fs.readFileSync('Azeroth_31_39.adt');
+var stream = new r.DecodeStream(io);
 
-adt = ADT.decode(stream);
+var adt = ADT.decode(stream);
 adt.version // 18
 adt.flags   // 0
 
@@ -83,7 +83,7 @@ and ensure the library ends up on the load path.
 Compile from source and ensure the library ends up on the load path.
 
 ```javascript
-BLP = require('blizzardry/lib/blp');
+var BLP = require('blizzardry/lib/blp');
 
 BLP.open('RabbitSkin.blp', function(blp) {
   blp.version     // 2
@@ -121,13 +121,13 @@ Support to be added [soon™].
 Client database format, containing data on items, NPCs, environments and more.
 
 ```javascript
-r = require('blizzardry/lib/restructure');
-DBC = require('blizzardry/lib/dbc');
+var r = require('blizzardry/lib/restructure');
+var DBC = require('blizzardry/lib/dbc');
 
-io = fs.readFileSync('Faction.dbc');
-stream = new r.DecodeStream(io);
+var io = fs.readFileSync('Faction.dbc');
+var stream = new r.DecodeStream(io);
 
-dbc = DBC.decode(stream);
+var dbc = DBC.decode(stream);
 dbc.signature   // 'WDBC'
 dbc.recordCount // 396
 dbc.records[0]  // <Buffer 01 00 00 00 ff ff ff ff ...>
@@ -136,9 +136,9 @@ dbc.records[0]  // <Buffer 01 00 00 00 ff ff ff ff ...>
 Use [pre-defined DBC entities](src/lib/dbc/entities) for convenience:
 
 ```javascript
-Faction = require('blizzardry/lib/dbc/entities/faction');
+var Faction = require('blizzardry/lib/dbc/entities/faction');
 
-dbc = Faction.dbc.decode(stream);
+var dbc = Faction.dbc.decode(stream);
 dbc.records.forEach(function(record) {
   record.id          // 576
   record.parentID    // 1118
@@ -152,13 +152,13 @@ dbc.records.forEach(function(record) {
 3D model format for player characters, NPCs and doodads, among others.
 
 ```javascript
-r = require('blizzardry/lib/restructure');
-M2 = require('blizzardry/lib/m2');
+var r = require('blizzardry/lib/restructure');
+var M2 = require('blizzardry/lib/m2');
 
-io = fs.readFileSync('Rabbit.m2');
-stream = new r.DecodeStream(io);
+var io = fs.readFileSync('Rabbit.m2');
+var stream = new r.DecodeStream(io);
 
-m2 = M2.decode(stream);
+var m2 = M2.decode(stream);
 m2.signature // 'MD20'
 m2.name      // 'Rabbit'
 m2.vertices[0].position // [ -0.2735.., -0.0035.., 0.3579.. ]
@@ -195,7 +195,7 @@ and ensure it ends up on the load path.
 Compile from source and ensure the library ends up on the load path.
 
 ```javascript
-MPQ = require('blizzardry/lib/mpq');
+var MPQ = require('blizzardry/lib/mpq');
 
 MPQ.open('common.MPQ', function(mpq) {
   mpq.files.contains('Creature\\Illidan\\Illidan.m2') // true
@@ -214,7 +214,7 @@ MPQ.open('common.MPQ', function(mpq) {
   mpq.files.find('*Illidan*');
 
   // Accessing file data
-  file = mpq.files.get('Creature\\Illidan\\Illidan.m2');
+  var file = mpq.files.get('Creature\\Illidan\\Illidan.m2');
   file.name // 'Creature\\Illidan\\Illidan.m2'
   file.size // 1888368
   file.data // <Buffer 4d 44 32 30 08 01 00 00 ...>
@@ -233,13 +233,13 @@ World definition file specifying which map tiles are present.
 A map consists of 64 by 64 [map tiles](#adt).
 
 ```javascript
-r = require('blizzardry/lib/restructure');
-WDT = require('blizzardry/lib/wdt');
+var r = require('blizzardry/lib/restructure');
+var WDT = require('blizzardry/lib/wdt');
 
-io = fs.readFileSync('Azeroth.wdt');
-stream = new r.DecodeStream(io);
+var io = fs.readFileSync('Azeroth.wdt');
+var stream = new r.DecodeStream(io);
 
-wdt = WDT.decode(stream);
+var wdt = WDT.decode(stream);
 wdt.version // 18
 wdt.flags   // 0
 wdt.tiles[30 * 64 + 24] // 0
@@ -253,13 +253,13 @@ Root world map definition file listing textures, doodads and orientation.
 Actual model data is stored in [group files](#wmo-group).
 
 ```javascript
-r = require('blizzardry/lib/restructure');
-WMO = require('blizzardry/lib/wmo');
+var r = require('blizzardry/lib/restructure');
+var WMO = require('blizzardry/lib/wmo');
 
-io = fs.readFileSync('trolltent.wmo');
-stream = new r.DecodeStream(io);
+var io = fs.readFileSync('trolltent.wmo');
+var stream = new r.DecodeStream(io);
 
-wmo = WMO.decode(stream);
+var wmo = WMO.decode(stream);
 wmo.version    // 17
 wmo.flags      // 1
 wmo.groupCount // 1
@@ -275,18 +275,17 @@ For a root file named `trolltent.wmo`, its group files are named `trolltent_000.
 The amount of groups is exposed as `groupCount` in the root file (see above).
 
 ```javascript
-r = require('blizzardry/lib/restructure');
-WMOGroup = require('blizzardry/lib/wmo/group');
+var r = require('blizzardry/lib/restructure');
+var WMOGroup = require('blizzardry/lib/wmo/group');
 
-io = fs.readFileSync('trolltent_000.wmo');
-stream = new r.DecodeStream(io);
+var io = fs.readFileSync('trolltent_000.wmo');
+var stream = new r.DecodeStream(io);
 
-group = WMOGroup.decode(stream);
+var group = WMOGroup.decode(stream);
 group.version // 17
 group.flags   // 1
 group.MOVT.vertices[0] // [ 3.1721.., 10.4109.., 5.7666.. ]
 ```
-
 
 ## Development & Contribution
 
