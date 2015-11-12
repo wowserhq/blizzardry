@@ -27,7 +27,7 @@
     "wdt"
   ],
   "dependencies": {
-    "ffi": "^1.2.7",
+    "ffi": "^2.0.0",
     "ref": "^1.0.0",
     "ref-array": "^1.0.0",
     "ref-struct": "^1.0.0",
