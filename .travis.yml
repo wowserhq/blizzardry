@@ -8,9 +8,13 @@ matrix:
   allow_failures:
     - node_js: '5'
   fast_finish: true
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
 before_install:
-  - sudo apt-get install g++-4.8
-
   - git clone git://github.com/ladislav-zezula/StormLib.git
   - cd StormLib
   - cmake CMakeLists.txt
