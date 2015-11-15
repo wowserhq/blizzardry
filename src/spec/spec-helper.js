@@ -1,7 +1,7 @@
 import bridge from 'sinon-chai';
-import chai   from 'chai';
-import memo   from 'memo-is';
-import sinon  from 'sinon';
+import chai from 'chai';
+import memo from 'memo-is';
+import sinon from 'sinon';
 
 chai.use(bridge);
 
