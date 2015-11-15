@@ -1,7 +1,14 @@
 {
   "extends": "timkurvers",
   "rules": {
-    "new-cap": [0]
+    // Allow capitalized function names
+    "new-cap": [0],
+
+    // Allow spacing for vertical alignment
+    "no-multi-spaces": [0],
+
+    // Allow key spacing for vertical alignment
+    "key-spacing": [0],
   },
   "env": {
     "mocha": true
