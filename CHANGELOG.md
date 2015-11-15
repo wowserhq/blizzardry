@@ -1,5 +1,11 @@
 # Changelog
 
+### v0.2.7 - November 15, 2015
+
+- Corrects `MCLY#flags` and `MCLY#effectID`.
+- Exposes `MCLY#compressed`.
+- Node 4+ support by updating `ffi` dependency.
+
 ### v0.2.6 - September 26, 2015
 
 - Supports floats compressed in 16 bits as `Quat16Float`.
