@@ -2,7 +2,7 @@ import { expect } from '../spec-helper';
 
 import inflect from 'inflected';
 
-import entities from '../../lib/dbc/entities';
+import * as entities from '../../lib/dbc/entities';
 
 describe('DBC.Entities', function() {
   for (const name in entities) {
