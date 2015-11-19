@@ -9,8 +9,5 @@
 
     // Allow key spacing for vertical alignment
     "key-spacing": [0],
-  },
-  "env": {
-    "mocha": true
   }
 }
