@@ -1,18 +1,8 @@
 import bridge from 'sinon-chai';
 import chai from 'chai';
-import memo from 'memo-is';
 import sinon from 'sinon';
 
 chai.use(bridge);
-
-const fixtures = 'spec/fixtures/';
-
-export default {
-  expect: chai.expect,
-  fixtures: fixtures,
-  memo: memo,
-  sinon: sinon
-};
 
 beforeEach(function() {
   this.sandbox = sinon.sandbox.create();
@@ -21,3 +11,8 @@ beforeEach(function() {
 afterEach(function() {
   this.sandbox.restore();
 });
+
+export const expect = chai.expect;
+export const fixtures = 'spec/fixtures/';
+export memo from 'memo-is';
+export sinon from 'sinon';

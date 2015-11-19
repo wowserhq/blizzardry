@@ -1,2 +1,1 @@
-import restructure from './restructure';
-export default { restructure };
+export restructure from './restructure';
