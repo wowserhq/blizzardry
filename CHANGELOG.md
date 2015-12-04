@@ -1,5 +1,10 @@
 # Changelog
 
+### v0.3.0 - December 4, 2015
+
+- Use ES7's export syntax across the board.
+- Decodes `M2#animations`.
+
 ### v0.2.7 - November 15, 2015
 
 - Corrects `MCLY#flags` and `MCLY#effectID`.
