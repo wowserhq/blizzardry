@@ -3,6 +3,24 @@ import Nofs from './nofs';
 import { float2, float3, Quat16Float, Vec3Float } from '../types';
 import r from 'restructure';
 
+const Animation = new r.Struct({
+  id: r.uint16le,
+  subID: r.uint16le,
+  length: r.uint32le,
+  movementSpeed: r.floatle,
+  flags: r.uint32le,
+  probability: r.int16le,
+
+  unknowns: new r.Reserved(r.uint16le, 5),
+
+  blendTime: r.uint32le,
+  minBoundingBox: Vec3Float,
+  maxBoundingBox: Vec3Float,
+  boundingRadius: r.floatle,
+  nextAnimationID: r.int16le,
+  alias: r.uint16le
+});
+
 const Bone = new r.Struct({
   keyBoneID: r.int32le,
   flags: r.uint32le,
@@ -51,7 +69,7 @@ export default new r.Struct({
   flags: r.uint32le,
 
   sequences: new Nofs(r.uint32le),
-  animations: new Nofs(),
+  animations: new Nofs(Animation),
   animationLookups: new Nofs(),
   bones: new Nofs(Bone),
   keyBoneLookups: new Nofs(r.int16le),

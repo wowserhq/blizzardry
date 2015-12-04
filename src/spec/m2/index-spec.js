@@ -52,7 +52,33 @@ describe('M2', function() {
   });
 
   describe('#animations', function() {
-    xit('returns animations');
+    it('returns animations', function() {
+      const animations = dummy.animations;
+      const [animation] = animations;
+      expect(animations.length).to.eq(7);
+      expect(animation).to.deep.eq({
+        alias: 0,
+        blendTime: 150,
+        boundingRadius: 0.593786895275116,
+        flags: 32,
+        id: 4,
+        length: 600,
+        maxBoundingBox: {
+          x: 0.3882249891757965,
+          y: 0.283809095621109,
+          z: 0.6345268487930298
+        },
+        minBoundingBox: {
+          x: -0.6340768337249756,
+          y: -0.28730660676956177,
+          z: -0.05693187937140465
+        },
+        movementSpeed: 2.5,
+        nextAnimationID: -1,
+        probability: 32767,
+        subID: 0
+      });
+    });
   });
 
   describe('#animationLookups', function() {
