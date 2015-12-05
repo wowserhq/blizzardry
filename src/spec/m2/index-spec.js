@@ -291,7 +291,9 @@ describe('M2', function() {
   });
 
   describe('#textureUnits', function() {
-    xit('returns texture units');
+    it('returns texture units', function() {
+      expect(dummy.textureUnits).to.deep.eq([0]);
+    });
   });
 
   describe('#transparencyLookups', function() {

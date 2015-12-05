@@ -86,7 +86,7 @@ export default new r.Struct({
   renderFlags: new Nofs(RenderFlags),
   boneLookups: new Nofs(),
   textureLookups: new Nofs(),
-  textureUnits: new Nofs(),
+  textureUnits: new Nofs(r.uint16le),
   transparencyLookups: new Nofs(),
   uvAnimationLookups: new Nofs(),
 
