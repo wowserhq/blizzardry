@@ -74,7 +74,7 @@ const MODD = Chunk({
   doodads: new r.Array(new r.Struct({
     filenameOffset: r.uint24le,
     filename: function() {
-      return this.parent.parent.MODN.names[this.filenameOffset];
+      return this.parent.parent.MODN.filenames[this.filenameOffset];
     },
     flags: r.uint8,
     position: Vec3Float,
