@@ -2,8 +2,8 @@ import r from 'restructure';
 import Chunk from '../chunked/chunk';
 import Chunked from '../chunked';
 import PaddedStrings from '../chunked/padded-strings';
+import { Quat, Vec3Float } from '../types';
 import SkipChunk from '../chunked/skip-chunk';
-import { Vec3Float } from '../types';
 
 const MOHD = Chunk({
   textureCount: r.uint32le,
@@ -66,6 +66,24 @@ const MODS = Chunk({
   }), 'size', 'bytes')
 });
 
+const MODN = Chunk({
+  filenames: new PaddedStrings('size', 'bytes')
+});
+
+const MODD = Chunk({
+  doodads: new r.Array(new r.Struct({
+    filenameOffset: r.uint24le,
+    filename: function() {
+      return this.parent.parent.MODN.names[this.filenameOffset];
+    },
+    flags: r.uint8,
+    position: Vec3Float,
+    rotation: Quat,
+    scale: r.floatle,
+    color: r.uint32le
+  }), 'size', 'bytes')
+});
+
 const MFOG = Chunk({
   fogs: new r.Array(new r.Struct({
     flags: r.uint32le,
@@ -94,8 +112,8 @@ export default Chunked({
   MOVB: SkipChunk,
   MOLT: SkipChunk,
   MODS: MODS,
-  MODN: SkipChunk,
-  MODD: SkipChunk,
+  MODN: MODN,
+  MODD: MODD,
   MFOG: MFOG,
   // TODO: Optional MCVP chunk
 
