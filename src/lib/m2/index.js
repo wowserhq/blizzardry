@@ -1,7 +1,8 @@
+import r from 'restructure';
+
 import AnimationBlock from './animation-block';
 import Nofs from './nofs';
 import { float2, float3, Quat16Float, Vec3Float } from '../types';
-import r from 'restructure';
 
 const Animation = new r.Struct({
   id: r.uint16le,

@@ -1,6 +1,7 @@
 import crypto from 'crypto';
 import fs from 'fs';
 import temp from 'temp';
+
 import BLPLib from './blp-lib';
 import CLib from '../c-lib';
 import Mipmap from './mipmap';

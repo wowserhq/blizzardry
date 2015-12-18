@@ -1,4 +1,5 @@
 import r from 'restructure';
+
 import Entity from '../entity';
 import StringRef from '../string-ref';
 import { Vec3Float } from '../../types';

@@ -1,4 +1,5 @@
 import r from 'restructure';
+
 import Entity from '../entity';
 import LocalizedStringRef from '../localized-string-ref';
 

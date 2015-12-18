@@ -1,5 +1,6 @@
 import r from 'restructure';
 import xtend from 'xtend';
+
 import MVER from './mver';
 
 export default function(fields) {

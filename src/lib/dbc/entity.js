@@ -1,4 +1,5 @@
 import r from 'restructure';
+
 import DBC from './';
 
 export default function(fields) {

@@ -1,4 +1,5 @@
 import ref from 'ref';
+
 import Files from './files';
 import { default as StormLib, HANDLEPtr } from './storm-lib';
 

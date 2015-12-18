@@ -1,4 +1,5 @@
 import r from 'restructure';
+
 import Chunk from './chunk';
 import { Vec3Float } from '../types';
 

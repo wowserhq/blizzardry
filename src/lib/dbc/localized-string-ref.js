@@ -1,4 +1,5 @@
 import r from 'restructure';
+
 import StringRef from './string-ref';
 
 class LocalizedStringRef {

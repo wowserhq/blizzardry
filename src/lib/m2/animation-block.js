@@ -1,4 +1,5 @@
 import r from 'restructure';
+
 import Nofs from './nofs';
 
 export default function(type) {

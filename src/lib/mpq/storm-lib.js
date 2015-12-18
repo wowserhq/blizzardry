@@ -1,6 +1,6 @@
+import Struct from 'ref-struct';
 import ffi from 'ffi';
 import ref from 'ref';
-import Struct from 'ref-struct';
 
 const { bool, int32, uint32 } = ref.types;
 const string = ref.types.CString;
