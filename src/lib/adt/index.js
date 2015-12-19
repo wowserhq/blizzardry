@@ -2,6 +2,7 @@ import r from 'restructure';
 
 import Chunk from '../chunked/chunk';
 import Chunked from '../chunked';
+import MCAL from './mcal';
 import MODF from '../chunked/modf';
 import MWMO from '../chunked/mwmo';
 import SkipChunk from '../chunked/skip-chunk';
@@ -83,14 +84,6 @@ const MCSH = Chunk({
   skip: new r.Reserved(r.uint8, 'actualSize')
 });
 
-const MCAL = Chunk({
-  // Incorrect size reported by MCAL in some ADTs
-  actualSize: function() {
-    return this.parent.sizeMCAL;
-  },
-  skip: new r.Reserved(r.uint8, 'actualSize')
-});
-
 const MCNK = Chunk({
   flags: r.uint32le,
   indexX: r.uint32le,
@@ -132,8 +125,8 @@ const MCNK = Chunk({
   MCSH: new r.Optional(MCSH, function() {
     return this.flags & 0x01;
   }),
-  MCAL: MCAL,
-  MLCQ: new r.Optional(SkipChunk, function() {
+  MCAL: new MCAL(),
+  MCLQ: new r.Optional(SkipChunk, function() {
     return this.offsetMCLQ;
   }),
   MCSE: new r.Optional(SkipChunk, function() {
@@ -141,35 +134,48 @@ const MCNK = Chunk({
   })
 });
 
-export default Chunked({
-  MHDR: MHDR,
-  MCIN: SkipChunk,
-  MTEX: MTEX,
-  MMDX: MMDX,
-  MMID: SkipChunk,
-  MWMO: MWMO,
-  MWID: SkipChunk,
-  MDDF: new r.Optional(MDDF, function() {
-    return this.MHDR.offsetMDDF;
-  }),
-  MODF: new r.Optional(MODF, function() {
-    return this.MHDR.offsetMODF;
-  }),
-  MH2O: new r.Optional(SkipChunk, function() {
-    return this.MHDR.offsetMH2O;
-  }),
-  MCNKs: new r.Array(MCNK, 256),
-  MFBO: new r.Optional(SkipChunk, function() {
-    return this.MHDR.offsetMFBO;
-  }),
-  MTXF: new r.Optional(SkipChunk, function() {
-    return this.MHDR.offsetMTXF;
-  }),
-  MTXP: new r.Optional(SkipChunk, function() {
-    return this.MHDR.offsetMTXP;
-  }),
+const ADT = function(wdtFlags) {
+  return Chunked({
+    MHDR: MHDR,
 
-  flags: function() {
-    return this.MHDR.flags;
-  }
-});
+    flags: function() {
+      return this.MHDR.flags;
+    },
+
+    wdtFlags: function() {
+      return wdtFlags;
+    },
+
+    MCIN: SkipChunk,
+    MTEX: MTEX,
+    MMDX: MMDX,
+    MMID: SkipChunk,
+    MWMO: MWMO,
+    MWID: SkipChunk,
+    MDDF: new r.Optional(MDDF, function() {
+      return this.MHDR.offsetMDDF;
+    }),
+    MODF: new r.Optional(MODF, function() {
+      return this.MHDR.offsetMODF;
+    }),
+    MH2O: new r.Optional(SkipChunk, function() {
+      return this.MHDR.offsetMH2O;
+    }),
+    MCNKs: new r.Array(MCNK, 256),
+    MFBO: new r.Optional(SkipChunk, function() {
+      return this.MHDR.offsetMFBO;
+    }),
+    MTXF: new r.Optional(SkipChunk, function() {
+      return this.MHDR.offsetMTXF;
+    }),
+    MTXP: new r.Optional(SkipChunk, function() {
+      return this.MHDR.offsetMTXP;
+    })
+  });
+};
+
+ADT.decode = function(stream) {
+  return ADT().decode(stream);
+};
+
+export default ADT;
