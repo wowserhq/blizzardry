@@ -137,7 +137,7 @@ const MCNK = Chunk({
     return this.offsetMCLQ;
   }),
   MCSE: new r.Optional(SkipChunk, function() {
-    return this.soundEmitterCount;
+    return this.offsetMCSE;
   })
 });
 
