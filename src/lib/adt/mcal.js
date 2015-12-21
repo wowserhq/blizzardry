@@ -58,7 +58,17 @@ class MCAL {
       return stream.readBuffer(this.constructor.ALPHA_MAP_SIZE);
     }
     const size = this.constructor.ALPHA_MAP_HALF_SIZE;
-    return stream.readBuffer(size);
+    const buffer = stream.readBuffer(size);
+    const alpha = new Buffer(this.constructor.ALPHA_MAP_SIZE);
+
+    for (let i = 0; i < size; ++i) {
+      const value = buffer[i];
+      const offset = i * 2;
+      alpha[offset] = (value >>> 4) * 17;
+      alpha[offset + 1] = (value & 0x0F) * 17;
+    }
+
+    return alpha;
   }
 
 }
