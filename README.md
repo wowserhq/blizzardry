@@ -75,8 +75,11 @@ Download [BLPConverter] and generate the project using [CMake]:
 cmake -DWITH_LIBRARY=YES CMakeLists.txt
 ```
 
-Build the DLL using Visual Studio 2013 in release mode, rename to `libblp.dll`
-and ensure the library ends up on the load path.
+Build the DLL using Visual Studio in Release mode, rename `blp.dll`
+to `libblp.dll` and ensure it ends up on the load PATH.
+
+By default, node-gyp compiles ffi for x64 so make sure `libblp.dll`
+matches this architecture.
 
 #### Other platforms
 
@@ -181,14 +184,11 @@ brew install stormlib
 
 #### Windows
 
-Download [StormLib] and generate the project using [CMake]:
+Download [StormLib] and build the DLL in Release mode using `StormLib_dll.vcproj` (Visual Studio),
+rename `StormLib.dll` to `libstorm.dll` and ensure it ends up on the load PATH.
 
-```shell
-cmake -DWITH_LIBRARY=YES CMakeLists.txt
-```
-
-Build the DLL using Visual Studio 2013 in release mode, rename to `libstorm.dll`
-and ensure it ends up on the load path.
+By default, node-gyp compiles ffi for x64 so make sure `libstorm.dll`
+matches this architecture.
 
 #### Other platforms
 
