@@ -34,7 +34,7 @@ class MCAL {
       const fill = buffer[stream.pos] & 0x80;
       const count = buffer[stream.pos] & 0x7F;
       stream.pos++;
-      for (let i = 0; i < count; i++) {
+      for (let i = 0; i < count; ++i) {
         if (writePos === size) {
           break;
         }
