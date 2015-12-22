@@ -99,7 +99,7 @@ describe('Skin', function() {
           submeshIndex: 0,
           submeshIndex2: 0,
           colorIndex: -1,
-          renderFlags: 0,
+          renderFlagsIndex: 0,
           textureUnitNumber: 0,
           opCount: 1,
           textureIndex: 0,
