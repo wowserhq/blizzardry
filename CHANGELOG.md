@@ -1,5 +1,12 @@
 # Changelog
 
+### v0.3.1 - December 22, 2015
+
+- Incomplete support for decoding `ADT#MCAL` alpha maps.
+- Corrects `ADT#MCSE` sound emitters detection.
+- Decodes `WMO#MODD` doodads.
+- Decodes `M2#textureUnits`.
+
 ### v0.3.0 - December 4, 2015
 
 - Use ES7's export syntax across the board.
