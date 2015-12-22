@@ -25,7 +25,7 @@ const TextureUnit = new r.Struct({
   submeshIndex: r.uint16le,
   submeshIndex2: r.uint16le,
   colorIndex: r.int16le,
-  renderFlags: r.uint16le,
+  renderFlagsIndex: r.uint16le,
   textureUnitNumber: r.uint16le,
   opCount: r.uint16le,
   textureIndex: r.uint16le,
