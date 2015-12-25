@@ -53,19 +53,34 @@ class MCAL {
   }
 
   decodeUncompressed(stream, parent) {
+    const size = this.constructor.ALPHA_MAP_SIZE;
     const wdtFlags = parent.parent.wdtFlags;
     if (wdtFlags & 0x4 || wdtFlags & 0x80) {
-      return stream.readBuffer(this.constructor.ALPHA_MAP_SIZE);
+      return stream.readBuffer(size);
     }
-    const size = this.constructor.ALPHA_MAP_HALF_SIZE;
-    const buffer = stream.readBuffer(size);
-    const alpha = new Buffer(this.constructor.ALPHA_MAP_SIZE);
 
-    for (let i = 0; i < size; ++i) {
+    const halfSize = this.constructor.ALPHA_MAP_HALF_SIZE;
+    const buffer = stream.readBuffer(halfSize);
+    const alpha = new Buffer(size);
+    const side = Math.sqrt(size);
+
+    for (let i = 0; i < halfSize; ++i) {
       const value = buffer[i];
       const offset = i * 2;
       alpha[offset] = (value & 0x0F) * 17;
       alpha[offset + 1] = (value >> 4) * 17;
+
+      // Correct broken alpha maps unless flagged as correct by chunk
+      // See: http://www.pxr.dk/wowdev/wiki/index.php?title=ADT/v18#Uncompressed_.282048.29
+      if (!(parent.flags & 0x200)) {
+        if (offset > size - side) {
+          alpha[offset] = alpha[offset - side];
+          alpha[offset + 1] = alpha[offset + 1 - side];
+        }
+        if (offset % side === (side - 2)) {
+          alpha[offset + 1] = alpha[offset];
+        }
+      }
     }
 
     return alpha;
