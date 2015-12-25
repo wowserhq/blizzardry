@@ -1,5 +1,9 @@
 # Changelog
 
+### v0.3.3 - December 25, 2015
+
+- Corrects decoding of `ADT#MCAL` alpha maps.
+
 ### v0.3.2 - December 23, 2015
 
 - Renamed `renderFlags` to `renderFlagsIndex` on texture units.
