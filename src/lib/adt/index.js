@@ -84,6 +84,14 @@ const MCSH = Chunk({
   skip: new r.Reserved(r.uint8, 'actualSize')
 });
 
+const MCLQ = Chunk({
+  // Incorrect size reported by MCLQ in some ADTs
+  actualSize: function() {
+    return this.parent.sizeMCLQ - 8;
+  },
+  skip: new r.Reserved(r.uint8, 'actualSize')
+});
+
 const MCNK = Chunk({
   flags: r.uint32le,
   indexX: r.uint32le,
@@ -109,7 +117,7 @@ const MCNK = Chunk({
   offsetMCSE: r.uint32le,
   soundEmitterCount: r.uint32le,
   offsetMCLQ: r.uint32le,
-  sizeLiquid: r.uint32le,
+  sizeMCLQ: r.uint32le,
   position: Vec3Float,
   offsetMCCV: r.uint32le,
 
@@ -126,7 +134,7 @@ const MCNK = Chunk({
     return this.flags & 0x01;
   }),
   MCAL: new MCAL(),
-  MCLQ: new r.Optional(SkipChunk, function() {
+  MCLQ: new r.Optional(MCLQ, function() {
     return this.offsetMCLQ;
   }),
   MCSE: new r.Optional(SkipChunk, function() {
