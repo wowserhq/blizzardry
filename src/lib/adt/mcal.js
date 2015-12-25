@@ -64,8 +64,8 @@ class MCAL {
     for (let i = 0; i < size; ++i) {
       const value = buffer[i];
       const offset = i * 2;
-      alpha[offset] = (value >>> 4) * 17;
-      alpha[offset + 1] = (value & 0x0F) * 17;
+      alpha[offset] = (value & 0x0F) * 17;
+      alpha[offset + 1] = (value >> 4) * 17;
     }
 
     return alpha;
