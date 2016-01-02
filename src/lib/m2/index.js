@@ -34,7 +34,14 @@ const Bone = new r.Struct({
   rotation: new AnimationBlock(Quat16Float),
   scaling: new AnimationBlock(Vec3Float),
 
-  pivotPoint: Vec3Float
+  pivotPoint: Vec3Float,
+
+  isAnimated: function() {
+    return this.translation.isAnimated ||
+           this.rotation.isAnimated ||
+           this.scaling.isAnimated ||
+           (this.flags & 0x08 !== 0);
+  }
 });
 
 const RenderFlags = new r.Struct({
@@ -58,6 +65,11 @@ const Vertex = new r.Struct({
   random: float2
 });
 
+const Color = new r.Struct({
+  color: new AnimationBlock(new r.Array(r.uint8, 3)),
+  alpha: new AnimationBlock(r.uint16le)
+});
+
 export default new r.Struct({
   signature: new r.String(4),
   version: r.uint32le,
@@ -79,16 +91,16 @@ export default new r.Struct({
 
   viewCount: r.uint32le,
 
-  colors: new Nofs(),
+  colors: new Nofs(Color),
   textures: new Nofs(Texture),
-  transparencies: new Nofs(),
+  transparencies: new Nofs(new AnimationBlock(r.uint16le)),
   uvAnimations: new Nofs(),
   replacableTextures: new Nofs(),
   renderFlags: new Nofs(RenderFlags),
   boneLookups: new Nofs(),
-  textureLookups: new Nofs(),
+  textureLookups: new Nofs(r.int16le),
   textureUnits: new Nofs(r.uint16le),
-  transparencyLookups: new Nofs(),
+  transparencyLookups: new Nofs(r.int16le),
   uvAnimationLookups: new Nofs(),
 
   minVertexBox: Vec3Float,
@@ -116,5 +128,29 @@ export default new r.Struct({
   }),
   unknown2: new r.Optional(r.uint32le, function() {
     return this.flags === 8;
-  })
+  }),
+
+  isAnimated: function() {
+    let animated = false;
+
+    this.bones.forEach((bone) => {
+      if (bone.isAnimated) {
+        animated = true;
+      }
+    });
+
+    this.transparencies.forEach((transparency) => {
+      if (transparency.isAnimated) {
+        animated = true;
+      }
+    });
+
+    this.colors.forEach((color) => {
+      if (color.color.isAnimated || color.alpha.isAnimated) {
+        animated = true;
+      }
+    });
+
+    return animated;
+  }
 });
