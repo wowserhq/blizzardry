@@ -165,7 +165,7 @@ describe('M2', function() {
             { animationIndex: 5, keyframes: [] },
             { animationIndex: 6, keyframes: [] }
           ],
-          tracksCount: 7,
+          trackCount: 7,
           maxTrackLength: 12,
           isEmpty: false,
           isAnimated: true,
@@ -259,7 +259,7 @@ describe('M2', function() {
               ]
             }
           ],
-          tracksCount: 7,
+          trackCount: 7,
           maxTrackLength: 26,
           isEmpty: false,
           isAnimated: true
@@ -270,7 +270,7 @@ describe('M2', function() {
           timestamps: [],
           values: [],
           tracks: [],
-          tracksCount: 0,
+          trackCount: 0,
           maxTrackLength: 0,
           isEmpty: true,
           isAnimated: false

@@ -9,14 +9,14 @@ export default function(type) {
     timestamps: new Nofs(new Nofs(r.uint32le)),
     values: new Nofs(new Nofs(type)),
 
-    tracksCount: function() {
+    trackCount: function() {
       return this.values.length;
     },
 
     tracks: function() {
       const tracks = [];
 
-      for (let trackIndex = 0; trackIndex < this.tracksCount; trackIndex++) {
+      for (let trackIndex = 0; trackIndex < this.trackCount; trackIndex++) {
         const track = {};
 
         // Corresponds to offset in animations array of MD2.
