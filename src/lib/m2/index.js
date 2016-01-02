@@ -66,7 +66,7 @@ const Vertex = new r.Struct({
 });
 
 const Color = new r.Struct({
-  color: new AnimationBlock(new r.Array(r.uint8, 3)),
+  color: new AnimationBlock(Vec3Float),
   alpha: new AnimationBlock(r.uint16le)
 });
 
