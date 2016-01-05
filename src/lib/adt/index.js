@@ -76,6 +76,26 @@ const MCLY = Chunk({
   }), 'size', 'bytes')
 });
 
+const MCRF = Chunk({
+  MDDFs: new r.Array(r.uint32le, function() {
+    return this.parent.doodadCount;
+  }),
+
+  MODFs: new r.Array(r.uint32le, function() {
+    return this.parent.wmoCount;
+  }),
+
+  doodadEntries: function() {
+    const entries = this.parent.parent.MDDF.entries;
+    return this.MDDFs.map((id) => entries[id]);
+  },
+
+  wmoEntries: function() {
+    const entries = this.parent.parent.MODF.entries;
+    return this.MODFs.map((id) => entries[id]);
+  }
+});
+
 const MCSH = Chunk({
   // Incorrect size reported by MCSH in some ADTs
   actualSize: function() {
@@ -97,7 +117,7 @@ const MCNK = Chunk({
   indexX: r.uint32le,
   indexY: r.uint32le,
   layerCount: r.uint32le,
-  doodadRefs: r.uint32le,
+  doodadCount: r.uint32le,
   offsetMCVT: r.uint32le,
   offsetMCNR: r.uint32le,
   offsetMCLY: r.uint32le,
@@ -107,7 +127,7 @@ const MCNK = Chunk({
   offsetMCSH: r.uint32le,
   sizeMCSH: r.uint32le,
   areaID: r.uint32le,
-  mapObjRefCount: r.uint32le,
+  wmoCount: r.uint32le,
   holes: r.uint32le,
 
   textureMaps: new r.Reserved(r.uint16le, 8),
@@ -129,7 +149,7 @@ const MCNK = Chunk({
   }),
   MCNR: MCNR,
   MCLY: MCLY,
-  MCRF: SkipChunk,
+  MCRF: MCRF,
   MCSH: new r.Optional(MCSH, function() {
     return this.flags & 0x01;
   }),
