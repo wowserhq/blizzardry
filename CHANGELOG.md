@@ -1,5 +1,18 @@
 # Changelog
 
+### v0.3.4 - January 5, 2016
+
+- Supports following on `M2`:
+
+  - `colors`
+  - `transparencies`
+  - `textureLookups`
+  - `transparencyLookups`
+
+- Corrects calculation of `ADT#MCLQ`.
+- Decodes `ADT#MCRF`.
+- Adds various light-related DBC entities.
+
 ### v0.3.3 - December 25, 2015
 
 - Corrects decoding of `ADT#MCAL` alpha maps.

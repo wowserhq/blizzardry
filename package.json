@@ -1,6 +1,6 @@
 {
   "name": "blizzardry",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "JavaScript library for mastering the wizardry that is Blizzard's game files",
   "main": "lib/index.js",
   "files": [
