@@ -168,7 +168,7 @@ describe('M2', function() {
           trackCount: 7,
           maxTrackLength: 12,
           isEmpty: false,
-          isAnimated: true,
+          isAnimated: true
         },
         rotation: {
           interpolationType: 1,
