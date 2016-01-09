@@ -36,11 +36,15 @@ const Bone = new r.Struct({
 
   pivotPoint: Vec3Float,
 
+  isBillboarded: function() {
+    return (this.flags & 0x08) !== 0;
+  },
+
   isAnimated: function() {
     return this.translation.isAnimated ||
            this.rotation.isAnimated ||
            this.scaling.isAnimated ||
-           (this.flags & 0x08 !== 0);
+           this.isBillboarded
   }
 });
 
