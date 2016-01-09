@@ -134,16 +134,16 @@ export default new r.Struct({
     return this.flags === 8;
   }),
 
-  isInstanced: function() {
-    let instanced = false;
+  canInstance: function() {
+    let instance = true;
 
     this.bones.forEach((bone) => {
       if (bone.isAnimated) {
-        instanced = true;
+        instance = false;
       }
     });
 
-    return instanced;
+    return instance;
   },
 
   isAnimated: function() {
