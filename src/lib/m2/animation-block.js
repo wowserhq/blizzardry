@@ -53,12 +53,12 @@ export default function(type) {
       return max;
     },
 
-    isEmpty: function() {
+    empty: function() {
       return this.maxTrackLength === 0;
     },
 
-    isAnimated: function() {
-      return !this.isEmpty;
+    animated: function() {
+      return !this.empty;
     }
   });
 }

@@ -167,8 +167,8 @@ describe('M2', function() {
           ],
           trackCount: 7,
           maxTrackLength: 12,
-          isEmpty: false,
-          isAnimated: true
+          empty: false,
+          animated: true
         },
         rotation: {
           interpolationType: 1,
@@ -261,8 +261,8 @@ describe('M2', function() {
           ],
           trackCount: 7,
           maxTrackLength: 26,
-          isEmpty: false,
-          isAnimated: true
+          empty: false,
+          animated: true
         },
         scaling: {
           interpolationType: 0,
@@ -272,12 +272,12 @@ describe('M2', function() {
           tracks: [],
           trackCount: 0,
           maxTrackLength: 0,
-          isEmpty: true,
-          isAnimated: false
+          empty: true,
+          animated: false
         },
         pivotPoint: { x: 0, y: 0, z: 0 },
-        isBillboarded: false,
-        isAnimated: true
+        billboarded: false,
+        animated: true
       });
     });
   });
