@@ -44,7 +44,7 @@ const Bone = new r.Struct({
     return this.translation.animated ||
            this.rotation.animated ||
            this.scaling.animated ||
-           this.billboarded
+           this.billboarded;
   }
 });
 
