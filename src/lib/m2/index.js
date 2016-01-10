@@ -36,11 +36,15 @@ const Bone = new r.Struct({
 
   pivotPoint: Vec3Float,
 
-  isAnimated: function() {
-    return this.translation.isAnimated ||
-           this.rotation.isAnimated ||
-           this.scaling.isAnimated ||
-           (this.flags & 0x08 !== 0);
+  billboarded: function() {
+    return (this.flags & 0x08) !== 0;
+  },
+
+  animated: function() {
+    return this.translation.animated ||
+           this.rotation.animated ||
+           this.scaling.animated ||
+           this.billboarded
   }
 });
 
@@ -130,23 +134,35 @@ export default new r.Struct({
     return this.flags === 8;
   }),
 
-  isAnimated: function() {
+  canInstance: function() {
+    let instance = true;
+
+    this.bones.forEach((bone) => {
+      if (bone.animated) {
+        instance = false;
+      }
+    });
+
+    return instance;
+  },
+
+  animated: function() {
     let animated = false;
 
     this.bones.forEach((bone) => {
-      if (bone.isAnimated) {
+      if (bone.animated) {
         animated = true;
       }
     });
 
     this.transparencies.forEach((transparency) => {
-      if (transparency.isAnimated) {
+      if (transparency.animated) {
         animated = true;
       }
     });
 
     this.colors.forEach((color) => {
-      if (color.color.isAnimated || color.alpha.isAnimated) {
+      if (color.color.animated || color.alpha.animated) {
         animated = true;
       }
     });
