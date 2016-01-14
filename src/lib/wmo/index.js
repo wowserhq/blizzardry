@@ -14,11 +14,20 @@ const MOHD = Chunk({
   modelCount: r.uint32le,
   doodadCount: r.uint32le,
   doodadSetCount: r.uint32le,
-  color: r.uint32le,
+  baseColor: new r.Struct({
+    r: r.uint8,
+    g: r.uint8,
+    b: r.uint8,
+    a: r.uint8
+  }),
   wmoID: r.uint32le,
   minBoundingBox: Vec3Float,
   maxBoundingBox: Vec3Float,
-  flags: r.uint32le
+  flags: r.uint32le,
+
+  skipBaseColor: function() {
+    return (this.flags & 0x02) !== 0;
+  }
 });
 
 const MOTX = Chunk({

@@ -44,6 +44,15 @@ const MOTV = Chunk({
   textureCoords: new r.Array(float2, 'size', 'bytes')
 });
 
+const MOCV = Chunk({
+  colors: new r.Array(new r.Struct({
+    b: r.uint8,
+    g: r.uint8,
+    r: r.uint8,
+    a: r.uint8
+  }), 'size', 'bytes')
+});
+
 const MOBA = Chunk({
   batches: new r.Array(new r.Struct({
     skips: new r.Reserved(r.int16le, 2 * 3),
@@ -69,19 +78,23 @@ export default Chunked({
     return this.MOGP.flags;
   },
 
+  MOLR: new r.Optional(SkipChunk, function() {
+    return this.flags & 0x200;
+  }),
+  MODR: new r.Optional(SkipChunk, function() {
+    return this.flags & 0x800;
+  }),
   MOBN: new r.Optional(SkipChunk, function() {
     return this.flags & 0x1;
   }),
   MOBR: new r.Optional(SkipChunk, function() {
     return this.flags & 0x1;
   }),
-  MOCV: new r.Optional(SkipChunk, function() {
+  MOCV: new r.Optional(MOCV, function() {
     return this.flags & 0x4;
   }),
-  MOLR: new r.Optional(SkipChunk, function() {
-    return this.flags & 0x200;
-  }),
-  MODR: new r.Optional(SkipChunk, function() {
-    return this.flags & 0x800;
-  })
+
+  indoor: function() {
+    return (this.flags & 0x2000) !== 0 && (this.flags & 0x8) === 0;
+  }
 });
