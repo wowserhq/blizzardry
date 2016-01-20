@@ -53,6 +53,32 @@ export default function(type) {
       return max;
     },
 
+    keyframeCount: function() {
+      let keyframeCount = 0;
+
+      for (let i = 0, len = this.tracks.length; i < len; ++i) {
+        keyframeCount += this.tracks[i].keyframes.length;
+      }
+
+      return keyframeCount;
+    },
+
+    firstKeyframe: function() {
+      if (this.tracks.length === 0) {
+        return null;
+      } else {
+        for (let i = 0, len = this.tracks.length; i < len; ++i) {
+          const track = this.tracks[i];
+
+          if (track.keyframes.length > 0) {
+            return track.keyframes[0];
+          }
+        }
+
+        return null;
+      }
+    },
+
     empty: function() {
       return this.maxTrackLength === 0;
     },

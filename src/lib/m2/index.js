@@ -157,7 +157,11 @@ export default new r.Struct({
 
     this.transparencies.forEach((transparency) => {
       if (transparency.animated) {
-        animated = true;
+        if (transparency.keyframeCount > 1) {
+          animated = true;
+        } else if (transparency.firstKeyframe.value !== 32767) {
+          animated = true;
+        }
       }
     });
 

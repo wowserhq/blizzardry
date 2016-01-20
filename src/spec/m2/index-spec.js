@@ -167,6 +167,15 @@ describe('M2', function() {
           ],
           trackCount: 7,
           maxTrackLength: 12,
+          keyframeCount: 19,
+          firstKeyframe: {
+            time: 0,
+            value: {
+              x: -0.19142328202724457,
+              y: 0,
+              z: 0
+            }
+          },
           empty: false,
           animated: true
         },
@@ -261,6 +270,16 @@ describe('M2', function() {
           ],
           trackCount: 7,
           maxTrackLength: 26,
+          keyframeCount: 27,
+          firstKeyframe: {
+            time: 0,
+            value: {
+              x: 0,
+              y: 0.15570543534653766,
+              z: 0,
+              w: 0.9878231147190771
+            },
+          },
           empty: false,
           animated: true
         },
@@ -272,6 +291,8 @@ describe('M2', function() {
           tracks: [],
           trackCount: 0,
           maxTrackLength: 0,
+          keyframeCount: 0,
+          firstKeyframe: null,
           empty: true,
           animated: false
         },
