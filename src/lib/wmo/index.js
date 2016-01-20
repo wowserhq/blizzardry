@@ -59,7 +59,11 @@ const MOGI = Chunk({
     flags: r.uint32le,
     minBoundingBox: Vec3Float,
     maxBoundingBox: Vec3Float,
-    nameOffset: r.int32le
+    nameOffset: r.int32le,
+
+    indoor: function() {
+      return (this.flags & 0x2000) !== 0 && (this.flags & 0x8) === 0;
+    }
   }), 'size', 'bytes')
 });
 
