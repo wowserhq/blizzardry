@@ -42,7 +42,12 @@ const MOMT = Chunk({
 
     textures: new r.Array(new r.Struct({
       offset: r.uint32le,
-      color: r.uint32le,
+      color: new r.Struct({
+        r: r.uint8,
+        g: r.uint8,
+        b: r.uint8,
+        a: r.uint8
+      }),
       flags: r.uint32le
     }), 3),
 
