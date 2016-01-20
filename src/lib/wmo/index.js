@@ -42,7 +42,12 @@ const MOMT = Chunk({
 
     textures: new r.Array(new r.Struct({
       offset: r.uint32le,
-      color: r.uint32le,
+      color: new r.Struct({
+        r: r.uint8,
+        g: r.uint8,
+        b: r.uint8,
+        a: r.uint8
+      }),
       flags: r.uint32le
     }), 3),
 
@@ -59,7 +64,11 @@ const MOGI = Chunk({
     flags: r.uint32le,
     minBoundingBox: Vec3Float,
     maxBoundingBox: Vec3Float,
-    nameOffset: r.int32le
+    nameOffset: r.int32le,
+
+    indoor: function() {
+      return (this.flags & 0x2000) !== 0 && (this.flags & 0x8) === 0;
+    }
   }), 'size', 'bytes')
 });
 
