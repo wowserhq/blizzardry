@@ -377,7 +377,36 @@ describe('M2', function() {
   });
 
   describe('#transparencies', function() {
-    xit('returns transparencies');
+    it('returns transparencies', function() {
+      expect(dummy.transparencies).to.deep.eq([
+        {
+          animated: true,
+          empty: false,
+          firstKeyframe: {
+            time: 0,
+            value: 32767
+          },
+          globalSequenceID: -1,
+          interpolationType: 0,
+          keyframeCount: 1,
+          maxTrackLength: 1,
+          timestamps: [[0]],
+          values: [[32767]],
+          trackCount: 1,
+          tracks: [
+            {
+              animationIndex: 0,
+              keyframes: [
+                {
+                  time: 0,
+                  value: 32767
+                }
+              ]
+            }
+          ]
+        }
+      ]);
+    });
   });
 
   describe('#uvAnimations', function() {

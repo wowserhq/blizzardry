@@ -97,7 +97,7 @@ export default new r.Struct({
 
   colors: new Nofs(Color),
   textures: new Nofs(Texture),
-  transparencies: new Nofs(new AnimationBlock(r.uint16le)),
+  transparencies: new Nofs(new AnimationBlock(r.int16le)),
   uvAnimations: new Nofs(),
   replacableTextures: new Nofs(),
   renderFlags: new Nofs(RenderFlags),
