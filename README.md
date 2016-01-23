@@ -1,11 +1,11 @@
 # Blizzardry
 
 [![Version](https://img.shields.io/npm/v/blizzardry.svg?style=flat)](https://www.npmjs.org/package/blizzardry)
-[![Join chat](https://img.shields.io/badge/gitter-join_chat-blue.svg?style=flat)](https://gitter.im/timkurvers/blizzardry)
-[![Build Status](https://img.shields.io/travis/timkurvers/blizzardry.svg?style=flat)](https://travis-ci.org/timkurvers/blizzardry)
-[![Dependency Status](https://img.shields.io/gemnasium/timkurvers/blizzardry.svg?style=flat)](https://gemnasium.com/timkurvers/blizzardry)
-[![Code Climate](https://img.shields.io/codeclimate/github/timkurvers/blizzardry.svg?style=flat)](https://codeclimate.com/github/timkurvers/blizzardry)
-[![Coverage](https://img.shields.io/codeclimate/coverage/github/timkurvers/blizzardry.svg?style=flat)](https://codeclimate.com/github/timkurvers/blizzardry)
+[![Join chat](https://img.shields.io/badge/gitter-join_chat-blue.svg?style=flat)](https://gitter.im/wowserhq/blizzardry)
+[![Build Status](https://img.shields.io/travis/wowserhq/blizzardry.svg?style=flat)](https://travis-ci.org/wowserhq/blizzardry)
+[![Dependency Status](https://img.shields.io/gemnasium/wowserhq/blizzardry.svg?style=flat)](https://gemnasium.com/wowserhq/blizzardry)
+[![Code Climate](https://img.shields.io/codeclimate/github/wowserhq/blizzardry.svg?style=flat)](https://codeclimate.com/github/wowserhq/blizzardry)
+[![Coverage](https://img.shields.io/codeclimate/coverage/github/wowserhq/blizzardry.svg?style=flat)](https://codeclimate.com/github/wowserhq/blizzardry)
 
 JavaScript library for mastering the wizardry that is [Blizzard]'s game files.
 
@@ -297,7 +297,7 @@ Getting this toolchain up and running, is easy and straight-forward:
 1. Get the code:
 
    ```shell
-   git clone git://github.com/timkurvers/blizzardry.git
+   git clone git://github.com/wowserhq/blizzardry.git
    ```
 
 2. Download and install [Node.js] – including `npm` – for your platform.

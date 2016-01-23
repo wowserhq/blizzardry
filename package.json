@@ -13,7 +13,7 @@
     "pretest": "gulp rebuild",
     "test": "istanbul test ./node_modules/mocha/bin/_mocha -- spec --recursive"
   },
-  "repository": "timkurvers/blizzardry",
+  "repository": "wowserhq/blizzardry",
   "author": "Tim Kurvers <tim@moonsphere.net>",
   "license": "MIT",
   "keywords": [
