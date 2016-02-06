@@ -65,6 +65,10 @@ const MOBA = Chunk({
   }), 'size', 'bytes')
 });
 
+const MODR = Chunk({
+  doodadIndices: new r.Array(r.int16le, 'size', 'bytes')
+});
+
 export default Chunked({
   MOGP: MOGP,
   MOPY: MOPY,
@@ -81,7 +85,7 @@ export default Chunked({
   MOLR: new r.Optional(SkipChunk, function() {
     return this.flags & 0x200;
   }),
-  MODR: new r.Optional(SkipChunk, function() {
+  MODR: new r.Optional(MODR, function() {
     return this.flags & 0x800;
   }),
   MOBN: new r.Optional(SkipChunk, function() {
