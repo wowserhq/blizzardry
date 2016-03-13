@@ -128,7 +128,8 @@ const MCNK = Chunk({
   sizeMCSH: r.uint32le,
   areaID: r.uint32le,
   wmoCount: r.uint32le,
-  holes: r.uint32le,
+  holes: r.uint16le,
+  unknown: r.uint16le,
 
   textureMaps: new r.Reserved(r.uint16le, 8),
 
