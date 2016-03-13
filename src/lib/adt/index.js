@@ -153,7 +153,7 @@ const MCNK = Chunk({
   MCSH: new r.Optional(MCSH, function() {
     return this.flags & 0x01;
   }),
-  MCAL: new MCAL(),
+  MCAL: MCAL,
   MCLQ: new r.Optional(MCLQ, function() {
     return this.offsetMCLQ;
   }),

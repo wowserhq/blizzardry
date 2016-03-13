@@ -88,4 +88,4 @@ class MCAL {
 
 }
 
-export default MCAL;
+export default new MCAL();
