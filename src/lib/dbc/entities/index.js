@@ -80,6 +80,7 @@ export LightFloatBand from './light-float-band';
 export LightIntBand from './light-int-band';
 export LightParams from './light-params';
 export LightSkybox from './light-skybox';
+export LiquidMaterial from './liquid-material';
 export LiquidType from './liquid-type';
 export LoadingScreens from './loading-screens';
 export Lock from './lock';
