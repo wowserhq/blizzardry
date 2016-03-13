@@ -3,6 +3,7 @@ import r from 'restructure';
 import Chunk from '../chunked/chunk';
 import Chunked from '../chunked';
 import MCAL from './mcal';
+import MH2O from './mh2o';
 import MODF from '../chunked/modf';
 import MWMO from '../chunked/mwmo';
 import SkipChunk from '../chunked/skip-chunk';
@@ -187,7 +188,7 @@ const ADT = function(wdtFlags) {
     MODF: new r.Optional(MODF, function() {
       return this.MHDR.offsetMODF;
     }),
-    MH2O: new r.Optional(SkipChunk, function() {
+    MH2O: new r.Optional(MH2O, function() {
       return this.MHDR.offsetMH2O;
     }),
     MCNKs: new r.Array(MCNK, 256),
