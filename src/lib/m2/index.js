@@ -74,6 +74,12 @@ const Color = new r.Struct({
   alpha: new AnimationBlock(r.uint16le)
 });
 
+const UVAnimation = new r.Struct({
+  translation: new AnimationBlock(Vec3Float),
+  rotation: new AnimationBlock(Quat16Float),
+  scaling: new AnimationBlock(Vec3Float)
+});
+
 export default new r.Struct({
   signature: new r.String(4),
   version: r.uint32le,
@@ -98,14 +104,14 @@ export default new r.Struct({
   colors: new Nofs(Color),
   textures: new Nofs(Texture),
   transparencies: new Nofs(new AnimationBlock(r.int16le)),
-  uvAnimations: new Nofs(),
+  uvAnimations: new Nofs(UVAnimation),
   replacableTextures: new Nofs(),
   renderFlags: new Nofs(RenderFlags),
   boneLookups: new Nofs(),
   textureLookups: new Nofs(r.int16le),
   textureUnits: new Nofs(r.uint16le),
   transparencyLookups: new Nofs(r.int16le),
-  uvAnimationLookups: new Nofs(),
+  uvAnimationLookups: new Nofs(r.int16le),
 
   minVertexBox: Vec3Float,
   maxVertexBox: Vec3Float,
