@@ -297,6 +297,7 @@ describe('M2', function() {
           animated: false
         },
         pivotPoint: { x: 0, y: 0, z: 0 },
+        billboardType: null,
         billboarded: false,
         animated: true
       });

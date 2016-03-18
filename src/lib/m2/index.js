@@ -36,8 +36,26 @@ const Bone = new r.Struct({
 
   pivotPoint: Vec3Float,
 
+  billboardType: function() {
+    // Spherical
+    if (this.flags & 0x08) {
+      return 0;
+    // Cylindrical; locked to x
+    } else if (this.flags & 0x10) {
+      return 1;
+    // Cylindrical; locked to y
+    } else if (this.flags & 0x20) {
+      return 2;
+    // Cylindrical; locked to z
+    } else if (this.flags & 0x40) {
+      return 3;
+    } else {
+      return null;
+    }
+  },
+
   billboarded: function() {
-    return (this.flags & 0x08) !== 0;
+    return this.billboardType !== null;
   },
 
   animated: function() {
