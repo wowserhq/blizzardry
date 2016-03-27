@@ -95,7 +95,13 @@ const Color = new r.Struct({
 const UVAnimation = new r.Struct({
   translation: new AnimationBlock(Vec3Float),
   rotation: new AnimationBlock(Quat16Float),
-  scaling: new AnimationBlock(Vec3Float)
+  scaling: new AnimationBlock(Vec3Float),
+
+  animated: function() {
+    return this.translation.animated ||
+      this.rotation.animated ||
+      this.scaling.animated;
+  }
 });
 
 export default new r.Struct({
@@ -175,6 +181,12 @@ export default new r.Struct({
 
     this.bones.forEach((bone) => {
       if (bone.animated) {
+        animated = true;
+      }
+    });
+
+    this.uvAnimations.forEach((uvAnimation) => {
+      if (uvAnimation.animated) {
         animated = true;
       }
     });
