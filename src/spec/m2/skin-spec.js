@@ -64,7 +64,7 @@ describe('Skin', function() {
     it('returns submeshes', function() {
       expect(dummy.submeshes).to.deep.eq([
         {
-          id: 0,
+          partID: 0,
           level: 0,
           startVertex: 0,
           vertexCount: 154,
@@ -90,22 +90,22 @@ describe('Skin', function() {
     });
   });
 
-  describe('#textureUnits', function() {
-    it('returns texture units', function() {
-      expect(dummy.textureUnits).to.deep.eq([
+  describe('#batches', function() {
+    it('returns batches', function() {
+      expect(dummy.batches).to.deep.eq([
         {
           flags: 16,
           shaderID: 0,
           submeshIndex: 0,
           submeshIndex2: 0,
-          colorIndex: -1,
-          renderFlagsIndex: 0,
-          textureUnitNumber: 0,
+          vertexColorAnimationIndex: -1,
+          materialIndex: 0,
+          layer: 0,
           opCount: 1,
-          textureIndex: 0,
-          textureUnitNumber2: 0,
-          transparencyIndex: 0,
-          textureAnimIndex: 0
+          textureLookup: 0,
+          textureMappingIndex: 0,
+          transparencyAnimationLookup: 0,
+          uvAnimationLookup: 0
         }
       ]);
     });
