@@ -332,8 +332,10 @@ describe('M2', function() {
           0.004395408555865288,
           0.8966782689094543
         ],
-        textureCoords: [0.9776850342750549, 0.27029675245285034],
-        random: [0, 0]
+        textureCoords: [
+          [0.9776850342750549, 0.27029675245285034],
+          [0, 0]
+        ]
       });
       expect(last).to.deep.eq({
         position: [
@@ -348,8 +350,10 @@ describe('M2', function() {
           -0.00041133747436106205,
           -0.8745790719985962
         ],
-        textureCoords: [0.16209588944911957, 0.3589469790458679],
-        random: [0, 0]
+        textureCoords: [
+          [0.16209588944911957, 0.3589469790458679],
+          [0, 0]
+        ]
       });
     });
   });
@@ -360,8 +364,8 @@ describe('M2', function() {
     });
   });
 
-  describe('#colors', function() {
-    xit('returns colors');
+  describe('#vertexColorAnimations', function() {
+    xit('returns vertex color animations');
   });
 
   describe('#textures', function() {
@@ -377,9 +381,9 @@ describe('M2', function() {
     });
   });
 
-  describe('#transparencies', function() {
-    it('returns transparencies', function() {
-      expect(dummy.transparencies).to.deep.eq([
+  describe('#transparencyAnimations', function() {
+    it('returns transparency animations', function() {
+      expect(dummy.transparencyAnimations).to.deep.eq([
         {
           animated: true,
           empty: false,
@@ -418,11 +422,11 @@ describe('M2', function() {
     xit('returns replacable textures');
   });
 
-  describe('#renderFlags', function() {
-    it('returns render flags', function() {
-      expect(dummy.renderFlags).to.deep.eq([
+  describe('#materials', function() {
+    it('returns materials', function() {
+      expect(dummy.materials).to.deep.eq([
         {
-          flags: 0,
+          renderFlags: 0,
           blendingMode: 1
         }
       ]);
@@ -437,14 +441,14 @@ describe('M2', function() {
     xit('returns texture lookups');
   });
 
-  describe('#textureUnits', function() {
-    it('returns texture units', function() {
-      expect(dummy.textureUnits).to.deep.eq([0]);
+  describe('#textureMappings', function() {
+    it('returns texture mappings', function() {
+      expect(dummy.textureMappings).to.deep.eq([0]);
     });
   });
 
-  describe('#transparencyLookups', function() {
-    xit('returns transparency lookups');
+  describe('#transparencyAnimationLookups', function() {
+    xit('returns transparency animation lookups');
   });
 
   describe('#uvAnimationLookups', function() {
