@@ -21,19 +21,8 @@ export default function(type) {
 
         // Corresponds to offset in animations array of MD2.
         track.animationIndex = trackIndex;
-
-        track.keyframes = [];
-
-        this.timestamps[trackIndex].forEach((timestamp, keyframeIdx) => {
-          const valueAtTimestamp = this.values[trackIndex][keyframeIdx];
-
-          const keyframe = {
-            time: timestamp,
-            value: valueAtTimestamp
-          };
-
-          track.keyframes.push(keyframe);
-        });
+        track.timestamps = this.timestamps[trackIndex] || [];
+        track.values = this.values[trackIndex] || [];
 
         tracks.push(track);
       }
@@ -45,8 +34,8 @@ export default function(type) {
       let max = 0;
 
       this.tracks.forEach((track) => {
-        if (track.keyframes.length > max) {
-          max = track.keyframes.length;
+        if (track.timestamps.length > max) {
+          max = track.timestamps.length;
         }
       });
 
@@ -57,7 +46,7 @@ export default function(type) {
       let keyframeCount = 0;
 
       for (let i = 0, len = this.tracks.length; i < len; ++i) {
-        keyframeCount += this.tracks[i].keyframes.length;
+        keyframeCount += this.tracks[i].timestamps.length;
       }
 
       return keyframeCount;
@@ -70,8 +59,11 @@ export default function(type) {
         for (let i = 0, len = this.tracks.length; i < len; ++i) {
           const track = this.tracks[i];
 
-          if (track.keyframes.length > 0) {
-            return track.keyframes[0];
+          if (track.timestamps.length > 0) {
+            return {
+              timestamp: track.timestamps[0],
+              value: track.values[0]
+            };
           }
         }
 
