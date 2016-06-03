@@ -3,6 +3,7 @@ import r from 'restructure';
 import AnimationBlock from './animation-block';
 import Nofs from './nofs';
 import { float2, float3, Quat16Float, Vec3Float } from '../types';
+import { vec3float32, vec4compfixed16, color16, compfixed16 } from '../types';
 
 const Animation = new r.Struct({
   id: r.uint16le,
@@ -30,11 +31,11 @@ const Bone = new r.Struct({
 
   unknowns: new r.Reserved(r.uint16le, 2),
 
-  translation: new AnimationBlock(Vec3Float),
-  rotation: new AnimationBlock(Quat16Float),
-  scaling: new AnimationBlock(Vec3Float),
+  translation: new AnimationBlock(vec3float32),
+  rotation: new AnimationBlock(vec4compfixed16),
+  scaling: new AnimationBlock(vec3float32),
 
-  pivotPoint: Vec3Float,
+  pivotPoint: vec3float32,
 
   billboardType: function() {
     // Spherical
@@ -87,14 +88,14 @@ const Vertex = new r.Struct({
 });
 
 const Color = new r.Struct({
-  color: new AnimationBlock(Vec3Float),
-  alpha: new AnimationBlock(r.uint16le)
+  color: new AnimationBlock(vec3float32),
+  alpha: new AnimationBlock(color16)
 });
 
 const UVAnimation = new r.Struct({
-  translation: new AnimationBlock(Vec3Float),
-  rotation: new AnimationBlock(Quat16Float),
-  scaling: new AnimationBlock(Vec3Float),
+  translation: new AnimationBlock(vec3float32),
+  rotation: new AnimationBlock(vec4compfixed16),
+  scaling: new AnimationBlock(vec3float32),
 
   animated: function() {
     return this.translation.animated ||
@@ -126,7 +127,7 @@ export default new r.Struct({
 
   vertexColorAnimations: new Nofs(Color),
   textures: new Nofs(Texture),
-  transparencyAnimations: new Nofs(new AnimationBlock(r.int16le)),
+  transparencyAnimations: new Nofs(new AnimationBlock(color16)),
   uvAnimations: new Nofs(UVAnimation),
   replacableTextures: new Nofs(),
   materials: new Nofs(Material),
@@ -195,7 +196,7 @@ export default new r.Struct({
       if (transparency.animated) {
         if (transparency.keyframeCount > 1) {
           animated = true;
-        } else if (transparency.firstKeyframe.value !== 32767) {
+        } else if (transparency.firstKeyframe.value !== 1.0) {
           animated = true;
         }
       }
