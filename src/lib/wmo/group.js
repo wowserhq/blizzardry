@@ -3,7 +3,8 @@ import r from 'restructure';
 import Chunk from '../chunked/chunk';
 import Chunked from '../chunked';
 import SkipChunk from '../chunked/skip-chunk';
-import { float2, float3, Vec3Float } from '../types';
+import { Vec3Float } from '../types';
+import { float32array2, float32array3 } from '../types';
 
 const MOGP = Chunk({
   nameOffset: r.uint32le,
@@ -33,15 +34,15 @@ const MOVI = Chunk({
 });
 
 const MOVT = Chunk({
-  vertices: new r.Array(float3, 'size', 'bytes')
+  vertices: new r.Array(float32array3, 'size', 'bytes')
 });
 
 const MONR = Chunk({
-  normals: new r.Array(float3, 'size', 'bytes')
+  normals: new r.Array(float32array3, 'size', 'bytes')
 });
 
 const MOTV = Chunk({
-  textureCoords: new r.Array(float2, 'size', 'bytes')
+  textureCoords: new r.Array(float32array2, 'size', 'bytes')
 });
 
 const MOCV = Chunk({

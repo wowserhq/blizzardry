@@ -2,8 +2,8 @@ import r from 'restructure';
 
 import AnimationBlock from './animation-block';
 import Nofs from './nofs';
-import { float2, float3, Quat16Float, Vec3Float } from '../types';
-import { vec3float32, vec4compfixed16, color16, compfixed16 } from '../types';
+import { Vec3Float } from '../types';
+import { color16, compfixed16, compfixed16array4, float32array2, float32array3 } from '../types';
 
 const Animation = new r.Struct({
   id: r.uint16le,
@@ -31,11 +31,11 @@ const Bone = new r.Struct({
 
   unknowns: new r.Reserved(r.uint16le, 2),
 
-  translation: new AnimationBlock(vec3float32),
-  rotation: new AnimationBlock(vec4compfixed16),
-  scaling: new AnimationBlock(vec3float32),
+  translation: new AnimationBlock(float32array3),
+  rotation: new AnimationBlock(compfixed16array4),
+  scaling: new AnimationBlock(float32array3),
 
-  pivotPoint: vec3float32,
+  pivotPoint: float32array3,
 
   billboardType: function() {
     // Spherical
@@ -80,22 +80,22 @@ const Texture = new r.Struct({
 });
 
 const Vertex = new r.Struct({
-  position: float3,
+  position: float32array3,
   boneWeights: new r.Array(r.uint8, 4),
   boneIndices: new r.Array(r.uint8, 4),
-  normal: float3,
-  textureCoords: new r.Array(float2, 2)
+  normal: float32array3,
+  textureCoords: new r.Array(float32array2, 2)
 });
 
 const Color = new r.Struct({
-  color: new AnimationBlock(vec3float32),
+  color: new AnimationBlock(float32array3),
   alpha: new AnimationBlock(color16)
 });
 
 const UVAnimation = new r.Struct({
-  translation: new AnimationBlock(vec3float32),
-  rotation: new AnimationBlock(vec4compfixed16),
-  scaling: new AnimationBlock(vec3float32),
+  translation: new AnimationBlock(float32array3),
+  rotation: new AnimationBlock(compfixed16array4),
+  scaling: new AnimationBlock(float32array3),
 
   animated: function() {
     return this.translation.animated ||
