@@ -1,6 +1,12 @@
 {
-  "optional": [
-    "es7.classProperties",
-    "es7.exportExtensions"
+  "plugins": [
+    "transform-class-properties",
+    "transform-export-extensions",
+    "transform-function-bind",
+    "transform-es2015-block-scoping",
+    "transform-es2015-destructuring",
+    "transform-es2015-parameters",
+    "add-module-exports",
+    "transform-es2015-modules-commonjs"
   ]
 }
