@@ -124,7 +124,7 @@ const MOPV = Chunk({
 
 const MOPT = Chunk({
   portals: new r.Array(new r.Struct({
-    vertexIndex: r.uint16le,
+    vertexOffset: r.uint16le,
     vertexCount: r.uint16le,
     plane: new r.Struct({
       normal: float32array3,
