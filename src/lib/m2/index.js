@@ -2,7 +2,8 @@ import r from 'restructure';
 
 import AnimationBlock from './animation-block';
 import Nofs from './nofs';
-import { float2, float3, Quat16Float, Vec3Float } from '../types';
+import { Vec3Float } from '../types';
+import { color16, compfixed16, compfixed16array4, float32array2, float32array3 } from '../types';
 
 const Animation = new r.Struct({
   id: r.uint16le,
@@ -30,11 +31,11 @@ const Bone = new r.Struct({
 
   unknowns: new r.Reserved(r.uint16le, 2),
 
-  translation: new AnimationBlock(Vec3Float),
-  rotation: new AnimationBlock(Quat16Float),
-  scaling: new AnimationBlock(Vec3Float),
+  translation: new AnimationBlock(float32array3),
+  rotation: new AnimationBlock(compfixed16array4),
+  scaling: new AnimationBlock(float32array3),
 
-  pivotPoint: Vec3Float,
+  pivotPoint: float32array3,
 
   billboardType: function() {
     // Spherical
@@ -79,22 +80,22 @@ const Texture = new r.Struct({
 });
 
 const Vertex = new r.Struct({
-  position: float3,
+  position: float32array3,
   boneWeights: new r.Array(r.uint8, 4),
   boneIndices: new r.Array(r.uint8, 4),
-  normal: float3,
-  textureCoords: new r.Array(float2, 2)
+  normal: float32array3,
+  textureCoords: new r.Array(float32array2, 2)
 });
 
 const Color = new r.Struct({
-  color: new AnimationBlock(Vec3Float),
-  alpha: new AnimationBlock(r.uint16le)
+  color: new AnimationBlock(float32array3),
+  alpha: new AnimationBlock(color16)
 });
 
 const UVAnimation = new r.Struct({
-  translation: new AnimationBlock(Vec3Float),
-  rotation: new AnimationBlock(Quat16Float),
-  scaling: new AnimationBlock(Vec3Float),
+  translation: new AnimationBlock(float32array3),
+  rotation: new AnimationBlock(compfixed16array4),
+  scaling: new AnimationBlock(float32array3),
 
   animated: function() {
     return this.translation.animated ||
@@ -126,7 +127,7 @@ export default new r.Struct({
 
   vertexColorAnimations: new Nofs(Color),
   textures: new Nofs(Texture),
-  transparencyAnimations: new Nofs(new AnimationBlock(r.int16le)),
+  transparencyAnimations: new Nofs(new AnimationBlock(color16)),
   uvAnimations: new Nofs(UVAnimation),
   replacableTextures: new Nofs(),
   materials: new Nofs(Material),
@@ -195,7 +196,7 @@ export default new r.Struct({
       if (transparency.animated) {
         if (transparency.keyframeCount > 1) {
           animated = true;
-        } else if (transparency.firstKeyframe.value !== 32767) {
+        } else if (transparency.firstKeyframe.value !== 1.0) {
           animated = true;
         }
       }
