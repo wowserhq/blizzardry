@@ -45,6 +45,7 @@
     "babel-plugin-transform-es2015-destructuring": "^6.9.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.8.0",
     "babel-plugin-transform-es2015-parameters": "^6.9.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
     "chai": "1.9.1",
     "codeclimate-test-reporter": "0.0.4",
     "del": "^1.2.0",

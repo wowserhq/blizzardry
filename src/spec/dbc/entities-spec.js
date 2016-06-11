@@ -9,7 +9,7 @@ describe('DBC.Entities', function() {
     it(`exposes ${name} entity`, function() {
       const entity = entities[name];
       const filename = inflect.dasherize(inflect.underscore(name));
-      expect(entity).to.eq(require(`../../lib/dbc/entities/${filename}`).default);
+      expect(entity).to.eq(require(`../../lib/dbc/entities/${filename}`));
     });
   }
 });
