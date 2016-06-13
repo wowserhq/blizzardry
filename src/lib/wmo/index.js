@@ -2,9 +2,10 @@ import r from 'restructure';
 
 import Chunk from '../chunked/chunk';
 import Chunked from '../chunked';
+import SkipChunk from '../chunked/skip-chunk';
 import PaddedStrings from '../chunked/padded-strings';
 import { Quat, Vec3Float } from '../types';
-import SkipChunk from '../chunked/skip-chunk';
+import { float32array3 } from '../types';
 
 const MOHD = Chunk({
   textureCount: r.uint32le,
@@ -117,6 +118,30 @@ const MFOG = Chunk({
   }), 'size', 'bytes')
 });
 
+const MOPV = Chunk({
+  vertices: new r.Array(float32array3, 'size', 'bytes')
+});
+
+const MOPT = Chunk({
+  portals: new r.Array(new r.Struct({
+    vertexOffset: r.uint16le,
+    vertexCount: r.uint16le,
+    plane: new r.Struct({
+      normal: float32array3,
+      constant: r.floatle
+    })
+  }), 'size', 'bytes')
+});
+
+const MOPR = Chunk({
+  references: new r.Array(new r.Struct({
+    portalIndex: r.uint16le,
+    groupIndex: r.uint16le,
+    side: r.int16le,
+    unknown1: r.uint16le
+  }), 'size', 'bytes')
+});
+
 export default Chunked({
   MOHD: MOHD,
   MOTX: MOTX,
@@ -124,9 +149,9 @@ export default Chunked({
   MOGN: MOGN,
   MOGI: MOGI,
   MOSB: MOSB,
-  MOPV: SkipChunk,
-  MOPT: SkipChunk,
-  MOPR: SkipChunk,
+  MOPV: MOPV,
+  MOPT: MOPT,
+  MOPR: MOPR,
   MOVV: SkipChunk,
   MOVB: SkipChunk,
   MOLT: SkipChunk,
