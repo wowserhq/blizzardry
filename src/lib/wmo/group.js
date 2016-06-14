@@ -22,7 +22,7 @@ const MOGP = Chunk({
   fogOffsets: new r.Array(r.uint8, 4),
   unknown: new r.Reserved(r.uint32le),
   groupID: r.uint32le,
-  unknowns: new r.Reserved(r.uint32le, 3)
+  unknowns: new r.Reserved(r.uint32le, 2),
 
   batchOffsets: function() {
     return {
