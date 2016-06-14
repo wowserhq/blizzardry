@@ -13,13 +13,24 @@ const MOGP = Chunk({
   minBoundingBox: Vec3Float,
   maxBoundingBox: Vec3Float,
   portalOffset: r.uint16le,
-  aBatchCount: r.uint16le,
-  interiorBatchCount: r.uint16le,
-  exteriorBatchCount: r.uint16le,
+  portalCount: r.uint16le,
+  batchCounts: new r.Struct({
+    a: r.uint16le,
+    b: r.uint16le,
+    c: r.int32le
+  }),
   fogOffsets: new r.Array(r.uint8, 4),
   unknown: new r.Reserved(r.uint32le),
   groupID: r.uint32le,
   unknowns: new r.Reserved(r.uint32le, 3)
+
+  batchOffsets: function() {
+    return {
+      a: 0,
+      b: this.batchCounts.a,
+      c: this.batchCounts.a + this.batchCounts.b
+    };
+  },
 });
 
 const MOPY = Chunk({
