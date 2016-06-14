@@ -15,7 +15,7 @@ const MOHD = Chunk({
   modelCount: r.uint32le,
   doodadCount: r.uint32le,
   doodadSetCount: r.uint32le,
-  baseColor: new r.Struct({
+  ambientColor: new r.Struct({
     r: r.uint8,
     g: r.uint8,
     b: r.uint8,
