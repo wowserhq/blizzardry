@@ -1,5 +1,77 @@
 # Changelog
 
+### v0.4.0 - June 14, 2016
+
+- Breaking changes in `M2`:
+
+  - `renderFlags` renamed to `materials`
+  - `textureUnits` renamed to `textureMappings`
+  - `transparencies` renamed to `transparencyAnimations`
+  - `colors` renamed to `vertexColorAnimations`
+
+- Breaking changes in `M2.AnimationBlock`:
+
+  - `track.keyframes` is removed
+  - `track.timestamps` is added
+  - `track.values` is added
+  - `isAnimated` flag renamed to `animated`
+  - `isEmpty` flag renamed to `empty`
+
+- Breaking changes in `M2.Skin`:
+
+  - `textureUnits` renamed to `batches`
+
+- Breaking changes in `M2.Skin.Submesh`:
+
+  - `id` renamed to `partID`
+
+- Breaking changes in `M2.Skin.Batch`:
+
+  - `colorIndex` renamed to `vertexColorIndex`
+  - `renderFlagsIndex` renamed to `materialIndex`
+  - `textureUnitNumber` renamed to `layer`
+  - `textureIndex` renamed to `textureLookup`
+  - `textureUnitNumber2` renamed to `textureMappingIndex`
+  - `transparencyIndex` renamed to `transparencyLookup`
+  - `textureAnimIndex` renamed to `uvAnimationLookup`
+
+- Additions to `M2`:
+
+  - `boneLookups` (bone lookup table)
+  - `uvAnimations` (texture coordinate animations)
+  - `blendingOverrides` (used in computing ```M2.Skin.Batch.shader_id```)
+  - `overrideBlending` (boolean flag)
+
+- Additions to `M2.Bone`:
+
+  - `billboardType` (parsed from bone flags)
+  - `billboarded` (boolean flag)
+
+- Additions to `WMO`:
+
+  - `MOPV` (portal vertices)
+  - `MOPT` (portal entries)
+  - `MOPR` (portal references)
+
+- Additions to `WMO.Group`:
+
+  - `MOCV` (vertex colors)
+  - `MODR` (doodad references)
+
+- Fixes to `ADT`:
+
+  - Chunk holes are 16-bit, not 32-bit
+
+- Fixes to `WMO`:
+
+  - Correct optional chunk ordering
+
+- Other:
+
+  - Simpler / more consistent custom types
+  - Uses Babel 6
+  - Supports Node 6
+
 ### v0.3.4 - January 5, 2016
 
 - Supports following on `M2`:
