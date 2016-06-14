@@ -110,7 +110,7 @@ export default Chunked({
     return this.flags & 0x4;
   }),
 
-  indoor: function() {
+  interior: function() {
     return (this.flags & 0x2000) !== 0 && (this.flags & 0x8) === 0;
   }
 });
