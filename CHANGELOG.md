@@ -1,5 +1,9 @@
 # Changelog
 
+### v0.4.1 - June 22, 2016
+
+- Fixed improperly published v0.4.0
+
 ### v0.4.0 - June 14, 2016
 
 - Breaking changes in `M2`:
