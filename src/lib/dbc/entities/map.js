@@ -7,6 +7,7 @@ import StringRef from '../string-ref';
 export default Entity({
   id: r.uint32le,
   internalName: StringRef,
+  flags: r.uint32le,
   type: r.uint32le,
   pvp: new r.Boolean(r.uint32le),
   name: LocalizedStringRef,

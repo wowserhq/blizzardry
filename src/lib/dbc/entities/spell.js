@@ -64,8 +64,6 @@ export default Entity({
 
   effectIDs: new r.Array(r.uint32le, 3),
   effectDieSides: new r.Array(r.int32le, 3),
-  effectBaseDices: new r.Array(r.uint32le, 3),
-  effectDicesPerLevel: new r.Array(r.uint32le, 3),
   effectRealPointsPerLevel: new r.Array(r.floatle, 3),
   effectBasePoints: new r.Array(r.int32le, 3),
   effectMechanicIDs: new r.Array(r.uint32le, 3),
@@ -114,5 +112,6 @@ export default Entity({
   powerDisplayID: r.uint32le,
   effectBonusMultipliers: new r.Array(r.floatle, 3),
 
-  unknown3: new r.Reserved(r.uint32le),
+  spellDescriptionVariableID: r.uint32le,
+  spellDifficultyID: r.uint32le,
 });

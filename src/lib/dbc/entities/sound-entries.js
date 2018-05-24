@@ -9,7 +9,7 @@ export default Entity({
 
   name: StringRef,
   filenames: new r.Array(StringRef, 10),
-  unknowns: new r.Reserved(StringRef, 10),
+  frequencies: new r.Array(r.uint32le, 10),
   path: StringRef,
 
   volume: r.floatle,
