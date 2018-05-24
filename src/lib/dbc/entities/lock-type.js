@@ -9,5 +9,5 @@ export default Entity({
   name: LocalizedStringRef,
   state: LocalizedStringRef,
   process: LocalizedStringRef,
-  internalName: StringRef
+  internalName: StringRef,
 });

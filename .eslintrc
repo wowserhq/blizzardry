@@ -1,13 +1,8 @@
 {
-  "extends": "timkurvers",
-  "rules": {
-    // Allow capitalized function names
-    "new-cap": [0],
-
-    // Allow spacing for vertical alignment
-    "no-multi-spaces": [0],
-
-    // Allow key spacing for vertical alignment
-    "key-spacing": [0],
+  "extends": "@wowserhq/eslint-config",
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true,
   }
 }

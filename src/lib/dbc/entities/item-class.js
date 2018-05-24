@@ -7,5 +7,5 @@ export default Entity({
   id: r.uint32le,
   subClassID: r.uint32le,
   isWeapon: new r.Boolean(r.uint32le),
-  name: LocalizedStringRef
+  name: LocalizedStringRef,
 });

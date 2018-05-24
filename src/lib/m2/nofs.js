@@ -1,7 +1,6 @@
 import r from 'restructure';
 
 class Nofs {
-
   constructor(type, length) {
     this.type = type;
     this.length = length;
@@ -21,7 +20,6 @@ class Nofs {
     r.uint32le.decode(stream);
     return length;
   }
-
 }
 
 export default Nofs;

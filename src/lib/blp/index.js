@@ -2,12 +2,12 @@ import crypto from 'crypto';
 import fs from 'fs';
 import temp from 'temp';
 
-import BLPLib from './blp-lib';
 import CLib from '../c-lib';
+
+import BLPLib from './blp-lib';
 import Mipmap from './mipmap';
 
 class BLP {
-
   static TMP_PREFIX = `blp-${crypto.randomBytes(6).toString('hex')}-`;
 
   constructor(path, handle, file) {
@@ -90,7 +90,6 @@ class BLP {
       throw e;
     }
   }
-
 }
 
 export default BLP;

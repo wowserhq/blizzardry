@@ -13,5 +13,5 @@ export default Entity({
 
   flags: r.uint32le,
   areaID: r.uint32le,
-  name: LocalizedStringRef
+  name: LocalizedStringRef,
 });

@@ -10,5 +10,5 @@ export default Entity({
   direction: Vec3Float,
   soundID: r.uint32le,
   mapID: r.uint32le,
-  name: StringRef
+  name: StringRef,
 });

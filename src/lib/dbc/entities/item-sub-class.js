@@ -15,5 +15,5 @@ export default Entity({
   weaponAttackSequence: r.uint32le,
   weaponSwingSize: r.uint32le,
   name: LocalizedStringRef,
-  alternativeName: LocalizedStringRef
+  alternativeName: LocalizedStringRef,
 });

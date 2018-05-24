@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+
 export Achievement from './achievement';
 export Achievement_Category from './achievement-category';
 export Achievement_Criteria from './achievement-criteria';

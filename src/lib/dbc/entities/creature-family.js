@@ -15,5 +15,5 @@ export default Entity({
   petTalentType: r.int32le,
   categoryEnumID: r.int32le,
   name: LocalizedStringRef,
-  iconFile: StringRef
+  iconFile: StringRef,
 });

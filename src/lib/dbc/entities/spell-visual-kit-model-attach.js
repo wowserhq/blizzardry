@@ -11,5 +11,5 @@ export default Entity({
   offset: Vec3Float,
   yaw: r.floatle,
   pitch: r.floatle,
-  roll: r.floatle
+  roll: r.floatle,
 });

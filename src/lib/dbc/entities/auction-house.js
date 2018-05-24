@@ -8,5 +8,5 @@ export default Entity({
   factionID: r.uint32le,
   auctionFee: r.uint32le,
   despositTax: r.uint32le,
-  name: LocalizedStringRef
+  name: LocalizedStringRef,
 });

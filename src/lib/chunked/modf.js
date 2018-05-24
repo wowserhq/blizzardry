@@ -1,7 +1,8 @@
 import r from 'restructure';
 
-import Chunk from './chunk';
 import { Vec3Float } from '../types';
+
+import Chunk from './chunk';
 
 export default Chunk({
   entries: new r.Array(new r.Struct({
@@ -16,8 +17,8 @@ export default Chunk({
     nameSet: r.uint16le,
     padding: new r.Reserved(r.uint16le),
 
-    filename: function() {
+    filename: function () {
       return this.parent.parent.MWMO.filenames[this.index];
-    }
-  }), 'size', 'bytes')
+    },
+  }), 'size', 'bytes'),
 });

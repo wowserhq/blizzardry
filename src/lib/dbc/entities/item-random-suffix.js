@@ -9,5 +9,5 @@ export default Entity({
   name: LocalizedStringRef,
   internalName: StringRef,
   spellItemEnchantmentIDs: new r.Array(r.uint32le, 5),
-  allocationPcts: new r.Array(r.uint32le, 5)
+  allocationPcts: new r.Array(r.uint32le, 5),
 });

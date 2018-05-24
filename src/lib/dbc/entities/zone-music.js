@@ -11,5 +11,5 @@ export default Entity({
   silenceIntervalMaxDay: r.uint32le,
   silenceIntervalMaxNight: r.uint32le,
   dayMusicID: r.uint32le,
-  nightMusicID: r.uint32le
+  nightMusicID: r.uint32le,
 });

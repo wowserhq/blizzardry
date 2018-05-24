@@ -7,5 +7,5 @@ export default Entity({
   nameHash: new r.String(16, 'hex'),
   versionHash: new r.String(16, 'hex'),
   lastModified: r.uint32le,
-  flags: r.uint32le
+  flags: r.uint32le,
 });

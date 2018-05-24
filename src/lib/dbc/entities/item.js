@@ -10,5 +10,5 @@ export default Entity({
   materialID: r.uint32le,
   displayInfoID: r.uint32le,
   inventorySlotID: r.uint32le,
-  sheathID: r.uint32le
+  sheathID: r.uint32le,
 });

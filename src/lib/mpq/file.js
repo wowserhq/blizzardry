@@ -1,7 +1,6 @@
 import StormLib from './storm-lib';
 
 class File {
-
   static FILE_BEGIN   = 0;
   static FILE_CURRENT = 1;
   static FILE_END     = 2;
@@ -52,7 +51,6 @@ class File {
   set position(offset) {
     return StormLib.SFileSetFilePointer(this.handle, offset, null, this.constructor.FILE_BEGIN);
   }
-
 }
 
 export default File;

@@ -17,5 +17,5 @@ export default Entity({
   conditionID: r.uint32le,
   skillLineID: r.uint32le,
   skillLevel: r.uint32le,
-  requiredLevel: r.uint32le
+  requiredLevel: r.uint32le,
 });

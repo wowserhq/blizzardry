@@ -8,5 +8,5 @@ export default Entity({
   id: r.uint32le,
   mask: r.uint32le,
   name: StringRef,
-  title: LocalizedStringRef
+  title: LocalizedStringRef,
 });

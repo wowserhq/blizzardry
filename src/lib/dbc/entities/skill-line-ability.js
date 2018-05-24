@@ -20,5 +20,5 @@ export default Entity({
   greyLevel: r.uint32le,
   yellowLevel: r.uint32le,
 
-  charactersPoints: new r.Array(r.uint32le, 2)
+  charactersPoints: new r.Array(r.uint32le, 2),
 });

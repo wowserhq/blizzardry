@@ -10,5 +10,5 @@ export default Entity({
   itemCounts: new r.Array(r.uint32le, 5),
   personalRating: r.uint32le,
   purchaseGroupID: r.uint32le,
-  unknown: new r.Reserved(r.uint32le)
+  unknown: new r.Reserved(r.uint32le),
 });

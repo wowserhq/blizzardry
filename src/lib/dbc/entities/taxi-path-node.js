@@ -12,5 +12,5 @@ export default Entity({
   flags: r.uint32le,
   delay: r.uint32le,
   arrivalEventID: r.uint32le,
-  departureEventID: r.uint32le
+  departureEventID: r.uint32le,
 });

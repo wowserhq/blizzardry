@@ -7,5 +7,5 @@ export default Entity({
   id: r.uint32le,
   flags: r.uint32le,
   fizzleSoundID: r.uint32le,
-  name: LocalizedStringRef
+  name: LocalizedStringRef,
 });

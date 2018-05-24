@@ -11,5 +11,5 @@ export default Entity({
   scale: r.floatle,
   bloodID: r.int32le,
 
-  skips: new r.Reserved(r.uint32le, 22)
+  skips: new r.Reserved(r.uint32le, 22),
 });

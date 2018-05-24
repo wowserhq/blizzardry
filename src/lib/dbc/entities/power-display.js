@@ -7,5 +7,5 @@ export default Entity({
   id: r.uint32le,
   type: r.uint32le,
   name: StringRef,
-  rgb: new r.Array(r.uint8, 3)
+  rgb: new r.Array(r.uint8, 3),
 });

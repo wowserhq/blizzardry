@@ -5,14 +5,14 @@ const gulp = require('gulp');
 const mocha = require('gulp-spawn-mocha');
 const plumber = require('gulp-plumber');
 
-gulp.task('clean', function(cb) {
+gulp.task('clean', function (cb) {
   return del([
     'lib/*',
-    'spec/**/*.js'
+    'spec/**/*.js',
   ], cb);
 });
 
-gulp.task('build', function() {
+gulp.task('build', function () {
   return gulp.src('src/**/*.js')
     .pipe(cache('babel'))
     .pipe(plumber())
@@ -20,7 +20,7 @@ gulp.task('build', function() {
     .pipe(gulp.dest('.'));
 });
 
-gulp.task('spec', function() {
+gulp.task('spec', function () {
   return gulp.src('spec/**/*.js', { read: false })
     .pipe(plumber())
     .pipe(mocha({ bail: true }));
@@ -30,7 +30,7 @@ gulp.task('rebuild', gulp.series(
   'clean', 'build'
 ));
 
-gulp.task('watch', function(done) {
+gulp.task('watch', function (done) {
   gulp.watch('src/**/*.js', gulp.series(
     'build', 'spec'
   ));

@@ -5,5 +5,5 @@ import StringRef from '../string-ref';
 
 export default Entity({
   id: r.uint32le,
-  variables: StringRef
+  variables: StringRef,
 });

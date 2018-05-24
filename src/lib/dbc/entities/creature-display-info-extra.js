@@ -27,5 +27,5 @@ export default Entity({
   capeID: r.uint32le,
 
   canEquip: new r.Boolean(r.uint32le),
-  texture: StringRef
+  texture: StringRef,
 });

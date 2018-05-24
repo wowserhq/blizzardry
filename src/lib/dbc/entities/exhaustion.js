@@ -10,5 +10,5 @@ export default Entity({
   outdoorHours: r.floatle,
   innHours: r.floatle,
   name: LocalizedStringRef,
-  threshold: r.floatle
+  threshold: r.floatle,
 });

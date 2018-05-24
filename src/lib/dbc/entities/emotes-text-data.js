@@ -5,5 +5,5 @@ import LocalizedStringRef from '../localized-string-ref';
 
 export default Entity({
   id: r.uint32le,
-  message: LocalizedStringRef
+  message: LocalizedStringRef,
 });

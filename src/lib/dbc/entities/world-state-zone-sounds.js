@@ -10,5 +10,5 @@ export default Entity({
   introMusicID: r.uint32le,
   musicID: r.uint32le,
   soundAmbienceID: r.uint32le,
-  soundProviderPreferenceID: r.uint32le
+  soundProviderPreferenceID: r.uint32le,
 });

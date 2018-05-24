@@ -12,6 +12,6 @@ export default Entity({
     length: r.floatle,
     width: r.floatle,
     height: r.floatle,
-    yaw: r.floatle
-  })
+    yaw: r.floatle,
+  }),
 });

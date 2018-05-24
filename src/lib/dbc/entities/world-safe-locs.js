@@ -8,5 +8,5 @@ export default Entity({
   id: r.uint32le,
   mapID: r.uint32le,
   position: Vec3Float,
-  name: LocalizedStringRef
+  name: LocalizedStringRef,
 });

@@ -22,5 +22,5 @@ export default Entity({
   liquidTypes: new r.Array(r.uint32le, 4),
   minElevation: r.floatle,
   ambientMultiplier: r.floatle,
-  lightID: r.uint32le
+  lightID: r.uint32le,
 });

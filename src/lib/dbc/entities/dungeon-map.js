@@ -7,5 +7,5 @@ export default Entity({
   mapID: r.uint32le,
   layer: r.uint32le,
   coordinates: new r.Array(r.floatle, 4),
-  areaID: r.uint32le
+  areaID: r.uint32le,
 });

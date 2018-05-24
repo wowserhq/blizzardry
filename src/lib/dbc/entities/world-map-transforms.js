@@ -12,5 +12,5 @@ export default Entity({
   newMapID: r.uint32le,
   regionOffsetX: r.floatle,
   regionOffsetY: r.floatle,
-  unknown: new r.Reserved(r.uint32le)
+  unknown: new r.Reserved(r.uint32le),
 });

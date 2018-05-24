@@ -9,7 +9,7 @@ export default Entity({
     left: r.uint32le,
     right: r.uint32le,
     top: r.uint32le,
-    bottom: r.uint32le
+    bottom: r.uint32le,
   }),
   offsetX: r.floatle,
   offsetY: r.floatle,
@@ -18,5 +18,5 @@ export default Entity({
   taxiMinY: r.floatle,
   taxiMaxX: r.floatle,
   taxiMaxY: r.floatle,
-  worldMapID: r.uint32le
+  worldMapID: r.uint32le,
 });

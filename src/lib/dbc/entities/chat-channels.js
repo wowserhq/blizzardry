@@ -8,5 +8,5 @@ export default Entity({
   flags: r.uint32le,
   factionGroup: r.uint32le,
   name: LocalizedStringRef,
-  shortcut: LocalizedStringRef
+  shortcut: LocalizedStringRef,
 });

@@ -4,11 +4,11 @@ import sinon from 'sinon';
 
 chai.use(bridge);
 
-beforeEach(function() {
+beforeEach(function () {
   this.sandbox = sinon.sandbox.create();
 });
 
-afterEach(function() {
+afterEach(function () {
   this.sandbox.restore();
 });
 

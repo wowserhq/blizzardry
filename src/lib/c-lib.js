@@ -12,5 +12,5 @@ const library = (process.platform.match(/win32/)) ? 'msvcr120' : 'libc';
 
 export default new ffi.Library(library, {
   fopen: [FILE, [string, string]],
-  fclose: [bool, [FILE]]
+  fclose: [bool, [FILE]],
 });

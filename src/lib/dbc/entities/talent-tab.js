@@ -12,5 +12,5 @@ export default Entity({
   classMask: r.uint32le,
   creatureFamilyMask: r.uint32le,
   order: r.uint32le,
-  backgroundFile: StringRef
+  backgroundFile: StringRef,
 });

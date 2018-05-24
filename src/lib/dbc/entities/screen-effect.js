@@ -13,5 +13,5 @@ export default Entity({
   unknown: new r.Reserved(r.uint32le),
   lightParamsID: r.int32le,
   soundAmbienceID: r.uint32le,
-  zoneMusicID: r.uint32le
+  zoneMusicID: r.uint32le,
 });

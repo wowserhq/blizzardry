@@ -10,5 +10,5 @@ export default Entity({
   areaEffectSize: r.floatle,
   scale: r.floatle,
   minScale: r.floatle,
-  maxScale: r.floatle
+  maxScale: r.floatle,
 });

@@ -11,5 +11,5 @@ export default Entity({
   message: LocalizedStringRef,
   raidDuration: r.uint32le,
   maxPlayers: r.uint32le,
-  name: StringRef
+  name: StringRef,
 });

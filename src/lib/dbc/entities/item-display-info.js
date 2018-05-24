@@ -26,5 +26,5 @@ export default Entity({
   lowerLegTexture: StringRef,
   footTexture: StringRef,
   visualID: r.uint32le,
-  particleColorID: r.uint32le
+  particleColorID: r.uint32le,
 });

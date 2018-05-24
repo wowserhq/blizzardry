@@ -12,5 +12,5 @@ export default Entity({
   preqreqRanks: new r.Array(r.uint32le, 3),
   flags: r.uint32le,
   requiredSpellID: r.uint32le,
-  unknowns: new r.Reserved(r.uint32le, 2)
+  unknowns: new r.Reserved(r.uint32le, 2),
 });

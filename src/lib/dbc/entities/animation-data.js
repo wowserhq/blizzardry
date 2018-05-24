@@ -11,5 +11,5 @@ export default Entity({
   flags: r.uint32le,
   fallbackID: r.uint32le,
   behaviorID: r.uint32le,
-  behaviorTier: r.uint32le
+  behaviorTier: r.uint32le,
 });

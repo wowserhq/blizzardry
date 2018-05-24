@@ -9,5 +9,5 @@ export default Entity({
   maleNormalSoundID: r.uint32le,
   femaleNormalSoundID: r.uint32le,
   malePissedSoundID: r.uint32le,
-  femalePissedSoundID: r.uint32le
+  femalePissedSoundID: r.uint32le,
 });

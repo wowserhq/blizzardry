@@ -21,5 +21,5 @@ export default Entity({
   timerStartEvent: r.uint32le,
   timerAssetID: r.uint32le,
   timerTime: r.uint32le,
-  order: r.uint32le
+  order: r.uint32le,
 });

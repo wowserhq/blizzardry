@@ -15,5 +15,5 @@ export default Entity({
   skin3: StringRef,
   portraitTexture: StringRef,
 
-  skips: new r.Reserved(r.uint32le, 6)
+  skips: new r.Reserved(r.uint32le, 6),
 });

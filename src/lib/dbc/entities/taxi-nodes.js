@@ -9,5 +9,5 @@ export default Entity({
   mapID: r.uint32le,
   position: Vec3Float,
   name: LocalizedStringRef,
-  mountCreatureIDs: new r.Array(r.uint32le, 2)
+  mountCreatureIDs: new r.Array(r.uint32le, 2),
 });

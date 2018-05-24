@@ -7,5 +7,5 @@ export default Entity({
   indicatorID: r.uint32le,
   seatIndex: r.uint32le,
   x: r.floatle,
-  y: r.floatle
+  y: r.floatle,
 });

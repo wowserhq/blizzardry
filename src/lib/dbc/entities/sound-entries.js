@@ -17,5 +17,5 @@ export default Entity({
   minDistance: r.floatle,
   distanceCutOff: r.floatle,
   eaxDef: r.uint32le,
-  advancedID: r.uint32le
+  advancedID: r.uint32le,
 });

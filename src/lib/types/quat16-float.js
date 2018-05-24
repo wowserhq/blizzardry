@@ -1,7 +1,6 @@
 import Quat16 from './quat16';
 
 class Quat16Float {
-
   constructor() {
     this.quat16 = Quat16;
   }
@@ -14,7 +13,6 @@ class Quat16Float {
     }
     return quat;
   }
-
 }
 
 export default new Quat16Float();

@@ -7,15 +7,15 @@ const string = ref.types.CString;
 
 const voidPtr = ref.refType(ref.types.void);
 
-const FixedString = function(length) {
+const FixedString = function (length) {
   return {
     size: length,
     alignment: length,
     indirection: 1,
     name: 'pointer',
-    get: function(buffer, offset) {
+    get: function (buffer, offset) {
       return buffer.readCString(offset);
-    }
+    },
   };
 };
 
@@ -29,7 +29,7 @@ const FIND_DATA = Struct({
   compSize:   uint32,
   fileTimeLo: uint32,
   fileTimeHi: uint32,
-  locale:     uint32
+  locale:     uint32,
 });
 
 const HANDLE = voidPtr;
@@ -42,21 +42,21 @@ export default new ffi.Library('libstorm', {
   SFileGetLocale: [uint32, []],
 
   SFileSetLocale: [uint32, [
-    uint32
+    uint32,
   ]],
 
   SFileOpenArchive: [bool, [
     string,
     uint32,
     uint32,
-    HANDLEPtr
+    HANDLEPtr,
   ]],
 
   SFileCreateArchive: [ref.types.char, [
     string,
     uint32,
     uint32,
-    HANDLEPtr
+    HANDLEPtr,
   ]],
 
   // SFileCreateArchive2: [ref.types.char, [
@@ -74,7 +74,7 @@ export default new ffi.Library('libstorm', {
   // ]]
 
   SFileCloseArchive: [bool, [
-    HANDLE
+    HANDLE,
   ]],
 
   // SFileAddListFile: [ref.types.int32, [
@@ -121,35 +121,35 @@ export default new ffi.Library('libstorm', {
     HANDLE,
     string,
     string,
-    uint32
+    uint32,
   ]],
 
   SFileIsPatchedArchive: [bool, [
-    HANDLE
+    HANDLE,
   ]],
 
   SFileHasFile: [bool, [
     HANDLE,
-    string
+    string,
   ]],
 
   SFileOpenFileEx: [bool, [
     HANDLE,
     string,
     uint32,
-    HANDLEPtr
+    HANDLEPtr,
   ]],
 
   SFileGetFileSize: [uint32, [
     HANDLE,
-    LPDWORD
+    LPDWORD,
   ]],
 
   SFileSetFilePointer: [uint32, [
     HANDLE,
     int32,
     int32,
-    uint32
+    uint32,
   ]],
 
   SFileReadFile: [bool, [
@@ -157,11 +157,11 @@ export default new ffi.Library('libstorm', {
     voidPtr,
     uint32,
     LPDWORD,
-    voidPtr
+    voidPtr,
   ]],
 
   SFileCloseFile: [bool, [
-    HANDLE
+    HANDLE,
   ]],
 
   // SFileGetFileInfo: [ref.types.char, [
@@ -174,7 +174,7 @@ export default new ffi.Library('libstorm', {
 
   SFileGetFileName: [bool, [
     HANDLE,
-    voidPtr
+    voidPtr,
   ]],
 
   // SFileFreeFileInfo: [ref.types.char, [
@@ -186,7 +186,7 @@ export default new ffi.Library('libstorm', {
     HANDLE,
     string,
     string,
-    uint32
+    uint32,
   ]],
 
   // SFileGetFileChecksums: [ref.types.char, [
@@ -216,16 +216,16 @@ export default new ffi.Library('libstorm', {
     HANDLE,
     string,
     voidPtr,
-    string
+    string,
   ]],
 
   SFileFindNextFile: [bool, [
     HANDLE,
-    voidPtr
+    voidPtr,
   ]],
 
   SFileFindClose: [bool, [
-    HANDLE
+    HANDLE,
   ]],
 
   // SListFileFindFirstFile: [HANDLE, [
@@ -362,7 +362,7 @@ export default new ffi.Library('libstorm', {
   //   ref.types.int32
   // ]]
 
-  GetLastError: [int32, []]
+  GetLastError: [int32, []],
 });
 
 export { FIND_DATA, HANDLEPtr };

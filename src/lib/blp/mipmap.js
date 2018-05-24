@@ -1,7 +1,6 @@
 import BLPLib from './blp-lib';
 
 class Mipmap {
-
   constructor(blp, level) {
     this.blp = blp;
     this.level = level;
@@ -38,7 +37,6 @@ class Mipmap {
 
     return pixels;
   }
-
 }
 
 export default Mipmap;

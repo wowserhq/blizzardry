@@ -6,5 +6,5 @@ export default Entity({
   id: r.uint32le,
   castTime: r.uint32le,
   castTimePerLevel: r.floatle,
-  minCastTime: r.uint32le
+  minCastTime: r.uint32le,
 });

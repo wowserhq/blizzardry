@@ -9,5 +9,5 @@ export default Entity({
   name: LocalizedStringRef,
   mask: r.uint32le,
   immunityPossible: new r.Boolean(r.uint32le),
-  internalName: StringRef
+  internalName: StringRef,
 });

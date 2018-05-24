@@ -9,5 +9,5 @@ export default Entity({
   animationDataID: r.uint32le,
   flags: r.uint32le,
   unknowns: new r.Reserved(r.uint32le, 2),
-  soundID: r.uint32le
+  soundID: r.uint32le,
 });

@@ -8,5 +8,5 @@ export default Entity({
   name: StringRef,
   soundID: r.uint32le,
   priority: r.uint32le,
-  minDelay: r.uint32le
+  minDelay: r.uint32le,
 });
