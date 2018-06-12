@@ -7,4 +7,5 @@ export default Entity({
   id: r.uint32le,
   name: StringRef,
   file: StringRef,
+  hasWideScreen: new r.Boolean(r.uint32le),
 });

@@ -11,6 +11,8 @@ export default Entity({
   reputationBase: new r.Array(r.int32le, 4),
   reputationFlags: new r.Array(r.uint32le, 4),
   parentID: r.uint32le,
+  parentMod: new r.Array(r.floatle, 2),
+  parentCap: new r.Array(r.uint32le, 2),
   name: LocalizedStringRef,
   description: LocalizedStringRef,
 });

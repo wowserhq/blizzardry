@@ -22,6 +22,7 @@ export default Entity({
   splashSoundID: r.uint32le,
   clientFileString: StringRef,
   cinematicSequenceID: r.uint32le,
+  faction: r.uint32le,
 
   name: LocalizedStringRef,
   nameFemale: LocalizedStringRef,
