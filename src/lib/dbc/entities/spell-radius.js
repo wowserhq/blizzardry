@@ -6,5 +6,5 @@ export default Entity({
   id: r.uint32le,
   radius: r.floatle,
   radiusPerLevel: r.floatle,
-  maxRadius: r.floatle
+  maxRadius: r.floatle,
 });

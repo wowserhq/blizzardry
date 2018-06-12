@@ -11,5 +11,5 @@ export default Entity({
 
   itemIDs: new r.Array(r.int32le, 24),
   displayInfoIDs: new r.Array(r.int32le, 24),
-  inventoryTypes: new r.Array(r.int32le, 24)
+  inventoryTypes: new r.Array(r.int32le, 24),
 });

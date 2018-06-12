@@ -7,5 +7,5 @@ export default Entity({
   id: r.uint32le,
   itemID: r.uint32le,
   texture: StringRef,
-  flags: r.uint32le
+  flags: r.uint32le,
 });

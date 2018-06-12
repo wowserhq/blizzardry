@@ -20,5 +20,5 @@ export default Entity({
   spellClassSet: r.uint32le,
   flags: r.uint32le,
   cameraID: r.uint32le,
-  expansionID: r.uint32le
+  expansionID: r.uint32le,
 });

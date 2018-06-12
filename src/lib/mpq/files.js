@@ -4,7 +4,6 @@ import File from './file';
 import { default as StormLib, FIND_DATA, HANDLEPtr } from './storm-lib';
 
 class Files {
-
   static FROM_MPQ   = 0x00000000;
   static FROM_LOCAL = 0xFFFFFFFF;
 
@@ -68,7 +67,6 @@ class Files {
     StormLib.SFileFindClose(handle);
     return results;
   }
-
 }
 
 export default Files;

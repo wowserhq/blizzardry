@@ -10,5 +10,5 @@ export default Entity({
   order: r.int32le,
   bit: r.uint32le,
   name: LocalizedStringRef,
-  spellIconID: r.uint32le
+  spellIconID: r.uint32le,
 });

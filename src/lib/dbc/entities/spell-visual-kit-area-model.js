@@ -6,5 +6,5 @@ import StringRef from '../string-ref';
 export default Entity({
   id: r.uint32le,
   name: StringRef,
-  enumID: r.uint32le
+  enumID: r.uint32le,
 });

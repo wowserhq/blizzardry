@@ -18,6 +18,6 @@ export default Entity({
     top: r.uint32le,
     left: r.uint32le,
     bottom: r.uint32le,
-    right: r.uint32le
-  })
+    right: r.uint32le,
+  }),
 });

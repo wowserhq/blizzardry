@@ -10,5 +10,5 @@ export default Entity({
   frequency: r.floatle,
   duration: r.floatle,
   phase: r.floatle,
-  coefficient: r.floatle
+  coefficient: r.floatle,
 });

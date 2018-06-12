@@ -7,5 +7,5 @@ export default Entity({
   id: r.uint32le,
   parentID: r.int32le,
   name: LocalizedStringRef,
-  order: r.uint32le
+  order: r.uint32le,
 });

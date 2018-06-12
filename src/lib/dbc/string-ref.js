@@ -5,6 +5,6 @@ export default new r.Pointer(
   new r.String(null, 'utf8'),
   {
     type: 'global',
-    relativeTo: 'parent.stringBlockOffset'
+    relativeTo: 'parent.stringBlockOffset',
   }
 );

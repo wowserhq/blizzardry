@@ -8,5 +8,5 @@ export default Entity({
   transportID: r.uint32le,
   timeIndex: r.uint32le,
   position: Vec3Float,
-  sequenceID: r.uint32le
+  sequenceID: r.uint32le,
 });

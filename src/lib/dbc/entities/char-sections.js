@@ -11,5 +11,5 @@ export default Entity({
   textures: new r.Array(StringRef, 3),
   flags: r.uint32le,
   type: r.uint32le,
-  variation: r.uint32le
+  variation: r.uint32le,
 });

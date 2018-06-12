@@ -4,5 +4,5 @@ import Entity from '../entity';
 
 export default Entity({
   id: r.uint32le,
-  smoothFacingChaseRate: r.floatle
+  smoothFacingChaseRate: r.floatle,
 });

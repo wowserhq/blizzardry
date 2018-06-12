@@ -8,5 +8,5 @@ export default Entity({
   ambienceID: r.uint32le,
   effectType: r.uint32le,
   effectColors: new r.Array(r.floatle, 3),
-  effectTexture: StringRef
+  effectTexture: StringRef,
 });

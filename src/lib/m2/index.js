@@ -1,9 +1,15 @@
 import r from 'restructure';
 
+import {
+  Vec3Float,
+  color16,
+  compfixed16array4,
+  float32array2,
+  float32array3,
+} from '../types';
+
 import AnimationBlock from './animation-block';
 import Nofs from './nofs';
-import { Vec3Float } from '../types';
-import { color16, compfixed16, compfixed16array4, float32array2, float32array3 } from '../types';
 
 const Animation = new r.Struct({
   id: r.uint16le,
@@ -20,7 +26,7 @@ const Animation = new r.Struct({
   maxBoundingBox: Vec3Float,
   boundingRadius: r.floatle,
   nextAnimationID: r.int16le,
-  alias: r.uint16le
+  alias: r.uint16le,
 });
 
 const Bone = new r.Struct({
@@ -37,7 +43,7 @@ const Bone = new r.Struct({
 
   pivotPoint: float32array3,
 
-  billboardType: function() {
+  billboardType: function () {
     // Spherical
     if (this.flags & 0x08) {
       return 0;
@@ -55,28 +61,28 @@ const Bone = new r.Struct({
     }
   },
 
-  billboarded: function() {
+  billboarded: function () {
     return this.billboardType !== null;
   },
 
-  animated: function() {
+  animated: function () {
     return this.translation.animated ||
            this.rotation.animated ||
            this.scaling.animated ||
            this.billboarded;
-  }
+  },
 });
 
 const Material = new r.Struct({
   renderFlags: r.uint16le,
-  blendingMode: r.uint16le
+  blendingMode: r.uint16le,
 });
 
 const Texture = new r.Struct({
   type: r.uint32le,
   flags: r.uint32le,
   length: r.uint32le,
-  filename: new r.Pointer(r.uint32le, new r.String(null), 'global')
+  filename: new r.Pointer(r.uint32le, new r.String(null), 'global'),
 });
 
 const Vertex = new r.Struct({
@@ -84,12 +90,12 @@ const Vertex = new r.Struct({
   boneWeights: new r.Array(r.uint8, 4),
   boneIndices: new r.Array(r.uint8, 4),
   normal: float32array3,
-  textureCoords: new r.Array(float32array2, 2)
+  textureCoords: new r.Array(float32array2, 2),
 });
 
 const Color = new r.Struct({
   color: new AnimationBlock(float32array3),
-  alpha: new AnimationBlock(color16)
+  alpha: new AnimationBlock(color16),
 });
 
 const UVAnimation = new r.Struct({
@@ -97,11 +103,11 @@ const UVAnimation = new r.Struct({
   rotation: new AnimationBlock(compfixed16array4),
   scaling: new AnimationBlock(float32array3),
 
-  animated: function() {
+  animated: function () {
     return this.translation.animated ||
       this.rotation.animated ||
       this.scaling.animated;
-  }
+  },
 });
 
 export default new r.Struct({
@@ -109,7 +115,7 @@ export default new r.Struct({
   version: r.uint32le,
 
   names: new Nofs(new r.String()),
-  name: function() {
+  name: function () {
     return this.names[0];
   },
 
@@ -157,15 +163,15 @@ export default new r.Struct({
   ribbonEmitters: new Nofs(),
   particleEmitters: new Nofs(),
 
-  blendingOverrides: new r.Optional(new Nofs(r.uint16le), function() {
+  blendingOverrides: new r.Optional(new Nofs(r.uint16le), function () {
     return (this.flags & 0x08) !== 0;
   }),
 
-  overrideBlending: function() {
+  overrideBlending: function () {
     return (this.flags & 0x08) !== 0;
   },
 
-  canInstance: function() {
+  canInstance: function () {
     let instance = true;
 
     this.bones.forEach((bone) => {
@@ -177,7 +183,7 @@ export default new r.Struct({
     return instance;
   },
 
-  animated: function() {
+  animated: function () {
     let animated = false;
 
     this.bones.forEach((bone) => {
@@ -209,5 +215,5 @@ export default new r.Struct({
     });
 
     return animated;
-  }
+  },
 });

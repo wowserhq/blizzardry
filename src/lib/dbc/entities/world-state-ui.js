@@ -17,5 +17,5 @@ export default Entity({
   icon: StringRef,
   tooltip: LocalizedStringRef,
   ui: StringRef,
-  stateVariables: new r.Array(r.uint32le, 3)
+  stateVariables: new r.Array(r.uint32le, 3),
 });

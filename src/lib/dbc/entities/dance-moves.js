@@ -12,5 +12,5 @@ export default Entity({
   raceMask: r.uint32le,
   internalName: StringRef,
   name: LocalizedStringRef,
-  lockID: r.uint32le
+  lockID: r.uint32le,
 });

@@ -25,5 +25,5 @@ export default Entity({
   timeOfDayOverride: r.int32le,
   expansionID: r.uint32le,
   maxPlayers: r.uint32le,
-  numberOfPlayers: r.uint32le
+  numberOfPlayers: r.uint32le,
 });

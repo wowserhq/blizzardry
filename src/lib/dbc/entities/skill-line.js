@@ -11,5 +11,5 @@ export default Entity({
   description: LocalizedStringRef,
   spellIconID: r.uint32le,
   verb: LocalizedStringRef,
-  canLink: new r.Boolean(r.uint32le)
+  canLink: new r.Boolean(r.uint32le),
 });

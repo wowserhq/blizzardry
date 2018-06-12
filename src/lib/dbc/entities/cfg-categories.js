@@ -8,5 +8,5 @@ export default Entity({
   localeMask: r.uint32le,
   charsetMask: r.uint32le,
   flags: r.uint32le,
-  name: LocalizedStringRef
+  name: LocalizedStringRef,
 });

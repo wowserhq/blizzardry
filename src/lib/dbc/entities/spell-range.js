@@ -11,5 +11,5 @@ export default Entity({
   maxRangeFriendly: r.floatle,
   type: r.uint32le,
   description: LocalizedStringRef,
-  name: LocalizedStringRef
+  name: LocalizedStringRef,
 });

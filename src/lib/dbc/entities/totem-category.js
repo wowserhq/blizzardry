@@ -7,5 +7,5 @@ export default Entity({
   id: r.uint32le,
   name: LocalizedStringRef,
   categoryID: r.uint32le,
-  categoryMask: r.uint32le
+  categoryMask: r.uint32le,
 });

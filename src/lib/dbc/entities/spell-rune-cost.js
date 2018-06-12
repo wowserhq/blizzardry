@@ -7,5 +7,5 @@ export default Entity({
   bloodRuneCost: r.uint32le,
   unholyRuneCost: r.uint32le,
   frostRuneCost: r.uint32le,
-  runePowerGain: r.uint32le
+  runePowerGain: r.uint32le,
 });

@@ -14,5 +14,5 @@ export default Entity({
   sunsetID: r.uint32le,
   otherID: r.uint32le,
   deathID: r.uint32le,
-  unknowns: new r.Reserved(r.uint32le, 3)
+  unknowns: new r.Reserved(r.uint32le, 3),
 });

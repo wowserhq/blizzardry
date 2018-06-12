@@ -7,5 +7,5 @@ export default Entity({
   mapID: r.uint32le,
   wmoAreaID: r.uint32le,
   dungeonMapID: r.uint32le,
-  minZ: r.floatle
+  minZ: r.floatle,
 });

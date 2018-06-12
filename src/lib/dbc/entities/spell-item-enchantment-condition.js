@@ -9,5 +9,5 @@ export default Entity({
   comparators: new r.Array(r.uint8, 5),
   compareColors: new r.Array(r.uint8, 5),
   values: new r.Array(r.uint32le, 5),
-  logicalOperands: new r.Array(r.uint8, 5)
+  logicalOperands: new r.Array(r.uint8, 5),
 });

@@ -11,5 +11,5 @@ export default Entity({
   waterDeepAlpha: r.floatle,
   oceanShallowAlpha: r.floatle,
   oceanDeepAlpha: r.floatle,
-  flags: r.uint32le
+  flags: r.uint32le,
 });

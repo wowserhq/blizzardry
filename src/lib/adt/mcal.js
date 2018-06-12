@@ -1,7 +1,6 @@
 import Chunk from '../chunked/chunk';
 
 class MCAL {
-
   static ALPHA_MAP_SIZE = 4096;
   static ALPHA_MAP_HALF_SIZE = 2048;
 
@@ -85,7 +84,6 @@ class MCAL {
 
     return alpha;
   }
-
 }
 
 export default new MCAL();

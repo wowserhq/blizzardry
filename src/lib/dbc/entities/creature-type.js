@@ -6,5 +6,5 @@ import LocalizedStringRef from '../localized-string-ref';
 export default Entity({
   id: r.uint32le,
   name: LocalizedStringRef,
-  noExperience: new r.Boolean(r.uint32le)
+  noExperience: new r.Boolean(r.uint32le),
 });

@@ -17,5 +17,5 @@ export default Entity({
   spellIconID: r.uint32le,
   reward: LocalizedStringRef,
   minimumCriteria: r.uint32le,
-  criteriaTreeID: r.uint32le
+  criteriaTreeID: r.uint32le,
 });

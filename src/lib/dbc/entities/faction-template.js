@@ -9,5 +9,5 @@ export default Entity({
   groupMask: r.uint32le,
   friendlyMask: r.uint32le,
   hostileMask: r.uint32le,
-  relatedFactionIDs: new r.Array(r.uint32le, 8)
+  relatedFactionIDs: new r.Array(r.uint32le, 8),
 });

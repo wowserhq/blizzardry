@@ -12,5 +12,5 @@ export default Entity({
   teamSize: r.uint32le,
   unknowns: new r.Reserved(r.uint32le, 3),
   name: LocalizedStringRef,
-  unknowns2: new r.Reserved(r.uint32le, 2)
+  unknowns2: new r.Reserved(r.uint32le, 2),
 });

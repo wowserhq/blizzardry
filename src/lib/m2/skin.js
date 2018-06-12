@@ -1,7 +1,8 @@
 import r from 'restructure';
 
-import Nofs from './nofs';
 import { Vec3Float } from '../types';
+
+import Nofs from './nofs';
 
 const Submesh = new r.Struct({
   partID: r.uint16le,
@@ -16,7 +17,7 @@ const Submesh = new r.Struct({
   rootBone: r.uint16le,
   centerMass: Vec3Float,
   centerBoundingBox: Vec3Float,
-  radius: r.floatle
+  radius: r.floatle,
 });
 
 const Batch = new r.Struct({
@@ -31,7 +32,7 @@ const Batch = new r.Struct({
   textureLookup: r.uint16le,
   textureMappingIndex: r.uint16le,
   transparencyAnimationLookup: r.uint16le,
-  uvAnimationLookup: r.uint16le
+  uvAnimationLookup: r.uint16le,
 });
 
 export default new r.Struct({
@@ -41,5 +42,5 @@ export default new r.Struct({
   boneIndices: new Nofs(new r.Array(r.uint8, 4)),
   submeshes: new Nofs(Submesh),
   batches: new Nofs(Batch),
-  boneCount: r.uint32le
+  boneCount: r.uint32le,
 });

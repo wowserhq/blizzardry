@@ -1,7 +1,6 @@
 import r from 'restructure';
 
 class PaddedStrings extends r.Array {
-
   constructor(length, lengthType) {
     super(new r.String(null), length, lengthType);
   }
@@ -10,7 +9,7 @@ class PaddedStrings extends r.Array {
     const res = {};
 
     let index = -1;
-    super.decode(stream, parent).forEach(function(item) {
+    super.decode(stream, parent).forEach(function (item) {
       index += 1;
       if (item.length) {
         res[index] = item;
@@ -20,7 +19,6 @@ class PaddedStrings extends r.Array {
 
     return res;
   }
-
 }
 
 export default PaddedStrings;

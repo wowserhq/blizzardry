@@ -10,5 +10,5 @@ export default Entity({
   flags: r.uint32le,
   requiredLevel: r.uint32le,
   skillTierID: r.uint32le,
-  skillCostID: r.uint32le
+  skillCostID: r.uint32le,
 });

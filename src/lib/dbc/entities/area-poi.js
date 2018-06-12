@@ -7,7 +7,7 @@ import { Vec3Float } from '../../types';
 const Icon = new r.Struct({
   regular: r.uint32le,
   damaged: r.uint32le,
-  destroyed: r.uint32le
+  destroyed: r.uint32le,
 });
 
 export default Entity({
@@ -28,5 +28,5 @@ export default Entity({
   description: LocalizedStringRef,
 
   worldStateID: r.uint32le,
-  worldMapLink: r.uint32le
+  worldMapLink: r.uint32le,
 });

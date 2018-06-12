@@ -4,7 +4,6 @@ import Files from './files';
 import { default as StormLib, HANDLEPtr } from './storm-lib';
 
 class MPQ {
-
   static OPEN = {
     READ_ONLY:        0x00000100,
     WRITE_SHARE:      0x00000200,
@@ -13,7 +12,7 @@ class MPQ {
     NO_ATTRIBUTES:    0x00020000,
     NO_HEADER_SEARCH: 0x00040000,
     FORCE_MPQ_V1:     0x00080000,
-    CHECK_SECTOR_CRC: 0x00100000
+    CHECK_SECTOR_CRC: 0x00100000,
   };
 
   static CREATE = {
@@ -23,7 +22,7 @@ class MPQ {
     ARCHIVE_V1: 0x00000000,
     ARCHIVE_V2: 0x01000000,
     ARCHIVE_V3: 0x02000000,
-    ARCHIVE_V4: 0x03000000
+    ARCHIVE_V4: 0x03000000,
   };
 
   constructor(path, flags, handle) {
@@ -101,7 +100,6 @@ class MPQ {
     const errno = StormLib.GetLastError();
     throw new Error(`archive could not be created (${errno})`);
   }
-
 }
 
 export default MPQ;

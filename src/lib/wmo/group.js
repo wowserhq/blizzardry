@@ -3,8 +3,7 @@ import r from 'restructure';
 import Chunk from '../chunked/chunk';
 import Chunked from '../chunked';
 import SkipChunk from '../chunked/skip-chunk';
-import { Vec3Float } from '../types';
-import { float32array2, float32array3 } from '../types';
+import { Vec3Float, float32array2, float32array3 } from '../types';
 
 const MOGP = Chunk({
   nameOffset: r.uint32le,
@@ -19,30 +18,30 @@ const MOGP = Chunk({
   fogOffsets: new r.Array(r.uint8, 4),
   unknown: new r.Reserved(r.uint32le),
   groupID: r.uint32le,
-  unknowns: new r.Reserved(r.uint32le, 3)
+  unknowns: new r.Reserved(r.uint32le, 3),
 });
 
 const MOPY = Chunk({
   triangles: new r.Array(new r.Struct({
     flags: r.uint8,
-    materialID: r.int8
-  }), 'size', 'bytes')
+    materialID: r.int8,
+  }), 'size', 'bytes'),
 });
 
 const MOVI = Chunk({
-  triangles: new r.Array(r.uint16le, 'size', 'bytes')
+  triangles: new r.Array(r.uint16le, 'size', 'bytes'),
 });
 
 const MOVT = Chunk({
-  vertices: new r.Array(float32array3, 'size', 'bytes')
+  vertices: new r.Array(float32array3, 'size', 'bytes'),
 });
 
 const MONR = Chunk({
-  normals: new r.Array(float32array3, 'size', 'bytes')
+  normals: new r.Array(float32array3, 'size', 'bytes'),
 });
 
 const MOTV = Chunk({
-  textureCoords: new r.Array(float32array2, 'size', 'bytes')
+  textureCoords: new r.Array(float32array2, 'size', 'bytes'),
 });
 
 const MOCV = Chunk({
@@ -50,8 +49,8 @@ const MOCV = Chunk({
     b: r.uint8,
     g: r.uint8,
     r: r.uint8,
-    a: r.uint8
-  }), 'size', 'bytes')
+    a: r.uint8,
+  }), 'size', 'bytes'),
 });
 
 const MOBA = Chunk({
@@ -62,12 +61,12 @@ const MOBA = Chunk({
     firstVertex: r.uint16le,
     lastVertex: r.uint16le,
     skip: new r.Reserved(r.uint8),
-    materialID: r.uint8
-  }), 'size', 'bytes')
+    materialID: r.uint8,
+  }), 'size', 'bytes'),
 });
 
 const MODR = Chunk({
-  doodadIndices: new r.Array(r.int16le, 'size', 'bytes')
+  doodadIndices: new r.Array(r.int16le, 'size', 'bytes'),
 });
 
 export default Chunked({
@@ -79,27 +78,27 @@ export default Chunked({
   MOTV: MOTV,
   MOBA: MOBA,
 
-  flags: function() {
+  flags: function () {
     return this.MOGP.flags;
   },
 
-  MOLR: new r.Optional(SkipChunk, function() {
+  MOLR: new r.Optional(SkipChunk, function () {
     return this.flags & 0x200;
   }),
-  MODR: new r.Optional(MODR, function() {
+  MODR: new r.Optional(MODR, function () {
     return this.flags & 0x800;
   }),
-  MOBN: new r.Optional(SkipChunk, function() {
+  MOBN: new r.Optional(SkipChunk, function () {
     return this.flags & 0x1;
   }),
-  MOBR: new r.Optional(SkipChunk, function() {
+  MOBR: new r.Optional(SkipChunk, function () {
     return this.flags & 0x1;
   }),
-  MOCV: new r.Optional(MOCV, function() {
+  MOCV: new r.Optional(MOCV, function () {
     return this.flags & 0x4;
   }),
 
-  indoor: function() {
+  indoor: function () {
     return (this.flags & 0x2000) !== 0 && (this.flags & 0x8) === 0;
-  }
+  },
 });

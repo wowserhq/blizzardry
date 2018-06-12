@@ -12,9 +12,9 @@ export default Entity({
     left: r.floatle,
     right: r.floatle,
     top: r.floatle,
-    bottom: r.floatle
+    bottom: r.floatle,
   }),
   displayMapID: r.int32le,
   defaultDungeonFloor: r.uint32le,
-  unknown: new r.Reserved(r.uint32le)
+  unknown: new r.Reserved(r.uint32le),
 });

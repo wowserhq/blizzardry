@@ -7,5 +7,5 @@ export default Entity({
   id: r.uint32le,
   wordID: r.uint32le,
   case: r.uint32le,
-  word: StringRef
+  word: StringRef,
 });

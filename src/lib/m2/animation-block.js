@@ -2,18 +2,18 @@ import r from 'restructure';
 
 import Nofs from './nofs';
 
-export default function(type) {
+export default function (type) {
   return new r.Struct({
     interpolationType: r.uint16le,
     globalSequenceID: r.int16le,
     timestamps: new Nofs(new Nofs(r.uint32le)),
     values: new Nofs(new Nofs(type)),
 
-    trackCount: function() {
+    trackCount: function () {
       return this.values.length;
     },
 
-    tracks: function() {
+    tracks: function () {
       const tracks = [];
 
       for (let trackIndex = 0; trackIndex < this.trackCount; trackIndex++) {
@@ -30,7 +30,7 @@ export default function(type) {
       return tracks;
     },
 
-    maxTrackLength: function() {
+    maxTrackLength: function () {
       let max = 0;
 
       this.tracks.forEach((track) => {
@@ -42,7 +42,7 @@ export default function(type) {
       return max;
     },
 
-    keyframeCount: function() {
+    keyframeCount: function () {
       let keyframeCount = 0;
 
       for (let i = 0, len = this.tracks.length; i < len; ++i) {
@@ -52,7 +52,7 @@ export default function(type) {
       return keyframeCount;
     },
 
-    firstKeyframe: function() {
+    firstKeyframe: function () {
       if (this.tracks.length === 0) {
         return null;
       } else {
@@ -62,7 +62,7 @@ export default function(type) {
           if (track.timestamps.length > 0) {
             return {
               timestamp: track.timestamps[0],
-              value: track.values[0]
+              value: track.values[0],
             };
           }
         }
@@ -71,12 +71,12 @@ export default function(type) {
       }
     },
 
-    empty: function() {
+    empty: function () {
       return this.maxTrackLength === 0;
     },
 
-    animated: function() {
+    animated: function () {
       return !this.empty;
-    }
+    },
   });
 }

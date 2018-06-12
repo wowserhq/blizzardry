@@ -8,5 +8,5 @@ export default Entity({
   conditionID: r.uint32le,
   male: LocalizedStringRef,
   female: LocalizedStringRef,
-  titleMask: r.uint32le
+  titleMask: r.uint32le,
 });

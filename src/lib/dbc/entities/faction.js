@@ -12,5 +12,5 @@ export default Entity({
   reputationFlags: new r.Array(r.uint32le, 4),
   parentID: r.uint32le,
   name: LocalizedStringRef,
-  description: LocalizedStringRef
+  description: LocalizedStringRef,
 });

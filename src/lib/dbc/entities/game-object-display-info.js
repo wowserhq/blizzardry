@@ -10,5 +10,5 @@ export default Entity({
   soundIDs: new r.Array(r.uint32le, 10),
   minBoundingBox: Vec3Float,
   maxBoundingBox: Vec3Float,
-  objectEffectPackageID: r.uint32le
+  objectEffectPackageID: r.uint32le,
 });

@@ -114,5 +114,5 @@ export default Entity({
   powerDisplayID: r.uint32le,
   effectBonusMultipliers: new r.Array(r.floatle, 3),
 
-  unknown3: new r.Reserved(r.uint32le)
+  unknown3: new r.Reserved(r.uint32le),
 });

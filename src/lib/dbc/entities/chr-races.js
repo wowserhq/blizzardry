@@ -31,5 +31,5 @@ export default Entity({
   facialHairCustomization2: StringRef,
   hairCustomization: StringRef,
 
-  expansionID: r.uint32le
+  expansionID: r.uint32le,
 });

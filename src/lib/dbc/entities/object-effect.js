@@ -14,5 +14,5 @@ export default Entity({
   effectRecID: r.uint32le,
   attachment: r.uint32le,
   offset: Vec3Float,
-  effectModifierID: r.uint32le
+  effectModifierID: r.uint32le,
 });

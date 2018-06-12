@@ -9,5 +9,5 @@ export default Entity({
   file: StringRef,
   voiceoverID: r.uint32le,
   position: Vec3Float,
-  rotation: r.floatle
+  rotation: r.floatle,
 });

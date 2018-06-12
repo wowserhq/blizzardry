@@ -8,5 +8,5 @@ export default Entity({
   name: StringRef,
   unknowns: new r.Reserved(r.uint32le, 2),
   soundID: r.uint32le,
-  flags: r.uint32le
+  flags: r.uint32le,
 });
