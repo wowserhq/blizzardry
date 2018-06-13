@@ -1,5 +1,20 @@
 # Changelog
 
+### v0.5.0 - June 13, 2018
+
+- Adds `MPQ.Chain` for Wrath of the Lich King
+- Includes updated definitions for the following DBCs:
+
+  - `BattlemasterList`
+  - `ChrRaces`
+  - `Faction`
+  - `LoadingScreens`
+  - `Map`
+  - `SkillCostsData`
+  - `SoundEntries`
+  - `Spell`
+  - `Weather`
+
 ### v0.4.2 - June 22, 2016
 
 - Fixes outdated changelog
