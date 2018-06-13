@@ -5,7 +5,9 @@
   "main": "lib/index.js",
   "files": [
     "lib",
-    "LICENSE.md"
+    "CHANGELOG.md",
+    "LICENSE.md",
+    "README.md"
   ],
   "scripts": {
     "gulp": "gulp",
