@@ -2,11 +2,15 @@
   "name": "blizzardry",
   "version": "0.5.0",
   "description": "JavaScript library for mastering the wizardry that is Blizzard's game files",
+  "author": "Wowser Contributors",
+  "repository": "wowserhq/blizzardry",
+  "license": "MIT",
   "main": "lib/index.js",
   "files": [
     "lib",
+    "AUTHORS",
     "CHANGELOG.md",
-    "LICENSE.md",
+    "LICENSE",
     "README.md"
   ],
   "scripts": {
@@ -15,9 +19,6 @@
     "pretest": "gulp rebuild",
     "test": "istanbul test ./node_modules/mocha/bin/_mocha -- spec --recursive"
   },
-  "repository": "wowserhq/blizzardry",
-  "author": "Tim Kurvers <tim@moonsphere.net>",
-  "license": "MIT",
   "keywords": [
     "adt",
     "blizzardry",
