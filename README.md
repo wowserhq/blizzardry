@@ -11,7 +11,7 @@ JavaScript library for mastering the wizardry that is [Blizzard]'s game files.
 
 Blizzardry currently focusses on [Wrath of the Lich King] game content.
 
-Licensed under the **MIT** license, see LICENSE for more information.
+Licensed under the [**MIT** license](LICENSE).
 
 ## Installation
 
