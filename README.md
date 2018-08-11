@@ -202,6 +202,7 @@ matches this architecture.
 
 #### Ubuntu, Debian
 ```shell
+$ sudo apt-get install cmake git gcc zlib1g-dev
 $ git clone git://github.com/ladislav-zezula/StormLib.git
 $ cd StormLib
 $ cmake CMakeLists.txt -DBUILD_SHARED_LIBS=ON
