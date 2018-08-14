@@ -27,7 +27,7 @@ class MPQChain {
       path.join(dataDir, mpq)
     ));
 
-    const archives = glob.sync(patterns, {nocase: true});
+    const archives = glob.sync(patterns, { nocase: true });
 
     const mpq = MPQ.open(archives.shift(), MPQ.OPEN.READ_ONLY);
     archives.forEach(archive => {

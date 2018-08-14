@@ -82,13 +82,14 @@ By default, node-gyp compiles ffi for x64 so make sure `libblp.dll`
 matches this architecture.
 
 #### Ubuntu, Debian
+
 ```shell
-$ sudo apt-get install cmake git gcc
-$ git clone git://github.com/Kanma/BLPConverter.git
-$ cd BLPConverter
-$ cmake CMakeLists.txt -DWITH_LIBRARY=YES
-$ sudo make install
-$ sudo ldconfig
+sudo apt-get install cmake git gcc
+git clone git://github.com/Kanma/BLPConverter.git
+cd BLPConverter
+cmake CMakeLists.txt -DWITH_LIBRARY=YES
+sudo make install
+sudo ldconfig
 ```
 
 #### Other platforms
@@ -201,13 +202,14 @@ By default, node-gyp compiles ffi for x64 so make sure `libstorm.dll`
 matches this architecture.
 
 #### Ubuntu, Debian
+
 ```shell
-$ sudo apt-get install cmake git gcc zlib1g-dev
-$ git clone git://github.com/ladislav-zezula/StormLib.git
-$ cd StormLib
-$ cmake CMakeLists.txt -DBUILD_SHARED_LIBS=ON
-$ sudo make install
-$ sudo ldconfig
+sudo apt-get install cmake git gcc zlib1g-dev
+git clone git://github.com/ladislav-zezula/StormLib.git
+cd StormLib
+cmake CMakeLists.txt -DBUILD_SHARED_LIBS=ON
+sudo make install
+sudo ldconfig
 ```
 
 #### Other platforms
