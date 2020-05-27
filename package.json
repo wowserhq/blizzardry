@@ -55,7 +55,7 @@
     "del": "^1.2.0",
     "eslint": "^4.19.1",
     "eslint-plugin-import": "^2.12.0",
-    "gulp": "gulpjs/gulp.git#4.0",
+    "gulp": "^4.0.2",
     "gulp-babel": "^6.0.0",
     "gulp-cached": "^1.1.0",
     "gulp-plumber": "^1.1.0",
