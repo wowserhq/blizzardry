@@ -1,7 +1,7 @@
 # Blizzardry
 
 [![Version](https://img.shields.io/npm/v/blizzardry.svg?style=flat)](https://www.npmjs.org/package/blizzardry)
-[![Join chat](https://img.shields.io/badge/gitter-join_chat-blue.svg?style=flat)](https://gitter.im/wowserhq/blizzardry)
+[![Join Community](https://img.shields.io/badge/discord-join_community-blue.svg?style=flat)](https://discord.gg/DeVVKVg)
 [![Build Status](https://img.shields.io/travis/wowserhq/blizzardry.svg?style=flat)](https://travis-ci.org/wowserhq/blizzardry)
 [![Known Vulnerabilities](https://snyk.io/test/github/wowserhq/blizzardry/badge.svg)](https://snyk.io/test/github/wowserhq/blizzardry)
 [![Maintainability](https://api.codeclimate.com/v1/badges/dc66eca9b4afbbf290b3/maintainability)](https://codeclimate.com/github/wowserhq/blizzardry/maintainability)
