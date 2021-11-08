@@ -1,0 +1,72 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node:
+          - '10'
+          - '12'
+    name: Node ${{ matrix.node }}
+    env:
+      STORMLIB_COMMIT: bd203c036bf6a8a900fb9557f9dfa95b6eb1f46b
+      BLPLIB_COMMIT: b947c721dc219d9e982adcfc3f7bdb339564a75b
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node }}
+    - name: Cache StormLib
+      uses: actions/cache@v2
+      id: cache-stormlib
+      with:
+        key: stormlib-${{ runner.os }}-${{ env.STORMLIB_COMMIT }}
+        path: StormLib
+    - name: Build StormLib
+      if: steps.cache-stormlib.outputs.cache-hit != 'true'
+      run: |
+        git clone git://github.com/ladislav-zezula/StormLib.git
+        cd StormLib
+        git checkout ${{ env.STORMLIB_COMMIT }}
+        cmake CMakeLists.txt -DBUILD_SHARED_LIBS=ON
+    - name: Install StormLib
+      run: |
+        cd StormLib
+        sudo make install
+    - name: Cache BLPLib
+      uses: actions/cache@v2
+      id: cache-blplib
+      with:
+        key: blplib-${{ runner.os }}-${{ env.BLPLIB_COMMIT }}
+        path: BLPConverter
+    - name: Build BLPLib
+      if: steps.cache-blplib.outputs.cache-hit != 'true'
+      run: |
+        git clone git://github.com/Kanma/BLPConverter.git
+        cd BLPConverter
+        git checkout ${{ env.BLPLIB_COMMIT }}
+        cmake CMakeLists.txt -DWITH_LIBRARY=YES
+    - name: Install BLPLib
+      run: |
+        cd BLPConverter
+        sudo make install
+    - name: Reload shared libraries
+      run: sudo ldconfig
+    - name: Cache Node modules
+      uses: actions/cache@v2
+      id: cache-node
+      with:
+        key: node-${{ runner.os }}-${{ matrix.node }}-${{ hashFiles('package-lock.json') }}
+        path: ~/.npm
+    - name: Install Node modules
+      run: npm install
+    - run: npm test
