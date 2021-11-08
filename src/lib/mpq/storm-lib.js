@@ -1,6 +1,8 @@
-import Struct from 'ref-struct';
-import ffi from 'ffi';
-import ref from 'ref';
+import structDi from 'ref-struct-di';
+import ffi from 'ffi-napi';
+import ref from 'ref-napi';
+
+const Struct = structDi(ref);
 
 const { bool, int32, uint32 } = ref.types;
 const string = ref.types.CString;
