@@ -1,11 +1,9 @@
 # Blizzardry
 
-[![Version](https://img.shields.io/npm/v/blizzardry.svg?style=flat)](https://www.npmjs.org/package/blizzardry)
+[![Version](https://badgen.net/npm/v/blizzardry)](https://www.npmjs.com/package/blizzardry)
+![Node Version](https://badgen.net/badge/node/10+/green)
 [![Join Community](https://img.shields.io/badge/discord-join_community-blue.svg?style=flat)](https://discord.gg/DeVVKVg)
-[![Build Status](https://img.shields.io/travis/wowserhq/blizzardry.svg?style=flat)](https://travis-ci.org/wowserhq/blizzardry)
-[![Known Vulnerabilities](https://snyk.io/test/github/wowserhq/blizzardry/badge.svg)](https://snyk.io/test/github/wowserhq/blizzardry)
-[![Maintainability](https://api.codeclimate.com/v1/badges/dc66eca9b4afbbf290b3/maintainability)](https://codeclimate.com/github/wowserhq/blizzardry/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/dc66eca9b4afbbf290b3/test_coverage)](https://codeclimate.com/github/wowserhq/blizzardry/test_coverage)
+[![CI](https://github.com/wowserhq/blizzardry/workflows/CI/badge.svg)](https://github.com/wowserhq/blizzardry/actions/workflows/ci.yml)
 
 JavaScript library for mastering the wizardry that is [Blizzard]'s game files.
 
