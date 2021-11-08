@@ -33,7 +33,7 @@
     "ffi-napi": "^4.0.0",
     "globby": "^8.0.1",
     "ref-array-di": "^1.2.0",
-    "ref-napi": "^1.4.0",
+    "ref-napi": "^2.0.0",
     "ref-struct-di": "^1.1.0",
     "restructure": "^0.5.0",
     "temp": "^0.8.1",
