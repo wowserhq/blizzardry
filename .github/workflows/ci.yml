@@ -16,8 +16,6 @@ jobs:
         node:
           - '10'
           - '12'
-          - '14'
-          - '16'
     name: Node ${{ matrix.node }}
     env:
       STORMLIB_COMMIT: bd203c036bf6a8a900fb9557f9dfa95b6eb1f46b
