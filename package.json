@@ -1,6 +1,6 @@
 {
   "name": "blizzardry",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "JavaScript library for mastering the wizardry that is Blizzard's game files",
   "author": "Wowser Contributors",
   "repository": "wowserhq/blizzardry",

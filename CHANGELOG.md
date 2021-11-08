@@ -1,5 +1,10 @@
 # Changelog
 
+### v0.5.1 - November 8, 2021
+
+- Adds support for Node 10+
+- MPQ chain glob is now case-insensitive
+
 ### v0.5.0 - June 13, 2018
 
 - Adds `MPQ.Chain` for Wrath of the Lich King
