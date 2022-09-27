@@ -40,6 +40,7 @@ export CreatureType from './creature-type';
 export CurrencyCategory from './currency-category';
 export CurrencyTypes from './currency-types';
 export DanceMoves from './dance-moves';
+export DeathThudLookups from './death-thud-lookups'
 export DeclinedWord from './declined-word';
 export DeclinedWordCases from './declined-word-cases';
 export DungeonEncounter from './dungeon-encounter';
