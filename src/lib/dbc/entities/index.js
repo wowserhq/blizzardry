@@ -20,6 +20,7 @@ export Cfg_Categories from './cfg-categories';
 export Cfg_Configs from './cfg-configs';
 export CharBaseInfo from './char-base-info';
 export CharHairGeosets from './char-hair-geosets';
+export CharHairTexture from './char-hair-texture';
 export CharSections from './char-sections';
 export CharStartOutfit from './char-start-outfit';
 export CharTitles from './char-titles';
