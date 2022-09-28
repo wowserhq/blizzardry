@@ -1,0 +1,37 @@
+import r from 'restructure';
+
+import Entity from '../entity';
+
+export default Entity({
+  id: r.int32le,
+  soundExertionId: r.int32le,
+  soundExertionCriticalId: r.int32le,
+  soundInjuryId: r.int32le,
+  soundInjuryCriticalId: r.int32le,
+  soundInjuryCrushingBlowId: r.int32le,
+  soundDeathId: r.int32le,
+  soundStunId: r.int32le,
+  soundStandId: r.int32le,
+  soundFootstepId: r.int32le,
+  soundAggroId: r.int32le,
+  soundWingFlapId: r.int32le,
+  soundWingGlideId: r.int32le,
+  soundAlertId: r.int32le,
+  soundFidget: new r.Array(r.int32le, 5),
+  customAttack: new r.Array(r.int32le, 4),
+  nPCSoundId: r.int32le,
+  loopSoundId: r.int32le,
+  creatureImpactType: r.int32le,
+  soundJumpStartId: r.int32le,
+  soundJumpEndId: r.int32le,
+  soundPetAttackId: r.int32le,
+  soundPetOrderId: r.int32le,
+  soundPetDismissId: r.int32le,
+  fidgetDelaySecondsMin: r.floatle,
+  fidgetDelaySecondsMax: r.floatle,
+  birthSoundId: r.int32le,
+  spellCastDirectedSoundId: r.int32le,
+  submergeSoundId: r.int32le,
+  submergedSoundId: r.int32le,
+  creatureSoundDataIdPet: r.int32le,
+});

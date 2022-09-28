@@ -35,6 +35,7 @@ export CreatureDisplayInfoExtra from './creature-display-info-extra';
 export CreatureFamily from './creature-family';
 export CreatureModelData from './creature-model-data';
 export CreatureMovementInfo from './creature-movement-info';
+export CreatureSoundData from './creature-sound-data';
 export CreatureSpellData from './creature-spell-data';
 export CreatureType from './creature-type';
 export CurrencyCategory from './currency-category';
