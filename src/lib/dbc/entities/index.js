@@ -20,6 +20,7 @@ export Cfg_Categories from './cfg-categories';
 export Cfg_Configs from './cfg-configs';
 export CharBaseInfo from './char-base-info';
 export CharHairGeosets from './char-hair-geosets';
+export CharHairTexture from './char-hair-texture';
 export CharSections from './char-sections';
 export CharStartOutfit from './char-start-outfit';
 export CharTitles from './char-titles';
@@ -40,6 +41,7 @@ export CreatureType from './creature-type';
 export CurrencyCategory from './currency-category';
 export CurrencyTypes from './currency-types';
 export DanceMoves from './dance-moves';
+export DeathThudLookups from './death-thud-lookups'
 export DeclinedWord from './declined-word';
 export DeclinedWordCases from './declined-word-cases';
 export DungeonEncounter from './dungeon-encounter';
