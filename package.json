@@ -59,11 +59,11 @@
     "gulp-babel": "^6.0.0",
     "gulp-cached": "^1.1.0",
     "gulp-plumber": "^1.1.0",
-    "gulp-spawn-mocha": "^2.2.1",
+    "gulp-spawn-mocha": "^6.0.0",
     "inflected": "^1.1.6",
     "istanbul": "^0.4.0",
     "memo-is": "0.0.2",
-    "mocha": "^2.5.0",
+    "mocha": "^10.2.0",
     "sinon": "^1.17.0",
     "sinon-chai": "2.8.0"
   }
